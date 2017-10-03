@@ -12,21 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+	return view('home');
 });
 
 Route::get('/signup', function () {
-    return view('signup');
+	return view('signup');
 });
 
 Route::get('/user', function () {
-    return view('profile');
+	return view('profile');
 });
 
 Route::get('/user/profile', function () {
-    return view('profile');
+	return view('profile');
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+	return view('contact');
 });
