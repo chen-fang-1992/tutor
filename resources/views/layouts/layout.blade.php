@@ -10,7 +10,8 @@
 			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 			<!-- Styles -->
 			<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-			<link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+			<link rel="stylesheet" href="{{ URL::asset('css/common.css') }}">
+			<link rel="stylesheet" href="{{ URL::asset('css/other.css') }}">
 			<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
 			<!-- Scripts -->
 			<script src="{{ URL::asset('js/app.js') }}"></script>
@@ -24,8 +25,8 @@
 					</div>
 					<div>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a class="signup" href="/signup">Become a Tutor</a></li>
-							<li><a class="login" href="#">Login</a></li>
+							<li><a class="signup nav-btn" href="/signup">Become a Tutor</a></li>
+							<li><a class="login nav-btn" href="#">Login</a></li>
 						</ul>
 					</div>
 				</div>

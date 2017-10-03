@@ -1,0 +1,47 @@
+.header .navigation-bar {
+	padding: 20px 30px 0px 30px;
+}
+
+.header .navigation-bar .nav-btn {
+	color: #3399FF;
+}
+
+.content {
+	background-color: #DBE0E6;
+}
+
+.content .container h1 {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	color: #000000;
+}
+
+.content .container p {
+	font-size: 20px;
+	color: #636B6F;
+}
+
+.content .container .form {
+	background: #F6F6F6;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 20px;
+	border-radius: 15px;
+}
+
+.content .container .form label {
+	font-size: 20px;
+	color: #000000;
+}
+
+.content .container .form span {
+	font-weight: bold;
+	color: #000000;
+}
+
+.content .container .form button {
+	margin-left: 20%;
+	border-radius: 10px;
+	padding: 10px 30px;
+	font-weight: bold;
+}
