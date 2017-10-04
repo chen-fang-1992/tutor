@@ -15,18 +15,13 @@ Route::get('/', function () {
 	return view('home');
 });
 
-Route::get('/signup', function () {
-	return view('signup');
+Route::group(['prefix' => 'user'], function() {
+	Route::get('/login', 'UserController@index');
+	Route::get('/register', 'UserController@create');
+	Route::post('/result', 'UserController@store');
+	Route::get('/profile', 'UserController@show');
+	Route::get('/profile/edit', 'UserController@edit');
+	Route::put('/profile', 'UserController@update');
 });
 
-Route::get('/user', function () {
-	return view('profile');
-});
-
-Route::get('/user/profile', function () {
-	return view('profile');
-});
-
-Route::get('/contact', function () {
-	return view('contact');
-});
+//Route::resource('user', 'UserController');

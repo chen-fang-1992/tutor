@@ -122,6 +122,7 @@
 .content #testCarousel .carousel-indicators li {
 	background-color: #636B6F;
 	display: inline-block;
+	margin: 0px 5px;
 	width: 15px;
 	height: 15px;
 }
