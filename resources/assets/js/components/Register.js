@@ -92,12 +92,16 @@ export default class Register extends Component {
 	handleSubmit(e) {
 		if (this.state.nameError) {
 			alert(this.state.nameError);
+			e.preventDefault();
 		} else if (this.state.emailError) {
 			alert(this.state.emailError);
+			e.preventDefault();
 		} else if (this.state.passwordError) {
 			alert(this.state.passwordError);
+			e.preventDefault();
 		} else if (!this.state.accept) {
 			alert(this.state.acceptError);
+			e.preventDefault();
 		}
 	}
 
@@ -111,25 +115,25 @@ export default class Register extends Component {
 							<p>Do you want to become a private language tutor in your city and be paid to discuss with people in your native language? No qualifications nor certifications are needed as long as you are a native speaker in the language you feel confident to share and teach!</p>
 							<p>Please fill up this form and we will get back to you through WhatsApp within 7 working days to get you started with TUTOR:</p>
 							<div className="form col-xs-8">
-								<form action="/user/profile" method="POST" role="form">
+								<form action="/user/profile" method="post" role="form">
 									<label htmlFor="name">What’s your name?</label>
 									<div className="form-group">
-										<input type="text" className="form-control" value={this.state.name} onChange={this.handleName}/>
+										<input type="text" className="form-control" value={this.state.name} onChange={this.handleName} name="name" />
 									</div>
 									<label htmlFor="email">What’s your email?</label>
 									<div className="form-group">
-										<input type="text" className="form-control" value={this.state.email} onChange={this.handleEmail}/>
+										<input type="text" className="form-control" value={this.state.email} onChange={this.handleEmail} name="email" />
 									</div>
 									<label htmlFor="password">Password</label>
 									<div className="form-group">
-										<input type="password" className="form-control" value={this.state.password} onChange={this.handlePassword}/>
+										<input type="password" className="form-control" value={this.state.password} onChange={this.handlePassword} name="password" />
 									</div>
 									<label htmlFor="repassword">Repeat password</label>
 									<div className="form-group">
-										<input type="password" className="form-control" value={this.state.repassword} onChange={this.handleRepassword}/>
+										<input type="password" className="form-control" value={this.state.repassword} onChange={this.handleRepassword} />
 									</div>
 									<div className="form-group">
-										<input type="checkbox" checked={this.state.accept} onChange={this.handleAccept} value={this.state.accept}/><span> I accept the Terms and Conditions</span>
+										<input type="checkbox" checked={this.state.accept} onChange={this.handleAccept} value={this.state.accept} /><span> I accept the Terms and Conditions</span>
 									</div>
 									<div className="form-group">
 										<button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>SUBMIT YOUR PROFILE NOW</button>

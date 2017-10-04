@@ -54339,12 +54339,16 @@ var Register = function (_Component) {
 		value: function handleSubmit(e) {
 			if (this.state.nameError) {
 				alert(this.state.nameError);
+				e.preventDefault();
 			} else if (this.state.emailError) {
 				alert(this.state.emailError);
+				e.preventDefault();
 			} else if (this.state.passwordError) {
 				alert(this.state.passwordError);
+				e.preventDefault();
 			} else if (!this.state.accept) {
 				alert(this.state.acceptError);
+				e.preventDefault();
 			}
 		}
 	}, {
@@ -54382,7 +54386,7 @@ var Register = function (_Component) {
 								{ className: 'form col-xs-8' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'form',
-									{ action: '/user/profile', method: 'POST', role: 'form' },
+									{ action: '/user/profile', method: 'post', role: 'form' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
 										{ htmlFor: 'name' },
@@ -54391,7 +54395,7 @@ var Register = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.name, onChange: this.handleName })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.name, onChange: this.handleName, name: 'name' })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
@@ -54401,7 +54405,7 @@ var Register = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.email, onChange: this.handleEmail })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.email, onChange: this.handleEmail, name: 'email' })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
@@ -54411,7 +54415,7 @@ var Register = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', className: 'form-control', value: this.state.password, onChange: this.handlePassword })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', className: 'form-control', value: this.state.password, onChange: this.handlePassword, name: 'password' })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',

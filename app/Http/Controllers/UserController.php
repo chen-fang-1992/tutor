@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 use App\User;
+
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
 	public function index()
 	{
-		return view('layouts/layout', ['content' => 'login']);
+		return view('layouts/layout', ['content' => 'user']);
 	}
-
 
 	public function create()
 	{
@@ -22,7 +22,14 @@ class UserController extends Controller
 
 	public function store()
 	{
-		return view('layouts/layout', ['content' => 'result']);
+		$user = new User;
+		$user->name = Input::get('name');
+		$user->email = Input::get('email');
+		$user->password = Input::get('password');
+
+		if ($user->save()) {
+			return view('layouts/layout', ['content' => 'profile']);
+		}
 	}
 
 	public function show()

@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'user'], function() {
 	Route::get('/login', 'UserController@index');
 	Route::get('/register', 'UserController@create');
-	Route::post('/result', 'UserController@store');
+	Route::post('/profile', 'UserController@store');
 	Route::get('/profile', 'UserController@show');
 	Route::get('/profile/edit', 'UserController@edit');
 	Route::put('/profile', 'UserController@update');
