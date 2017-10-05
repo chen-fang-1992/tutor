@@ -15,7 +15,7 @@ export default class Header extends Component {
 						<div>
 							<ul className="nav navbar-nav navbar-right">
 								<li><a className="register nav-btn" href="/user/register">Become a Tutor</a></li>
-								<li><a className="login nav-btn" href="#">Login</a></li>
+								<li><a className="login nav-btn" href="/user/profile">Login</a></li>
 							</ul>
 						</div>
 					</div>

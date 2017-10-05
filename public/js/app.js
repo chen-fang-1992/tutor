@@ -10252,8 +10252,9 @@ module.exports = __webpack_require__(229);
 
 /***/ }),
 /* 91 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -10274,6 +10275,7 @@ __webpack_require__(219);
 
 __webpack_require__(220);
 __webpack_require__(247);
+__webpack_require__(248);
 
 /***/ }),
 /* 92 */
@@ -41072,7 +41074,7 @@ var Header = function (_Component) {
 									null,
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'a',
-										{ className: 'login nav-btn', href: '#' },
+										{ className: 'login nav-btn', href: '/user/profile' },
 										'Login'
 									)
 								)
@@ -54245,7 +54247,7 @@ var Register = function (_Component) {
 
 		_this.state = {
 			name: '',
-			nameError: 'Please input correct Name',
+			nameError: 'Please input Name',
 			email: '',
 			emailError: 'Please input correct Email',
 			password: '',
@@ -54268,7 +54270,7 @@ var Register = function (_Component) {
 		value: function handleName(e) {
 			var name = e.target.value;
 			var nameError = '';
-			if (name.search(/^\w+((-\w+)|(\.\w+))*/) == -1) {
+			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct Name';
 			} else {
 				nameError = '';
@@ -54383,10 +54385,10 @@ var Register = function (_Component) {
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'form col-xs-8' },
+								{ className: 'col-xs-8' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'form',
-									{ action: '/user/profile', method: 'post', role: 'form' },
+									{ action: '/user/register', method: 'post', role: 'form' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
 										{ htmlFor: 'name' },
@@ -54463,6 +54465,367 @@ var Register = function (_Component) {
 
 if (document.getElementById('register')) {
 	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Register, null), document.getElementById('register'));
+}
+
+/***/ }),
+/* 248 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var Profile = function (_Component) {
+	_inherits(Profile, _Component);
+
+	function Profile(props) {
+		_classCallCheck(this, Profile);
+
+		var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+
+		_this.state = {
+			firstName: '',
+			lastName: '',
+			nameError: '',
+			number: '',
+			country: '',
+			city: '',
+			location: '',
+			currency: '',
+			rate: '',
+			about: ''
+		};
+		_this.handleFirstName = _this.handleFirstName.bind(_this);
+		_this.handleLastName = _this.handleLastName.bind(_this);
+		_this.handleNumber = _this.handleNumber.bind(_this);
+		_this.handleCountry = _this.handleCountry.bind(_this);
+		_this.handleCity = _this.handleCity.bind(_this);
+		_this.handleLocation = _this.handleLocation.bind(_this);
+		_this.handleCurrency = _this.handleCurrency.bind(_this);
+		_this.handleRate = _this.handleRate.bind(_this);
+		_this.handleAbout = _this.handleAbout.bind(_this);
+		_this.handleSubmit = _this.handleSubmit.bind(_this);
+		return _this;
+	}
+
+	_createClass(Profile, [{
+		key: 'handleFirstName',
+		value: function handleFirstName(e) {
+			var firstName = e.target.value;
+			var fullName = firstName + ' ' + this.state.lastName;
+			var nameError = '';
+			if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+				nameError = 'Please input correct name';
+			} else {
+				nameError = '';
+			}
+			this.setState({
+				firstName: firstName,
+				nameError: nameError
+			});
+		}
+	}, {
+		key: 'handleLastName',
+		value: function handleLastName(e) {
+			var lastName = e.target.value;
+			var fullName = this.state.firstName + ' ' + lastName;
+			var nameError = '';
+			if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+				nameError = 'Please input correct Email';
+			} else {
+				nameError = '';
+			}
+			this.setState({
+				lastName: lastName,
+				nameError: nameError
+			});
+		}
+	}, {
+		key: 'handleNumber',
+		value: function handleNumber(e) {
+			this.setState({
+				number: e.target.value
+			});
+		}
+	}, {
+		key: 'handleCountry',
+		value: function handleCountry(e) {
+			this.setState({
+				country: e.target.value
+			});
+		}
+	}, {
+		key: 'handleCity',
+		value: function handleCity(e) {
+			this.setState({
+				city: e.target.value
+			});
+		}
+	}, {
+		key: 'handleLocation',
+		value: function handleLocation(e) {
+			this.setState({
+				location: e.target.value
+			});
+		}
+	}, {
+		key: 'handleCurrency',
+		value: function handleCurrency(e) {
+			this.setState({
+				currency: e.target.value
+			});
+		}
+	}, {
+		key: 'handleRate',
+		value: function handleRate(e) {
+			this.setState({
+				rate: e.target.value
+			});
+		}
+	}, {
+		key: 'handleAbout',
+		value: function handleAbout(e) {
+			this.setState({
+				about: e.target.value
+			});
+		}
+	}, {
+		key: 'handleSubmit',
+		value: function handleSubmit(e) {
+			if (this.state.nameError) {
+				alert(this.state.nameError);
+				e.preventDefault();
+			}
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'content background' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'container' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'row' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'col-xs-12' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'h1',
+								null,
+								'Create Your Tutor Profile'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'form',
+								{ action: '/user/profile', method: 'post', role: 'form' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'h1',
+									null,
+									'Personal Info'
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-6' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'firstName' },
+											'First Name'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.firstName, onChange: this.handleFirstName, name: 'firstname' })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-6' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'lastName' },
+											'Last Name'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.lastName, onChange: this.handleLastName, name: 'lastname' })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-6' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'number' },
+											'Whatsapp Number including country code and + sign'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.number, onChange: this.handleNumber, name: 'number' })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-6' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'country' },
+											'Country of origin'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.country, onChange: this.handleCountry, name: 'country' })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'h1',
+									null,
+									'Location And Rate'
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-6' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'city' },
+											'In which city can you teach?'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.city, onChange: this.handleCity, name: 'city' })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-12' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'location' },
+											'Choose where exactly you want to be shown on the TUTOR Map:'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.location, onChange: this.handleLocation, name: 'location' })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-6' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'currency' },
+											'Currency'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.currency, onChange: this.handleCurrency, name: 'currency' })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-6' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'rate' },
+											'Per hour Tutoring rates'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.rate, onChange: this.handleRate, name: 'rate' })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'h1',
+									null,
+									'About Me'
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-12' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'form-control', value: this.state.about, onChange: this.handleAbout, name: 'about' })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-12' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
+												'SUBMIT YOUR PROFILE NOW'
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return Profile;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Profile);
+
+
+if (document.getElementById('profile')) {
+	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Profile, null), document.getElementById('profile'));
 }
 
 /***/ })
