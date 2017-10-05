@@ -19,3 +19,4 @@ require('./components/Footer');
 require('./components/Home');
 require('./components/Register');
 require('./components/Profile');
+require('./components/Login');

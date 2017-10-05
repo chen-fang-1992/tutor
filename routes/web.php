@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-	return view('home');
-});
+Route::get('/', 'MainController@index');
+Route::get('/home', 'MainController@index');
 
 Route::group(['prefix' => 'user'], function() {
-	Route::get('/login', 'UserController@index');
-	Route::get('/register', 'UserController@create');
-	Route::post('/register', 'UserController@store');
-	Route::get('/profile', 'UserController@show');
-	Route::post('/profile', 'UserController@update');
-});
+	Route::get('login', 'UserController@login');
+	Route::post('login', 'Auth\LoginController@login');
+	Route::get('logout', 'Auth\LoginController@logout');
 
-//Route::resource('user', 'UserController');
+	Route::get('register', 'UserController@register');
+	Route::post('register', 'Auth\RegisterController@register');
+
+	Route::get('profile/create', 'UserController@store');
+	Route::get('profile', 'UserController@show');
+	Route::post('profile', 'UserController@update');
+});

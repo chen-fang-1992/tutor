@@ -16,6 +16,7 @@ export default class Profile extends Component {
 			rate: '',
 			about: ''
 		};
+
 		this.handleFirstName = this.handleFirstName.bind(this);
 		this.handleLastName = this.handleLastName.bind(this);
 		this.handleNumber = this.handleNumber.bind(this);
@@ -114,7 +115,7 @@ export default class Profile extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<h1>Create Your Tutor Profile</h1>
-							<form action="/user/profile" method="post" role="form">
+							<form action="/user/profile" method="POST" role="form">
 								<h1>Personal Info</h1>
 								<div className="row">
 									<div className="col-xs-6">

@@ -8,46 +8,55 @@ use App\User;
 use App\Profile;
 
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-	public function index()
+	public function login()
 	{
-		return view('layouts/layout', ['content' => 'user']);
+		$user = Auth::user();
+		if ($user == null) {
+			return view('layouts/layout', ['content' => 'login', 'auth' => 'false']);
+		} else {
+			return redirect('/user/profile');
+		}
 	}
 
-	public function create()
+	public function register()
 	{
-		return view('layouts/layout', ['content' => 'register']);
+		$user = Auth::user();
+		if ($user == null) {
+			return view('layouts/layout', ['content' => 'register', 'auth' => 'false']);
+		}
 	}
 
 	public function store()
 	{
-		$user = new User;
-		$user->name = Input::get('name');
-		$user->email = Input::get('email');
-		$user->password = Input::get('password');
+		$user = Auth::user();
+		$profile = new profile;
+		$profile->userId = $user->id;
+		$profile->firstName = explode(" ", $user->name)[0];
+		$profile->lastName = explode(" ", $user->name)[1];
 
-		if ($user->save()) {
-			$profile = new profile;
-			$profile->userId = $user->id;
-			$profile->firstName = explode(" ", $user->name)[0];
-			$profile->lastName = explode(" ", $user->name)[1];
-			if ($profile->save()) {
-				return view('layouts/layout', ['content' => 'profile']);
-			}
+		if ($profile->save()) {
+			return view('layouts/layout', ['content' => 'profile', 'auth' => 'true']);
 		}
 	}
 
 	public function show()
 	{
-		$profile = Profile::find(9);
-		return view('layouts/layout', ['content' => 'profile']);
+		$user = Auth::user();
+		if ($user == null) {
+			return redirect('/user/login');
+		} else {
+			return view('layouts/layout', ['content' => 'profile', 'auth' => 'true']);
+		}
 	}
 
 	public function update()
 	{
-		$profile = Profile::find(9);
+		$user = Auth::user();
+		$profile = Profile::find($user->id);
 		$profile->firstName = Input::get('firstname');
 		$profile->lastName = Input::get('lastname');
 		$profile->number = Input::get('number');
@@ -58,8 +67,10 @@ class UserController extends Controller
 		$profile->rate = Input::get('rate');
 		$profile->about = Input::get('about');
 
-		if ($profile->save()) {
-			return view('layouts/layout', ['content' => 'profile']);
+		$user->name = $profile->firstName . ' ' . $profile->lastName;
+
+		if ($profile->save() && $user->save()) {
+			return view('layouts/layout', ['content' => 'profile', 'auth' => 'true']);
 		}
 	}
 }

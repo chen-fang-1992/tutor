@@ -10276,6 +10276,7 @@ __webpack_require__(219);
 __webpack_require__(220);
 __webpack_require__(247);
 __webpack_require__(248);
+__webpack_require__(249);
 
 /***/ }),
 /* 92 */
@@ -41027,13 +41028,72 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Header = function (_Component) {
 	_inherits(Header, _Component);
 
-	function Header() {
+	function Header(props) {
 		_classCallCheck(this, Header);
 
-		return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+		return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 	}
 
 	_createClass(Header, [{
+		key: 'auth',
+		value: function auth() {
+			if (document.getElementById('header').getAttribute('auth') == "true") {
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					null,
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'ul',
+						{ className: 'nav navbar-nav navbar-right' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'li',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'a',
+								{ className: 'register nav-btn', href: '/user/profile' },
+								'My Profile'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'li',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'a',
+								{ className: 'login nav-btn', href: '/user/logout' },
+								'Log Out'
+							)
+						)
+					)
+				);
+			} else {
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					null,
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'ul',
+						{ className: 'nav navbar-nav navbar-right' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'li',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'a',
+								{ className: 'register nav-btn', href: '/user/register' },
+								'Become a Tutor'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'li',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'a',
+								{ className: 'login nav-btn', href: '/user/login' },
+								'Login'
+							)
+						)
+					)
+				);
+			}
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -41054,32 +41114,7 @@ var Header = function (_Component) {
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default.a })
 							)
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'ul',
-								{ className: 'nav navbar-nav navbar-right' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ className: 'register nav-btn', href: '/user/register' },
-										'Become a Tutor'
-									)
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ className: 'login nav-btn', href: '/user/profile' },
-										'Login'
-									)
-								)
-							)
-						)
+						this.auth()
 					)
 				)
 			);
@@ -54247,19 +54282,20 @@ var Register = function (_Component) {
 
 		_this.state = {
 			name: '',
-			nameError: 'Please input Name',
+			nameError: 'Please input name',
 			email: '',
-			emailError: 'Please input correct Email',
+			emailError: 'Please input correct email',
 			password: '',
-			repassword: '',
+			confirmPassword: '',
 			passwordError: 'Please input password',
 			accept: false,
 			acceptError: 'Please accept'
 		};
+
 		_this.handleName = _this.handleName.bind(_this);
 		_this.handleEmail = _this.handleEmail.bind(_this);
 		_this.handlePassword = _this.handlePassword.bind(_this);
-		_this.handleRepassword = _this.handleRepassword.bind(_this);
+		_this.handleConfirmPassword = _this.handleConfirmPassword.bind(_this);
 		_this.handleAccept = _this.handleAccept.bind(_this);
 		_this.handleSubmit = _this.handleSubmit.bind(_this);
 		return _this;
@@ -54271,7 +54307,7 @@ var Register = function (_Component) {
 			var name = e.target.value;
 			var nameError = '';
 			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
-				nameError = 'Please input correct Name';
+				nameError = 'Please input correct name';
 			} else {
 				nameError = '';
 			}
@@ -54286,7 +54322,7 @@ var Register = function (_Component) {
 			var email = e.target.value;
 			var emailError = '';
 			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
-				emailError = 'Please input correct Email';
+				emailError = 'Please input correct email';
 			} else {
 				emailError = '';
 			}
@@ -54300,8 +54336,10 @@ var Register = function (_Component) {
 		value: function handlePassword(e) {
 			var password = e.target.value;
 			var passwordError = '';
-			if (this.state.repassword != password) {
-				passwordError = 'The password did not match the re-typed password';
+			if (this.state.confirmPassword != password) {
+				passwordError = 'The password does not match the re-typed password';
+			} else if (password.length < 6) {
+				passwordError = 'The password has to be six letter at least';
 			}
 			this.setState({
 				password: password,
@@ -54309,15 +54347,17 @@ var Register = function (_Component) {
 			});
 		}
 	}, {
-		key: 'handleRepassword',
-		value: function handleRepassword(e) {
-			var repassword = e.target.value;
+		key: 'handleConfirmPassword',
+		value: function handleConfirmPassword(e) {
+			var confirmPassword = e.target.value;
 			var passwordError = '';
-			if (this.state.password != repassword) {
-				passwordError = 'The password did not match the re-typed password';
+			if (this.state.password != confirmPassword) {
+				passwordError = 'The password does not match the re-typed password';
+			} else if (confirmPassword.length < 6) {
+				passwordError = 'The password has to be six letter at least';
 			}
 			this.setState({
-				repassword: repassword,
+				confirmPassword: confirmPassword,
 				passwordError: passwordError
 			});
 		}
@@ -54388,7 +54428,7 @@ var Register = function (_Component) {
 								{ className: 'col-xs-8' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'form',
-									{ action: '/user/register', method: 'post', role: 'form' },
+									{ action: '/user/register', method: 'POST', role: 'form' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
 										{ htmlFor: 'name' },
@@ -54397,7 +54437,7 @@ var Register = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.name, onChange: this.handleName, name: 'name' })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'name', type: 'text', className: 'form-control', value: this.state.name, onChange: this.handleName, name: 'name', required: true })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
@@ -54407,7 +54447,7 @@ var Register = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.email, onChange: this.handleEmail, name: 'email' })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'email', type: 'email', className: 'form-control', value: this.state.email, onChange: this.handleEmail, name: 'email', required: true })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
@@ -54417,17 +54457,17 @@ var Register = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', className: 'form-control', value: this.state.password, onChange: this.handlePassword, name: 'password' })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password', type: 'password', className: 'form-control', value: this.state.password, onChange: this.handlePassword, name: 'password', required: true })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
-										{ htmlFor: 'repassword' },
-										'Repeat password'
+										{ htmlFor: 'confirmPassword' },
+										'Confirm password'
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', className: 'form-control', value: this.state.repassword, onChange: this.handleRepassword })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', className: 'form-control', value: this.state.confirmPassword, onChange: this.handleConfirmPassword, name: 'password_confirmation', required: true })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
@@ -54508,6 +54548,7 @@ var Profile = function (_Component) {
 			rate: '',
 			about: ''
 		};
+
 		_this.handleFirstName = _this.handleFirstName.bind(_this);
 		_this.handleLastName = _this.handleLastName.bind(_this);
 		_this.handleNumber = _this.handleNumber.bind(_this);
@@ -54632,7 +54673,7 @@ var Profile = function (_Component) {
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'form',
-								{ action: '/user/profile', method: 'post', role: 'form' },
+								{ action: '/user/profile', method: 'POST', role: 'form' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h1',
 									null,
@@ -54826,6 +54867,152 @@ var Profile = function (_Component) {
 
 if (document.getElementById('profile')) {
 	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Profile, null), document.getElementById('profile'));
+}
+
+/***/ }),
+/* 249 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var Login = function (_Component) {
+	_inherits(Login, _Component);
+
+	function Login(props) {
+		_classCallCheck(this, Login);
+
+		var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+		_this.state = {
+			email: '',
+			password: ''
+		};
+
+		_this.handleEmail = _this.handleEmail.bind(_this);
+		_this.handlePassword = _this.handlePassword.bind(_this);
+		_this.handleSubmit = _this.handleSubmit.bind(_this);
+		return _this;
+	}
+
+	_createClass(Login, [{
+		key: 'handleEmail',
+		value: function handleEmail(e) {
+			this.setState({
+				email: e.target.value
+			});
+		}
+	}, {
+		key: 'handlePassword',
+		value: function handlePassword(e) {
+			this.setState({
+				password: e.target.value
+			});
+		}
+	}, {
+		key: 'handleSubmit',
+		value: function handleSubmit(e) {}
+	}, {
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'content background' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'container' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'row' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'col-xs-12' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'form',
+								{ action: '/user/login', method: 'POST', role: 'form' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-12' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'email' },
+											'Email'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'email', type: 'text', className: 'form-control', value: this.state.email, onChange: this.handleEmail, name: 'email', required: true })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-12' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'password' },
+											'Password'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password', type: 'password', className: 'form-control', value: this.state.password, onChange: this.handlePassword, name: 'password', required: true })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-12' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
+												'Log In Your Profile'
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return Login;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Login);
+
+
+if (document.getElementById('login')) {
+	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Login, null), document.getElementById('login'));
 }
 
 /***/ })

@@ -6,19 +6,20 @@ export default class Register extends Component {
 		super(props);
 		this.state = {
 			name: '',
-			nameError: 'Please input Name',
+			nameError: 'Please input name',
 			email: '',
-			emailError: 'Please input correct Email',
+			emailError: 'Please input correct email',
 			password: '',
-			repassword: '',
+			confirmPassword: '',
 			passwordError: 'Please input password',
 			accept: false,
 			acceptError: 'Please accept'
 		};
+
 		this.handleName = this.handleName.bind(this);
 		this.handleEmail = this.handleEmail.bind(this);
 		this.handlePassword = this.handlePassword.bind(this);
-		this.handleRepassword = this.handleRepassword.bind(this);
+		this.handleConfirmPassword = this.handleConfirmPassword.bind(this);
 		this.handleAccept = this.handleAccept.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -27,7 +28,7 @@ export default class Register extends Component {
 		var name = e.target.value;
 		var nameError = '';
 		if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
-			nameError = 'Please input correct Name';
+			nameError = 'Please input correct name';
 		} else {
 			nameError = '';
 		}
@@ -41,7 +42,7 @@ export default class Register extends Component {
 		var email = e.target.value;
 		var emailError = '';
 		if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
-			emailError = 'Please input correct Email';
+			emailError = 'Please input correct email';
 		} else {
 			emailError = '';
 		}
@@ -54,8 +55,10 @@ export default class Register extends Component {
 	handlePassword(e) {
 		var password = e.target.value;
 		var passwordError = '';
-		if (this.state.repassword != password) {
-			passwordError = 'The password did not match the re-typed password';
+		if (this.state.confirmPassword != password) {
+			passwordError = 'The password does not match the re-typed password';
+		} else if (password.length < 6) {
+			passwordError = 'The password has to be six letter at least';
 		}
 		this.setState({
 			password: password,
@@ -63,14 +66,16 @@ export default class Register extends Component {
 		});
 	}
 
-	handleRepassword(e) {
-		var repassword = e.target.value;
+	handleConfirmPassword(e) {
+		var confirmPassword = e.target.value;
 		var passwordError = '';
-		if (this.state.password != repassword) {
-			passwordError = 'The password did not match the re-typed password';
+		if (this.state.password != confirmPassword) {
+			passwordError = 'The password does not match the re-typed password';
+		} else if (confirmPassword.length < 6) {
+			passwordError = 'The password has to be six letter at least';
 		}
 		this.setState({
-			repassword: repassword,
+			confirmPassword: confirmPassword,
 			passwordError: passwordError
 		});
 	}
@@ -115,22 +120,22 @@ export default class Register extends Component {
 							<p>Do you want to become a private language tutor in your city and be paid to discuss with people in your native language? No qualifications nor certifications are needed as long as you are a native speaker in the language you feel confident to share and teach!</p>
 							<p>Please fill up this form and we will get back to you through WhatsApp within 7 working days to get you started with TUTOR:</p>
 							<div className="col-xs-8">
-								<form action="/user/register" method="post" role="form">
+								<form action="/user/register" method="POST" role="form">
 									<label htmlFor="name">What’s your name?</label>
 									<div className="form-group">
-										<input type="text" className="form-control" value={this.state.name} onChange={this.handleName} name="name" />
+										<input id="name" type="text" className="form-control" value={this.state.name} onChange={this.handleName} name="name" required/>
 									</div>
 									<label htmlFor="email">What’s your email?</label>
 									<div className="form-group">
-										<input type="text" className="form-control" value={this.state.email} onChange={this.handleEmail} name="email" />
+										<input id="email" type="email" className="form-control" value={this.state.email} onChange={this.handleEmail} name="email" required/>
 									</div>
 									<label htmlFor="password">Password</label>
 									<div className="form-group">
-										<input type="password" className="form-control" value={this.state.password} onChange={this.handlePassword} name="password" />
+										<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePassword} name="password" required/>
 									</div>
-									<label htmlFor="repassword">Repeat password</label>
+									<label htmlFor="confirmPassword">Confirm password</label>
 									<div className="form-group">
-										<input type="password" className="form-control" value={this.state.repassword} onChange={this.handleRepassword} />
+										<input type="password" className="form-control" value={this.state.confirmPassword} onChange={this.handleConfirmPassword} name="password_confirmation" required/>
 									</div>
 									<div className="form-group">
 										<input type="checkbox" checked={this.state.accept} onChange={this.handleAccept} value={this.state.accept} /><span> I accept the Terms and Conditions</span>

@@ -15,7 +15,7 @@
 			<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
 	</head>
 	<body>
-		<div id="header"></div>
+		<div id="header" auth="{{ $auth }}"></div>
 		<div id="home"></div>
 		<div id="footer"></div>
 	<body>
