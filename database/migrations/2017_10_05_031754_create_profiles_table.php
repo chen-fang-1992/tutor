@@ -20,9 +20,12 @@ class CreateProfilesTable extends Migration
 			$table->string('lastName');
 			$table->string('number')->nullable();
 			$table->string('country')->nullable();
+			$table->string('language')->nullable();
 			$table->string('city')->nullable();
 			$table->string('location')->nullable();
+			$table->integer('availability')->nullable();
 			$table->string('currency')->nullable();
+			$table->string('price')->nullable();
 			$table->string('rate')->nullable();
 			$table->text('about')->nullable();
 			$table->timestamps();

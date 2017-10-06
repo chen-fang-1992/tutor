@@ -7,7 +7,7 @@ body {
 }
 
 .header .navigation-bar .logo img {
-	max-width: 200px;
+	max-width: 170px;
 	margin-left: 50px;
 }
 
@@ -256,6 +256,35 @@ body {
 	color: #000000;
 }
 
+.content.other .container form button {
+	border-radius: 10px;
+	padding: 10px 30px;
+	font-weight: bold;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.content.other .container .dropdown button {
+	width: 100%;
+	text-align: left;
+	background-color: #FFFFFF;
+	border: 1px solid #CCD0D2;
+	border-radius: 4px;
+	padding: 6px 12px;
+}
+
+.content.other .container .dropdown button span {
+	color: #555555;
+	font-size: 14px;
+	font-weight: lighter;
+}
+
+.content.other .container .dropdown .fa {
+	position: absolute;
+	right: 15px;
+	margin-top: 5px;
+}
+
 .content.other .container form textarea {
 	margin-top: 10px;
 }
@@ -263,14 +292,6 @@ body {
 .content.other .container form span {
 	font-weight: bold;
 	color: #000000;
-}
-
-.content.other .container form button {
-	border-radius: 10px;
-	padding: 10px 30px;
-	font-weight: bold;
-	text-align: center;
-	margin: 0 auto;
 }
 
 

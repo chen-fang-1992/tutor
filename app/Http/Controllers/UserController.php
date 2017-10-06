@@ -49,7 +49,7 @@ class UserController extends Controller
 		$profile->lastName = explode(" ", $user->name)[1];
 
 		if ($profile->save()) {
-			return view('layouts/layout', ['content' => 'profile', 'auth' => 'true']);
+			return redirect('/user/profile');
 		}
 	}
 
@@ -78,16 +78,41 @@ class UserController extends Controller
 		$profile->lastName = Input::get('lastname');
 		$profile->number = Input::get('number');
 		$profile->country = Input::get('country');
+		$profile->language = Input::get('language');
 		$profile->city = Input::get('city');
 		$profile->location = Input::get('location');
+		$profile->availability = Input::get('availability');
 		$profile->currency = Input::get('currency');
-		$profile->rate = Input::get('rate');
+		$profile->price = Input::get('price');
 		$profile->about = Input::get('about');
 
 		$user->name = $profile->firstName . ' ' . $profile->lastName;
 
 		if ($profile->save() && $user->save()) {
-			return view('layouts/layout', ['content' => 'profile', 'auth' => 'true']);
+			return redirect('/user/profile');
 		}
+	}
+
+	/*
+		get user profile detail
+	*/
+	public function detail()
+	{
+		$user = Auth::user();
+		$profile = Profile::find($user->id);
+		echo $profile->firstname;
+		return response()->json([
+			'firstname' => $profile->firstName,
+			'lastname' => $profile->lastName,
+			'number' => $profile->number,
+			'country' => $profile->country,
+			'language' => $profile->language,
+			'city' => $profile->city,
+			'location' => $profile->location,
+			'availability' => $profile->availability,
+			'currency' => $profile->currency,
+			'price' => $profile->price,
+			'about' => $profile->about
+		]);
 	}
 }

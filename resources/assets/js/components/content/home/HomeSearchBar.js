@@ -7,7 +7,7 @@ export default class HomeSearchBar extends Component {
 
 		this.state = {
 			language: 'English',
-			day: 'When?',
+			availability: 'When?',
 			location: '',
 			filter: 'Price'
 		};
@@ -17,8 +17,8 @@ export default class HomeSearchBar extends Component {
 			e.preventDefault();
 		}
 
-		this.handleDay = (e) => {
-			this.setState({day: e.target.value});
+		this.handleAvailability = (e) => {
+			this.setState({availability: e.target.value});
 			e.preventDefault();
 		}
 
@@ -32,6 +32,8 @@ export default class HomeSearchBar extends Component {
 		}
 
 		this.handleSubmit = (e) => {
+			if (this.state.availability == 'When?')
+				this.setState({availability: 'anytime'});
 		}
 	}
 
@@ -56,20 +58,17 @@ export default class HomeSearchBar extends Component {
 									</ul>
 								</div>
 							</div>
-							<div className="col-xs-2 day">
+							<div className="col-xs-2 availability">
 								<div className="dropdown">
 									<button type="button" className="btn dropdown-toggle" data-toggle="dropdown">
-										<span className="placeholder" name="day">{this.state.day}</span>
+										<span className="placeholder" name="availability">{this.state.availability}</span>
 										<i className="fa fa-angle-down" aria-hidden="true"></i>
 									</button>
 									<ul className="dropdown-menu" role="menu">
-										<li value="0"><button className="btn btn-link" onClick={this.handleDay} value="Monday">Monday</button></li>
-										<li value="1"><button className="btn btn-link" onClick={this.handleDay} value="Tuesday">Tuesday</button></li>
-										<li value="2"><button className="btn btn-link" onClick={this.handleDay} value="Wednesday">Wednesday</button></li>
-										<li value="3"><button className="btn btn-link" onClick={this.handleDay} value="Thursday">Thursday</button></li>
-										<li value="4"><button className="btn btn-link" onClick={this.handleDay} value="Friday">Friday</button></li>
-										<li value="5"><button className="btn btn-link" onClick={this.handleDay} value="Saturday">Saturday</button></li>
-										<li value="6"><button className="btn btn-link" onClick={this.handleDay} value="Sunday">Sunday</button></li>
+										<li value="0"><button className="btn btn-link" onClick={this.handleAvailability} value="Mornings">Mornings</button></li>
+										<li value="1"><button className="btn btn-link" onClick={this.handleAvailability} value="Afternoons">Afternoons</button></li>
+										<li value="2"><button className="btn btn-link" onClick={this.handleAvailability} value="Evenings">Evenings</button></li>
+										<li value="3"><button className="btn btn-link" onClick={this.handleAvailability} value="Weekends">Weekends</button></li>
 									</ul>
 								</div>
 							</div>
@@ -93,6 +92,9 @@ export default class HomeSearchBar extends Component {
 							</div>
 							<div className="col-xs-2 search">
 								<button type="submit" className="btn btn-primary" onClick={this.handleSubmit}><i className="fa fa-search" aria-hidden="true"></i> Search</button>
+								<input type="hidden" className="form-control" value={this.state.language} name="language" />
+								<input type="hidden" className="form-control" value={this.state.availability} name="availability" />
+								<input type="hidden" className="form-control" value={this.state.filter} name="filter" />
 							</div>
 						</form>
 					</div>

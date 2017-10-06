@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'MainController@index');
-Route::get('/home', 'MainController@index');
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'user'], function() {
 	Route::get('login', 'UserController@login');
@@ -25,4 +25,5 @@ Route::group(['prefix' => 'user'], function() {
 	Route::get('profile/create', 'UserController@store');
 	Route::get('profile', 'UserController@show');
 	Route::post('profile', 'UserController@update');
+	Route::get('profile/detail', 'UserController@detail');
 });

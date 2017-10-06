@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 export default class Profile extends Component {
 	constructor(props) {
@@ -11,10 +12,16 @@ export default class Profile extends Component {
 			nameError: '',
 			number: '',
 			country: '',
+			language: '',
 			city: '',
 			location: '',
 			currency: '',
-			rate: '',
+			price: '',
+			mornings: false,
+			afternoons: false,
+			evenings: false,
+			weekends: false,
+			availability: 0,
 			about: ''
 		};
 
@@ -56,6 +63,11 @@ export default class Profile extends Component {
 			this.setState({country: e.target.value});
 		}
 
+		this.handleLanguage = (e) => {
+			this.setState({language: e.target.value});
+			e.preventDefault();
+		}
+
 		this.handleCity = (e) => {
 			this.setState({city: e.target.value});
 		}
@@ -68,12 +80,32 @@ export default class Profile extends Component {
 			this.setState({currency: e.target.value});
 		}
 
-		this.handleRate = (e) => {
-			this.setState({rate: e.target.value});
+		this.handlePrice = (e) => {
+			this.setState({price: e.target.value});
 		}
 
 		this.handleAbout = (e) => {
 			this.setState({about: e.target.value});
+		}
+
+		this.handleMornings = (e) => {
+			var mornings = (e.target.value == 'false');
+			this.setState({mornings: mornings});
+		}
+
+		this.handleAfternoons = (e) => {
+			var afternoons = (e.target.value == 'false');
+			this.setState({afternoons: afternoons});
+		}
+
+		this.handleEvenings = (e) => {
+			var evenings = (e.target.value == 'false');
+			this.setState({evenings: evenings});
+		}
+
+		this.handleWeekends = (e) => {
+			var weekends = (e.target.value == 'false');
+			this.setState({weekends: weekends});
 		}
 
 		this.handleSubmit = (e) => {
@@ -81,7 +113,39 @@ export default class Profile extends Component {
 				alert(this.state.nameError);
 				e.preventDefault();
 			}
+
+			var availability = 0;
+			if (this.state.mornings)
+				availability += 1;
+			if (this.state.afternoons)
+				availability += 10;
+			if (this.state.evenings)
+				availability += 100;
+			if (this.state.weekends)
+				availability += 1000;
+			this.setState({availability: availability});
 		}
+	}
+
+	componentDidMount () {
+		axios.get("/user/profile/detail").then(response => {
+			this.setState({
+				firstName: response.data.firstname ? response.data.firstname : '',
+				lastName: response.data.lastname ? response.data.lastname : '',
+				number: response.data.number ? response.data.number : '',
+				country: response.data.country ? response.data.country : '',
+				language: response.data.language ? response.data.language : 'English',
+				city: response.data.city ? response.data.city : '',
+				location: response.data.location ? response.data.location : '',
+				currency: response.data.currency ? response.data.currency : '',
+				price: response.data.price ? response.data.price : '',
+				mornings: response.data.availability ? response.data.availability % 10 == 1 : false,
+				afternoons: response.data.availability ? response.data.availability  % 100 >= 10 : false,
+				evenings: response.data.availability ? response.data.availability % 1000 >= 100 : false,
+				weekends: response.data.availability ? response.data.availability % 10000 >= 1000 : false,
+				about: response.data.about ? response.data.about : ''
+			});
+		});
 	}
 
 	render() {
@@ -92,7 +156,7 @@ export default class Profile extends Component {
 						<div className="col-xs-12">
 							<h1>Create Your Tutor Profile</h1>
 							<form action="/user/profile" method="POST" role="form">
-								<h1>Personal Info</h1>
+								<h1><i className="fa fa-user-circle" aria-hidden="true"></i> Personal Info</h1>
 								<div className="row">
 									<div className="col-xs-6">
 										<label htmlFor="firstName">First Name</label>
@@ -121,8 +185,23 @@ export default class Profile extends Component {
 										</div>
 									</div>
 								</div>
-								<h1>Location And Rate</h1>
+								<h1><i className="fa fa-map" aria-hidden="true"></i> Location And Rate</h1>
 								<div className="row">
+									<div className="col-xs-6">
+										<label htmlFor="language">Which language can you teach?</label>
+										<div className="dropdown">
+											<button type="button" className="btn dropdown-toggle" data-toggle="dropdown">
+												<span className="placeholder" name="language">{this.state.language}</span>
+												<i className="fa fa-angle-down" aria-hidden="true"></i>
+											</button>
+											<ul className="dropdown-menu" role="menu">
+												<li value="0"><button className="btn btn-link" onClick={this.handleLanguage} value="English">English</button></li>
+												<li value="1"><button className="btn btn-link" onClick={this.handleLanguage} value="Chinese">Chinese</button></li>
+												<li value="2"><button className="btn btn-link" onClick={this.handleLanguage} value="French">French</button></li>
+												<li value="3"><button className="btn btn-link" onClick={this.handleLanguage} value="Germany">Germany</button></li>
+											</ul>
+										</div>
+									</div>
 									<div className="col-xs-6">
 										<label htmlFor="city">In which city can you teach?</label>
 										<div className="form-group">
@@ -146,13 +225,42 @@ export default class Profile extends Component {
 										</div>
 									</div>
 									<div className="col-xs-6">
-										<label htmlFor="rate">Per hour Tutoring rates</label>
+										<label htmlFor="price">Per hour Tutoring rates</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.rate} onChange={this.handleRate} name="rate" />
+											<input type="text" className="form-control" value={this.state.price} onChange={this.handlePrice} name="price" />
 										</div>
 									</div>
 								</div>
-								<h1>About Me</h1>
+								<h1><i className="fa fa-calendar-check-o" aria-hidden="true"></i> Availability</h1>
+								<div className="row">
+									<div className="col-xs-2">
+										<div className="form-group">
+											<input type="checkbox" checked={this.state.mornings} onChange={this.handleMornings} value={this.state.mornings} /><span> Mornings</span>
+										</div>
+									</div>
+									<div className="col-xs-2">
+										<div className="form-group">
+											<input type="checkbox" checked={this.state.afternoons} onChange={this.handleAfternoons} value={this.state.afternoons} /><span> Afternoons</span>
+										</div>
+									</div>
+									<div className="col-xs-2">
+										<div className="form-group">
+											<input type="checkbox" checked={this.state.evenings} onChange={this.handleEvenings} value={this.state.evenings} /><span> Evenings</span>
+										</div>
+									</div>
+									<div className="col-xs-2">
+										<div className="form-group">
+											<input type="checkbox" checked={this.state.weekends} onChange={this.handleWeekends} value={this.state.weekends} /><span> Weekends</span>
+										</div>
+									</div>
+									<div className="col-xs-2">
+										<div className="form-group">
+											<input type="hidden" className="form-control" value={this.state.availability} name="availability" />
+											<input type="hidden" className="form-control" value={this.state.language} name="language" />
+										</div>
+									</div>
+								</div>
+								<h1><i className="fa fa-info-circle" aria-hidden="true"></i> About Me</h1>
 								<div className="row">
 									<div className="col-xs-12">
 										<div className="form-group">

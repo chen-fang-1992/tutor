@@ -54145,6 +54145,8 @@ if (document.getElementById('register')) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -54152,6 +54154,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -54170,10 +54173,16 @@ var Profile = function (_Component) {
 			nameError: '',
 			number: '',
 			country: '',
+			language: '',
 			city: '',
 			location: '',
 			currency: '',
-			rate: '',
+			price: '',
+			mornings: false,
+			afternoons: false,
+			evenings: false,
+			weekends: false,
+			availability: 0,
 			about: ''
 		};
 
@@ -54215,6 +54224,11 @@ var Profile = function (_Component) {
 			_this.setState({ country: e.target.value });
 		};
 
+		_this.handleLanguage = function (e) {
+			_this.setState({ language: e.target.value });
+			e.preventDefault();
+		};
+
 		_this.handleCity = function (e) {
 			_this.setState({ city: e.target.value });
 		};
@@ -54227,12 +54241,32 @@ var Profile = function (_Component) {
 			_this.setState({ currency: e.target.value });
 		};
 
-		_this.handleRate = function (e) {
-			_this.setState({ rate: e.target.value });
+		_this.handlePrice = function (e) {
+			_this.setState({ price: e.target.value });
 		};
 
 		_this.handleAbout = function (e) {
 			_this.setState({ about: e.target.value });
+		};
+
+		_this.handleMornings = function (e) {
+			var mornings = e.target.value == 'false';
+			_this.setState({ mornings: mornings });
+		};
+
+		_this.handleAfternoons = function (e) {
+			var afternoons = e.target.value == 'false';
+			_this.setState({ afternoons: afternoons });
+		};
+
+		_this.handleEvenings = function (e) {
+			var evenings = e.target.value == 'false';
+			_this.setState({ evenings: evenings });
+		};
+
+		_this.handleWeekends = function (e) {
+			var weekends = e.target.value == 'false';
+			_this.setState({ weekends: weekends });
 		};
 
 		_this.handleSubmit = function (e) {
@@ -54240,11 +54274,42 @@ var Profile = function (_Component) {
 				alert(_this.state.nameError);
 				e.preventDefault();
 			}
+
+			var availability = 0;
+			if (_this.state.mornings) availability += 1;
+			if (_this.state.afternoons) availability += 10;
+			if (_this.state.evenings) availability += 100;
+			if (_this.state.weekends) availability += 1000;
+			_this.setState({ availability: availability });
 		};
 		return _this;
 	}
 
 	_createClass(Profile, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			var _this2 = this;
+
+			__WEBPACK_IMPORTED_MODULE_2_axios___default.a.get("/user/profile/detail").then(function (response) {
+				_this2.setState({
+					firstName: response.data.firstname ? response.data.firstname : '',
+					lastName: response.data.lastname ? response.data.lastname : '',
+					number: response.data.number ? response.data.number : '',
+					country: response.data.country ? response.data.country : '',
+					language: response.data.language ? response.data.language : 'English',
+					city: response.data.city ? response.data.city : '',
+					location: response.data.location ? response.data.location : '',
+					currency: response.data.currency ? response.data.currency : '',
+					price: response.data.price ? response.data.price : '',
+					mornings: response.data.availability ? response.data.availability % 10 == 1 : false,
+					afternoons: response.data.availability ? response.data.availability % 100 >= 10 : false,
+					evenings: response.data.availability ? response.data.availability % 1000 >= 100 : false,
+					weekends: response.data.availability ? response.data.availability % 10000 >= 1000 : false,
+					about: response.data.about ? response.data.about : ''
+				});
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54270,7 +54335,8 @@ var Profile = function (_Component) {
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h1',
 									null,
-									'Personal Info'
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user-circle', 'aria-hidden': 'true' }),
+									' Personal Info'
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
@@ -54339,11 +54405,75 @@ var Profile = function (_Component) {
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h1',
 									null,
-									'Location And Rate'
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map', 'aria-hidden': 'true' }),
+									' Location And Rate'
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
 									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-6' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											{ htmlFor: 'language' },
+											'Which language can you teach?'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'dropdown' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'span',
+													{ className: 'placeholder', name: 'language' },
+													this.state.language
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-angle-down', 'aria-hidden': 'true' })
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'ul',
+												{ className: 'dropdown-menu', role: 'menu' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'li',
+													{ value: '0' },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'button',
+														{ className: 'btn btn-link', onClick: this.handleLanguage, value: 'English' },
+														'English'
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'li',
+													{ value: '1' },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'button',
+														{ className: 'btn btn-link', onClick: this.handleLanguage, value: 'Chinese' },
+														'Chinese'
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'li',
+													{ value: '2' },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'button',
+														{ className: 'btn btn-link', onClick: this.handleLanguage, value: 'French' },
+														'French'
+													)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'li',
+													{ value: '3' },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'button',
+														{ className: 'btn btn-link', onClick: this.handleLanguage, value: 'Germany' },
+														'Germany'
+													)
+												)
+											)
+										)
+									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'col-xs-6' },
@@ -54399,20 +54529,97 @@ var Profile = function (_Component) {
 										{ className: 'col-xs-6' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'label',
-											{ htmlFor: 'rate' },
+											{ htmlFor: 'price' },
 											'Per hour Tutoring rates'
 										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
 											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.rate, onChange: this.handleRate, name: 'rate' })
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.price, onChange: this.handlePrice, name: 'price' })
 										)
 									)
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h1',
 									null,
-									'About Me'
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-calendar-check-o', 'aria-hidden': 'true' }),
+									' Availability'
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-2' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.mornings, onChange: this.handleMornings, value: this.state.mornings }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'span',
+												null,
+												' Mornings'
+											)
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-2' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.afternoons, onChange: this.handleAfternoons, value: this.state.afternoons }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'span',
+												null,
+												' Afternoons'
+											)
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-2' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.evenings, onChange: this.handleEvenings, value: this.state.evenings }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'span',
+												null,
+												' Evenings'
+											)
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-2' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.weekends, onChange: this.handleWeekends, value: this.state.weekends }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'span',
+												null,
+												' Weekends'
+											)
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-2' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.availability, name: 'availability' }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.language, name: 'language' })
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'h1',
+									null,
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-info-circle', 'aria-hidden': 'true' }),
+									' About Me'
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
@@ -54629,7 +54836,7 @@ var HomeSearchBar = function (_Component) {
 
 		_this.state = {
 			language: 'English',
-			day: 'When?',
+			availability: 'When?',
 			location: '',
 			filter: 'Price'
 		};
@@ -54639,8 +54846,8 @@ var HomeSearchBar = function (_Component) {
 			e.preventDefault();
 		};
 
-		_this.handleDay = function (e) {
-			_this.setState({ day: e.target.value });
+		_this.handleAvailability = function (e) {
+			_this.setState({ availability: e.target.value });
 			e.preventDefault();
 		};
 
@@ -54653,7 +54860,9 @@ var HomeSearchBar = function (_Component) {
 			e.preventDefault();
 		};
 
-		_this.handleSubmit = function (e) {};
+		_this.handleSubmit = function (e) {
+			if (_this.state.availability == 'When?') _this.setState({ availability: 'anytime' });
+		};
 		return _this;
 	}
 
@@ -54737,7 +54946,7 @@ var HomeSearchBar = function (_Component) {
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'col-xs-2 day' },
+								{ className: 'col-xs-2 availability' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
 									{ className: 'dropdown' },
@@ -54746,8 +54955,8 @@ var HomeSearchBar = function (_Component) {
 										{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'span',
-											{ className: 'placeholder', name: 'day' },
-											this.state.day
+											{ className: 'placeholder', name: 'availability' },
+											this.state.availability
 										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-angle-down', 'aria-hidden': 'true' })
 									),
@@ -54759,8 +54968,8 @@ var HomeSearchBar = function (_Component) {
 											{ value: '0' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'button',
-												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Monday' },
-												'Monday'
+												{ className: 'btn btn-link', onClick: this.handleAvailability, value: 'Mornings' },
+												'Mornings'
 											)
 										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54768,8 +54977,8 @@ var HomeSearchBar = function (_Component) {
 											{ value: '1' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'button',
-												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Tuesday' },
-												'Tuesday'
+												{ className: 'btn btn-link', onClick: this.handleAvailability, value: 'Afternoons' },
+												'Afternoons'
 											)
 										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54777,8 +54986,8 @@ var HomeSearchBar = function (_Component) {
 											{ value: '2' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'button',
-												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Wednesday' },
-												'Wednesday'
+												{ className: 'btn btn-link', onClick: this.handleAvailability, value: 'Evenings' },
+												'Evenings'
 											)
 										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54786,35 +54995,8 @@ var HomeSearchBar = function (_Component) {
 											{ value: '3' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'button',
-												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Thursday' },
-												'Thursday'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '4' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'button',
-												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Friday' },
-												'Friday'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '5' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'button',
-												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Saturday' },
-												'Saturday'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '6' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'button',
-												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Sunday' },
-												'Sunday'
+												{ className: 'btn btn-link', onClick: this.handleAvailability, value: 'Weekends' },
+												'Weekends'
 											)
 										)
 									)
@@ -54878,7 +55060,10 @@ var HomeSearchBar = function (_Component) {
 									{ type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
 									' Search'
-								)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.language, name: 'language' }),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.availability, name: 'availability' }),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.filter, name: 'filter' })
 							)
 						)
 					)
