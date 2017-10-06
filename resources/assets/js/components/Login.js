@@ -4,35 +4,31 @@ import ReactDOM from 'react-dom';
 export default class Login extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			email: '',
 			password: ''
 		};
 
-		this.handleEmail = this.handleEmail.bind(this);
-		this.handlePassword = this.handlePassword.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+		this.handleEmail = () => {
+			this.setState({
+				email: e.target.value
+			});
+		}
 
-	handleEmail(e) {
-		this.setState({
-			email: e.target.value
-		});
-	}
+		this.handlePassword = () => {
+			this.setState({
+				password: e.target.value
+			});
+		}
 
-	handlePassword(e) {
-		this.setState({
-			password: e.target.value
-		});
-	}
-
-	handleSubmit(e) {
-
+		this.handleSubmit = () => {
+		}
 	}
 
 	render() {
 		return (
-			<div className="content background">
+			<div className="content other">
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">

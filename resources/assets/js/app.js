@@ -13,10 +13,10 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Header');
-require('./components/Footer');
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-require('./components/Home');
-require('./components/Register');
-require('./components/Profile');
-require('./components/Login');
+import Home from './components/Home';
+import Register from './components/Register';
+import Profile from './components/Profile';
+import Login from './components/Login';

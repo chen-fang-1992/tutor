@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 export default class Register extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			name: '',
 			nameError: 'Please input name',
@@ -16,103 +17,96 @@ export default class Register extends Component {
 			acceptError: 'Please accept'
 		};
 
-		this.handleName = this.handleName.bind(this);
-		this.handleEmail = this.handleEmail.bind(this);
-		this.handlePassword = this.handlePassword.bind(this);
-		this.handleConfirmPassword = this.handleConfirmPassword.bind(this);
-		this.handleAccept = this.handleAccept.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-
-	handleName(e) {
-		var name = e.target.value;
-		var nameError = '';
-		if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
-			nameError = 'Please input correct name';
-		} else {
-			nameError = '';
+		this.handleName = () => {
+			var name = e.target.value;
+			var nameError = '';
+			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+				nameError = 'Please input correct name';
+			} else {
+				nameError = '';
+			}
+			this.setState({
+				name: name,
+				nameError: nameError
+			});
 		}
-		this.setState({
-			name: name,
-			nameError: nameError
-		});
-	}
 
-	handleEmail(e) {
-		var email = e.target.value;
-		var emailError = '';
-		if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
-			emailError = 'Please input correct email';
-		} else {
-			emailError = '';
+		this.handleEmail = () => {
+			var email = e.target.value;
+			var emailError = '';
+			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
+				emailError = 'Please input correct email';
+			} else {
+				emailError = '';
+			}
+			this.setState({
+				email: email,
+				emailError: emailError
+			});
 		}
-		this.setState({
-			email: email,
-			emailError: emailError
-		});
-	}
 
-	handlePassword(e) {
-		var password = e.target.value;
-		var passwordError = '';
-		if (this.state.confirmPassword != password) {
-			passwordError = 'The password does not match the re-typed password';
-		} else if (password.length < 6) {
-			passwordError = 'The password has to be six letter at least';
+		this.handlePassword = () => {
+			var password = e.target.value;
+			var passwordError = '';
+			if (this.state.confirmPassword != password) {
+				passwordError = 'The password does not match the re-typed password';
+			} else if (password.length < 6) {
+				passwordError = 'The password has to be six letter at least';
+			}
+			this.setState({
+				password: password,
+				passwordError: passwordError
+			});
 		}
-		this.setState({
-			password: password,
-			passwordError: passwordError
-		});
-	}
 
-	handleConfirmPassword(e) {
-		var confirmPassword = e.target.value;
-		var passwordError = '';
-		if (this.state.password != confirmPassword) {
-			passwordError = 'The password does not match the re-typed password';
-		} else if (confirmPassword.length < 6) {
-			passwordError = 'The password has to be six letter at least';
+		this.handleConfirmPassword = () => {
+			var confirmPassword = e.target.value;
+			var passwordError = '';
+			if (this.state.password != confirmPassword) {
+				passwordError = 'The password does not match the re-typed password';
+			} else if (confirmPassword.length < 6) {
+				passwordError = 'The password has to be six letter at least';
+			}
+			this.setState({
+				confirmPassword: confirmPassword,
+				passwordError: passwordError
+			});
 		}
-		this.setState({
-			confirmPassword: confirmPassword,
-			passwordError: passwordError
-		});
-	}
 
-	handleAccept(e) {
-		var accept = (e.target.value == 'false');
-		var acceptError = '';
-		if (!accept) {
-			acceptError = 'Please accept';
-		} else {
-			acceptError = '';
+		this.handleAccept = () => {
+			var accept = (e.target.value == 'false');
+			var acceptError = '';
+			if (!accept) {
+				acceptError = 'Please accept';
+			} else {
+				acceptError = '';
+			}
+			this.setState({
+				accept: accept,
+				acceptError: acceptError
+			});
 		}
-		this.setState({
-			accept: accept,
-			acceptError: acceptError
-		});
-	}
 
-	handleSubmit(e) {
-		if (this.state.nameError) {
-			alert(this.state.nameError);
-			e.preventDefault();
-		} else if (this.state.emailError) {
-			alert(this.state.emailError);
-			e.preventDefault();
-		} else if (this.state.passwordError) {
-			alert(this.state.passwordError);
-			e.preventDefault();
-		} else if (!this.state.accept) {
-			alert(this.state.acceptError);
-			e.preventDefault();
+		this.handleSubmit = () => {
+			if (this.state.nameError) {
+				alert(this.state.nameError);
+				e.preventDefault();
+			} else if (this.state.emailError) {
+				alert(this.state.emailError);
+				e.preventDefault();
+			} else if (this.state.passwordError) {
+				alert(this.state.passwordError);
+				e.preventDefault();
+			} else if (!this.state.accept) {
+				alert(this.state.acceptError);
+				e.preventDefault();
+			}
 		}
 	}
 
 	render() {
 		return (
-			<div className="content background">
+			<div className="content other">
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-8">

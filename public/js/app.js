@@ -10255,6 +10255,13 @@ module.exports = __webpack_require__(229);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Header__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Footer__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Register__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Profile__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login__ = __webpack_require__(249);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -10270,13 +10277,13 @@ __webpack_require__(92);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-__webpack_require__(117);
-__webpack_require__(219);
 
-__webpack_require__(220);
-__webpack_require__(247);
-__webpack_require__(248);
-__webpack_require__(249);
+
+
+
+
+
+
 
 /***/ }),
 /* 92 */
@@ -41005,7 +41012,6 @@ module.exports = function spread(callback) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
@@ -41035,8 +41041,30 @@ var Header = function (_Component) {
 	}
 
 	_createClass(Header, [{
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'nav',
+				{ className: 'navbar navbar-static-top', role: 'navigation' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'container navigation-bar' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'navbar-header' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'a',
+							{ className: 'logo', href: '/' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default.a })
+						)
+					),
+					this.auth
+				)
+			);
+		}
+	}, {
 		key: 'auth',
-		value: function auth() {
+		get: function get() {
 			if (document.getElementById('header').getAttribute('auth') == "true") {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
@@ -41093,38 +41121,12 @@ var Header = function (_Component) {
 				);
 			}
 		}
-	}, {
-		key: 'render',
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ className: 'header' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'nav',
-					{ className: 'navbar navbar-static-top', role: 'navigation' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'container navigation-bar' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'navbar-header' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ className: 'logo', href: '/' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default.a })
-							)
-						),
-						this.auth()
-					)
-				)
-			);
-		}
 	}]);
 
 	return Header;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Header);
+/* unused harmony default export */ var _unused_webpack_default_export = (Header);
 
 
 if (document.getElementById('header')) {
@@ -53554,7 +53556,6 @@ module.exports = ReactDOMInvalidARIAHook;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
@@ -53584,127 +53585,97 @@ var Footer = function (_Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'footer' },
+				{ className: 'container-fluid' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
-					{ className: 'container-fluid' },
+					{ className: 'row' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
-						{ className: 'row' },
+						{ className: 'col-xs-4' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-4' },
+							'ul',
+							{ className: 'list-footer' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'ul',
-								{ className: 'list-footer' },
+								'li',
+								null,
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '/user/register' },
-										'Become a Tutor'
-									)
-								),
+									'a',
+									{ href: '/user/register' },
+									'Become a Tutor'
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'li',
+								null,
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '/faq-students' },
-										'FAQ Students'
-									)
-								),
+									'a',
+									{ href: '/faq-students' },
+									'FAQ Students'
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'li',
+								null,
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '/faq-tutor' },
-										'FAQ Tutor'
-									)
+									'a',
+									{ href: '/faq-tutor' },
+									'FAQ Tutor'
 								)
 							)
-						),
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col-xs-4' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-4' },
+							'ul',
+							{ className: 'list-footer' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'ul',
-								{ className: 'list-footer' },
+								'li',
+								null,
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '/terms' },
-										'Terms and conditions'
-									)
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '/privacy' },
-										'Privacy policy'
-									)
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									{ className: 'social-footer' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '#' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-facebook', 'aria-hidden': 'true' })
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '#' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-twitter', 'aria-hidden': 'true' })
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '#' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-instagram', 'aria-hidden': 'true' })
-										)
-									)
+									'a',
+									{ href: '/terms' },
+									'Terms and conditions'
 								)
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-4' },
+							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'ul',
-								{ className: 'list-footer' },
+								'li',
+								null,
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
+									'a',
+									{ href: '/privacy' },
+									'Privacy policy'
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'li',
+								{ className: 'social-footer' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'a',
+									{ href: '#' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: '#' },
-										'Contact Us'
+										'span',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-facebook', 'aria-hidden': 'true' })
 									)
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'li',
-									null,
+									'a',
+									{ href: '#' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'a',
-										{ href: 'tel:+12-3456-7890' },
-										'+12 3456 7890'
+										'span',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-twitter', 'aria-hidden': 'true' })
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'a',
+									{ href: '#' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'span',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-instagram', 'aria-hidden': 'true' })
 									)
 								)
 							)
@@ -53712,33 +53683,59 @@ var Footer = function (_Component) {
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
-						{ className: 'row title' },
+						{ className: 'col-xs-4' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h1',
-							null,
-							'\xA92017 XXX PTE LTD. All Rights Reserved.'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							null,
-							'Icons made by ',
+							'ul',
+							{ className: 'list-footer' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ href: 'http://www.freepik.com', title: 'Freepik' },
-								'Freepik'
+								'li',
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'a',
+									{ href: '#' },
+									'Contact Us'
+								)
 							),
-							' from ',
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ href: 'https://www.flaticon.com/', title: 'Flaticon' },
-								'www.flaticon.com'
-							),
-							' is licensed by ',
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ href: 'http://creativecommons.org/licenses/by/3.0/', title: 'Creative Commons BY 3.0', target: '_blank' },
-								'CC 3.0 BY'
+								'li',
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'a',
+									{ href: 'tel:+12-3456-7890' },
+									'+12 3456 7890'
+								)
 							)
+						)
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'row title' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h1',
+						null,
+						'\xA92017 XXX PTE LTD. All Rights Reserved.'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						null,
+						'Icons made by ',
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'a',
+							{ href: 'http://www.freepik.com', title: 'Freepik' },
+							'Freepik'
+						),
+						' from ',
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'a',
+							{ href: 'https://www.flaticon.com/', title: 'Flaticon' },
+							'www.flaticon.com'
+						),
+						' is licensed by ',
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'a',
+							{ href: 'http://creativecommons.org/licenses/by/3.0/', title: 'Creative Commons BY 3.0', target: '_blank' },
+							'CC 3.0 BY'
 						)
 					)
 				)
@@ -53749,7 +53746,7 @@ var Footer = function (_Component) {
 	return Footer;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Footer);
+/* unused harmony default export */ var _unused_webpack_default_export = (Footer);
 
 
 if (document.getElementById('footer')) {
@@ -53761,7 +53758,6 @@ if (document.getElementById('footer')) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
@@ -53813,7 +53809,7 @@ var Home = function (_Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'content' },
+				{ className: 'content home' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'background', style: { backgroundImage: "url(" + __WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg___default.a + ")" } }),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
@@ -54173,7 +54169,7 @@ var Home = function (_Component) {
 	return Home;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Home);
+/* unused harmony default export */ var _unused_webpack_default_export = (Home);
 
 
 if (document.getElementById('home')) {
@@ -54256,7 +54252,6 @@ module.exports = "/images/logo.png?83ac404e7c42261be54e4be344999091";
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
@@ -54292,18 +54287,7 @@ var Register = function (_Component) {
 			acceptError: 'Please accept'
 		};
 
-		_this.handleName = _this.handleName.bind(_this);
-		_this.handleEmail = _this.handleEmail.bind(_this);
-		_this.handlePassword = _this.handlePassword.bind(_this);
-		_this.handleConfirmPassword = _this.handleConfirmPassword.bind(_this);
-		_this.handleAccept = _this.handleAccept.bind(_this);
-		_this.handleSubmit = _this.handleSubmit.bind(_this);
-		return _this;
-	}
-
-	_createClass(Register, [{
-		key: 'handleName',
-		value: function handleName(e) {
+		_this.handleName = function () {
 			var name = e.target.value;
 			var nameError = '';
 			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
@@ -54311,14 +54295,13 @@ var Register = function (_Component) {
 			} else {
 				nameError = '';
 			}
-			this.setState({
+			_this.setState({
 				name: name,
 				nameError: nameError
 			});
-		}
-	}, {
-		key: 'handleEmail',
-		value: function handleEmail(e) {
+		};
+
+		_this.handleEmail = function () {
 			var email = e.target.value;
 			var emailError = '';
 			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
@@ -54326,44 +54309,41 @@ var Register = function (_Component) {
 			} else {
 				emailError = '';
 			}
-			this.setState({
+			_this.setState({
 				email: email,
 				emailError: emailError
 			});
-		}
-	}, {
-		key: 'handlePassword',
-		value: function handlePassword(e) {
+		};
+
+		_this.handlePassword = function () {
 			var password = e.target.value;
 			var passwordError = '';
-			if (this.state.confirmPassword != password) {
+			if (_this.state.confirmPassword != password) {
 				passwordError = 'The password does not match the re-typed password';
 			} else if (password.length < 6) {
 				passwordError = 'The password has to be six letter at least';
 			}
-			this.setState({
+			_this.setState({
 				password: password,
 				passwordError: passwordError
 			});
-		}
-	}, {
-		key: 'handleConfirmPassword',
-		value: function handleConfirmPassword(e) {
+		};
+
+		_this.handleConfirmPassword = function () {
 			var confirmPassword = e.target.value;
 			var passwordError = '';
-			if (this.state.password != confirmPassword) {
+			if (_this.state.password != confirmPassword) {
 				passwordError = 'The password does not match the re-typed password';
 			} else if (confirmPassword.length < 6) {
 				passwordError = 'The password has to be six letter at least';
 			}
-			this.setState({
+			_this.setState({
 				confirmPassword: confirmPassword,
 				passwordError: passwordError
 			});
-		}
-	}, {
-		key: 'handleAccept',
-		value: function handleAccept(e) {
+		};
+
+		_this.handleAccept = function () {
 			var accept = e.target.value == 'false';
 			var acceptError = '';
 			if (!accept) {
@@ -54371,34 +54351,36 @@ var Register = function (_Component) {
 			} else {
 				acceptError = '';
 			}
-			this.setState({
+			_this.setState({
 				accept: accept,
 				acceptError: acceptError
 			});
-		}
-	}, {
-		key: 'handleSubmit',
-		value: function handleSubmit(e) {
-			if (this.state.nameError) {
-				alert(this.state.nameError);
+		};
+
+		_this.handleSubmit = function () {
+			if (_this.state.nameError) {
+				alert(_this.state.nameError);
 				e.preventDefault();
-			} else if (this.state.emailError) {
-				alert(this.state.emailError);
+			} else if (_this.state.emailError) {
+				alert(_this.state.emailError);
 				e.preventDefault();
-			} else if (this.state.passwordError) {
-				alert(this.state.passwordError);
+			} else if (_this.state.passwordError) {
+				alert(_this.state.passwordError);
 				e.preventDefault();
-			} else if (!this.state.accept) {
-				alert(this.state.acceptError);
+			} else if (!_this.state.accept) {
+				alert(_this.state.acceptError);
 				e.preventDefault();
 			}
-		}
-	}, {
+		};
+		return _this;
+	}
+
+	_createClass(Register, [{
 		key: 'render',
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'content background' },
+				{ className: 'content other' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
 					{ className: 'container' },
@@ -54500,7 +54482,7 @@ var Register = function (_Component) {
 	return Register;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Register);
+/* unused harmony default export */ var _unused_webpack_default_export = (Register);
 
 
 if (document.getElementById('register')) {
@@ -54512,7 +54494,6 @@ if (document.getElementById('register')) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
@@ -54549,114 +54530,79 @@ var Profile = function (_Component) {
 			about: ''
 		};
 
-		_this.handleFirstName = _this.handleFirstName.bind(_this);
-		_this.handleLastName = _this.handleLastName.bind(_this);
-		_this.handleNumber = _this.handleNumber.bind(_this);
-		_this.handleCountry = _this.handleCountry.bind(_this);
-		_this.handleCity = _this.handleCity.bind(_this);
-		_this.handleLocation = _this.handleLocation.bind(_this);
-		_this.handleCurrency = _this.handleCurrency.bind(_this);
-		_this.handleRate = _this.handleRate.bind(_this);
-		_this.handleAbout = _this.handleAbout.bind(_this);
-		_this.handleSubmit = _this.handleSubmit.bind(_this);
-		return _this;
-	}
-
-	_createClass(Profile, [{
-		key: 'handleFirstName',
-		value: function handleFirstName(e) {
+		_this.handleFirstName = function () {
 			var firstName = e.target.value;
-			var fullName = firstName + ' ' + this.state.lastName;
+			var fullName = firstName + ' ' + _this.state.lastName;
 			var nameError = '';
 			if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct name';
 			} else {
 				nameError = '';
 			}
-			this.setState({
+			_this.setState({
 				firstName: firstName,
 				nameError: nameError
 			});
-		}
-	}, {
-		key: 'handleLastName',
-		value: function handleLastName(e) {
+		};
+
+		_this.handleLastName = function () {
 			var lastName = e.target.value;
-			var fullName = this.state.firstName + ' ' + lastName;
+			var fullName = _this.state.firstName + ' ' + lastName;
 			var nameError = '';
 			if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct Email';
 			} else {
 				nameError = '';
 			}
-			this.setState({
+			_this.setState({
 				lastName: lastName,
 				nameError: nameError
 			});
-		}
-	}, {
-		key: 'handleNumber',
-		value: function handleNumber(e) {
-			this.setState({
-				number: e.target.value
-			});
-		}
-	}, {
-		key: 'handleCountry',
-		value: function handleCountry(e) {
-			this.setState({
-				country: e.target.value
-			});
-		}
-	}, {
-		key: 'handleCity',
-		value: function handleCity(e) {
-			this.setState({
-				city: e.target.value
-			});
-		}
-	}, {
-		key: 'handleLocation',
-		value: function handleLocation(e) {
-			this.setState({
-				location: e.target.value
-			});
-		}
-	}, {
-		key: 'handleCurrency',
-		value: function handleCurrency(e) {
-			this.setState({
-				currency: e.target.value
-			});
-		}
-	}, {
-		key: 'handleRate',
-		value: function handleRate(e) {
-			this.setState({
-				rate: e.target.value
-			});
-		}
-	}, {
-		key: 'handleAbout',
-		value: function handleAbout(e) {
-			this.setState({
-				about: e.target.value
-			});
-		}
-	}, {
-		key: 'handleSubmit',
-		value: function handleSubmit(e) {
-			if (this.state.nameError) {
-				alert(this.state.nameError);
+		};
+
+		_this.handleNumber = function () {
+			_this.setState({ number: e.target.value });
+		};
+
+		_this.handleCountry = function () {
+			_this.setState({ country: e.target.value });
+		};
+
+		_this.handleCity = function () {
+			_this.setState({ city: e.target.value });
+		};
+
+		_this.handleLocation = function () {
+			_this.setState({ location: e.target.value });
+		};
+
+		_this.handleCurrency = function () {
+			_this.setState({ currency: e.target.value });
+		};
+
+		_this.handleRate = function () {
+			_this.setState({ rate: e.target.value });
+		};
+
+		_this.handleAbout = function () {
+			_this.setState({ about: e.target.value });
+		};
+
+		_this.handleSubmit = function () {
+			if (_this.state.nameError) {
+				alert(_this.state.nameError);
 				e.preventDefault();
 			}
-		}
-	}, {
+		};
+		return _this;
+	}
+
+	_createClass(Profile, [{
 		key: 'render',
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'content background' },
+				{ className: 'content other' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
 					{ className: 'container' },
@@ -54862,7 +54808,7 @@ var Profile = function (_Component) {
 	return Profile;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Profile);
+/* unused harmony default export */ var _unused_webpack_default_export = (Profile);
 
 
 if (document.getElementById('profile')) {
@@ -54874,7 +54820,6 @@ if (document.getElementById('profile')) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
@@ -54903,35 +54848,28 @@ var Login = function (_Component) {
 			password: ''
 		};
 
-		_this.handleEmail = _this.handleEmail.bind(_this);
-		_this.handlePassword = _this.handlePassword.bind(_this);
-		_this.handleSubmit = _this.handleSubmit.bind(_this);
+		_this.handleEmail = function () {
+			_this.setState({
+				email: e.target.value
+			});
+		};
+
+		_this.handlePassword = function () {
+			_this.setState({
+				password: e.target.value
+			});
+		};
+
+		_this.handleSubmit = function () {};
 		return _this;
 	}
 
 	_createClass(Login, [{
-		key: 'handleEmail',
-		value: function handleEmail(e) {
-			this.setState({
-				email: e.target.value
-			});
-		}
-	}, {
-		key: 'handlePassword',
-		value: function handlePassword(e) {
-			this.setState({
-				password: e.target.value
-			});
-		}
-	}, {
-		key: 'handleSubmit',
-		value: function handleSubmit(e) {}
-	}, {
 		key: 'render',
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'content background' },
+				{ className: 'content other' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
 					{ className: 'container' },
@@ -55008,7 +54946,7 @@ var Login = function (_Component) {
 	return Login;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Login);
+/* unused harmony default export */ var _unused_webpack_default_export = (Login);
 
 
 if (document.getElementById('login')) {

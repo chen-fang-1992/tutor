@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 export default class Profile extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			firstName: '',
 			lastName: '',
@@ -17,100 +18,75 @@ export default class Profile extends Component {
 			about: ''
 		};
 
-		this.handleFirstName = this.handleFirstName.bind(this);
-		this.handleLastName = this.handleLastName.bind(this);
-		this.handleNumber = this.handleNumber.bind(this);
-		this.handleCountry = this.handleCountry.bind(this);
-		this.handleCity = this.handleCity.bind(this);
-		this.handleLocation = this.handleLocation.bind(this);
-		this.handleCurrency = this.handleCurrency.bind(this);
-		this.handleRate = this.handleRate.bind(this);
-		this.handleAbout = this.handleAbout.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-
-	handleFirstName(e) {
-		var firstName = e.target.value;
-		var fullName = firstName + ' ' + this.state.lastName;
-		var nameError = '';
-		if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
-			nameError = 'Please input correct name';
-		} else {
-			nameError = '';
+		this.handleFirstName = () => {
+			var firstName = e.target.value;
+			var fullName = firstName + ' ' + this.state.lastName;
+			var nameError = '';
+			if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+				nameError = 'Please input correct name';
+			} else {
+				nameError = '';
+			}
+			this.setState({
+				firstName: firstName,
+				nameError: nameError
+			});
 		}
-		this.setState({
-			firstName: firstName,
-			nameError: nameError
-		});
-	}
 
-	handleLastName(e) {
-		var lastName = e.target.value;
-		var fullName = this.state.firstName + ' ' + lastName;
-		var nameError = '';
-		if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
-			nameError = 'Please input correct Email';
-		} else {
-			nameError = '';
+		this.handleLastName = () => {
+			var lastName = e.target.value;
+			var fullName = this.state.firstName + ' ' + lastName;
+			var nameError = '';
+			if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+				nameError = 'Please input correct Email';
+			} else {
+				nameError = '';
+			}
+			this.setState({
+				lastName: lastName,
+				nameError: nameError
+			});
 		}
-		this.setState({
-			lastName: lastName,
-			nameError: nameError
-		});
-	}
 
-	handleNumber(e) {
-		this.setState({
-			number: e.target.value
-		});
-	}
+		this.handleNumber = () => {
+			this.setState({number: e.target.value});
+		}
 
-	handleCountry(e) {
-		this.setState({
-			country: e.target.value
-		});
-	}
+		this.handleCountry = () => {
+			this.setState({country: e.target.value});
+		}
 
-	handleCity(e) {
-		this.setState({
-			city: e.target.value
-		});
-	}
+		this.handleCity = () => {
+			this.setState({city: e.target.value});
+		}
 
-	handleLocation(e) {
-		this.setState({
-			location: e.target.value
-		});
-	}
+		this.handleLocation = () => {
+			this.setState({location: e.target.value});
+		}
 
-	handleCurrency(e) {
-		this.setState({
-			currency: e.target.value
-		});
-	}
+		this.handleCurrency = () => {
+			this.setState({currency: e.target.value});
+		}
 
-	handleRate(e) {
-		this.setState({
-			rate: e.target.value
-		});
-	}
+		this.handleRate = () => {
+			this.setState({rate: e.target.value});
+		}
 
-	handleAbout(e) {
-		this.setState({
-			about: e.target.value
-		});
-	}
+		this.handleAbout = () => {
+			this.setState({about: e.target.value});
+		}
 
-	handleSubmit(e) {
-		if (this.state.nameError) {
-			alert(this.state.nameError);
-			e.preventDefault();
+		this.handleSubmit = () => {
+			if (this.state.nameError) {
+				alert(this.state.nameError);
+				e.preventDefault();
+			}
 		}
 	}
 
 	render() {
 		return (
-			<div className="content background">
+			<div className="content other">
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">

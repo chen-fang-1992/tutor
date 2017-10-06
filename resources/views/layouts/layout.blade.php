@@ -10,14 +10,13 @@
 			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 			<!-- Styles -->
 			<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-			<link rel="stylesheet" href="{{ URL::asset('css/common.css') }}">
-			<link rel="stylesheet" href="{{ URL::asset('css/other.css') }}">
+			<link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 			<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
 	</head>
 	<body>
-		<div id="header" auth="{{ $auth }}"></div>
+		<div id="header" class="header {{ $content=='home' ? 'home' : 'other' }}" auth="{{ $auth }}"></div>
 		<div id="{{ $content }}"></div>
-		<div id="footer"></div>
+		<div id="footer" class="footer"></div>
 	<body>
 	<!-- Scripts -->
 	<script src="{{ URL::asset('js/app.js') }}"></script>

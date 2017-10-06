@@ -10,13 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
+
+	/*
+		control navigation bar button
+	*/
 	public function index()
 	{
 		$user = Auth::user();
 		if ($user == null) {
-			return view('home', ['auth' => 'false']);
+			return view('layouts/layout', ['content' => 'home', 'auth' => 'false']);
 		} else {
-			return view('home', ['auth' => 'true']);
+			return view('layouts/layout', ['content' => 'home', 'auth' => 'true']);
 		}
 	}
 }

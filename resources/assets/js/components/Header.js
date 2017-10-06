@@ -8,7 +8,7 @@ export default class Header extends Component {
 		super(props);
 	}
 
-	auth () {
+	get auth () {
 		if (document.getElementById('header').getAttribute('auth') == "true") {
 			return (
 				<div>
@@ -32,16 +32,14 @@ export default class Header extends Component {
 
 	render() {
 		return (
-			<div className="header">
-				<nav className="navbar navbar-static-top" role="navigation">
-					<div className="container navigation-bar">
-						<div className="navbar-header">
-							<a className="logo" href="/"><img src={logo}/></a>
-						</div>
-						{this.auth()}
+			<nav className="navbar navbar-static-top" role="navigation">
+				<div className="container navigation-bar">
+					<div className="navbar-header">
+						<a className="logo" href="/"><img src={logo}/></a>
 					</div>
-				</nav>
-			</div>
+					{this.auth}
+				</div>
+			</nav>
 		);
 	}
 }

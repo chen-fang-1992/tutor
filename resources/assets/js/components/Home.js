@@ -12,7 +12,7 @@ import Joe from '../../../../public/img/Joe.jpg';
 export default class Home extends Component {
 	render() {
 		return (
-			<div className="content">
+			<div className="content home">
 				<div className="background" style={{backgroundImage:"url("+home_bg+")"}}></div>
 				<div className="container search-bar">
 					<h1>Find A Native Language Tutor Near You</h1>

@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+	/*
+		call for login page
+	*/
 	public function login()
 	{
 		$user = Auth::user();
@@ -22,6 +26,9 @@ class UserController extends Controller
 		}
 	}
 
+	/*
+		call for register page
+	*/
 	public function register()
 	{
 		$user = Auth::user();
@@ -30,6 +37,9 @@ class UserController extends Controller
 		}
 	}
 
+	/*
+		store user profile
+	*/
 	public function store()
 	{
 		$user = Auth::user();
@@ -43,6 +53,9 @@ class UserController extends Controller
 		}
 	}
 
+	/*
+		show user profile
+	*/
 	public function show()
 	{
 		$user = Auth::user();
@@ -53,6 +66,10 @@ class UserController extends Controller
 		}
 	}
 
+
+	/*
+		update user profile
+	*/
 	public function update()
 	{
 		$user = Auth::user();
