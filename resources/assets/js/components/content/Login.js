@@ -10,19 +10,15 @@ export default class Login extends Component {
 			password: ''
 		};
 
-		this.handleEmail = () => {
-			this.setState({
-				email: e.target.value
-			});
+		this.handleEmail = (e) => {
+			this.setState({email: e.target.value});
 		}
 
-		this.handlePassword = () => {
-			this.setState({
-				password: e.target.value
-			});
+		this.handlePassword = (e) => {
+			this.setState({password: e.target.value});
 		}
 
-		this.handleSubmit = () => {
+		this.handleSubmit = (e) => {
 		}
 	}
 

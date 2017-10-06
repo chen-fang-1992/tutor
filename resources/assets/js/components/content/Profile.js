@@ -18,7 +18,7 @@ export default class Profile extends Component {
 			about: ''
 		};
 
-		this.handleFirstName = () => {
+		this.handleFirstName = (e) => {
 			var firstName = e.target.value;
 			var fullName = firstName + ' ' + this.state.lastName;
 			var nameError = '';
@@ -33,7 +33,7 @@ export default class Profile extends Component {
 			});
 		}
 
-		this.handleLastName = () => {
+		this.handleLastName = (e) => {
 			var lastName = e.target.value;
 			var fullName = this.state.firstName + ' ' + lastName;
 			var nameError = '';
@@ -48,35 +48,35 @@ export default class Profile extends Component {
 			});
 		}
 
-		this.handleNumber = () => {
+		this.handleNumber = (e) => {
 			this.setState({number: e.target.value});
 		}
 
-		this.handleCountry = () => {
+		this.handleCountry = (e) => {
 			this.setState({country: e.target.value});
 		}
 
-		this.handleCity = () => {
+		this.handleCity = (e) => {
 			this.setState({city: e.target.value});
 		}
 
-		this.handleLocation = () => {
+		this.handleLocation = (e) => {
 			this.setState({location: e.target.value});
 		}
 
-		this.handleCurrency = () => {
+		this.handleCurrency = (e) => {
 			this.setState({currency: e.target.value});
 		}
 
-		this.handleRate = () => {
+		this.handleRate = (e) => {
 			this.setState({rate: e.target.value});
 		}
 
-		this.handleAbout = () => {
+		this.handleAbout = (e) => {
 			this.setState({about: e.target.value});
 		}
 
-		this.handleSubmit = () => {
+		this.handleSubmit = (e) => {
 			if (this.state.nameError) {
 				alert(this.state.nameError);
 				e.preventDefault();

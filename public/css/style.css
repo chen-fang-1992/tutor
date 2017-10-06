@@ -51,6 +51,7 @@ body {
 	width: 100%;
 	background-size: cover;
 	background-position: center center;
+	opacity: 0.8;
 }
 
 .content.home .search-bar {
@@ -67,8 +68,45 @@ body {
 	text-align: center;
 }
 
+.content.home .search-bar form {
+	padding: 10px 0 52px;
+	margin: 0 20px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+}
+
+.content.home .search-bar .dropdown-toggle {
+	width: 140px;
+	text-align: left;
+	background-color: #FFFFFF;
+	font-size: 18px;
+}
+
+.content.home .search-bar .dropdown-toggle i {
+	position: absolute;
+	right: -5px;
+	margin-top: 5px;
+}
+
+.content.home .search-bar .form-group input {
+	width: 290px;
+	height: 42px;
+	font-size: 18px;
+}
+
+.content.home .search-bar .form-group i {
+	position: absolute;
+	right: 5px;
+	margin-top: -28px;
+}
+
+.content.home .search-bar .search button {
+	width: 120px;
+	font-size: 18px;
+}
+
 .content.home .intro-bar {
-	padding-top: 275px;
+	padding-top: 255px;
 	text-align: center;
 }
 

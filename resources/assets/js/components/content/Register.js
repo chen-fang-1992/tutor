@@ -17,7 +17,7 @@ export default class Register extends Component {
 			acceptError: 'Please accept'
 		};
 
-		this.handleName = () => {
+		this.handleName = (e) => {
 			var name = e.target.value;
 			var nameError = '';
 			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
@@ -31,7 +31,7 @@ export default class Register extends Component {
 			});
 		}
 
-		this.handleEmail = () => {
+		this.handleEmail = (e) => {
 			var email = e.target.value;
 			var emailError = '';
 			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
@@ -45,7 +45,7 @@ export default class Register extends Component {
 			});
 		}
 
-		this.handlePassword = () => {
+		this.handlePassword = (e) => {
 			var password = e.target.value;
 			var passwordError = '';
 			if (this.state.confirmPassword != password) {
@@ -59,7 +59,7 @@ export default class Register extends Component {
 			});
 		}
 
-		this.handleConfirmPassword = () => {
+		this.handleConfirmPassword = (e) => {
 			var confirmPassword = e.target.value;
 			var passwordError = '';
 			if (this.state.password != confirmPassword) {
@@ -73,7 +73,7 @@ export default class Register extends Component {
 			});
 		}
 
-		this.handleAccept = () => {
+		this.handleAccept = (e) => {
 			var accept = (e.target.value == 'false');
 			var acceptError = '';
 			if (!accept) {
@@ -87,7 +87,7 @@ export default class Register extends Component {
 			});
 		}
 
-		this.handleSubmit = () => {
+		this.handleSubmit = (e) => {
 			if (this.state.nameError) {
 				alert(this.state.nameError);
 				e.preventDefault();

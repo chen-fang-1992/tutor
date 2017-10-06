@@ -53934,7 +53934,7 @@ var Register = function (_Component) {
 			acceptError: 'Please accept'
 		};
 
-		_this.handleName = function () {
+		_this.handleName = function (e) {
 			var name = e.target.value;
 			var nameError = '';
 			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
@@ -53948,7 +53948,7 @@ var Register = function (_Component) {
 			});
 		};
 
-		_this.handleEmail = function () {
+		_this.handleEmail = function (e) {
 			var email = e.target.value;
 			var emailError = '';
 			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
@@ -53962,7 +53962,7 @@ var Register = function (_Component) {
 			});
 		};
 
-		_this.handlePassword = function () {
+		_this.handlePassword = function (e) {
 			var password = e.target.value;
 			var passwordError = '';
 			if (_this.state.confirmPassword != password) {
@@ -53976,7 +53976,7 @@ var Register = function (_Component) {
 			});
 		};
 
-		_this.handleConfirmPassword = function () {
+		_this.handleConfirmPassword = function (e) {
 			var confirmPassword = e.target.value;
 			var passwordError = '';
 			if (_this.state.password != confirmPassword) {
@@ -53990,7 +53990,7 @@ var Register = function (_Component) {
 			});
 		};
 
-		_this.handleAccept = function () {
+		_this.handleAccept = function (e) {
 			var accept = e.target.value == 'false';
 			var acceptError = '';
 			if (!accept) {
@@ -54004,7 +54004,7 @@ var Register = function (_Component) {
 			});
 		};
 
-		_this.handleSubmit = function () {
+		_this.handleSubmit = function (e) {
 			if (_this.state.nameError) {
 				alert(_this.state.nameError);
 				e.preventDefault();
@@ -54177,7 +54177,7 @@ var Profile = function (_Component) {
 			about: ''
 		};
 
-		_this.handleFirstName = function () {
+		_this.handleFirstName = function (e) {
 			var firstName = e.target.value;
 			var fullName = firstName + ' ' + _this.state.lastName;
 			var nameError = '';
@@ -54192,7 +54192,7 @@ var Profile = function (_Component) {
 			});
 		};
 
-		_this.handleLastName = function () {
+		_this.handleLastName = function (e) {
 			var lastName = e.target.value;
 			var fullName = _this.state.firstName + ' ' + lastName;
 			var nameError = '';
@@ -54207,35 +54207,35 @@ var Profile = function (_Component) {
 			});
 		};
 
-		_this.handleNumber = function () {
+		_this.handleNumber = function (e) {
 			_this.setState({ number: e.target.value });
 		};
 
-		_this.handleCountry = function () {
+		_this.handleCountry = function (e) {
 			_this.setState({ country: e.target.value });
 		};
 
-		_this.handleCity = function () {
+		_this.handleCity = function (e) {
 			_this.setState({ city: e.target.value });
 		};
 
-		_this.handleLocation = function () {
+		_this.handleLocation = function (e) {
 			_this.setState({ location: e.target.value });
 		};
 
-		_this.handleCurrency = function () {
+		_this.handleCurrency = function (e) {
 			_this.setState({ currency: e.target.value });
 		};
 
-		_this.handleRate = function () {
+		_this.handleRate = function (e) {
 			_this.setState({ rate: e.target.value });
 		};
 
-		_this.handleAbout = function () {
+		_this.handleAbout = function (e) {
 			_this.setState({ about: e.target.value });
 		};
 
-		_this.handleSubmit = function () {
+		_this.handleSubmit = function (e) {
 			if (_this.state.nameError) {
 				alert(_this.state.nameError);
 				e.preventDefault();
@@ -54495,19 +54495,15 @@ var Login = function (_Component) {
 			password: ''
 		};
 
-		_this.handleEmail = function () {
-			_this.setState({
-				email: e.target.value
-			});
+		_this.handleEmail = function (e) {
+			_this.setState({ email: e.target.value });
 		};
 
-		_this.handlePassword = function () {
-			_this.setState({
-				password: e.target.value
-			});
+		_this.handlePassword = function (e) {
+			_this.setState({ password: e.target.value });
 		};
 
-		_this.handleSubmit = function () {};
+		_this.handleSubmit = function (e) {};
 		return _this;
 	}
 
@@ -54626,10 +54622,39 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var HomeSearchBar = function (_Component) {
 	_inherits(HomeSearchBar, _Component);
 
-	function HomeSearchBar() {
+	function HomeSearchBar(props) {
 		_classCallCheck(this, HomeSearchBar);
 
-		return _possibleConstructorReturn(this, (HomeSearchBar.__proto__ || Object.getPrototypeOf(HomeSearchBar)).apply(this, arguments));
+		var _this = _possibleConstructorReturn(this, (HomeSearchBar.__proto__ || Object.getPrototypeOf(HomeSearchBar)).call(this, props));
+
+		_this.state = {
+			language: 'English',
+			day: 'When?',
+			location: '',
+			filter: 'Price'
+		};
+
+		_this.handleLanguage = function (e) {
+			_this.setState({ language: e.target.value });
+			e.preventDefault();
+		};
+
+		_this.handleDay = function (e) {
+			_this.setState({ day: e.target.value });
+			e.preventDefault();
+		};
+
+		_this.handleLocation = function (e) {
+			_this.setState({ location: e.target.value });
+		};
+
+		_this.handleFilter = function (e) {
+			_this.setState({ filter: e.target.value });
+			e.preventDefault();
+		};
+
+		_this.handleSubmit = function (e) {};
+		return _this;
 	}
 
 	_createClass(HomeSearchBar, [{
@@ -54650,177 +54675,210 @@ var HomeSearchBar = function (_Component) {
 						'div',
 						{ className: 'col-xs-10 col-xs-offset-1' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-3' },
+							'form',
+							{ action: '/tutor', method: 'GET', role: 'form' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'dropdown' },
+								{ className: 'col-xs-2 language' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'button',
-									{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
+									'div',
+									{ className: 'dropdown' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'span',
-										{ className: 'placeholder' },
-										'English'
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'ul',
-									{ className: 'dropdown-menu', role: 'menu' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '0' },
+										'button',
+										{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'English'
-										)
+											'span',
+											{ className: 'placeholder', name: 'language' },
+											this.state.language
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-angle-down', 'aria-hidden': 'true' })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '1' },
+										'ul',
+										{ className: 'dropdown-menu', role: 'menu' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Chinese'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '2' },
+											'li',
+											{ value: '0' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleLanguage, value: 'English' },
+												'English'
+											)
+										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'French'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '3' },
+											'li',
+											{ value: '1' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleLanguage, value: 'Chinese' },
+												'Chinese'
+											)
+										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Germany'
+											'li',
+											{ value: '2' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleLanguage, value: 'French' },
+												'French'
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'li',
+											{ value: '3' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleLanguage, value: 'Germany' },
+												'Germany'
+											)
 										)
 									)
 								)
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-3' },
+							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'dropdown' },
+								{ className: 'col-xs-2 day' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'button',
-									{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
+									'div',
+									{ className: 'dropdown' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'span',
-										{ className: 'placeholder' },
-										'When?'
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'ul',
-									{ className: 'dropdown-menu', role: 'menu' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '0' },
+										'button',
+										{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Monday'
-										)
+											'span',
+											{ className: 'placeholder', name: 'day' },
+											this.state.day
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-angle-down', 'aria-hidden': 'true' })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '1' },
+										'ul',
+										{ className: 'dropdown-menu', role: 'menu' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Tuesday'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '2' },
+											'li',
+											{ value: '0' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Monday' },
+												'Monday'
+											)
+										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Wednesday'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '3' },
+											'li',
+											{ value: '1' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Tuesday' },
+												'Tuesday'
+											)
+										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Thursday'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '4' },
+											'li',
+											{ value: '2' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Wednesday' },
+												'Wednesday'
+											)
+										),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Friday'
+											'li',
+											{ value: '3' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Thursday' },
+												'Thursday'
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'li',
+											{ value: '4' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Friday' },
+												'Friday'
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'li',
+											{ value: '5' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Saturday' },
+												'Saturday'
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'li',
+											{ value: '6' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleDay, value: 'Sunday' },
+												'Sunday'
+											)
 										)
 									)
 								)
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-3' },
+							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'dropdown' },
+								{ className: 'col-xs-4 location' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'button',
-									{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'span',
-										{ className: 'placeholder' },
-										'Price'
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
-								),
+									'div',
+									{ className: 'form-group' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'location', type: 'text', className: 'form-control', value: this.state.location, onChange: this.handleLocation, placeholder: 'Enter a location', name: 'location' }),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-pin', 'aria-hidden': 'true' })
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'col-xs-2 filter' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'ul',
-									{ className: 'dropdown-menu', role: 'menu' },
+									'div',
+									{ className: 'dropdown' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '0' },
+										'button',
+										{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Price'
-										)
+											'span',
+											{ className: 'placeholder', name: 'filter' },
+											this.state.filter
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-angle-down', 'aria-hidden': 'true' })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'li',
-										{ value: '1' },
+										'ul',
+										{ className: 'dropdown-menu', role: 'menu' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'a',
-											{ className: 'btn btn-link' },
-											'Rating'
+											'li',
+											{ value: '0' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleFilter, value: 'Price' },
+												'Price'
+											)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'li',
+											{ value: '1' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'button',
+												{ className: 'btn btn-link', onClick: this.handleFilter, value: 'Rating' },
+												'Rating'
+											)
 										)
 									)
 								)
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-3' },
+							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'button',
-								{ type: 'button', className: 'btn btn-success' },
-								'Search'
+								'div',
+								{ className: 'col-xs-2 search' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'button',
+									{ type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' }),
+									' Search'
+								)
 							)
 						)
 					)
