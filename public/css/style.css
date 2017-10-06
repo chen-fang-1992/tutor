@@ -67,27 +67,27 @@ body {
 	text-align: center;
 }
 
-.content.home .us-bar {
+.content.home .intro-bar {
 	padding-top: 275px;
 	text-align: center;
 }
 
-.content.home .us-bar .title h1 {
+.content.home .intro-bar .title h1 {
 	font-size: 40px;
 	color: #000000;
 	margin-bottom: 30px;
 }
 
-.content.home .us-bar .subtitle img {
+.content.home .intro-bar .subtitle img {
 	filter: opacity(30%);
 }
 
-.content.home .us-bar .subtitle h1 {
+.content.home .intro-bar .subtitle h1 {
 	font-size: 20px;
 	color: #000000;
 }
 
-.content.home .us-bar .subtitle p {
+.content.home .intro-bar .subtitle p {
 	font-size: 20px;
 	color: #636B6F;
 }

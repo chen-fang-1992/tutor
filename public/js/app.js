@@ -10256,12 +10256,12 @@ module.exports = __webpack_require__(229);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Header__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Footer__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Register__ = __webpack_require__(247);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Profile__ = __webpack_require__(248);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_layout_Header__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_layout_Footer__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_content_Home__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_content_Register__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_content_Profile__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_content_Login__ = __webpack_require__(255);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -41008,132 +41008,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 117 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_logo_png__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-var Header = function (_Component) {
-	_inherits(Header, _Component);
-
-	function Header(props) {
-		_classCallCheck(this, Header);
-
-		return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
-	}
-
-	_createClass(Header, [{
-		key: 'render',
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'nav',
-				{ className: 'navbar navbar-static-top', role: 'navigation' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'container navigation-bar' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'navbar-header' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'a',
-							{ className: 'logo', href: '/' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default.a })
-						)
-					),
-					this.auth
-				)
-			);
-		}
-	}, {
-		key: 'auth',
-		get: function get() {
-			if (document.getElementById('header').getAttribute('auth') == "true") {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'ul',
-						{ className: 'nav navbar-nav navbar-right' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'li',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ className: 'register nav-btn', href: '/user/profile' },
-								'My Profile'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'li',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ className: 'login nav-btn', href: '/user/logout' },
-								'Log Out'
-							)
-						)
-					)
-				);
-			} else {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'ul',
-						{ className: 'nav navbar-nav navbar-right' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'li',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ className: 'register nav-btn', href: '/user/register' },
-								'Become a Tutor'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'li',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ className: 'login nav-btn', href: '/user/login' },
-								'Login'
-							)
-						)
-					)
-				);
-			}
-		}
-	}]);
-
-	return Header;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-/* unused harmony default export */ var _unused_webpack_default_export = (Header);
-
-
-if (document.getElementById('header')) {
-	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Header, null), document.getElementById('header'));
-}
-
-/***/ }),
+/* 117 */,
 /* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -53552,7 +53427,209 @@ module.exports = ReactDOMInvalidARIAHook;
 
 /***/ }),
 /* 218 */,
-/* 219 */
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/home_bg.jpeg?0d3b61cdc4f472826f94b91f041e436c";
+
+/***/ }),
+/* 240 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/question.png?336d5280a4b8a45299ccf027042e4cc7";
+
+/***/ }),
+/* 241 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/wanted.png?6a6824ded1269e8e560b341f18223b36";
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/become.png?3298f4e654a301bf3e1d6e932dc6e143";
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Malik.jpg?c827808f529e894a88704da6bc000a65";
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Libby.jpg?96d2a88adfd4b61d1a568d6514adf0c7";
+
+/***/ }),
+/* 245 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Joe.jpg?8d248371f1ef476964c946582fa4ded1";
+
+/***/ }),
+/* 246 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/logo.png?83ac404e7c42261be54e4be344999091";
+
+/***/ }),
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_logo_png__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var Header = function (_Component) {
+	_inherits(Header, _Component);
+
+	function Header(props) {
+		_classCallCheck(this, Header);
+
+		return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+	}
+
+	_createClass(Header, [{
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'nav',
+				{ className: 'navbar navbar-static-top', role: 'navigation' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'container navigation-bar' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'navbar-header' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'a',
+							{ className: 'logo', href: '/' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default.a })
+						)
+					),
+					this.auth
+				)
+			);
+		}
+	}, {
+		key: 'auth',
+		get: function get() {
+			if (document.getElementById('header').getAttribute('auth') == "true") {
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					null,
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'ul',
+						{ className: 'nav navbar-nav navbar-right' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'li',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'a',
+								{ className: 'register nav-btn', href: '/user/profile' },
+								'My Profile'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'li',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'a',
+								{ className: 'login nav-btn', href: '/user/logout' },
+								'Log Out'
+							)
+						)
+					)
+				);
+			} else {
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					null,
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'ul',
+						{ className: 'nav navbar-nav navbar-right' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'li',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'a',
+								{ className: 'register nav-btn', href: '/user/register' },
+								'Become a Tutor'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'li',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'a',
+								{ className: 'login nav-btn', href: '/user/login' },
+								'Login'
+							)
+						)
+					)
+				);
+			}
+		}
+	}]);
+
+	return Header;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* unused harmony default export */ var _unused_webpack_default_export = (Header);
+
+
+if (document.getElementById('header')) {
+	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Header, null), document.getElementById('header'));
+}
+
+/***/ }),
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53754,7 +53831,7 @@ if (document.getElementById('footer')) {
 }
 
 /***/ }),
-/* 220 */
+/* 252 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53764,18 +53841,9 @@ if (document.getElementById('footer')) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg__ = __webpack_require__(239);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_question_png__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_question_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__public_img_question_png__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_wanted_png__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_wanted_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__public_img_wanted_png__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__public_img_become_png__ = __webpack_require__(242);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__public_img_become_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__public_img_become_png__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__public_img_Malik_jpg__ = __webpack_require__(243);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__public_img_Malik_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__public_img_Malik_jpg__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__public_img_Libby_jpg__ = __webpack_require__(244);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__public_img_Libby_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__public_img_Libby_jpg__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__public_img_Joe_jpg__ = __webpack_require__(245);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__public_img_Joe_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__public_img_Joe_jpg__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_HomeSearchBar__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_HomeIntroBar__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_HomeTestimonials__ = __webpack_require__(261);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -53783,8 +53851,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
 
 
 
@@ -53811,357 +53877,9 @@ var Home = function (_Component) {
 				'div',
 				{ className: 'content home' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'background', style: { backgroundImage: "url(" + __WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg___default.a + ")" } }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'container search-bar' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'h1',
-						null,
-						'Find A Native Language Tutor Near You'
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'row' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-10 col-xs-offset-1' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'col-xs-3' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'dropdown' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'button',
-										{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											{ className: 'placeholder' },
-											'English'
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'ul',
-										{ className: 'dropdown-menu', role: 'menu' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '0' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'English'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '1' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Chinese'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '2' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'French'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '3' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Germany'
-											)
-										)
-									)
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'col-xs-3' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'dropdown' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'button',
-										{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											{ className: 'placeholder' },
-											'When?'
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'ul',
-										{ className: 'dropdown-menu', role: 'menu' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '0' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Monday'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '1' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Tuesday'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '2' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Wednesday'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '3' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Thursday'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '4' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Friday'
-											)
-										)
-									)
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'col-xs-3' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'dropdown' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'button',
-										{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											{ className: 'placeholder' },
-											'Price'
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'ul',
-										{ className: 'dropdown-menu', role: 'menu' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '0' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Price'
-											)
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'li',
-											{ value: '1' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'a',
-												{ className: 'btn btn-link' },
-												'Rating'
-											)
-										)
-									)
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'col-xs-3' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'button',
-									{ type: 'button', className: 'btn btn-success' },
-									'Search'
-								)
-							)
-						)
-					)
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'container us-bar' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'row title' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h1',
-							null,
-							'Connecting People with Private Language Tutors'
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'row subtitle' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-4' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__public_img_question_png___default.a }),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'h1',
-								null,
-								'What is TUTOR?'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								null,
-								'TUTOR is a marketplace connecting students with qualified tutors nearby. TUTOR benefits both students and tutors as students can now easily find a great tutor who matches their availabilities and location for private classNamees, while tutors can expand their businesses, staying organized and focused.'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-4' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_4__public_img_wanted_png___default.a }),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'h1',
-								null,
-								'On Demand Tutors'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								null,
-								'Search and hire nearby language tutors now with TUTOR. Once you\u2019ve selected the tutor you want to inquire about, we will contact you back on WhatsApp and introduce you to your preferred private native tutor so you can meet up!'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'col-xs-4' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_5__public_img_become_png___default.a }),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'h1',
-								null,
-								'Become a Tutor?'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								null,
-								'With TUTOR, you choose your hours and the students pay you directly. We keep it simple, fast and free to help you find nearby students who match your availabilities. TUTOR has students and teachers in Hong Kong, Singapore, Sydney, Melbourne, Dubai, Taiwan and Cape Town. Contact us now!'
-							)
-						)
-					)
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'container-fluid testimonials' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'row title' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h1',
-							null,
-							'Testimonials from our native tutors'
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ id: 'testCarousel', className: 'carousel slide' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'carousel-inner' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'active item' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_6__public_img_Malik_jpg___default.a }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-para' },
-									'\u201CI am an experienced French tutor and have worked with TUTOR for nearly one year. TUTOR has been helping me to find students, each with different goals, levels and age. Thank you TUTOR!\u201D'
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-name' },
-									'Malik'
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-title' },
-									'Native French Teacher'
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'item' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_7__public_img_Libby_jpg___default.a }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-para' },
-									'\u201CI am a native English speaker and TUTOR has been such a useful and easy way to connect with students. They do a wonderful job connecting you with students who best match your schedule had plenty of opportunities made aware quickly. I would strongly recommend them to those students looking to learn another language or to teach!\u201D'
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-name' },
-									'Libby'
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-title' },
-									'Native English Teacher'
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'item' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_8__public_img_Joe_jpg___default.a }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-para' },
-									'\u201CTUTOR is a great organization that helps us English teachers find opportunities to practice our craft with quick and direct referrals, communication and assistance. I highly recommend you give TUTOR a shot and in no time you\'ll have a great group of students which are a pleasure to teach.\u201D'
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-name' },
-									'Joe'
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'p',
-									{ className: 'carousel-title' },
-									'Native English Teacher'
-								)
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'ol',
-							{ className: 'carousel-indicators' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '0', className: 'active' }),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '1' }),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '2' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'a',
-							{ className: 'carousel-control left', href: '#testCarousel', 'data-slide': 'prev' },
-							'\u2039'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'a',
-							{ className: 'carousel-control right', href: '#testCarousel', 'data-slide': 'next' },
-							'\u203A'
-						)
-					)
-				)
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_HomeSearchBar__["a" /* default */], null),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__home_HomeIntroBar__["a" /* default */], null),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__home_HomeTestimonials__["a" /* default */], null)
 			);
 		}
 	}]);
@@ -54177,78 +53895,7 @@ if (document.getElementById('home')) {
 }
 
 /***/ }),
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/home_bg.jpeg?0d3b61cdc4f472826f94b91f041e436c";
-
-/***/ }),
-/* 240 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/question.png?336d5280a4b8a45299ccf027042e4cc7";
-
-/***/ }),
-/* 241 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/wanted.png?6a6824ded1269e8e560b341f18223b36";
-
-/***/ }),
-/* 242 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/become.png?3298f4e654a301bf3e1d6e932dc6e143";
-
-/***/ }),
-/* 243 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Malik.jpg?c827808f529e894a88704da6bc000a65";
-
-/***/ }),
-/* 244 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Libby.jpg?96d2a88adfd4b61d1a568d6514adf0c7";
-
-/***/ }),
-/* 245 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Joe.jpg?8d248371f1ef476964c946582fa4ded1";
-
-/***/ }),
-/* 246 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/logo.png?83ac404e7c42261be54e4be344999091";
-
-/***/ }),
-/* 247 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54490,7 +54137,7 @@ if (document.getElementById('register')) {
 }
 
 /***/ }),
-/* 248 */
+/* 254 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54816,7 +54463,7 @@ if (document.getElementById('profile')) {
 }
 
 /***/ }),
-/* 249 */
+/* 255 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54951,6 +54598,516 @@ var Login = function (_Component) {
 
 if (document.getElementById('login')) {
 	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Login, null), document.getElementById('login'));
+}
+
+/***/ }),
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var HomeSearchBar = function (_Component) {
+	_inherits(HomeSearchBar, _Component);
+
+	function HomeSearchBar() {
+		_classCallCheck(this, HomeSearchBar);
+
+		return _possibleConstructorReturn(this, (HomeSearchBar.__proto__ || Object.getPrototypeOf(HomeSearchBar)).apply(this, arguments));
+	}
+
+	_createClass(HomeSearchBar, [{
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container search-bar' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'row' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h1',
+						null,
+						'Find A Native Language Tutor Near You'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col-xs-10 col-xs-offset-1' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'col-xs-3' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'dropdown' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'button',
+									{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'span',
+										{ className: 'placeholder' },
+										'English'
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'ul',
+									{ className: 'dropdown-menu', role: 'menu' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '0' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'English'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '1' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Chinese'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '2' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'French'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '3' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Germany'
+										)
+									)
+								)
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'col-xs-3' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'dropdown' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'button',
+									{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'span',
+										{ className: 'placeholder' },
+										'When?'
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'ul',
+									{ className: 'dropdown-menu', role: 'menu' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '0' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Monday'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '1' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Tuesday'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '2' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Wednesday'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '3' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Thursday'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '4' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Friday'
+										)
+									)
+								)
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'col-xs-3' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'dropdown' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'button',
+									{ type: 'button', className: 'btn dropdown-toggle', 'data-toggle': 'dropdown' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'span',
+										{ className: 'placeholder' },
+										'Price'
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'caret' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'ul',
+									{ className: 'dropdown-menu', role: 'menu' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '0' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Price'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'li',
+										{ value: '1' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'a',
+											{ className: 'btn btn-link' },
+											'Rating'
+										)
+									)
+								)
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'col-xs-3' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'button',
+								{ type: 'button', className: 'btn btn-success' },
+								'Search'
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return HomeSearchBar;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (HomeSearchBar);
+
+
+if (document.getElementById('home-search-bar')) {
+	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HomeSearchBar, null), document.getElementById('home-search-bar'));
+}
+
+/***/ }),
+/* 260 */,
+/* 261 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_Malik_jpg__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_Malik_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_Malik_jpg__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_Libby_jpg__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_Libby_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__public_img_Libby_jpg__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_Joe_jpg__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_Joe_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__public_img_Joe_jpg__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+var HomeTestimonials = function (_Component) {
+	_inherits(HomeTestimonials, _Component);
+
+	function HomeTestimonials() {
+		_classCallCheck(this, HomeTestimonials);
+
+		return _possibleConstructorReturn(this, (HomeTestimonials.__proto__ || Object.getPrototypeOf(HomeTestimonials)).apply(this, arguments));
+	}
+
+	_createClass(HomeTestimonials, [{
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container-fluid testimonials' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'row title' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h1',
+						null,
+						'Testimonials from our native tutors'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ id: 'testCarousel', className: 'carousel slide' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'carousel-inner' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'active item' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_Malik_jpg___default.a }),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-para' },
+								'\u201CI am an experienced French tutor and have worked with TUTOR for nearly one year. TUTOR has been helping me to find students, each with different goals, levels and age. Thank you TUTOR!\u201D'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-name' },
+								'Malik'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-title' },
+								'Native French Teacher'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'item' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__public_img_Libby_jpg___default.a }),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-para' },
+								'\u201CI am a native English speaker and TUTOR has been such a useful and easy way to connect with students. They do a wonderful job connecting you with students who best match your schedule had plenty of opportunities made aware quickly. I would strongly recommend them to those students looking to learn another language or to teach!\u201D'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-name' },
+								'Libby'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-title' },
+								'Native English Teacher'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'item' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_4__public_img_Joe_jpg___default.a }),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-para' },
+								'\u201CTUTOR is a great organization that helps us English teachers find opportunities to practice our craft with quick and direct referrals, communication and assistance. I highly recommend you give TUTOR a shot and in no time you\'ll have a great group of students which are a pleasure to teach.\u201D'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-name' },
+								'Joe'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'carousel-title' },
+								'Native English Teacher'
+							)
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'ol',
+						{ className: 'carousel-indicators' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '0', className: 'active' }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '1' }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '2' })
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'a',
+						{ className: 'carousel-control left', href: '#testCarousel', 'data-slide': 'prev' },
+						'\u2039'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'a',
+						{ className: 'carousel-control right', href: '#testCarousel', 'data-slide': 'next' },
+						'\u203A'
+					)
+				)
+			);
+		}
+	}]);
+
+	return HomeTestimonials;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (HomeTestimonials);
+
+
+if (document.getElementById('home-testimonials')) {
+	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HomeTestimonials, null), document.getElementById('home-testimonials'));
+}
+
+/***/ }),
+/* 262 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_question_png__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_question_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_question_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_wanted_png__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_wanted_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__public_img_wanted_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_become_png__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_become_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__public_img_become_png__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+var HomeIntroBar = function (_Component) {
+	_inherits(HomeIntroBar, _Component);
+
+	function HomeIntroBar() {
+		_classCallCheck(this, HomeIntroBar);
+
+		return _possibleConstructorReturn(this, (HomeIntroBar.__proto__ || Object.getPrototypeOf(HomeIntroBar)).apply(this, arguments));
+	}
+
+	_createClass(HomeIntroBar, [{
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container intro-bar' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'row title' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h1',
+						null,
+						'Connecting People with Private Language Tutors'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'row subtitle' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col-xs-4' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_question_png___default.a }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'h1',
+							null,
+							'What is TUTOR?'
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							null,
+							'TUTOR is a marketplace connecting students with qualified tutors nearby. TUTOR benefits both students and tutors as students can now easily find a great tutor who matches their availabilities and location for private classNamees, while tutors can expand their businesses, staying organized and focused.'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col-xs-4' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__public_img_wanted_png___default.a }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'h1',
+							null,
+							'On Demand Tutors'
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							null,
+							'Search and hire nearby language tutors now with TUTOR. Once you\u2019ve selected the tutor you want to inquire about, we will contact you back on WhatsApp and introduce you to your preferred private native tutor so you can meet up!'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col-xs-4' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_4__public_img_become_png___default.a }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'h1',
+							null,
+							'Become a Tutor?'
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							null,
+							'With TUTOR, you choose your hours and the students pay you directly. We keep it simple, fast and free to help you find nearby students who match your availabilities. TUTOR has students and teachers in Hong Kong, Singapore, Sydney, Melbourne, Dubai, Taiwan and Cape Town. Contact us now!'
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return HomeIntroBar;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (HomeIntroBar);
+
+
+if (document.getElementById('home-intro-bar')) {
+	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HomeIntroBar, null), document.getElementById('home-intro-bar'));
 }
 
 /***/ })
