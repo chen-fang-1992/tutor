@@ -14,20 +14,24 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Profile::class, function (Faker $faker) {
-    return [
-        'user_id' =>  function () {
-             return factory(App\User::class)->create()->id;
-        },
-		'firstName' => str_random(10),
-		'lastName' => str_random(10),
-		'number' => str_random(10),
-		'country' => str_random(10),
-		'language' => 'Germany',
-		'city' => str_random(10),
-		'location' => str_random(10),
-		'availability' => 1111,
-		'currency' => str_random(10),
-		'price' => 100,
-		'about' => str_random(10)
-    ];
+	$firstname = str_random(5);
+	$lastname = str_random(5);
+	$fullname = $firstname . ' ' . $lastname;
+	$language = array ('English','Chinese','French', 'Germany');
+
+	return [
+		'firstName' => $firstname,
+		'lastName' => $lastname,
+		'user_id' => factory(App\User::class)
+			->create([ 'name' => $fullname ])->id,
+		'number' => $faker->e164PhoneNumber,
+		'country' => $faker->country,
+		'language' => $faker->randomElement($language),
+		'city' => 'Sydney',
+		'location' => $faker->address,
+		'availability' => random_int(1, 15),
+		'currency' => 'AUS',
+		'price' => random_int(40, 100),
+		'about' => 'nothing'
+	];
 });
