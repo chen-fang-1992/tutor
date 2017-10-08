@@ -36,7 +36,7 @@ body {
 	color: #FFFFFF;
 }
 
-.header.other .navigation-bar .nav-btn {
+.header.user .navigation-bar .nav-btn {
 	color: #3399FF;
 }
 
@@ -222,22 +222,23 @@ body {
 	width: 10%;
 }
 
-.content.other {
+
+.content.user {
 	background-color: #DBE0E6;
 }
 
-.content.other .container h1 {
+.content.user .container h1 {
 	margin-top: 50px;
 	margin-bottom: 20px;
 	color: #000000;
 }
 
-.content.other .container p {
+.content.user .container p {
 	font-size: 20px;
 	color: #636B6F;
 }
 
-.content.other .container form {
+.content.user .container form {
 	background: #F6F6F6;
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -245,18 +246,18 @@ body {
 	border-radius: 15px;
 }
 
-.content.other .container form h1 {
+.content.user .container form h1 {
 	margin-top: 20px;
 	margin-bottom: 0px;
 	font-size: 25px;
 }
 
-.content.other .container form label {
+.content.user .container form label {
 	font-size: 20px;
 	color: #000000;
 }
 
-.content.other .container form button {
+.content.user .container form button {
 	border-radius: 10px;
 	padding: 10px 30px;
 	font-weight: bold;
@@ -264,7 +265,7 @@ body {
 	margin: 0 auto;
 }
 
-.content.other .container .dropdown button {
+.content.user .container .dropdown button {
 	width: 100%;
 	text-align: left;
 	background-color: #FFFFFF;
@@ -273,25 +274,77 @@ body {
 	padding: 6px 12px;
 }
 
-.content.other .container .dropdown button span {
+.content.user .container .dropdown button span {
 	color: #555555;
 	font-size: 14px;
 	font-weight: lighter;
 }
 
-.content.other .container .dropdown .fa {
+.content.user .container .dropdown .fa {
 	position: absolute;
 	right: 15px;
 	margin-top: 5px;
 }
 
-.content.other .container form textarea {
+.content.user .container form textarea {
 	margin-top: 10px;
 }
 
-.content.other .container form span {
+.content.user .container form span {
 	font-weight: bold;
 	color: #000000;
+}
+
+
+.content.tutor .search-bar {
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-bottom: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.content.tutor .search-bar h1 {
+	font-size: 50px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.content.tutor .search-bar form {
+	padding: 10px 0 52px;
+	margin: 0 20px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+}
+
+.content.tutor .search-bar .dropdown-toggle {
+	width: 140px;
+	text-align: left;
+	background-color: #FFFFFF;
+	font-size: 18px;
+}
+
+.content.tutor .search-bar .dropdown-toggle i {
+	position: absolute;
+	right: -5px;
+	margin-top: 5px;
+}
+
+.content.tutor .search-bar .form-group input {
+	width: 290px;
+	height: 42px;
+	font-size: 18px;
+}
+
+.content.tutor .search-bar .form-group i {
+	position: absolute;
+	right: 5px;
+	margin-top: -28px;
+}
+
+.content.tutor .search-bar .search button {
+	width: 120px;
+	font-size: 18px;
 }
 
 

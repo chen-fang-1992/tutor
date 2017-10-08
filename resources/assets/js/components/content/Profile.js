@@ -7,8 +7,8 @@ export default class Profile extends Component {
 		super(props);
 
 		this.state = {
-			firstName: '',
-			lastName: '',
+			firstname: '',
+			lastname: '',
 			nameError: '',
 			number: '',
 			country: '',
@@ -25,32 +25,32 @@ export default class Profile extends Component {
 			about: ''
 		};
 
-		this.handleFirstName = (e) => {
-			var firstName = e.target.value;
-			var fullName = firstName + ' ' + this.state.lastName;
+		this.handleFirstname = (e) => {
+			var firstname = e.target.value;
+			var fullname = firstname + ' ' + this.state.lastname;
 			var nameError = '';
-			if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct name';
 			} else {
 				nameError = '';
 			}
 			this.setState({
-				firstName: firstName,
+				firstname: firstname,
 				nameError: nameError
 			});
 		}
 
-		this.handleLastName = (e) => {
-			var lastName = e.target.value;
-			var fullName = this.state.firstName + ' ' + lastName;
+		this.handleLastname = (e) => {
+			var lastname = e.target.value;
+			var fullname = this.state.firstname + ' ' + lastname;
 			var nameError = '';
-			if (fullName.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct Email';
 			} else {
 				nameError = '';
 			}
 			this.setState({
-				lastName: lastName,
+				lastname: lastname,
 				nameError: nameError
 			});
 		}
@@ -118,20 +118,20 @@ export default class Profile extends Component {
 			if (this.state.mornings)
 				availability += 1;
 			if (this.state.afternoons)
-				availability += 10;
+				availability += 2;
 			if (this.state.evenings)
-				availability += 100;
+				availability += 4;
 			if (this.state.weekends)
-				availability += 1000;
+				availability += 8;
 			this.setState({availability: availability});
 		}
 	}
 
 	componentDidMount () {
-		axios.get("/user/profile/detail").then(response => {
+		axios.get('/user/profile/detail').then(response => {
 			this.setState({
-				firstName: response.data.firstname ? response.data.firstname : '',
-				lastName: response.data.lastname ? response.data.lastname : '',
+				firstname: response.data.firstname ? response.data.firstname : '',
+				lastname: response.data.lastname ? response.data.lastname : '',
 				number: response.data.number ? response.data.number : '',
 				country: response.data.country ? response.data.country : '',
 				language: response.data.language ? response.data.language : 'English',
@@ -139,10 +139,10 @@ export default class Profile extends Component {
 				location: response.data.location ? response.data.location : '',
 				currency: response.data.currency ? response.data.currency : '',
 				price: response.data.price ? response.data.price : '',
-				mornings: response.data.availability ? response.data.availability % 10 == 1 : false,
-				afternoons: response.data.availability ? response.data.availability  % 100 >= 10 : false,
-				evenings: response.data.availability ? response.data.availability % 1000 >= 100 : false,
-				weekends: response.data.availability ? response.data.availability % 10000 >= 1000 : false,
+				mornings: response.data.availability ? response.data.availability % 2 == 1 : false,
+				afternoons: response.data.availability ? response.data.availability  % 4 >= 2 : false,
+				evenings: response.data.availability ? response.data.availability % 8 >= 4 : false,
+				weekends: response.data.availability ? response.data.availability % 16 >= 8 : false,
 				about: response.data.about ? response.data.about : ''
 			});
 		});
@@ -150,7 +150,7 @@ export default class Profile extends Component {
 
 	render() {
 		return (
-			<div className="content other">
+			<div className="content user">
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
@@ -159,15 +159,15 @@ export default class Profile extends Component {
 								<h1><i className="fa fa-user-circle" aria-hidden="true"></i> Personal Info</h1>
 								<div className="row">
 									<div className="col-xs-6">
-										<label htmlFor="firstName">First Name</label>
+										<label htmlFor="firstname">First Name</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.firstName} onChange={this.handleFirstName} name="firstname" />
+											<input type="text" className="form-control" value={this.state.firstname} onChange={this.handleFirstname} name="firstname" />
 										</div>
 									</div>
 									<div className="col-xs-6">
-										<label htmlFor="lastName">Last Name</label>
+										<label htmlFor="lastname">Last Name</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.lastName} onChange={this.handleLastName} name="lastname" />
+											<input type="text" className="form-control" value={this.state.lastname} onChange={this.handleLastname} name="lastname" />
 										</div>
 									</div>
 								</div>

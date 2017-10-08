@@ -24,7 +24,7 @@ export default class Login extends Component {
 
 	render() {
 		return (
-			<div className="content other">
+			<div className="content user">
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">

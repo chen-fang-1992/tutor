@@ -13,10 +13,4 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-
-import Home from './components/content/Home';
-import Register from './components/content/Register';
-import Profile from './components/content/Profile';
-import Login from './components/content/Login';
+import App from './components/App';

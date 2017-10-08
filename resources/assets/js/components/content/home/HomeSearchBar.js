@@ -13,13 +13,101 @@ export default class HomeSearchBar extends Component {
 		};
 
 		this.handleLanguage = (e) => {
-			this.setState({language: e.target.value});
 			e.preventDefault();
+			this.setState({language: e.target.value});
 		}
 
 		this.handleAvailability = (e) => {
-			this.setState({availability: e.target.value});
 			e.preventDefault();
+			var availability = this.state.availability;
+
+			if (e.target.value == 'Mornings') {
+				if (availability.indexOf('M') == 0) {
+					availability = availability.replace('M', '');
+					availability = availability.replace(' ','');
+				} else {
+					if (availability == 'When?') {
+						availability = 'M';
+					} else {
+						availability = 'M ' + availability;
+					}
+				}
+			}
+
+			if (e.target.value == 'Afternoons') {
+				if (availability.indexOf('A') > -1) {
+					availability = availability.replace('A', '');
+					availability = availability.replace(' ','');
+				} else {
+					if (availability == 'When?') {
+						availability = 'A';
+					} else {
+						if (availability.indexOf('M') == 0) {
+							if (availability.length > 1) {
+								availability = availability.replace(' ', ' A ');
+							} else {
+								availability += ' A';
+							}
+						} else {
+							availability = 'A ' + availability;
+						}
+					}
+				}
+			}
+
+			if (e.target.value == 'Evenings') {
+				if (availability.indexOf('E') > -1) {
+					if (availability.indexOf('E') == 0) {
+						availability = availability.replace('E', '');
+						availability = availability.replace(' ', '');
+					} else {
+						availability = availability.replace(' E', '');
+					}
+				} else {
+					if (availability == 'When?') {
+						availability = 'E';
+					} else {
+						if ((availability.indexOf('M') == 0 || availability.indexOf('A') == 0)) {
+							if (availability.length > 1) {
+								if (availability.indexOf('A') != 2) {
+									availability = availability.replace(' ', ' E ');
+								} else {
+									if (availability == 'M A W') {
+										availability = 'M A E W';
+									} else {
+										availability += ' E';
+									}
+								}
+							} else {
+								availability += ' E';
+							}
+						} else {
+							availability = 'E ' + availability;
+						}
+					}
+				}
+			}
+
+			if (e.target.value == 'Weekends') {
+				if (availability.indexOf('W') > -1 && availability.indexOf('e') == -1) {
+					if (availability.indexOf('W') == 0) {
+						availability = availability.replace('W', '');
+					} else {
+						availability = availability.replace(' W', '');
+					}
+				} else {
+					if (availability == 'When?') {
+						availability = 'W';
+					} else {
+						availability += ' W';
+					}
+				}
+			}
+
+			if (availability.length == 0)
+				availability = 'When?';
+
+			this.setState({availability: availability});
 		}
 
 		this.handleLocation = (e) => {
@@ -27,13 +115,11 @@ export default class HomeSearchBar extends Component {
 		}
 
 		this.handleFilter = (e) => {
-			this.setState({filter: e.target.value});
 			e.preventDefault();
+			this.setState({filter: e.target.value});
 		}
 
 		this.handleSubmit = (e) => {
-			if (this.state.availability == 'When?')
-				this.setState({availability: 'anytime'});
 		}
 	}
 

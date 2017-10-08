@@ -106,7 +106,7 @@ export default class Register extends Component {
 
 	render() {
 		return (
-			<div className="content other">
+			<div className="content user">
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-8">

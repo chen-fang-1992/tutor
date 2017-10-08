@@ -9,7 +9,7 @@ export default class Header extends Component {
 	}
 
 	get auth () {
-		if (document.getElementById('header').getAttribute('auth') == "true") {
+		if (this.props.auth == 'true') {
 			return (
 				<div>
 					<ul className="nav navbar-nav navbar-right">
@@ -32,14 +32,16 @@ export default class Header extends Component {
 
 	render() {
 		return (
-			<nav className="navbar navbar-static-top" role="navigation">
-				<div className="container navigation-bar">
-					<div className="navbar-header">
-						<a className="logo" href="/"><img src={logo}/></a>
+			<div className={this.props.header}>
+				<nav className="navbar navbar-static-top" role="navigation">
+					<div className="container navigation-bar">
+						<div className="navbar-header">
+							<a className="logo" href="/"><img src={logo}/></a>
+						</div>
+						{this.auth}
 					</div>
-					{this.auth}
-				</div>
-			</nav>
+				</nav>
+			</div>
 		);
 	}
 }

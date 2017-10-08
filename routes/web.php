@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'MainController@index');
+Route::get('/home', 'MainController@index');
+Route::get('/tutor', 'MainController@search');
+Route::get('/tutor/detail', 'MainController@show');
 
 Route::group(['prefix' => 'user'], function() {
 	Route::get('login', 'UserController@login');

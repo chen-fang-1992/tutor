@@ -14,9 +14,7 @@
 			<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
 	</head>
 	<body>
-		<div id="header" class="header {{ $content=='home' ? 'home' : 'other' }}" auth="{{ $auth }}"></div>
-		<div id="{{ $content }}"></div>
-		<div id="footer" class="footer"></div>
+		<div id="app" data-auth="{{ $auth }}" data-content="{{ $content }}" data-tutors="{{ $tutors }}"></div>
 	<body>
 	<!-- Scripts -->
 	<script src="{{ URL::asset('js/app.js') }}"></script>
