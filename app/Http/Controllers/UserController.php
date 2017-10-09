@@ -84,18 +84,17 @@ class UserController extends Controller
 		$profile->price = Input::get('price');
 		$profile->about = Input::get('about');
 		$user->name = $profile->firstname . ' ' . $profile->lastname;
-		 
 		$picture = Input::get('picture');
 
-
+		// decode base64
 		preg_match('/^(data:\s*image\/(\w+);base64,)/', $picture, $result);
 		$img = base64_decode(str_replace($result[1], '', $picture));
-		$file = $profile->firstname . '_' . $profile->lastname . '.' . $result[2];
-		$storepath = getcwd() . "\\img\\" . $file;
+		// store path and load path
+		$loadpath = "/img/" . $profile->firstname . '_' . $profile->lastname . '.' . $result[2];
+		$storepath = getcwd() . $loadpath;
+		// store file and path
 		file_put_contents($storepath, $img);
-
-		$profile->picture = "/img/" . $file;
-		//$profile->picture = substr($picture, 0, 10);
+		$profile->picture = $loadpath;
 
 		if ($profile->save() && $user->save())
 			return redirect('/user/profile');
