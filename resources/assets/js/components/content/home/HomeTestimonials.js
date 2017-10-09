@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import Malik from '../../../../../../public/img/Malik.jpg';
-import Libby from '../../../../../../public/img/Libby.jpg';
-import Joe from '../../../../../../public/img/Joe.jpg';
+import Malik from '~/public/img/Malik.jpg';
+import Libby from '~/public/img/Libby.jpg';
+import Joe from '~/public/img/Joe.jpg';
 
 export default class HomeTestimonials extends Component {
 	render() {
