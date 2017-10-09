@@ -23,25 +23,23 @@ export default class Profile extends Component {
 			weekends: false,
 			availability: 0,
 			about: '',
-
-
-			picture: '',
-			pictureURL: '/images/default.png'
+			picture: '/img/default.png',
+			file: ''
 		};
 
 		this.handlePicture = (e) => {
 			e.preventDefault();
 
 			var reader = new FileReader();
-			var picture = e.target.files[0];
+			var file = e.target.files[0];
 
 			reader.onloadend = () => {
 				this.setState({
-					picture: picture,
-					pictureURL: reader.result
+					file: file,
+					picture: reader.result
 				});
 			}
-			reader.readAsDataURL(picture);
+			reader.readAsDataURL(file);
 		}
 
 		this.handleFirstname = (e) => {
@@ -158,7 +156,8 @@ export default class Profile extends Component {
 				afternoons: response.data.availability ? response.data.availability  % 4 >= 2 : false,
 				evenings: response.data.availability ? response.data.availability % 8 >= 4 : false,
 				weekends: response.data.availability ? response.data.availability % 16 >= 8 : false,
-				about: response.data.about ? response.data.about : ''
+				about: response.data.about ? response.data.about : '',
+				picture: response.data.picture ? response.data.picture : '/img/default.png'
 			});
 		});
 	}
@@ -173,7 +172,7 @@ export default class Profile extends Component {
 							<form action="/user/profile" method="POST" role="form" noValidate>
 								<div className="row">
 									<div className="col-xs-4 col-xs-offset-4">
-										<img src={this.state.pictureURL}/>
+										<img src={this.state.picture}/>
 										<div className="form-group">
 											<input type="file" className="fileupload" onChange={this.handlePicture} />
 											<div className="btn btn-primary btn-fake">Upload your picture</div>
@@ -277,12 +276,6 @@ export default class Profile extends Component {
 											<input type="checkbox" checked={this.state.weekends} onChange={this.handleWeekends} value={this.state.weekends} /><span> Weekends</span>
 										</div>
 									</div>
-									<div className="col-xs-2">
-										<div className="form-group">
-											<input type="hidden" className="form-control" value={this.state.availability} name="availability" />
-											<input type="hidden" className="form-control" value={this.state.language} name="language" />
-										</div>
-									</div>
 								</div>
 								<h1><i className="fa fa-info-circle" aria-hidden="true"></i> About Me</h1>
 								<div className="row">
@@ -296,6 +289,9 @@ export default class Profile extends Component {
 									<div className="col-xs-12">
 										<div className="form-group">
 											<button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>SUBMIT YOUR PROFILE NOW</button>
+											<input type="hidden" className="form-control" value={this.state.picture} name="picture" />
+											<input type="hidden" className="form-control" value={this.state.language} name="language" />
+											<input type="hidden" className="form-control" value={this.state.availability} name="availability" />
 										</div>
 									</div>
 								</div>

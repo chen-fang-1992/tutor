@@ -32,9 +32,8 @@ class UserController extends Controller
 	public function register()
 	{
 		$user = Auth::user();
-		if ($user == null) {
+		if ($user == null)
 			return view('layouts/layout', ['content' => 'register', 'auth' => 'false', 'tutors' => '']);
-		}
 	}
 
 	/*
@@ -48,9 +47,8 @@ class UserController extends Controller
 		$profile->firstname = explode(" ", $user->name)[0];
 		$profile->lastname = explode(" ", $user->name)[1];
 
-		if ($profile->save()) {
+		if ($profile->save())
 			return redirect('/user/profile');
-		}
 	}
 
 	/*
@@ -85,12 +83,22 @@ class UserController extends Controller
 		$profile->currency = Input::get('currency');
 		$profile->price = Input::get('price');
 		$profile->about = Input::get('about');
-
 		$user->name = $profile->firstname . ' ' . $profile->lastname;
+		 
+		$picture = Input::get('picture');
 
-		if ($profile->save() && $user->save()) {
+
+		preg_match('/^(data:\s*image\/(\w+);base64,)/', $picture, $result);
+		$img = base64_decode(str_replace($result[1], '', $picture));
+		$file = $profile->firstname . '_' . $profile->lastname . '.' . $result[2];
+		$storepath = getcwd() . "\\img\\" . $file;
+		file_put_contents($storepath, $img);
+
+		$profile->picture = "/img/" . $file;
+		//$profile->picture = substr($picture, 0, 10);
+
+		if ($profile->save() && $user->save())
 			return redirect('/user/profile');
-		}
 	}
 
 	/*

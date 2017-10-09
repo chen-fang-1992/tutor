@@ -54866,24 +54866,23 @@ var Profile = function (_Component) {
 			weekends: false,
 			availability: 0,
 			about: '',
-
-			picture: '',
-			pictureURL: '/images/default.png'
+			picture: '/img/default.png',
+			file: ''
 		};
 
 		_this.handlePicture = function (e) {
 			e.preventDefault();
 
 			var reader = new FileReader();
-			var picture = e.target.files[0];
+			var file = e.target.files[0];
 
 			reader.onloadend = function () {
 				_this.setState({
-					picture: picture,
-					pictureURL: reader.result
+					file: file,
+					picture: reader.result
 				});
 			};
-			reader.readAsDataURL(picture);
+			reader.readAsDataURL(file);
 		};
 
 		_this.handleFirstname = function (e) {
@@ -55001,7 +55000,8 @@ var Profile = function (_Component) {
 					afternoons: response.data.availability ? response.data.availability % 4 >= 2 : false,
 					evenings: response.data.availability ? response.data.availability % 8 >= 4 : false,
 					weekends: response.data.availability ? response.data.availability % 16 >= 8 : false,
-					about: response.data.about ? response.data.about : ''
+					about: response.data.about ? response.data.about : '',
+					picture: response.data.picture ? response.data.picture : '/img/default.png'
 				});
 			});
 		}
@@ -55034,7 +55034,7 @@ var Profile = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'col-xs-4 col-xs-offset-4' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.state.pictureURL }),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.state.picture }),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
 											{ className: 'form-group' },
@@ -55318,16 +55318,6 @@ var Profile = function (_Component) {
 												' Weekends'
 											)
 										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'col-xs-2' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'div',
-											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.availability, name: 'availability' }),
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.language, name: 'language' })
-										)
 									)
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -55362,7 +55352,10 @@ var Profile = function (_Component) {
 												'button',
 												{ type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
 												'SUBMIT YOUR PROFILE NOW'
-											)
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.picture, name: 'picture' }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.language, name: 'language' }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.availability, name: 'availability' })
 										)
 									)
 								)
