@@ -10,14 +10,14 @@ export default class Footer extends Component {
 						<div className="col-xs-4">
 							<ul className="list-footer">
 								<li><a href="/user/register">Become a Tutor</a></li>
-								<li><a href="/faq-students">FAQ Students</a></li>
-								<li><a href="/faq-tutor">FAQ Tutor</a></li>
+								<li><a href="/">FAQ Students</a></li>
+								<li><a href="/">FAQ Tutor</a></li>
 							</ul>
 						</div>
 						<div className="col-xs-4">
 							<ul className="list-footer">
-								<li><a href="/terms">Terms and conditions</a></li>
-								<li><a href="/privacy">Privacy policy</a></li>
+								<li><a href="/">Terms and conditions</a></li>
+								<li><a href="/">Privacy policy</a></li>
 								<li className="social-footer">
 									<a href="#"><span><i className="fa fa-facebook" aria-hidden="true"></i></span></a>
 									<a href="#"><span><i className="fa fa-twitter" aria-hidden="true"></i></span></a>
@@ -27,8 +27,8 @@ export default class Footer extends Component {
 						</div>
 						<div className="col-xs-4">
 							<ul className="list-footer">
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="tel:+12-3456-7890">+12 3456 7890</a></li>
+								<li><a href="/">Contact Us</a></li>
+								<li><a href="/">+12 3456 7890</a></li>
 							</ul>
 						</div>
 					</div>

@@ -53690,7 +53690,7 @@ var Footer = function (_Component) {
 									null,
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'a',
-										{ href: '/faq-students' },
+										{ href: '/' },
 										'FAQ Students'
 									)
 								),
@@ -53699,7 +53699,7 @@ var Footer = function (_Component) {
 									null,
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'a',
-										{ href: '/faq-tutor' },
+										{ href: '/' },
 										'FAQ Tutor'
 									)
 								)
@@ -53716,7 +53716,7 @@ var Footer = function (_Component) {
 									null,
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'a',
-										{ href: '/terms' },
+										{ href: '/' },
 										'Terms and conditions'
 									)
 								),
@@ -53725,7 +53725,7 @@ var Footer = function (_Component) {
 									null,
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'a',
-										{ href: '/privacy' },
+										{ href: '/' },
 										'Privacy policy'
 									)
 								),
@@ -53773,7 +53773,7 @@ var Footer = function (_Component) {
 									null,
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'a',
-										{ href: '#' },
+										{ href: '/' },
 										'Contact Us'
 									)
 								),
@@ -53782,7 +53782,7 @@ var Footer = function (_Component) {
 									null,
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'a',
-										{ href: 'tel:+12-3456-7890' },
+										{ href: '/' },
 										'+12 3456 7890'
 									)
 								)
@@ -54602,7 +54602,7 @@ var Register = function (_Component) {
 
 		_this.state = {
 			name: '',
-			nameError: 'Please input name',
+			nameError: 'Please input correct name',
 			email: '',
 			emailError: 'Please input correct email',
 			password: '',
@@ -54615,11 +54615,11 @@ var Register = function (_Component) {
 		_this.handleName = function (e) {
 			var name = e.target.value;
 			var nameError = '';
+
 			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct name';
-			} else {
-				nameError = '';
 			}
+
 			_this.setState({
 				name: name,
 				nameError: nameError
@@ -54629,11 +54629,11 @@ var Register = function (_Component) {
 		_this.handleEmail = function (e) {
 			var email = e.target.value;
 			var emailError = '';
+
 			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
 				emailError = 'Please input correct email';
-			} else {
-				emailError = '';
 			}
+
 			_this.setState({
 				email: email,
 				emailError: emailError
@@ -54643,11 +54643,13 @@ var Register = function (_Component) {
 		_this.handlePassword = function (e) {
 			var password = e.target.value;
 			var passwordError = '';
-			if (_this.state.confirmPassword != password) {
-				passwordError = 'The password does not match the re-typed password';
-			} else if (password.length < 6) {
+
+			if (password.length < 6) {
 				passwordError = 'The password has to be six letter at least';
+			} else if (_this.state.confirmPassword != password) {
+				passwordError = 'The password does not match the re-typed password';
 			}
+
 			_this.setState({
 				password: password,
 				passwordError: passwordError
@@ -54657,11 +54659,13 @@ var Register = function (_Component) {
 		_this.handleConfirmPassword = function (e) {
 			var confirmPassword = e.target.value;
 			var passwordError = '';
-			if (_this.state.password != confirmPassword) {
-				passwordError = 'The password does not match the re-typed password';
-			} else if (confirmPassword.length < 6) {
+
+			if (confirmPassword.length < 6) {
 				passwordError = 'The password has to be six letter at least';
+			} else if (_this.state.password != confirmPassword) {
+				passwordError = 'The password does not match the re-typed password';
 			}
+
 			_this.setState({
 				confirmPassword: confirmPassword,
 				passwordError: passwordError
@@ -54671,11 +54675,11 @@ var Register = function (_Component) {
 		_this.handleAccept = function (e) {
 			var accept = e.target.value == 'false';
 			var acceptError = '';
+
 			if (!accept) {
 				acceptError = 'Please accept';
-			} else {
-				acceptError = '';
 			}
+
 			_this.setState({
 				accept: accept,
 				acceptError: acceptError
@@ -54735,7 +54739,7 @@ var Register = function (_Component) {
 								{ className: 'col-xs-8' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'form',
-									{ action: '/user/register', method: 'POST', role: 'form' },
+									{ action: '/user/register', method: 'POST', role: 'form', novalidate: true },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
 										{ htmlFor: 'name' },
@@ -54868,11 +54872,11 @@ var Profile = function (_Component) {
 			var firstname = e.target.value;
 			var fullname = firstname + ' ' + _this.state.lastname;
 			var nameError = '';
+
 			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct name';
-			} else {
-				nameError = '';
 			}
+
 			_this.setState({
 				firstname: firstname,
 				nameError: nameError
@@ -54883,11 +54887,11 @@ var Profile = function (_Component) {
 			var lastname = e.target.value;
 			var fullname = _this.state.firstname + ' ' + lastname;
 			var nameError = '';
+
 			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
-				nameError = 'Please input correct Email';
-			} else {
-				nameError = '';
+				nameError = 'Please input correct name';
 			}
+
 			_this.setState({
 				lastname: lastname,
 				nameError: nameError
@@ -54928,23 +54932,19 @@ var Profile = function (_Component) {
 		};
 
 		_this.handleMornings = function (e) {
-			var mornings = e.target.value == 'false';
-			_this.setState({ mornings: mornings });
+			_this.setState({ mornings: e.target.value == 'false' });
 		};
 
 		_this.handleAfternoons = function (e) {
-			var afternoons = e.target.value == 'false';
-			_this.setState({ afternoons: afternoons });
+			_this.setState({ afternoons: e.target.value == 'false' });
 		};
 
 		_this.handleEvenings = function (e) {
-			var evenings = e.target.value == 'false';
-			_this.setState({ evenings: evenings });
+			_this.setState({ evenings: e.target.value == 'false' });
 		};
 
 		_this.handleWeekends = function (e) {
-			var weekends = e.target.value == 'false';
-			_this.setState({ weekends: weekends });
+			_this.setState({ weekends: e.target.value == 'false' });
 		};
 
 		_this.handleSubmit = function (e) {
@@ -55009,7 +55009,7 @@ var Profile = function (_Component) {
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'form',
-								{ action: '/user/profile', method: 'POST', role: 'form' },
+								{ action: '/user/profile', method: 'POST', role: 'form', novalidate: true },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h1',
 									null,
@@ -55030,7 +55030,7 @@ var Profile = function (_Component) {
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
 											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.firstname, onChange: this.handleFirstname, name: 'firstname' })
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.firstname, onChange: this.handleFirstname, name: 'firstname', required: true })
 										)
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -55044,7 +55044,7 @@ var Profile = function (_Component) {
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
 											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.lastname, onChange: this.handleLastname, name: 'lastname' })
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', value: this.state.lastname, onChange: this.handleLastname, name: 'lastname', required: true })
 										)
 									)
 								),
@@ -55377,18 +55377,48 @@ var Login = function (_Component) {
 
 		_this.state = {
 			email: '',
-			password: ''
+			emailError: 'Please fill in email',
+			password: '',
+			passwordError: 'Please fill in password'
 		};
 
 		_this.handleEmail = function (e) {
-			_this.setState({ email: e.target.value });
+			var email = e.target.value;
+			var emailError = '';
+
+			if (email == null) {
+				emailError = 'Please fill in email';
+			}
+
+			_this.setState({
+				email: email,
+				emailError: emailError
+			});
 		};
 
 		_this.handlePassword = function (e) {
-			_this.setState({ password: e.target.value });
+			var password = e.target.value;
+			var passwordError = '';
+
+			if (password == null) {
+				passwordError = 'Please fill in password';
+			}
+
+			_this.setState({
+				password: password,
+				passwordError: passwordError
+			});
 		};
 
-		_this.handleSubmit = function (e) {};
+		_this.handleSubmit = function (e) {
+			if (_this.state.emailError) {
+				alert(_this.state.emailError);
+				e.preventDefault();
+			} else if (_this.state.passwordError) {
+				alert(_this.state.passwordError);
+				e.preventDefault();
+			}
+		};
 		return _this;
 	}
 
@@ -55409,7 +55439,7 @@ var Login = function (_Component) {
 							{ className: 'col-xs-12' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'form',
-								{ action: '/user/login', method: 'POST', role: 'form' },
+								{ action: '/user/login', method: 'POST', role: 'form', novalidate: true },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
 									{ className: 'row' },

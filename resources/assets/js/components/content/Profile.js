@@ -29,11 +29,11 @@ export default class Profile extends Component {
 			var firstname = e.target.value;
 			var fullname = firstname + ' ' + this.state.lastname;
 			var nameError = '';
+
 			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct name';
-			} else {
-				nameError = '';
 			}
+
 			this.setState({
 				firstname: firstname,
 				nameError: nameError
@@ -44,11 +44,11 @@ export default class Profile extends Component {
 			var lastname = e.target.value;
 			var fullname = this.state.firstname + ' ' + lastname;
 			var nameError = '';
+
 			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
-				nameError = 'Please input correct Email';
-			} else {
-				nameError = '';
+				nameError = 'Please input correct name';
 			}
+
 			this.setState({
 				lastname: lastname,
 				nameError: nameError
@@ -89,23 +89,19 @@ export default class Profile extends Component {
 		}
 
 		this.handleMornings = (e) => {
-			var mornings = (e.target.value == 'false');
-			this.setState({mornings: mornings});
+			this.setState({mornings: (e.target.value == 'false')});
 		}
 
 		this.handleAfternoons = (e) => {
-			var afternoons = (e.target.value == 'false');
-			this.setState({afternoons: afternoons});
+			this.setState({afternoons: (e.target.value == 'false')});
 		}
 
 		this.handleEvenings = (e) => {
-			var evenings = (e.target.value == 'false');
-			this.setState({evenings: evenings});
+			this.setState({evenings: (e.target.value == 'false')});
 		}
 
 		this.handleWeekends = (e) => {
-			var weekends = (e.target.value == 'false');
-			this.setState({weekends: weekends});
+			this.setState({weekends: (e.target.value == 'false')});
 		}
 
 		this.handleSubmit = (e) => {
@@ -155,19 +151,19 @@ export default class Profile extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<h1>Create Your Tutor Profile</h1>
-							<form action="/user/profile" method="POST" role="form">
+							<form action="/user/profile" method="POST" role="form" novalidate>
 								<h1><i className="fa fa-user-circle" aria-hidden="true"></i> Personal Info</h1>
 								<div className="row">
 									<div className="col-xs-6">
 										<label htmlFor="firstname">First Name</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.firstname} onChange={this.handleFirstname} name="firstname" />
+											<input type="text" className="form-control" value={this.state.firstname} onChange={this.handleFirstname} name="firstname" required/>
 										</div>
 									</div>
 									<div className="col-xs-6">
 										<label htmlFor="lastname">Last Name</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.lastname} onChange={this.handleLastname} name="lastname" />
+											<input type="text" className="form-control" value={this.state.lastname} onChange={this.handleLastname} name="lastname" required/>
 										</div>
 									</div>
 								</div>

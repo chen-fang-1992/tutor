@@ -7,18 +7,47 @@ export default class Login extends Component {
 
 		this.state = {
 			email: '',
-			password: ''
+			emailError: 'Please fill in email',
+			password: '',
+			passwordError: 'Please fill in password'
 		};
 
 		this.handleEmail = (e) => {
-			this.setState({email: e.target.value});
+			var email = e.target.value;
+			var emailError = '';
+
+			if (email == null) {
+				emailError = 'Please fill in email';
+			}
+
+			this.setState({
+				email: email,
+				emailError: emailError
+			});
 		}
 
 		this.handlePassword = (e) => {
-			this.setState({password: e.target.value});
+			var password = e.target.value;
+			var passwordError = '';
+
+			if (password == null) {
+				passwordError = 'Please fill in password';
+			}
+
+			this.setState({
+				password: password,
+				passwordError: passwordError
+			});
 		}
 
 		this.handleSubmit = (e) => {
+			if (this.state.emailError) {
+				alert(this.state.emailError);
+				e.preventDefault();
+			} else if (this.state.passwordError) {
+				alert(this.state.passwordError);
+				e.preventDefault();
+			}
 		}
 	}
 
@@ -28,7 +57,7 @@ export default class Login extends Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
-							<form action="/user/login" method="POST" role="form">
+							<form action="/user/login" method="POST" role="form" novalidate>
 								<div className="row">
 									<div className="col-xs-12">
 										<label htmlFor="email">Email</label>

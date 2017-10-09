@@ -7,7 +7,7 @@ export default class Register extends Component {
 
 		this.state = {
 			name: '',
-			nameError: 'Please input name',
+			nameError: 'Please input correct name',
 			email: '',
 			emailError: 'Please input correct email',
 			password: '',
@@ -20,11 +20,11 @@ export default class Register extends Component {
 		this.handleName = (e) => {
 			var name = e.target.value;
 			var nameError = '';
+
 			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
 				nameError = 'Please input correct name';
-			} else {
-				nameError = '';
 			}
+
 			this.setState({
 				name: name,
 				nameError: nameError
@@ -34,11 +34,11 @@ export default class Register extends Component {
 		this.handleEmail = (e) => {
 			var email = e.target.value;
 			var emailError = '';
+
 			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
 				emailError = 'Please input correct email';
-			} else {
-				emailError = '';
 			}
+
 			this.setState({
 				email: email,
 				emailError: emailError
@@ -48,11 +48,13 @@ export default class Register extends Component {
 		this.handlePassword = (e) => {
 			var password = e.target.value;
 			var passwordError = '';
-			if (this.state.confirmPassword != password) {
-				passwordError = 'The password does not match the re-typed password';
-			} else if (password.length < 6) {
+
+			if (password.length < 6) {
 				passwordError = 'The password has to be six letter at least';
+			} else if (this.state.confirmPassword != password) {
+				passwordError = 'The password does not match the re-typed password';
 			}
+
 			this.setState({
 				password: password,
 				passwordError: passwordError
@@ -62,11 +64,13 @@ export default class Register extends Component {
 		this.handleConfirmPassword = (e) => {
 			var confirmPassword = e.target.value;
 			var passwordError = '';
-			if (this.state.password != confirmPassword) {
-				passwordError = 'The password does not match the re-typed password';
-			} else if (confirmPassword.length < 6) {
+
+			if (confirmPassword.length < 6) {
 				passwordError = 'The password has to be six letter at least';
+			} else if (this.state.password != confirmPassword) {
+				passwordError = 'The password does not match the re-typed password';
 			}
+
 			this.setState({
 				confirmPassword: confirmPassword,
 				passwordError: passwordError
@@ -76,11 +80,11 @@ export default class Register extends Component {
 		this.handleAccept = (e) => {
 			var accept = (e.target.value == 'false');
 			var acceptError = '';
+
 			if (!accept) {
 				acceptError = 'Please accept';
-			} else {
-				acceptError = '';
 			}
+
 			this.setState({
 				accept: accept,
 				acceptError: acceptError
@@ -114,7 +118,7 @@ export default class Register extends Component {
 							<p>Do you want to become a private language tutor in your city and be paid to discuss with people in your native language? No qualifications nor certifications are needed as long as you are a native speaker in the language you feel confident to share and teach!</p>
 							<p>Please fill up this form and we will get back to you through WhatsApp within 7 working days to get you started with TUTOR:</p>
 							<div className="col-xs-8">
-								<form action="/user/register" method="POST" role="form">
+								<form action="/user/register" method="POST" role="form" novalidate>
 									<label htmlFor="name">What’s your name?</label>
 									<div className="form-group">
 										<input id="name" type="text" className="form-control" value={this.state.name} onChange={this.handleName} name="name" required/>
