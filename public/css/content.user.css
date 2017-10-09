@@ -1,0 +1,108 @@
+.content.user {
+	background-color: #DBE0E6;
+}
+
+.content.user .container h1 {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	color: #000000;
+}
+
+.content.user .container p {
+	font-size: 20px;
+	color: #636B6F;
+}
+
+.content.user .container form {
+	background: #F6F6F6;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 20px;
+	border-radius: 15px;
+}
+
+.content.user .container form h1 {
+	margin-top: 20px;
+	margin-bottom: 0px;
+	font-size: 25px;
+}
+
+.content.user .container img {
+	width: 50%;
+	margin: 0 25%;
+	margin-bottom: 30px;
+	border-radius: 50%;
+}
+
+.content.user .container .fileupload {
+	padding: 10px 30px;
+	width: 55.1%;
+	height: 44px;
+	margin: 0 18.5%;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	font-size: 0;
+}
+
+.content.user .container .btn-fake {
+	border-radius: 10px;
+	padding: 10px 30px;
+	font-weight: bold;
+	outline: none;
+	border-color: #3097D1;
+	width: 60%;
+	margin: 0 20%;
+	text-align: center;
+}
+
+.content.user .container form label {
+	font-size: 20px;
+	color: #000000;
+}
+
+.content.user .container form button {
+	border-radius: 10px;
+	padding: 10px 30px;
+	font-weight: bold;
+	text-align: center;
+	margin: 0 auto;
+	outline: none;
+	border-color: #3097D1;
+}
+
+.content.user .container form button:active,
+.content.user .container form button:hover,
+.content.user .container form button:focus {
+	background-color: #3097D1;
+}
+
+.content.user .container .dropdown button {
+	width: 100%;
+	text-align: left;
+	background-color: #FFFFFF;
+	border: 1px solid #CCD0D2;
+	border-radius: 4px;
+	padding: 6px 12px;
+}
+
+.content.user .container .dropdown button span {
+	color: #555555;
+	font-size: 14px;
+	font-weight: lighter;
+}
+
+.content.user .container .dropdown .fa {
+	position: absolute;
+	right: 15px;
+	margin-top: 5px;
+}
+
+.content.user .container form textarea {
+	margin-top: 10px;
+}
+
+.content.user .container form span {
+	font-weight: bold;
+	color: #000000;
+}

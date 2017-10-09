@@ -57,7 +57,7 @@ export default class Login extends Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
-							<form action="/user/login" method="POST" role="form" novalidate>
+							<form action="/user/login" method="POST" role="form" noValidate>
 								<div className="row">
 									<div className="col-xs-12">
 										<label htmlFor="email">Email</label>

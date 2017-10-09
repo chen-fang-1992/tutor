@@ -1,0 +1,192 @@
+.content.home .background {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+	height: 95%;
+	width: 100%;
+	background-size: cover;
+	background-position: center center;
+	opacity: 0.8;
+}
+
+.content.home .search-bar {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 130px;
+}
+
+.content.home .search-bar h1 {
+	font-size: 50px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.content.home .search-bar form {
+	padding: 10px 0 52px;
+	margin: 0 20px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+}
+
+.content.home .search-bar .dropdown-toggle {
+	width: 140px;
+	text-align: left;
+	background-color: #FFFFFF;
+	font-size: 18px;
+	outline: none;
+}
+
+.content.home .search-bar .dropdown-toggle:focus {
+	border-color: #98cbe8;
+}
+
+.content.home .search-bar .dropdown-toggle i {
+	position: absolute;
+	right: -5px;
+	margin-top: 5px;
+}
+
+.content.home .search-bar .form-group input {
+	width: 290px;
+	height: 42px;
+	font-size: 18px;
+}
+
+.content.home .search-bar .form-group i {
+	position: absolute;
+	right: 5px;
+	margin-top: -28px;
+}
+
+.content.home .search-bar .search button {
+	width: 120px;
+	font-size: 18px;
+	outline: none;
+	border-color: #3097D1;
+}
+
+.content.home .search-bar .search button:active,
+.content.home .search-bar .search button:hover,
+.content.home .search-bar .search button:focus {
+	background-color: #3097D1;
+}
+
+.content.home .intro-bar {
+	padding-top: 255px;
+	text-align: center;
+}
+
+.content.home .intro-bar .title h1 {
+	font-size: 40px;
+	color: #000000;
+	margin-bottom: 30px;
+}
+
+.content.home .intro-bar .subtitle img {
+	filter: opacity(30%);
+}
+
+.content.home .intro-bar .subtitle h1 {
+	font-size: 20px;
+	color: #000000;
+}
+
+.content.home .intro-bar .subtitle p {
+	font-size: 20px;
+	color: #636B6F;
+}
+
+.content.home .testimonials {
+	margin-top: 50px;
+	padding-top: 30px;
+	text-align: center;
+	background-color: #F6F6F6;
+}
+
+.content.home .testimonials .title h1 {
+	font-size: 40px;
+	color: #000000;
+}
+
+.content.home #testCarousel {
+	margin-top: 30px;
+	padding-bottom: 75px;
+}
+
+.content.home #testCarousel .carousel-inner {
+	border-radius: 100px;
+	font-size: 20px;
+}
+
+.content.home #testCarousel .carousel-inner .item {
+	opacity: 0;
+	transition-property: opacity;
+}
+
+.content.home #testCarousel .carousel-inner .active {
+	opacity: 1;
+	transition-property: opacity;
+}
+
+.content.home #testCarousel .carousel-inner img {
+	margin: auto;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.content.home #testCarousel .carousel-inner .carousel-para {
+	margin: auto;
+	text-align: center;
+	width: 80%;
+	padding: 20px 20px 0 20px;
+	font-size: 20px;
+	font-style: italic;
+	color: #636B6F;
+}
+
+.content.home #testCarousel .carousel-inner .carousel-name {
+	color: #000000;
+	font-weight: bolder;
+	margin-top: 15px;
+}
+
+.content.home #testCarousel .carousel-inner .carousel-title {
+	color: #636B6F;
+}
+
+.content.home #testCarousel .carousel-indicators li {
+	background-color: #636B6F;
+	display: inline-block;
+	margin: 0px 5px;
+	width: 15px;
+	height: 15px;
+}
+
+.content.home #testCarousel .carousel-indicators .active {
+	width: 15px;
+	height: 15px;
+	background-color: #3399FF;
+	border: 3px solid #FFFFFF;
+	border-radius: 18px;
+	box-shadow: 0px 0px 0px 2px #3399FF;
+}
+
+.content.home .carousel-control.left {
+	background-image: linear-gradient(to right, #F6F6F6 10%, #F6F6F6 100%);
+	font-size: 100px;
+	color: #000000;
+	margin-top: 150px;
+	width: 10%;
+}
+
+.content.home .carousel-control.right {
+	background-image: linear-gradient(to right, #F6F6F6 10%, #F6F6F6 100%);
+	font-size: 100px;
+	color: #000000;
+	margin-top: 150px;
+	width: 10%;
+}

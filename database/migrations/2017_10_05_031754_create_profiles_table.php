@@ -28,6 +28,7 @@ class CreateProfilesTable extends Migration
 			$table->integer('price')->unsigned()->nullable();
 			$table->string('rate')->nullable();
 			$table->text('about')->nullable();
+			$table->text('picture')->nullable();
 			$table->timestamps();
 
 			$table->foreign('user_id')

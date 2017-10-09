@@ -22,8 +22,27 @@ export default class Profile extends Component {
 			evenings: false,
 			weekends: false,
 			availability: 0,
-			about: ''
+			about: '',
+
+
+			picture: '',
+			pictureURL: '/images/default.png'
 		};
+
+		this.handlePicture = (e) => {
+			e.preventDefault();
+
+			var reader = new FileReader();
+			var picture = e.target.files[0];
+
+			reader.onloadend = () => {
+				this.setState({
+					picture: picture,
+					pictureURL: reader.result
+				});
+			}
+			reader.readAsDataURL(picture);
+		}
 
 		this.handleFirstname = (e) => {
 			var firstname = e.target.value;
@@ -64,8 +83,8 @@ export default class Profile extends Component {
 		}
 
 		this.handleLanguage = (e) => {
-			this.setState({language: e.target.value});
 			e.preventDefault();
+			this.setState({language: e.target.value});
 		}
 
 		this.handleCity = (e) => {
@@ -151,7 +170,16 @@ export default class Profile extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<h1>Create Your Tutor Profile</h1>
-							<form action="/user/profile" method="POST" role="form" novalidate>
+							<form action="/user/profile" method="POST" role="form" noValidate>
+								<div className="row">
+									<div className="col-xs-4 col-xs-offset-4">
+										<img src={this.state.pictureURL}/>
+										<div className="form-group">
+											<input type="file" className="fileupload" onChange={this.handlePicture} />
+											<div className="btn btn-primary btn-fake">Upload your picture</div>
+										</div>
+									</div>
+								</div>
 								<h1><i className="fa fa-user-circle" aria-hidden="true"></i> Personal Info</h1>
 								<div className="row">
 									<div className="col-xs-6">

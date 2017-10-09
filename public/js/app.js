@@ -54739,7 +54739,7 @@ var Register = function (_Component) {
 								{ className: 'col-xs-8' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'form',
-									{ action: '/user/register', method: 'POST', role: 'form', novalidate: true },
+									{ action: '/user/register', method: 'POST', role: 'form', noValidate: true },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
 										{ htmlFor: 'name' },
@@ -54865,7 +54865,25 @@ var Profile = function (_Component) {
 			evenings: false,
 			weekends: false,
 			availability: 0,
-			about: ''
+			about: '',
+
+			picture: '',
+			pictureURL: '/images/default.png'
+		};
+
+		_this.handlePicture = function (e) {
+			e.preventDefault();
+
+			var reader = new FileReader();
+			var picture = e.target.files[0];
+
+			reader.onloadend = function () {
+				_this.setState({
+					picture: picture,
+					pictureURL: reader.result
+				});
+			};
+			reader.readAsDataURL(picture);
 		};
 
 		_this.handleFirstname = function (e) {
@@ -54907,8 +54925,8 @@ var Profile = function (_Component) {
 		};
 
 		_this.handleLanguage = function (e) {
-			_this.setState({ language: e.target.value });
 			e.preventDefault();
+			_this.setState({ language: e.target.value });
 		};
 
 		_this.handleCity = function (e) {
@@ -55009,7 +55027,26 @@ var Profile = function (_Component) {
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'form',
-								{ action: '/user/profile', method: 'POST', role: 'form', novalidate: true },
+								{ action: '/user/profile', method: 'POST', role: 'form', noValidate: true },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'row' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'col-xs-4 col-xs-offset-4' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.state.pictureURL }),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'form-group' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file', className: 'fileupload', onChange: this.handlePicture }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'div',
+												{ className: 'btn btn-primary btn-fake' },
+												'Upload your picture'
+											)
+										)
+									)
+								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h1',
 									null,
@@ -55439,7 +55476,7 @@ var Login = function (_Component) {
 							{ className: 'col-xs-12' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'form',
-								{ action: '/user/login', method: 'POST', role: 'form', novalidate: true },
+								{ action: '/user/login', method: 'POST', role: 'form', noValidate: true },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
 									{ className: 'row' },

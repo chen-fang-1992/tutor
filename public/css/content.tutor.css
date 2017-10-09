@@ -1,0 +1,63 @@
+.content.tutor .search-bar {
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-bottom: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.content.tutor .search-bar h1 {
+	font-size: 50px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.content.tutor .search-bar form {
+	padding: 10px 0 52px;
+	margin: 0 20px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+}
+
+.content.tutor .search-bar .dropdown-toggle {
+	width: 140px;
+	text-align: left;
+	background-color: #FFFFFF;
+	font-size: 18px;
+	outline: none;
+}
+
+.content.tutor .search-bar .dropdown-toggle:focus {
+	border-color: #98cbe8;
+}
+
+.content.tutor .search-bar .dropdown-toggle i {
+	position: absolute;
+	right: -5px;
+	margin-top: 5px;
+}
+
+.content.tutor .search-bar .form-group input {
+	width: 290px;
+	height: 42px;
+	font-size: 18px;
+}
+
+.content.tutor .search-bar .form-group i {
+	position: absolute;
+	right: 5px;
+	margin-top: -28px;
+}
+
+.content.tutor .search-bar .search button {
+	width: 120px;
+	font-size: 18px;
+	outline: none;
+	border-color: #3097D1;
+}
+
+.content.tutor .search-bar .search button:active,
+.content.tutor .search-bar .search button:hover,
+.content.tutor .search-bar .search button:focus {
+	background-color: #3097D1;
+}

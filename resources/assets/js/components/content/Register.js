@@ -118,7 +118,7 @@ export default class Register extends Component {
 							<p>Do you want to become a private language tutor in your city and be paid to discuss with people in your native language? No qualifications nor certifications are needed as long as you are a native speaker in the language you feel confident to share and teach!</p>
 							<p>Please fill up this form and we will get back to you through WhatsApp within 7 working days to get you started with TUTOR:</p>
 							<div className="col-xs-8">
-								<form action="/user/register" method="POST" role="form" novalidate>
+								<form action="/user/register" method="POST" role="form" noValidate>
 									<label htmlFor="name">What’s your name?</label>
 									<div className="form-group">
 										<input id="name" type="text" className="form-control" value={this.state.name} onChange={this.handleName} name="name" required/>
