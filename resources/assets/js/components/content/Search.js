@@ -234,8 +234,49 @@ export default class Search extends Component {
 								this.state.tutors.map(tutor => {
 									return (
 										<div key={tutor.id}>
-											<input type="text" readOnly="readonly" value={tutor.id} />
-											<input type="text" readOnly="readonly" value={tutor.lastname} />
+
+											<div className="btn btn-primary btn-lg" data-toggle="modal" data-target={'#'+tutor.id}>
+												{tutor.id}
+											</div>
+
+											<div className="modal fade" id={tutor.id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<div className="modal-dialog">
+													<div className="modal-content">
+														<div className="modal-body">
+															<div className="row">
+																<div className="col-xs-5 picture">
+																	<img src={tutor.picture}/>
+																</div>
+																<div className="col-xs-6 info">
+																	<h1 className="modal-title">{tutor.firstname} {tutor.lastname}</h1>
+																	<div className="modal-info-key">
+																		<span>Teaches</span>
+																	</div>
+																	<div className="modal-info-value">
+																		<span>{tutor.language}</span>
+																	</div>
+																	<div className="modal-info-key">
+																		<span>From</span>
+																	</div>
+																	<div className="modal-info-value">
+																		<span>{tutor.country}</span>
+																	</div>
+																	<div className="modal-info-key">
+																		<span>Price</span>
+																	</div>
+																	<div className="modal-info-value">
+																		<span>{tutor.currency} {tutor.price}/Hour</span>
+																	</div>
+																</div>
+																<div className="col-xs-1 close">
+																	<button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
 										</div>
 									)
 								})

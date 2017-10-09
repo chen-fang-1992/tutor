@@ -55943,8 +55943,113 @@ var Search = function (_Component) {
 								return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
 									{ key: tutor.id },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', readOnly: 'readonly', value: tutor.id }),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', readOnly: 'readonly', value: tutor.lastname })
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'btn btn-primary btn-lg', 'data-toggle': 'modal', 'data-target': '#' + tutor.id },
+										tutor.id
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'modal fade', id: tutor.id, tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'modal-dialog' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'div',
+												{ className: 'modal-content' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'div',
+													{ className: 'modal-body' },
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'row' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															'div',
+															{ className: 'col-xs-5 picture' },
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: tutor.picture })
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															'div',
+															{ className: 'col-xs-6 info' },
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'h1',
+																{ className: 'modal-title' },
+																tutor.firstname,
+																' ',
+																tutor.lastname
+															),
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'div',
+																{ className: 'modal-info-key' },
+																__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																	'span',
+																	null,
+																	'Teaches'
+																)
+															),
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'div',
+																{ className: 'modal-info-value' },
+																__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																	'span',
+																	null,
+																	tutor.language
+																)
+															),
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'div',
+																{ className: 'modal-info-key' },
+																__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																	'span',
+																	null,
+																	'From'
+																)
+															),
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'div',
+																{ className: 'modal-info-value' },
+																__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																	'span',
+																	null,
+																	tutor.country
+																)
+															),
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'div',
+																{ className: 'modal-info-key' },
+																__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																	'span',
+																	null,
+																	'Price'
+																)
+															),
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'div',
+																{ className: 'modal-info-value' },
+																__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																	'span',
+																	null,
+																	tutor.currency,
+																	' ',
+																	tutor.price,
+																	'/Hour'
+																)
+															)
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															'div',
+															{ className: 'col-xs-1 close' },
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'button',
+																{ type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+																'\xD7'
+															)
+														)
+													)
+												)
+											)
+										)
+									)
 								);
 							})
 						)

@@ -61,3 +61,35 @@
 .content.tutor .search-bar .search button:focus {
 	background-color: #3097D1;
 }
+
+.content.tutor .modal .picture {
+	padding-right: 5px;
+}
+
+.content.tutor .modal .picture img {
+	width: 100%;
+}
+
+.content.tutor .modal .info h1 {
+	font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #000000;
+    padding-bottom: 30px;
+}
+
+.content.tutor .modal .modal-info-key {
+	font-size: 15px;
+	margin: 0 10px 0 0;
+	padding: 10px 0 0 0;
+}
+
+.content.tutor .modal .modal-info-value {
+	font-size: 15px;
+	color: #3097D1;
+	padding: 0;
+}
+
+.content.tutor .modal .close {
+	padding-left: 0;
+}
