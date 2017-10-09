@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import home_bg from '../../../../../public/img/home_bg.jpeg';
+import home_bg from '~/public/img/home_bg.jpeg';
 
 import HomeSearchBar from './home/HomeSearchBar';
 import HomeIntroBar from './home/HomeIntroBar';

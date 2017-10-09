@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import question from '../../../../../../public/img/question.png';
-import wanted from '../../../../../../public/img/wanted.png';
-import become from '../../../../../../public/img/become.png';
+import question from '~/public/img/question.png';
+import wanted from '~/public/img/wanted.png';
+import become from '~/public/img/become.png';
 
 export default class HomeIntroBar extends Component {
 	render() {
