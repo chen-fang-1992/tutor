@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import SearchItem from './search/SearchItem';
+import SearchModal from './search/SearchModal';
+
 export default class Search extends Component {
 	constructor(props) {
 		super(props);
@@ -169,6 +172,42 @@ export default class Search extends Component {
 		}
 	}
 
+	get tutors() {
+		var output = [];
+
+		for (var i = 0; i < this.state.tutors.length; i = i + 2) {
+			if (this.state.tutors.length - i >= 2) {
+				output.push(
+					<div key={i}>
+						<div className="row">
+							<div className="col-xs-6">
+								<SearchItem tutor={this.state.tutors[i]} />
+								<SearchModal tutor={this.state.tutors[i]} />
+							</div>
+							<div className="col-xs-6">
+								<SearchItem tutor={this.state.tutors[i+1]} />
+								<SearchModal tutor={this.state.tutors[i+1]} />
+							</div>
+						</div>
+					</div>
+				);
+			} else {
+				output.push(
+					<div key={i}>
+						<div className="row">
+							<div className="col-xs-6">
+								<SearchItem tutor={this.state.tutors[i]} />
+								<SearchModal tutor={this.state.tutors[i]} />
+							</div>
+						</div>
+					</div>
+				);
+			}
+		}
+
+		return output;
+	}
+
 	render() {
 		return (
 			<div className="content tutor">
@@ -235,76 +274,7 @@ export default class Search extends Component {
 				<div className="container result">
 					<div className="row">
 						<div className="col-xs-12">
-							{
-								this.state.tutors.map(tutor => {
-									return (
-										<div key={tutor.id}>
-
-											<div className="btn btn-primary btn-lg" data-toggle="modal" data-target={"#"+tutor.id}>
-												{tutor.id}
-											</div>
-
-											<div className="modal fade" id={tutor.id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-												<div className="modal-dialog">
-													<div className="modal-content">
-														<div className="modal-body">
-															<div className="row">
-																<div className="col-xs-5 picture">
-																	<img src={tutor.picture}/>
-																</div>
-																<div className="col-xs-6 info">
-																	<h1 className="modal-title">{tutor.firstname} {tutor.lastname}</h1>
-																	<div className="modal-info-key">
-																		<span>Teaches</span>
-																	</div>
-																	<div className="modal-info-value">
-																		<span>{tutor.language}</span>
-																	</div>
-																	<div className="modal-info-key">
-																		<span>From</span>
-																	</div>
-																	<div className="modal-info-value">
-																		<span>{tutor.country}</span>
-																	</div>
-																	<div className="modal-info-key">
-																		<span>Price</span>
-																		<button className="btn btn-primary inquire">Inquire Now</button>
-																	</div>
-																	<div className="modal-info-value">
-																		<span>{tutor.currency} {tutor.price}/Hour</span>
-																	</div>
-																</div>
-																<div className="col-xs-1">
-																	<button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-																</div>
-															</div>
-															<div className="row availability">
-																<div className={"col-xs-3"+(tutor.availability%2==1?" avail":"")}>
-																	<span>{tutor.availability%2==1?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Mornings</span>
-																</div>
-																<div className={"col-xs-3"+(tutor.availability%4>=2?" avail":"")}>
-																	<span>{tutor.availability%4>=2?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Afternoons</span>
-																</div>
-																<div className={"col-xs-3"+(tutor.availability%8>=4?" avail":"")}>
-																	<span>{tutor.availability%8>=4?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Evenings</span>
-																</div>
-																<div className={"col-xs-3"+(tutor.availability%16>=8?" avail":"")}>
-																	<span>{tutor.availability%16>=8?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Weekends</span>
-																</div>
-															</div>
-															<div className="row about">
-																<div className="col-xs-12">
-																	<p>{tutor.about}</p>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									)
-								})
-							}
+							{this.tutors}
 						</div>
 					</div>
 				</div>

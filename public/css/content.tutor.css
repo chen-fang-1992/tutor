@@ -62,6 +62,36 @@
 	background-color: #3097D1;
 }
 
+.content.tutor .panel .picture {
+	padding-right: 5px;
+}
+
+.content.tutor .panel .picture img {
+	width: 100%;
+}
+
+.content.tutor .panel .name {
+	margin-top: -22px;
+}
+
+.content.tutor .panel .name h1 {
+	padding-bottom: 20px;
+	line-height: 1.2;
+	font-size: 20px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.content.tutor .panel .info {
+	margin-bottom: 5px;
+	width: 44%;
+	text-align: center;
+}
+
+.content.tutor .panel .info button {
+	width: 100%;
+}
+
 .content.tutor .modal .picture {
 	padding-right: 5px;
 }
@@ -71,11 +101,11 @@
 }
 
 .content.tutor .modal .info h1 {
+	padding-bottom: 30px;
+	line-height: 1.2;
 	font-size: 20px;
 	font-weight: bold;
-	line-height: 1.2;
 	color: #000000;
-	padding-bottom: 30px;
 }
 
 .content.tutor .modal .modal-info-key {
