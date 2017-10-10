@@ -11,7 +11,12 @@ export default class Search extends Component {
 			availability: 'When?',
 			location: '',
 			filter: 'Price',
-			tutors: JSON.parse(this.props.tutors)
+			tutors: JSON.parse(this.props.tutors),
+
+			mornings: '',
+			afternoons: '',
+			evenings: '',
+			weekends: ''
 		};
 
 		this.handleLanguage = (e) => {
@@ -235,7 +240,7 @@ export default class Search extends Component {
 									return (
 										<div key={tutor.id}>
 
-											<div className="btn btn-primary btn-lg" data-toggle="modal" data-target={'#'+tutor.id}>
+											<div className="btn btn-primary btn-lg" data-toggle="modal" data-target={"#"+tutor.id}>
 												{tutor.id}
 											</div>
 
@@ -263,20 +268,39 @@ export default class Search extends Component {
 																	</div>
 																	<div className="modal-info-key">
 																		<span>Price</span>
+																		<button className="btn btn-primary inquire">Inquire Now</button>
 																	</div>
 																	<div className="modal-info-value">
 																		<span>{tutor.currency} {tutor.price}/Hour</span>
 																	</div>
 																</div>
-																<div className="col-xs-1 close">
+																<div className="col-xs-1">
 																	<button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																</div>
+															</div>
+															<div className="row availability">
+																<div className={"col-xs-3"+(tutor.availability%2==1?" avail":"")}>
+																	<span>{tutor.availability%2==1?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Mornings</span>
+																</div>
+																<div className={"col-xs-3"+(tutor.availability%4>=2?" avail":"")}>
+																	<span>{tutor.availability%4>=2?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Afternoons</span>
+																</div>
+																<div className={"col-xs-3"+(tutor.availability%8>=4?" avail":"")}>
+																	<span>{tutor.availability%8>=4?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Evenings</span>
+																</div>
+																<div className={"col-xs-3"+(tutor.availability%16>=8?" avail":"")}>
+																	<span>{tutor.availability%16>=8?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Weekends</span>
+																</div>
+															</div>
+															<div className="row about">
+																<div className="col-xs-12">
+																	<p>{tutor.about}</p>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-
 										</div>
 									)
 								})

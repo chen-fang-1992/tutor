@@ -72,10 +72,10 @@
 
 .content.tutor .modal .info h1 {
 	font-size: 20px;
-    font-weight: bold;
-    line-height: 1.2;
-    color: #000000;
-    padding-bottom: 30px;
+	font-weight: bold;
+	line-height: 1.2;
+	color: #000000;
+	padding-bottom: 30px;
 }
 
 .content.tutor .modal .modal-info-key {
@@ -90,6 +90,34 @@
 	padding: 0;
 }
 
+.content.tutor .modal .inquire {
+	position: absolute;
+	outline: none;
+	border-color: #3097D1;
+	margin-left: 170px;
+	margin-right: 15px;
+}
+
+.content.tutor .modal .inquire:active,
+.content.tutor .modal .inquire:hover,
+.content.tutor .modal .inquire:focus {
+	background-color: #3097D1;
+}
+
 .content.tutor .modal .close {
-	padding-left: 0;
+	color: #3097D1;
+	font-size: 30px;
+	opacity: 0.5;
+	outline: none;
+	margin-top: -10px;
+	margin-right: -5px;
+}
+
+.content.tutor .modal .availability {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.content.tutor .modal .availability .avail {
+	color: #3097D1;
 }

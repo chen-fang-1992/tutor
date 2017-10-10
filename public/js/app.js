@@ -55577,7 +55577,12 @@ var Search = function (_Component) {
 			availability: 'When?',
 			location: '',
 			filter: 'Price',
-			tutors: JSON.parse(_this.props.tutors)
+			tutors: JSON.parse(_this.props.tutors),
+
+			mornings: '',
+			afternoons: '',
+			evenings: '',
+			weekends: ''
 		};
 
 		_this.handleLanguage = function (e) {
@@ -55945,7 +55950,7 @@ var Search = function (_Component) {
 									{ key: tutor.id },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
-										{ className: 'btn btn-primary btn-lg', 'data-toggle': 'modal', 'data-target': '#' + tutor.id },
+										{ className: 'btn btn-primary btn-lg', 'data-toggle': 'modal', 'data-target': "#" + tutor.id },
 										tutor.id
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -56021,6 +56026,11 @@ var Search = function (_Component) {
 																	'span',
 																	null,
 																	'Price'
+																),
+																__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																	'button',
+																	{ className: 'btn btn-primary inquire' },
+																	'Inquire Now'
 																)
 															),
 															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -56038,11 +56048,68 @@ var Search = function (_Component) {
 														),
 														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 															'div',
-															{ className: 'col-xs-1 close' },
+															{ className: 'col-xs-1' },
 															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 																'button',
 																{ type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
 																'\xD7'
+															)
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'row availability' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															'div',
+															{ className: "col-xs-3" + (tutor.availability % 2 == 1 ? " avail" : "") },
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'span',
+																null,
+																tutor.availability % 2 == 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+																'Mornings'
+															)
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															'div',
+															{ className: "col-xs-3" + (tutor.availability % 4 >= 2 ? " avail" : "") },
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'span',
+																null,
+																tutor.availability % 4 >= 2 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+																'Afternoons'
+															)
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															'div',
+															{ className: "col-xs-3" + (tutor.availability % 8 >= 4 ? " avail" : "") },
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'span',
+																null,
+																tutor.availability % 8 >= 4 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+																'Evenings'
+															)
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															'div',
+															{ className: "col-xs-3" + (tutor.availability % 16 >= 8 ? " avail" : "") },
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'span',
+																null,
+																tutor.availability % 16 >= 8 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+																'Weekends'
+															)
+														)
+													),
+													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'row about' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+															'div',
+															{ className: 'col-xs-12' },
+															__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'p',
+																null,
+																tutor.about
 															)
 														)
 													)
