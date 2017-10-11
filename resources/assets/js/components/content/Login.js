@@ -57,6 +57,7 @@ export default class Login extends Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
+							<h1>Log In Your Tutor Profile</h1>
 							<form action="/user/login" method="POST" role="form" noValidate>
 								<div className="row">
 									<div className="col-xs-12">
@@ -77,7 +78,7 @@ export default class Login extends Component {
 								<div className="row">
 									<div className="col-xs-12">
 										<div className="form-group">
-											<button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Log In Your Profile</button>
+											<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmit}>Log In Your Profile</button>
 										</div>
 									</div>
 								</div>

@@ -41044,7 +41044,7 @@ var App = function (_Component) {
 			header: ''
 		};
 
-		if (_this.props.content == 'home') _this.state.header = 'header home';else if (_this.props.content == 'register') _this.state.header = 'header user';else if (_this.props.content == 'profile') _this.state.header = 'header user';else if (_this.props.content == 'login') _this.state.header = 'header user';else if (_this.props.content == 'search') _this.state.header = 'header tutor';
+		if (_this.props.content == 'home') _this.state.header = 'home';else if (_this.props.content == 'register') _this.state.header = 'user';else if (_this.props.content == 'profile') _this.state.header = 'user';else if (_this.props.content == 'login') _this.state.header = 'user';else if (_this.props.content == 'search') _this.state.header = 'tutor';
 		return _this;
 	}
 
@@ -53531,13 +53531,13 @@ var Header = function (_Component) {
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: this.props.header },
+				{ className: "header " + this.props.header },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'nav',
-					{ className: 'navbar navbar-static-top', role: 'navigation' },
+					{ className: "navbar " + (this.props.header == "home" ? "navbar-static-top" : "navbar-fixed-top"), role: 'navigation' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
-						{ className: 'container navigation-bar' },
+						{ className: 'container-fluid navigation-bar' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 							'div',
 							{ className: 'navbar-header' },
@@ -54795,7 +54795,7 @@ var Register = function (_Component) {
 										{ className: 'form-group' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'button',
-											{ type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
+											{ type: 'submit', className: 'btn btn-primary submit', onClick: this.handleSubmit },
 											'SUBMIT YOUR PROFILE NOW'
 										)
 									)
@@ -55042,7 +55042,7 @@ var Profile = function (_Component) {
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'div',
 												{ className: 'btn btn-primary btn-fake' },
-												'Upload your picture'
+												'UPLOAD YOUR PICTURE'
 											)
 										)
 									)
@@ -55350,7 +55350,7 @@ var Profile = function (_Component) {
 											{ className: 'form-group' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'button',
-												{ type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
+												{ type: 'submit', className: 'btn btn-primary submit', onClick: this.handleSubmit },
 												'SUBMIT YOUR PROFILE NOW'
 											),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', className: 'form-control', value: this.state.picture, name: 'picture' }),
@@ -55468,6 +55468,11 @@ var Login = function (_Component) {
 							'div',
 							{ className: 'col-xs-12' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'h1',
+								null,
+								'Log In Your Tutor Profile'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'form',
 								{ action: '/user/login', method: 'POST', role: 'form', noValidate: true },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -55517,7 +55522,7 @@ var Login = function (_Component) {
 											{ className: 'form-group' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'button',
-												{ type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
+												{ type: 'submit', className: 'btn btn-primary submit', onClick: this.handleSubmit },
 												'Log In Your Profile'
 											)
 										)
@@ -55970,13 +55975,13 @@ var Search = function (_Component) {
 							{ className: 'row' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'col-xs-6' },
+								{ className: 'col-xs-5 col-xs-offset-1' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i] }),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i] })
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'col-xs-6' },
+								{ className: 'col-xs-5' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i + 1] }),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i + 1] })
 							)
@@ -55991,7 +55996,7 @@ var Search = function (_Component) {
 							{ className: 'row' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'col-xs-6' },
+								{ className: 'col-xs-5 col-xs-offset-1' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i] }),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i] })
 							)
@@ -56280,12 +56285,12 @@ var SearchItem = function (_Component) {
 					{ className: 'row' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
-						{ className: 'col-xs-4 picture' },
+						{ className: 'col-xs-5 picture' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.tutor.picture })
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
-						{ className: 'col-xs-8' },
+						{ className: 'col-xs-7' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 							'div',
 							{ className: 'row name' },

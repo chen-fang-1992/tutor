@@ -10,10 +10,10 @@ export default class SearchItem extends Component {
 		return (
 			<div className="panel" data-toggle="modal" data-target={"#"+this.props.tutor.id}>
 				<div className="row">
-					<div className="col-xs-4 picture">
+					<div className="col-xs-5 picture">
 						<img src={this.props.tutor.picture}/>
 					</div>
-					<div className="col-xs-8">
+					<div className="col-xs-7">
 						<div className="row name">
 							<h1>{this.props.tutor.firstname} {this.props.tutor.lastname}</h1>
 						</div>

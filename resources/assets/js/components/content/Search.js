@@ -180,11 +180,11 @@ export default class Search extends Component {
 				output.push(
 					<div key={i}>
 						<div className="row">
-							<div className="col-xs-6">
+							<div className="col-xs-5 col-xs-offset-1">
 								<SearchItem tutor={this.state.tutors[i]} />
 								<SearchModal tutor={this.state.tutors[i]} />
 							</div>
-							<div className="col-xs-6">
+							<div className="col-xs-5">
 								<SearchItem tutor={this.state.tutors[i+1]} />
 								<SearchModal tutor={this.state.tutors[i+1]} />
 							</div>
@@ -195,7 +195,7 @@ export default class Search extends Component {
 				output.push(
 					<div key={i}>
 						<div className="row">
-							<div className="col-xs-6">
+							<div className="col-xs-5 col-xs-offset-1">
 								<SearchItem tutor={this.state.tutors[i]} />
 								<SearchModal tutor={this.state.tutors[i]} />
 							</div>

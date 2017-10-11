@@ -139,7 +139,7 @@ export default class Register extends Component {
 										<input type="checkbox" checked={this.state.accept} onChange={this.handleAccept} value={this.state.accept} /><span> I accept the Terms and Conditions</span>
 									</div>
 									<div className="form-group">
-										<button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>SUBMIT YOUR PROFILE NOW</button>
+										<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmit}>SUBMIT YOUR PROFILE NOW</button>
 									</div>
 								</form>
 							</div>

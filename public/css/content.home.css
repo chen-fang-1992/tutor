@@ -1,69 +1,110 @@
 .content.home .background {
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	z-index: -1;
-	height: 95%;
 	width: 100%;
+	height: 100%;
 	background-size: cover;
 	background-position: center center;
 	opacity: 0.8;
 }
 
 .content.home .search-bar {
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-right: 1.2rem;
+	padding-left: 1.2rem;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 130px;
+	margin-top: 13%;
 }
 
 .content.home .search-bar h1 {
-	font-size: 50px;
+	font-size: 4rem;
 	color: #FFFFFF;
 	text-align: center;
 }
 
 .content.home .search-bar form {
-	padding: 10px 0 52px;
-	margin: 0 20px;
+	padding: 0.8rem 0 4.3rem;
+	margin: 0 1.6rem;
 	background-color: rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
+	border-radius: 0.4rem;
+}
+
+.content.home .search-bar .language {
+	padding-right: 0;
+}
+
+.content.home .search-bar .availability {
+	padding-right: 0;
+}
+
+.content.home .search-bar .location {
+	padding-right: 0;
+}
+
+.content.home .search-bar .filter {
+	padding-right: 0;
 }
 
 .content.home .search-bar .dropdown-toggle {
-	width: 140px;
-	text-align: left;
 	background-color: #FFFFFF;
-	font-size: 18px;
+	width: 100%;
+	height: 3.5rem;
+	text-align: left;
+	font-size: 1.44rem;
 	outline: none;
 }
 
 .content.home .search-bar .dropdown-toggle:focus {
-	border-color: #98cbe8;
+	margin-bottom: 0;
+	border-color: #98CBE8;
+	border-bottom: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 .content.home .search-bar .dropdown-toggle i {
 	position: absolute;
-	right: -5px;
-	margin-top: 5px;
+	right: 1rem;
+	margin-top: 0.1rem;
+	font-size: 2rem;
+}
+
+.content.home .search-bar .dropdown-menu {
+	min-width: 100%;
+	margin-top: 0;
+	border-color: #98CBE8;
+	border-top: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.content.home .search-bar .dropdown-menu li button {
+	font-size: 1.44rem;
+	color: #636B6F;
+	text-decoration: none;
+	outline: none;
 }
 
 .content.home .search-bar .form-group input {
-	width: 290px;
-	height: 42px;
-	font-size: 18px;
+	width: 100%;
+	height: 3.5rem;
+	font-size: 1.44rem;
 }
 
 .content.home .search-bar .form-group i {
 	position: absolute;
-	right: 5px;
-	margin-top: -28px;
+	right: 1rem;
+	font-size: 1.44rem;
+	margin-top: -2.4rem;
 }
 
 .content.home .search-bar .search button {
-	width: 120px;
-	font-size: 18px;
+	width: 100%;
+	height: 3.5rem;
+	font-size: 1.44rem;
+	font-weight: bold;
 	outline: none;
 	border-color: #3097D1;
 }
@@ -75,14 +116,14 @@
 }
 
 .content.home .intro-bar {
-	padding-top: 255px;
 	text-align: center;
+	margin-top: 20%;
 }
 
 .content.home .intro-bar .title h1 {
-	font-size: 40px;
+	font-size: 3.2rem;
 	color: #000000;
-	margin-bottom: 30px;
+	margin-bottom: 3rem;
 }
 
 .content.home .intro-bar .subtitle img {
@@ -90,35 +131,35 @@
 }
 
 .content.home .intro-bar .subtitle h1 {
-	font-size: 20px;
+	font-size: 1.6rem;
 	color: #000000;
 }
 
 .content.home .intro-bar .subtitle p {
-	font-size: 20px;
+	font-size: 1.6rem;
 	color: #636B6F;
 }
 
 .content.home .testimonials {
-	margin-top: 50px;
-	padding-top: 30px;
+	margin-top: 4rem;
+	padding-top: 2.4rem;
 	text-align: center;
 	background-color: #F6F6F6;
 }
 
 .content.home .testimonials .title h1 {
-	font-size: 40px;
+	font-size: 3.2rem;
 	color: #000000;
 }
 
 .content.home #testCarousel {
-	margin-top: 30px;
-	padding-bottom: 75px;
+	margin-top: 2.4rem;
+	padding-bottom: 6rem;
 }
 
 .content.home #testCarousel .carousel-inner {
-	border-radius: 100px;
-	font-size: 20px;
+	border-radius: 8rem;
+	font-size: 1.6rem;
 }
 
 .content.home #testCarousel .carousel-inner .item {
@@ -133,8 +174,8 @@
 
 .content.home #testCarousel .carousel-inner img {
 	margin: auto;
-	width: 200px;
-	height: 200px;
+	width: 16rem;
+	height: 16rem;
 	border-radius: 50%;
 }
 
@@ -142,8 +183,8 @@
 	margin: auto;
 	text-align: center;
 	width: 80%;
-	padding: 20px 20px 0 20px;
-	font-size: 20px;
+	padding: 1.6rem 1.6rem 0 1.6rem;
+	font-size: 1.6rem;
 	font-style: italic;
 	color: #636B6F;
 }
@@ -151,7 +192,7 @@
 .content.home #testCarousel .carousel-inner .carousel-name {
 	color: #000000;
 	font-weight: bolder;
-	margin-top: 15px;
+	margin-top: 1.2rem;
 }
 
 .content.home #testCarousel .carousel-inner .carousel-title {
@@ -161,32 +202,32 @@
 .content.home #testCarousel .carousel-indicators li {
 	background-color: #636B6F;
 	display: inline-block;
-	margin: 0px 5px;
-	width: 15px;
-	height: 15px;
+	margin: 0 0.4rem;
+	width: 1.2rem;
+	height: 1.2rem;
 }
 
 .content.home #testCarousel .carousel-indicators .active {
-	width: 15px;
-	height: 15px;
-	background-color: #3399FF;
-	border: 3px solid #FFFFFF;
-	border-radius: 18px;
-	box-shadow: 0px 0px 0px 2px #3399FF;
+	width: 1.2rem;
+	height: 1.2rem;
+	background-color: #3097D1;
+	border: 0.24rem solid #FFFFFF;
+	border-radius: 1.44rem;
+	box-shadow: 0 0 0 0.2rem #3097D1;
 }
 
 .content.home .carousel-control.left {
 	background-image: linear-gradient(to right, #F6F6F6 10%, #F6F6F6 100%);
-	font-size: 100px;
+	font-size: 8rem;
 	color: #000000;
-	margin-top: 150px;
+	margin-top: 12rem;
 	width: 10%;
 }
 
 .content.home .carousel-control.right {
 	background-image: linear-gradient(to right, #F6F6F6 10%, #F6F6F6 100%);
-	font-size: 100px;
+	font-size: 8rem;
 	color: #000000;
-	margin-top: 150px;
+	margin-top: 12rem;
 	width: 10%;
 }

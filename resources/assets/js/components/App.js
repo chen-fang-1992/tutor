@@ -19,15 +19,15 @@ export default class App extends Component {
 		};
 
 		if (this.props.content == 'home')
-			this.state.header = 'header home';
+			this.state.header = 'home';
 		else if (this.props.content == 'register')
-			this.state.header = 'header user';
+			this.state.header = 'user';
 		else if (this.props.content == 'profile')
-			this.state.header = 'header user';
+			this.state.header = 'user';
 		else if (this.props.content == 'login')
-			this.state.header = 'header user';
+			this.state.header = 'user';
 		else if (this.props.content == 'search')
-			this.state.header = 'header tutor';
+			this.state.header = 'tutor';
 	}
 
 	get content () {

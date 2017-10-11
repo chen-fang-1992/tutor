@@ -1,57 +1,103 @@
 .content.tutor .search-bar {
-	padding-right: 15px;
-	padding-left: 15px;
-	padding-bottom: 20px;
+	padding-right: 1.2rem;
+	padding-left: 1.2rem;
+	padding-bottom: 1.6rem;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: 7rem;
 }
 
 .content.tutor .search-bar h1 {
-	font-size: 50px;
+	font-size: 4rem;
 	color: #FFFFFF;
 	text-align: center;
 }
 
 .content.tutor .search-bar form {
-	padding: 10px 0 52px;
-	margin: 0 20px;
+	padding: 0.8rem 0 4.16rem;
+	margin: 0 1.6rem;
 	background-color: rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
+	border-radius: 0.4rem;
+}
+
+.content.tutor .search-bar .language {
+	padding-right: 0;
+}
+
+.content.tutor .search-bar .availability {
+	padding-right: 0;
+}
+
+.content.tutor .search-bar .location {
+	padding-right: 0;
+}
+
+.content.tutor .search-bar .filter {
+	padding-right: 0;
+}
+
+.content.tutor .search-bar .dropdown {
+	width: 100%;
 }
 
 .content.tutor .search-bar .dropdown-toggle {
-	width: 140px;
-	text-align: left;
 	background-color: #FFFFFF;
-	font-size: 18px;
+	width: 100%;
+	height: 3.5rem;
+	text-align: left;
+	font-size: 1.44rem;
 	outline: none;
 }
 
 .content.tutor .search-bar .dropdown-toggle:focus {
-	border-color: #98cbe8;
+	margin-bottom: 0;
+	border-color: #98CBE8;
+	border-bottom: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 .content.tutor .search-bar .dropdown-toggle i {
 	position: absolute;
-	right: -5px;
-	margin-top: 5px;
+	right: 1rem;
+	margin-top: 0.1rem;
+	font-size: 2rem;
+}
+
+.content.tutor .search-bar .dropdown-menu {
+	min-width: 100%;
+	margin-top: 0;
+	border-color: #98CBE8;
+	border-top: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.content.tutor .search-bar .dropdown-menu li button {
+	font-size: 1.44rem;
+	color: #636B6F;
+	text-decoration: none;
+	outline: none;
 }
 
 .content.tutor .search-bar .form-group input {
-	width: 290px;
-	height: 42px;
-	font-size: 18px;
+	width: 100%;
+	height: 3.5rem;
+	font-size: 1.44rem;
 }
 
 .content.tutor .search-bar .form-group i {
 	position: absolute;
-	right: 5px;
-	margin-top: -28px;
+	right: 1rem;
+	font-size: 1.44rem;
+	margin-top: -2.4rem;
 }
 
 .content.tutor .search-bar .search button {
-	width: 120px;
-	font-size: 18px;
+	width: 100%;
+	height: 3.5rem;
+	font-size: 1.44rem;
+	font-weight: bold;
 	outline: none;
 	border-color: #3097D1;
 }
@@ -62,8 +108,12 @@
 	background-color: #3097D1;
 }
 
+.content.tutor .panel {
+	cursor: pointer;
+}
+
 .content.tutor .panel .picture {
-	padding-right: 5px;
+	padding-right: 0.4rem;
 }
 
 .content.tutor .panel .picture img {
@@ -71,29 +121,31 @@
 }
 
 .content.tutor .panel .name {
-	margin-top: -22px;
+	margin-top: -1.76rem;
 }
 
 .content.tutor .panel .name h1 {
-	padding-bottom: 20px;
+	padding-top: 0.5rem;
+	padding-bottom: 2.4rem;
 	line-height: 1.2;
-	font-size: 20px;
+	font-size: 2rem;
 	font-weight: bold;
 	color: #000000;
 }
 
 .content.tutor .panel .info {
-	margin-bottom: 5px;
-	width: 44%;
+	margin-bottom: 0.4rem;
+	width: 65%;
 	text-align: center;
 }
 
 .content.tutor .panel .info button {
 	width: 100%;
+	font-size: 1rem;
 }
 
 .content.tutor .modal .picture {
-	padding-right: 5px;
+	padding-right: 0.4rem;
 }
 
 .content.tutor .modal .picture img {
@@ -101,21 +153,21 @@
 }
 
 .content.tutor .modal .info h1 {
-	padding-bottom: 30px;
+	padding-bottom: 3rem;
 	line-height: 1.2;
-	font-size: 20px;
+	font-size: 1.6rem;
 	font-weight: bold;
 	color: #000000;
 }
 
 .content.tutor .modal .modal-info-key {
-	font-size: 15px;
-	margin: 0 10px 0 0;
-	padding: 10px 0 0 0;
+	font-size: 1.2rem;
+	margin: 0 0.8rem 0 0;
+	padding: 0.8rem 0 0 0;
 }
 
 .content.tutor .modal .modal-info-value {
-	font-size: 15px;
+	font-size: 1.2rem;
 	color: #3097D1;
 	padding: 0;
 }
@@ -124,8 +176,8 @@
 	position: absolute;
 	outline: none;
 	border-color: #3097D1;
-	margin-left: 170px;
-	margin-right: 15px;
+	margin-left: 13.6rem;
+	margin-right: 1.2rem;
 }
 
 .content.tutor .modal .inquire:active,
@@ -136,16 +188,16 @@
 
 .content.tutor .modal .close {
 	color: #3097D1;
-	font-size: 30px;
+	font-size: 2.4rem;
 	opacity: 0.5;
 	outline: none;
-	margin-top: -10px;
-	margin-right: -5px;
+	margin-top: -0.8rem;
+	margin-right: -0.4rem;
 }
 
 .content.tutor .modal .availability {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 0.8rem;
+	margin-bottom: 0.8rem;
 }
 
 .content.tutor .modal .availability .avail {

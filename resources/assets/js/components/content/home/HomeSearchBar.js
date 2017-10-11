@@ -159,10 +159,10 @@ export default class HomeSearchBar extends Component {
 								</div>
 							</div>
 							<div className="col-xs-4 location">
-									<div className="form-group">
-										<input id="location" type="text" className="form-control" value={this.state.location} onChange={this.handleLocation} placeholder="Enter a location" name="location" />
-										<i className="fa fa-map-pin" aria-hidden="true"></i>
-									</div>
+								<div className="form-group">
+									<input id="location" type="text" className="form-control" value={this.state.location} onChange={this.handleLocation} placeholder="Enter a location" name="location" />
+									<i className="fa fa-map-pin" aria-hidden="true"></i>
+								</div>
 							</div>
 							<div className="col-xs-2 filter">
 								<div className="dropdown">

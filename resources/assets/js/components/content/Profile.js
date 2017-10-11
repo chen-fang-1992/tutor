@@ -175,7 +175,7 @@ export default class Profile extends Component {
 										<img src={this.state.picture}/>
 										<div className="form-group">
 											<input type="file" className="fileupload" onChange={this.handlePicture} />
-											<div className="btn btn-primary btn-fake">Upload your picture</div>
+											<div className="btn btn-primary btn-fake">UPLOAD YOUR PICTURE</div>
 										</div>
 									</div>
 								</div>
@@ -288,7 +288,7 @@ export default class Profile extends Component {
 								<div className="row">
 									<div className="col-xs-12">
 										<div className="form-group">
-											<button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>SUBMIT YOUR PROFILE NOW</button>
+											<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmit}>SUBMIT YOUR PROFILE NOW</button>
 											<input type="hidden" className="form-control" value={this.state.picture} name="picture" />
 											<input type="hidden" className="form-control" value={this.state.language} name="language" />
 											<input type="hidden" className="form-control" value={this.state.availability} name="availability" />

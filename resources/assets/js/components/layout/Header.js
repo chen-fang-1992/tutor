@@ -32,9 +32,9 @@ export default class Header extends Component {
 
 	render() {
 		return (
-			<div className={this.props.header}>
-				<nav className="navbar navbar-static-top" role="navigation">
-					<div className="container navigation-bar">
+			<div className={"header " + this.props.header}>
+				<nav className={"navbar " + (this.props.header=="home"?"navbar-static-top":"navbar-fixed-top")} role="navigation">
+					<div className="container-fluid navigation-bar">
 						<div className="navbar-header">
 							<a className="logo" href="/"><img src={logo}/></a>
 						</div>
