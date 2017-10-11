@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import Header from './layout/Header';
-import Footer from './layout/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 
-import Home from './content/Home';
-import Register from './content/Register';
-import Profile from './content/Profile';
-import Login from './content/Login';
-import Search from './content/Search';
+import Home from '../components/content/Home';
+import Register from '../components/content/Register';
+import Profile from '../components/content/Profile';
+import Login from '../components/content/Login';
+import Search from '../components/content/Search';
 
 export default class App extends Component {
 	constructor(props) {
@@ -54,6 +54,6 @@ export default class App extends Component {
 	}
 }
 
-if (document.getElementById('app')) {
-	ReactDOM.render(<App {...(app.dataset)} />, document.getElementById('app'));
+if (document.getElementById('root')) {
+	ReactDOM.render(<App {...(root.dataset)} />, document.getElementById('root'));
 }

@@ -13,4 +13,4 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from './components/App';
+import App from './containers/App';
