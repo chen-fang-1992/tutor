@@ -144,6 +144,12 @@
 	font-size: 1rem;
 }
 
+.content.tutor .modal-dialog {
+	margin-top: 10%;
+	width: 40%;
+	height: 40%;
+}
+
 .content.tutor .modal .picture {
 	padding-right: 0.4rem;
 }
@@ -153,21 +159,21 @@
 }
 
 .content.tutor .modal .info h1 {
-	padding-bottom: 3rem;
+	padding-bottom: 2rem;
 	line-height: 1.2;
-	font-size: 1.6rem;
+	font-size: 1.5rem;
 	font-weight: bold;
 	color: #000000;
 }
 
 .content.tutor .modal .modal-info-key {
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	margin: 0 0.8rem 0 0;
 	padding: 0.8rem 0 0 0;
 }
 
 .content.tutor .modal .modal-info-value {
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: #3097D1;
 	padding: 0;
 }
@@ -176,8 +182,9 @@
 	position: absolute;
 	outline: none;
 	border-color: #3097D1;
-	margin-left: 13.6rem;
+	margin-left: 10rem;
 	margin-right: 1.2rem;
+	font-size: 1.5rem;
 }
 
 .content.tutor .modal .inquire:active,
@@ -198,8 +205,13 @@
 .content.tutor .modal .availability {
 	margin-top: 0.8rem;
 	margin-bottom: 0.8rem;
+	font-size: 1.1rem;
 }
 
 .content.tutor .modal .availability .avail {
 	color: #3097D1;
+}
+
+.content.tutor .modal .about {
+	font-size: 1.1rem;
 }
