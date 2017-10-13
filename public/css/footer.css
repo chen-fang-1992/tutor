@@ -13,18 +13,18 @@
 	list-style-type: none;
 }
 
-.footer .list-footer a {
+.footer .list-footer .link {
 	color: #FFFFFF;
 	font-size: 1.6rem;
 }
 
-.footer .list-footer a:hover {
+.footer .list-footer .link:hover {
 	text-decoration: none;
 	color: #3097D1;
 	transition: 1s;
 }
 
-.footer .list-footer .social-footer a {
+.footer .list-footer .social-footer .link {
 	width: 2.4rem;
 	height: 2.4rem;
 	display: table;
@@ -38,14 +38,14 @@
 	color: #39404B;
 }
 
-.footer .title {
-	margin-left: 10rem;
+.footer .support {
+	margin-left: 8.8rem;
 }
 
-.footer .title h1 {
+.footer .support h1 {
 	font-size: 1.2rem;
 }
 
-.footer .title a {
+.footer .support .link {
 	color: #636B6F;
 }

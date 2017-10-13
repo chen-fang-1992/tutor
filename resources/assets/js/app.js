@@ -5,7 +5,7 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
-require('./bootstrap');
+import bootstrap from './bootstrap'
 
 /**
  * Next, we will create a fresh React component instance and attach it to
@@ -13,4 +13,35 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from './containers/App';
+import React from 'react'
+import { render } from 'react-dom'
+//import { createStore } from 'redux'
+//import { Provider } from 'react-redux'
+import { Router, browserHistory, Route, IndexRoute, applyRouterMiddleware } from 'react-router'
+import App from './containers/App'
+import Home from './components/Home'
+import Register from './components/Register'
+import Profile from './components/Profile'
+import Login from './components/Login'
+import Search from './components/Search'
+
+//const store = createStore(reducer)
+
+const useExtraProps = {
+  renderRouteComponent: child => React.cloneElement(child, root.dataset)
+}
+
+render(
+//	<Provider store={store}>
+	<Router history={browserHistory} render={applyRouterMiddleware(useExtraProps)}>
+		<Route path="/" component={App}>
+			<IndexRoute component={Home} />
+			<Route path="/user/register" component={Register} />
+			<Route path="/user/profile" component={Profile} />
+			<Route path="/user/login" component={Login} />
+			<Route path="/user/login" component={Search} />
+		</Route>
+	</Router>,
+	document.getElementById('root')
+//	</Provider>
+)

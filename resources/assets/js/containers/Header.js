@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
-import logo from '~/public/img/logo.png';
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+import logo from '~/public/img/logo.png'
 
 export default class Header extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	get auth () {
@@ -13,20 +12,20 @@ export default class Header extends Component {
 			return (
 				<div>
 					<ul className="nav navbar-nav navbar-right">
-						<li><a className="register nav-btn" href="/user/profile">My Profile</a></li>
-						<li><a className="login nav-btn" href="/user/logout">Log Out</a></li>
+						<li><Link className="register nav-btn" to="/user/profile">My Profile</Link></li>
+						<li><Link className="login nav-btn" to="/user/logout">Log Out</Link></li>
 					</ul>
 				</div>
-			);
+			)
 		} else {
 			return (
 				<div>
 					<ul className="nav navbar-nav navbar-right">
-						<li><a className="register nav-btn" href="/user/register">Become a Tutor</a></li>
-						<li><a className="login nav-btn" href="/user/login">Login</a></li>
+						<li><Link className="register nav-btn" to="/user/register">Become a Tutor</Link></li>
+						<li><Link className="login nav-btn" to="/user/login">Login</Link></li>
 					</ul>
 				</div>
-			);
+			)
 		}
 	}
 
@@ -36,16 +35,12 @@ export default class Header extends Component {
 				<nav className={"navbar " + (this.props.header==="home"?"navbar-static-top":"navbar-fixed-top")} role="navigation">
 					<div className="container-fluid navigation-bar">
 						<div className="navbar-header">
-							<a className="logo" href="/"><img src={logo}/></a>
+							<Link className="logo" to="/"><img src={logo}/></Link>
 						</div>
 						{this.auth}
 					</div>
 				</nav>
 			</div>
-		);
+		)
 	}
-}
-
-if (document.getElementById('header')) {
-	ReactDOM.render(<Header />, document.getElementById('header'));
 }

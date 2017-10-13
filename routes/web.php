@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/*
 Route::get('/', 'MainController@index');
 Route::get('/home', 'MainController@index');
 
@@ -28,4 +30,14 @@ Route::group(['prefix' => 'user'], function() {
 	Route::get('profile', 'UserController@show');
 	Route::post('profile', 'UserController@update');
 	Route::get('profile/detail', 'UserController@detail');
-});
+});*/
+
+/*Route::get('/', function() {
+	echo date("h:i:sa");
+    return view('view', ['content' => 'home', 'auth' => 'false', 'tutors' => '']);
+});*/
+
+Route::get('/{path?}', function() {
+	//echo date("h:i:sa");
+    return view('view', ['content' => 'home', 'auth' => 'false', 'tutors' => '']);
+})->where('path', '.*');
