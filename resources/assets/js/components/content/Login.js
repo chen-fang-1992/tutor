@@ -16,7 +16,7 @@ export default class Login extends Component {
 			var email = e.target.value;
 			var emailError = '';
 
-			if (email == null) {
+			if (email === null) {
 				emailError = 'Please fill in email';
 			}
 
@@ -30,7 +30,7 @@ export default class Login extends Component {
 			var password = e.target.value;
 			var passwordError = '';
 
-			if (password == null) {
+			if (password === null) {
 				passwordError = 'Please fill in password';
 			}
 

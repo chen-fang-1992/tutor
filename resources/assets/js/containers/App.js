@@ -18,28 +18,28 @@ export default class App extends Component {
 			header: ''
 		};
 
-		if (this.props.content == 'home')
+		if (this.props.content === 'home')
 			this.state.header = 'home';
-		else if (this.props.content == 'register')
+		else if (this.props.content === 'register')
 			this.state.header = 'user';
-		else if (this.props.content == 'profile')
+		else if (this.props.content === 'profile')
 			this.state.header = 'user';
-		else if (this.props.content == 'login')
+		else if (this.props.content === 'login')
 			this.state.header = 'user';
-		else if (this.props.content == 'search')
+		else if (this.props.content === 'search')
 			this.state.header = 'tutor';
 	}
 
 	get content () {
-		if (this.props.content == 'home')
+		if (this.props.content === 'home')
 			return <Home />;
-		else if (this.props.content == 'register')
+		else if (this.props.content === 'register')
 			return <Register />;
-		else if (this.props.content == 'profile')
+		else if (this.props.content === 'profile')
 			return <Profile />;
-		else if (this.props.content == 'login')
+		else if (this.props.content === 'login')
 			return <Login />;
-		else if (this.props.content == 'search')
+		else if (this.props.content === 'search')
 			return <Search tutors={this.props.tutors} />;
 	}
 

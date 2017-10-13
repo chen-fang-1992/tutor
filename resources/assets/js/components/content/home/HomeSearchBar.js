@@ -21,12 +21,12 @@ export default class HomeSearchBar extends Component {
 			e.preventDefault();
 			var availability = this.state.availability;
 
-			if (e.target.value == 'Mornings') {
-				if (availability.indexOf('M') == 0) {
+			if (e.target.value === 'Mornings') {
+				if (availability.indexOf('M') === 0) {
 					availability = availability.replace('M', '');
 					availability = availability.replace(' ','');
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'M';
 					} else {
 						availability = 'M ' + availability;
@@ -34,15 +34,15 @@ export default class HomeSearchBar extends Component {
 				}
 			}
 
-			if (e.target.value == 'Afternoons') {
+			if (e.target.value === 'Afternoons') {
 				if (availability.indexOf('A') > -1) {
 					availability = availability.replace('A', '');
 					availability = availability.replace(' ','');
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'A';
 					} else {
-						if (availability.indexOf('M') == 0) {
+						if (availability.indexOf('M') === 0) {
 							if (availability.length > 1) {
 								availability = availability.replace(' ', ' A ');
 							} else {
@@ -55,24 +55,24 @@ export default class HomeSearchBar extends Component {
 				}
 			}
 
-			if (e.target.value == 'Evenings') {
+			if (e.target.value === 'Evenings') {
 				if (availability.indexOf('E') > -1) {
-					if (availability.indexOf('E') == 0) {
+					if (availability.indexOf('E') === 0) {
 						availability = availability.replace('E', '');
 						availability = availability.replace(' ', '');
 					} else {
 						availability = availability.replace(' E', '');
 					}
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'E';
 					} else {
-						if ((availability.indexOf('M') == 0 || availability.indexOf('A') == 0)) {
+						if ((availability.indexOf('M') === 0 || availability.indexOf('A') === 0)) {
 							if (availability.length > 1) {
-								if (availability.indexOf('A') != 2) {
+								if (availability.indexOf('A') !== 2) {
 									availability = availability.replace(' ', ' E ');
 								} else {
-									if (availability == 'M A W') {
+									if (availability === 'M A W') {
 										availability = 'M A E W';
 									} else {
 										availability += ' E';
@@ -88,15 +88,15 @@ export default class HomeSearchBar extends Component {
 				}
 			}
 
-			if (e.target.value == 'Weekends') {
-				if (availability.indexOf('W') > -1 && availability.indexOf('e') == -1) {
-					if (availability.indexOf('W') == 0) {
+			if (e.target.value === 'Weekends') {
+				if (availability.indexOf('W') > -1 && availability.indexOf('e') === -1) {
+					if (availability.indexOf('W') === 0) {
 						availability = availability.replace('W', '');
 					} else {
 						availability = availability.replace(' W', '');
 					}
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'W';
 					} else {
 						availability += ' W';
@@ -104,7 +104,7 @@ export default class HomeSearchBar extends Component {
 				}
 			}
 
-			if (availability.length == 0)
+			if (availability.length === 0)
 				availability = 'When?';
 
 			this.setState({availability: availability});

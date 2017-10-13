@@ -43,8 +43,8 @@ export default class SearchModal extends Component {
 								</div>
 							</div>
 							<div className="row availability">
-								<div className={"col-xs-3"+(this.props.tutor.availability%2==1?" avail":"")}>
-									<span>{this.props.tutor.availability%2==1?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Mornings</span>
+								<div className={"col-xs-3"+(this.props.tutor.availability%2===1?" avail":"")}>
+									<span>{this.props.tutor.availability%2===1?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Mornings</span>
 								</div>
 								<div className={"col-xs-3"+(this.props.tutor.availability%4>=2?" avail":"")}>
 									<span>{this.props.tutor.availability%4>=2?<i className="fa fa-check" aria-hidden="true"></i>:<i className="fa fa-ban" aria-hidden="true"></i>}Afternoons</span>

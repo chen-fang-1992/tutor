@@ -21,7 +21,7 @@ export default class Register extends Component {
 			var name = e.target.value;
 			var nameError = '';
 
-			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
 				nameError = 'Please input correct name';
 			}
 
@@ -35,7 +35,7 @@ export default class Register extends Component {
 			var email = e.target.value;
 			var emailError = '';
 
-			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
+			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) === -1) {
 				emailError = 'Please input correct email';
 			}
 
@@ -51,7 +51,7 @@ export default class Register extends Component {
 
 			if (password.length < 6) {
 				passwordError = 'The password has to be six letter at least';
-			} else if (this.state.confirmPassword != password) {
+			} else if (this.state.confirmPassword !== password) {
 				passwordError = 'The password does not match the re-typed password';
 			}
 
@@ -67,7 +67,7 @@ export default class Register extends Component {
 
 			if (confirmPassword.length < 6) {
 				passwordError = 'The password has to be six letter at least';
-			} else if (this.state.password != confirmPassword) {
+			} else if (this.state.password !== confirmPassword) {
 				passwordError = 'The password does not match the re-typed password';
 			}
 
@@ -78,7 +78,7 @@ export default class Register extends Component {
 		}
 
 		this.handleAccept = (e) => {
-			var accept = (e.target.value == 'false');
+			var accept = (e.target.value === 'false');
 			var acceptError = '';
 
 			if (!accept) {

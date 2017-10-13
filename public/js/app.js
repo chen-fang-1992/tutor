@@ -41044,7 +41044,7 @@ var App = function (_Component) {
 			header: ''
 		};
 
-		if (_this.props.content == 'home') _this.state.header = 'home';else if (_this.props.content == 'register') _this.state.header = 'user';else if (_this.props.content == 'profile') _this.state.header = 'user';else if (_this.props.content == 'login') _this.state.header = 'user';else if (_this.props.content == 'search') _this.state.header = 'tutor';
+		if (_this.props.content === 'home') _this.state.header = 'home';else if (_this.props.content === 'register') _this.state.header = 'user';else if (_this.props.content === 'profile') _this.state.header = 'user';else if (_this.props.content === 'login') _this.state.header = 'user';else if (_this.props.content === 'search') _this.state.header = 'tutor';
 		return _this;
 	}
 
@@ -41062,7 +41062,7 @@ var App = function (_Component) {
 	}, {
 		key: 'content',
 		get: function get() {
-			if (this.props.content == 'home') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_content_Home__["a" /* default */], null);else if (this.props.content == 'register') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_content_Register__["a" /* default */], null);else if (this.props.content == 'profile') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_content_Profile__["a" /* default */], null);else if (this.props.content == 'login') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_content_Login__["a" /* default */], null);else if (this.props.content == 'search') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_content_Search__["a" /* default */], { tutors: this.props.tutors });
+			if (this.props.content === 'home') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_content_Home__["a" /* default */], null);else if (this.props.content === 'register') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_content_Register__["a" /* default */], null);else if (this.props.content === 'profile') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_content_Profile__["a" /* default */], null);else if (this.props.content === 'login') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_content_Login__["a" /* default */], null);else if (this.props.content === 'search') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_content_Search__["a" /* default */], { tutors: this.props.tutors });
 		}
 	}]);
 
@@ -53534,7 +53534,7 @@ var Header = function (_Component) {
 				{ className: "header " + this.props.header },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'nav',
-					{ className: "navbar " + (this.props.header == "home" ? "navbar-static-top" : "navbar-fixed-top"), role: 'navigation' },
+					{ className: "navbar " + (this.props.header === "home" ? "navbar-static-top" : "navbar-fixed-top"), role: 'navigation' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
 						{ className: 'container-fluid navigation-bar' },
@@ -53555,7 +53555,7 @@ var Header = function (_Component) {
 	}, {
 		key: 'auth',
 		get: function get() {
-			if (this.props.auth == 'true') {
+			if (this.props.auth === 'true') {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
 					null,
@@ -53949,12 +53949,12 @@ var HomeSearchBar = function (_Component) {
 			e.preventDefault();
 			var availability = _this.state.availability;
 
-			if (e.target.value == 'Mornings') {
-				if (availability.indexOf('M') == 0) {
+			if (e.target.value === 'Mornings') {
+				if (availability.indexOf('M') === 0) {
 					availability = availability.replace('M', '');
 					availability = availability.replace(' ', '');
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'M';
 					} else {
 						availability = 'M ' + availability;
@@ -53962,15 +53962,15 @@ var HomeSearchBar = function (_Component) {
 				}
 			}
 
-			if (e.target.value == 'Afternoons') {
+			if (e.target.value === 'Afternoons') {
 				if (availability.indexOf('A') > -1) {
 					availability = availability.replace('A', '');
 					availability = availability.replace(' ', '');
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'A';
 					} else {
-						if (availability.indexOf('M') == 0) {
+						if (availability.indexOf('M') === 0) {
 							if (availability.length > 1) {
 								availability = availability.replace(' ', ' A ');
 							} else {
@@ -53983,24 +53983,24 @@ var HomeSearchBar = function (_Component) {
 				}
 			}
 
-			if (e.target.value == 'Evenings') {
+			if (e.target.value === 'Evenings') {
 				if (availability.indexOf('E') > -1) {
-					if (availability.indexOf('E') == 0) {
+					if (availability.indexOf('E') === 0) {
 						availability = availability.replace('E', '');
 						availability = availability.replace(' ', '');
 					} else {
 						availability = availability.replace(' E', '');
 					}
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'E';
 					} else {
-						if (availability.indexOf('M') == 0 || availability.indexOf('A') == 0) {
+						if (availability.indexOf('M') === 0 || availability.indexOf('A') === 0) {
 							if (availability.length > 1) {
-								if (availability.indexOf('A') != 2) {
+								if (availability.indexOf('A') !== 2) {
 									availability = availability.replace(' ', ' E ');
 								} else {
-									if (availability == 'M A W') {
+									if (availability === 'M A W') {
 										availability = 'M A E W';
 									} else {
 										availability += ' E';
@@ -54016,15 +54016,15 @@ var HomeSearchBar = function (_Component) {
 				}
 			}
 
-			if (e.target.value == 'Weekends') {
-				if (availability.indexOf('W') > -1 && availability.indexOf('e') == -1) {
-					if (availability.indexOf('W') == 0) {
+			if (e.target.value === 'Weekends') {
+				if (availability.indexOf('W') > -1 && availability.indexOf('e') === -1) {
+					if (availability.indexOf('W') === 0) {
 						availability = availability.replace('W', '');
 					} else {
 						availability = availability.replace(' W', '');
 					}
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'W';
 					} else {
 						availability += ' W';
@@ -54032,7 +54032,7 @@ var HomeSearchBar = function (_Component) {
 				}
 			}
 
-			if (availability.length == 0) availability = 'When?';
+			if (availability.length === 0) availability = 'When?';
 
 			_this.setState({ availability: availability });
 		};
@@ -54616,7 +54616,7 @@ var Register = function (_Component) {
 			var name = e.target.value;
 			var nameError = '';
 
-			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
 				nameError = 'Please input correct name';
 			}
 
@@ -54630,7 +54630,7 @@ var Register = function (_Component) {
 			var email = e.target.value;
 			var emailError = '';
 
-			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
+			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) === -1) {
 				emailError = 'Please input correct email';
 			}
 
@@ -54646,7 +54646,7 @@ var Register = function (_Component) {
 
 			if (password.length < 6) {
 				passwordError = 'The password has to be six letter at least';
-			} else if (_this.state.confirmPassword != password) {
+			} else if (_this.state.confirmPassword !== password) {
 				passwordError = 'The password does not match the re-typed password';
 			}
 
@@ -54662,7 +54662,7 @@ var Register = function (_Component) {
 
 			if (confirmPassword.length < 6) {
 				passwordError = 'The password has to be six letter at least';
-			} else if (_this.state.password != confirmPassword) {
+			} else if (_this.state.password !== confirmPassword) {
 				passwordError = 'The password does not match the re-typed password';
 			}
 
@@ -54673,7 +54673,7 @@ var Register = function (_Component) {
 		};
 
 		_this.handleAccept = function (e) {
-			var accept = e.target.value == 'false';
+			var accept = e.target.value === 'false';
 			var acceptError = '';
 
 			if (!accept) {
@@ -54890,7 +54890,7 @@ var Profile = function (_Component) {
 			var fullname = firstname + ' ' + _this.state.lastname;
 			var nameError = '';
 
-			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
 				nameError = 'Please input correct name';
 			}
 
@@ -54905,7 +54905,7 @@ var Profile = function (_Component) {
 			var fullname = _this.state.firstname + ' ' + lastname;
 			var nameError = '';
 
-			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
 				nameError = 'Please input correct name';
 			}
 
@@ -54949,19 +54949,19 @@ var Profile = function (_Component) {
 		};
 
 		_this.handleMornings = function (e) {
-			_this.setState({ mornings: e.target.value == 'false' });
+			_this.setState({ mornings: e.target.value === 'false' });
 		};
 
 		_this.handleAfternoons = function (e) {
-			_this.setState({ afternoons: e.target.value == 'false' });
+			_this.setState({ afternoons: e.target.value === 'false' });
 		};
 
 		_this.handleEvenings = function (e) {
-			_this.setState({ evenings: e.target.value == 'false' });
+			_this.setState({ evenings: e.target.value === 'false' });
 		};
 
 		_this.handleWeekends = function (e) {
-			_this.setState({ weekends: e.target.value == 'false' });
+			_this.setState({ weekends: e.target.value === 'false' });
 		};
 
 		_this.handleSubmit = function (e) {
@@ -54996,7 +54996,7 @@ var Profile = function (_Component) {
 					location: response.data.location ? response.data.location : '',
 					currency: response.data.currency ? response.data.currency : '',
 					price: response.data.price ? response.data.price : '',
-					mornings: response.data.availability ? response.data.availability % 2 == 1 : false,
+					mornings: response.data.availability ? response.data.availability % 2 === 1 : false,
 					afternoons: response.data.availability ? response.data.availability % 4 >= 2 : false,
 					evenings: response.data.availability ? response.data.availability % 8 >= 4 : false,
 					weekends: response.data.availability ? response.data.availability % 16 >= 8 : false,
@@ -55416,7 +55416,7 @@ var Login = function (_Component) {
 			var email = e.target.value;
 			var emailError = '';
 
-			if (email == null) {
+			if (email === null) {
 				emailError = 'Please fill in email';
 			}
 
@@ -55430,7 +55430,7 @@ var Login = function (_Component) {
 			var password = e.target.value;
 			var passwordError = '';
 
-			if (password == null) {
+			if (password === null) {
 				passwordError = 'Please fill in password';
 			}
 
@@ -55617,12 +55617,12 @@ var Search = function (_Component) {
 			e.preventDefault();
 			var availability = _this.state.availability;
 
-			if (e.target.value == 'Mornings') {
-				if (availability.indexOf('M') == 0) {
+			if (e.target.value === 'Mornings') {
+				if (availability.indexOf('M') === 0) {
 					availability = availability.replace('M', '');
 					availability = availability.replace(' ', '');
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'M';
 					} else {
 						availability = 'M ' + availability;
@@ -55630,15 +55630,15 @@ var Search = function (_Component) {
 				}
 			}
 
-			if (e.target.value == 'Afternoons') {
+			if (e.target.value === 'Afternoons') {
 				if (availability.indexOf('A') > -1) {
 					availability = availability.replace('A', '');
 					availability = availability.replace(' ', '');
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'A';
 					} else {
-						if (availability.indexOf('M') == 0) {
+						if (availability.indexOf('M') === 0) {
 							if (availability.length > 1) {
 								availability = availability.replace(' ', ' A ');
 							} else {
@@ -55651,24 +55651,24 @@ var Search = function (_Component) {
 				}
 			}
 
-			if (e.target.value == 'Evenings') {
+			if (e.target.value === 'Evenings') {
 				if (availability.indexOf('E') > -1) {
-					if (availability.indexOf('E') == 0) {
+					if (availability.indexOf('E') === 0) {
 						availability = availability.replace('E', '');
 						availability = availability.replace(' ', '');
 					} else {
 						availability = availability.replace(' E', '');
 					}
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'E';
 					} else {
-						if (availability.indexOf('M') == 0 || availability.indexOf('A') == 0) {
+						if (availability.indexOf('M') === 0 || availability.indexOf('A') === 0) {
 							if (availability.length > 1) {
-								if (availability.indexOf('A') != 2) {
+								if (availability.indexOf('A') !== 2) {
 									availability = availability.replace(' ', ' E ');
 								} else {
-									if (availability == 'M A W') {
+									if (availability === 'M A W') {
 										availability = 'M A E W';
 									} else {
 										availability += ' E';
@@ -55684,15 +55684,15 @@ var Search = function (_Component) {
 				}
 			}
 
-			if (e.target.value == 'Weekends') {
-				if (availability.indexOf('W') > -1 && availability.indexOf('e') == -1) {
-					if (availability.indexOf('W') == 0) {
+			if (e.target.value === 'Weekends') {
+				if (availability.indexOf('W') > -1 && availability.indexOf('e') === -1) {
+					if (availability.indexOf('W') === 0) {
 						availability = availability.replace('W', '');
 					} else {
 						availability = availability.replace(' W', '');
 					}
 				} else {
-					if (availability == 'When?') {
+					if (availability === 'When?') {
 						availability = 'W';
 					} else {
 						availability += ' W';
@@ -55700,7 +55700,7 @@ var Search = function (_Component) {
 				}
 			}
 
-			if (availability.length == 0) availability = 'When?';
+			if (availability.length === 0) availability = 'When?';
 
 			_this.setState({ availability: availability });
 
@@ -56265,11 +56265,11 @@ var SearchModal = function (_Component) {
 								{ className: 'row availability' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
-									{ className: "col-xs-3" + (this.props.tutor.availability % 2 == 1 ? " avail" : "") },
+									{ className: "col-xs-3" + (this.props.tutor.availability % 2 === 1 ? " avail" : "") },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'span',
 										null,
-										this.props.tutor.availability % 2 == 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+										this.props.tutor.availability % 2 === 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
 										'Mornings'
 									)
 								),

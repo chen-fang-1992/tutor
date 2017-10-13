@@ -47,7 +47,7 @@ export default class Profile extends Component {
 			var fullname = firstname + ' ' + this.state.lastname;
 			var nameError = '';
 
-			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
 				nameError = 'Please input correct name';
 			}
 
@@ -62,7 +62,7 @@ export default class Profile extends Component {
 			var fullname = this.state.firstname + ' ' + lastname;
 			var nameError = '';
 
-			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) == -1) {
+			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
 				nameError = 'Please input correct name';
 			}
 
@@ -106,19 +106,19 @@ export default class Profile extends Component {
 		}
 
 		this.handleMornings = (e) => {
-			this.setState({mornings: (e.target.value == 'false')});
+			this.setState({mornings: (e.target.value === 'false')});
 		}
 
 		this.handleAfternoons = (e) => {
-			this.setState({afternoons: (e.target.value == 'false')});
+			this.setState({afternoons: (e.target.value === 'false')});
 		}
 
 		this.handleEvenings = (e) => {
-			this.setState({evenings: (e.target.value == 'false')});
+			this.setState({evenings: (e.target.value === 'false')});
 		}
 
 		this.handleWeekends = (e) => {
-			this.setState({weekends: (e.target.value == 'false')});
+			this.setState({weekends: (e.target.value === 'false')});
 		}
 
 		this.handleSubmit = (e) => {
@@ -152,7 +152,7 @@ export default class Profile extends Component {
 				location: response.data.location ? response.data.location : '',
 				currency: response.data.currency ? response.data.currency : '',
 				price: response.data.price ? response.data.price : '',
-				mornings: response.data.availability ? response.data.availability % 2 == 1 : false,
+				mornings: response.data.availability ? response.data.availability % 2 === 1 : false,
 				afternoons: response.data.availability ? response.data.availability  % 4 >= 2 : false,
 				evenings: response.data.availability ? response.data.availability % 8 >= 4 : false,
 				weekends: response.data.availability ? response.data.availability % 16 >= 8 : false,
