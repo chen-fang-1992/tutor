@@ -70,12 +70,15 @@ body {
 	color: #3097D1;
 }
 
-.header .navigation-bar .nav-btn:active,
+.header .navigation-bar .nav-btn:visited {
+	background-color: #FFFFFF;
+}
+
 .header .navigation-bar .nav-btn:hover,
-.header .navigation-bar .nav-btn:focus {
-	color: #FFFFFF;
+.header .navigation-bar .nav-btn:active {
 	background-color: #3097D1;
 	border-color: #3097D1;
+	color: #FFFFFF;
 }
 
 .header.user .container-fluid {

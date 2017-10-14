@@ -15,13 +15,9 @@
 Route::get('/', 'MainController@index');
 Route::get('/home', 'MainController@index');
 
-Route::get('/tutor', 'MainController@search');
-Route::get('/tutor/detail', 'MainController@show');
-
 Route::group(['prefix' => 'user'], function() {
 	Route::get('login', 'UserController@login');
 	Route::post('login', 'Auth\LoginController@login');
-	Route::get('logout', 'Auth\LoginController@logout');
 
 	Route::get('register', 'UserController@register');
 	Route::post('register', 'Auth\RegisterController@register');
@@ -34,10 +30,18 @@ Route::group(['prefix' => 'user'], function() {
 
 /*Route::get('/', function() {
 	echo date("h:i:sa");
-    return view('view', ['content' => 'home', 'auth' => 'false', 'tutors' => '']);
+		return view('view', ['content' => 'home', 'auth' => 'false', 'tutors' => '']);
 });*/
 
+Route::post('/user/login', 'UserController@login');
+Route::get('/user/logout', 'Auth\LoginController@logout');
+
+Route::get('/user/profile/detail', 'UserController@detail');
+
+Route::get('/tutor', 'MainController@search');
+Route::get('/tutor/detail', 'MainController@show');
+
 Route::get('/{path?}', function() {
-	//echo date("h:i:sa");
-    return view('view', ['content' => 'home', 'auth' => 'false', 'tutors' => '']);
+//echo date("h:i:sa");
+	return view('view', ['content' => 'home', 'auth' => 'false', 'tutors' => '']);
 })->where('path', '.*');

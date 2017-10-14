@@ -9,20 +9,20 @@ export default class App extends Component {
 		this.state = {
 			header: ''
 		}
-
-		if (this.props.content === 'home')
-			this.state.header = 'home'
-		else if (this.props.content === 'register')
-			this.state.header = 'user'
-		else if (this.props.content === 'profile')
-			this.state.header = 'user'
-		else if (this.props.content === 'login')
-			this.state.header = 'user'
-		else if (this.props.content === 'search')
-			this.state.header = 'tutor'
 	}
 
 	render() {
+		if (this.props.location.pathname === '/')
+			this.state.header = 'home'
+		else if (this.props.location.pathname === '/user/register')
+			this.state.header = 'user'
+		else if (this.props.location.pathname === '/user/profile')
+			this.state.header = 'user'
+		else if (this.props.location.pathname === '/user/login')
+			this.state.header = 'user'
+		else if (this.props.location.pathname === '/tutor')
+			this.state.header = 'tutor'
+
 		return (
 			<div>
 				<Header auth={this.props.auth} header={this.state.header} />

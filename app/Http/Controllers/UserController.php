@@ -14,26 +14,28 @@ class UserController extends Controller
 {
 
 	/*
-		call for login page
+		login authentication
 	*/
 	public function login()
 	{
-		$user = Auth::user();
-		if ($user == null) {
-			return view('layouts/layout', ['content' => 'login', 'auth' => 'false', 'tutors' => '']);
+		$email = Input::get('email');
+		$password = Input::get('password');
+
+		if (Auth::attempt(['email' => $email, 'password' => $password])) {
+			return redirect('/user/profile/detail');
 		} else {
-			return redirect('/user/profile');
+			return 'fail';
 		}
 	}
 
 	/*
-		call for register page
+		get user profile detail
 	*/
-	public function register()
+	public function detail()
 	{
 		$user = Auth::user();
-		if ($user == null)
-			return view('layouts/layout', ['content' => 'register', 'auth' => 'false', 'tutors' => '']);
+		$profile = Profile::find($user->id);
+		return $profile;
 	}
 
 	/*
@@ -50,20 +52,6 @@ class UserController extends Controller
 		if ($profile->save())
 			return redirect('/user/profile');
 	}
-
-	/*
-		show user profile
-	*/
-	public function show()
-	{
-		$user = Auth::user();
-		if ($user == null) {
-			return redirect('/user/login');
-		} else {
-			return view('layouts/layout', ['content' => 'profile', 'auth' => 'true', 'tutors' => '']);
-		}
-	}
-
 
 	/*
 		update user profile
@@ -98,15 +86,5 @@ class UserController extends Controller
 
 		if ($profile->save() && $user->save())
 			return redirect('/user/profile');
-	}
-
-	/*
-		get user profile detail
-	*/
-	public function detail()
-	{
-		$user = Auth::user();
-		$profile = Profile::find($user->id);
-		return $profile;
 	}
 }

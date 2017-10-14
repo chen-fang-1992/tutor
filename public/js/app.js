@@ -7763,7 +7763,7 @@ module.exports = getEventCharCode;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Router__ = __webpack_require__(249);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_0__Router__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__Router__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(117);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__Link__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__IndexLink__ = __webpack_require__(256);
@@ -7775,9 +7775,9 @@ module.exports = getEventCharCode;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__IndexRoute__ = __webpack_require__(260);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__IndexRoute__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(118);
-/* unused harmony reexport Redirect */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(261);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__RouteUtils__ = __webpack_require__(20);
 /* unused harmony reexport createRoutes */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__RouterContext__ = __webpack_require__(68);
@@ -7792,9 +7792,9 @@ module.exports = getEventCharCode;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__PatternUtils__ = __webpack_require__(29);
 /* unused harmony reexport formatPattern */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__ = __webpack_require__(267);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__browserHistory__ = __webpack_require__(268);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_15__browserHistory__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_15__browserHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__hashHistory__ = __webpack_require__(271);
 /* unused harmony reexport hashHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__ = __webpack_require__(119);
@@ -14361,16 +14361,16 @@ var useExtraProps = {
 Object(__WEBPACK_IMPORTED_MODULE_2_react_dom__["render"])(
 //	<Provider store={store}>
 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-	__WEBPACK_IMPORTED_MODULE_3_react_router__["d" /* Router */],
-	{ history: __WEBPACK_IMPORTED_MODULE_3_react_router__["f" /* browserHistory */], render: Object(__WEBPACK_IMPORTED_MODULE_3_react_router__["e" /* applyRouterMiddleware */])(useExtraProps) },
+	__WEBPACK_IMPORTED_MODULE_3_react_router__["e" /* Router */],
+	{ history: __WEBPACK_IMPORTED_MODULE_3_react_router__["g" /* browserHistory */], render: Object(__WEBPACK_IMPORTED_MODULE_3_react_router__["f" /* applyRouterMiddleware */])(useExtraProps) },
 	__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-		__WEBPACK_IMPORTED_MODULE_3_react_router__["c" /* Route */],
+		__WEBPACK_IMPORTED_MODULE_3_react_router__["d" /* Route */],
 		{ path: '/', component: __WEBPACK_IMPORTED_MODULE_4__containers_App__["a" /* default */] },
 		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["a" /* IndexRoute */], { component: __WEBPACK_IMPORTED_MODULE_5__components_Home__["a" /* default */] }),
-		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["c" /* Route */], { path: '/user/register', component: __WEBPACK_IMPORTED_MODULE_6__components_Register__["a" /* default */] }),
-		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["c" /* Route */], { path: '/user/profile', component: __WEBPACK_IMPORTED_MODULE_7__components_Profile__["a" /* default */] }),
-		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["c" /* Route */], { path: '/user/login', component: __WEBPACK_IMPORTED_MODULE_8__components_Login__["a" /* default */] }),
-		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["c" /* Route */], { path: '/user/login', component: __WEBPACK_IMPORTED_MODULE_9__components_Search__["a" /* default */] })
+		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["d" /* Route */], { path: '/user/register', component: __WEBPACK_IMPORTED_MODULE_6__components_Register__["a" /* default */] }),
+		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["d" /* Route */], { path: '/user/profile', component: __WEBPACK_IMPORTED_MODULE_7__components_Profile__["a" /* default */] }),
+		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["d" /* Route */], { path: '/user/login', component: __WEBPACK_IMPORTED_MODULE_8__components_Login__["a" /* default */] }),
+		__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router__["d" /* Route */], { path: '/user/login', component: __WEBPACK_IMPORTED_MODULE_9__components_Search__["a" /* default */] })
 	)
 ), document.getElementById('root')
 //	</Provider>
@@ -58339,14 +58339,14 @@ var App = function (_Component) {
 		_this.state = {
 			header: ''
 		};
-
-		if (_this.props.content === 'home') _this.state.header = 'home';else if (_this.props.content === 'register') _this.state.header = 'user';else if (_this.props.content === 'profile') _this.state.header = 'user';else if (_this.props.content === 'login') _this.state.header = 'user';else if (_this.props.content === 'search') _this.state.header = 'tutor';
 		return _this;
 	}
 
 	_createClass(App, [{
 		key: 'render',
 		value: function render() {
+			if (this.props.location.pathname === '/') this.state.header = 'home';else if (this.props.location.pathname === '/user/register') this.state.header = 'user';else if (this.props.location.pathname === '/user/profile') this.state.header = 'user';else if (this.props.location.pathname === '/user/login') this.state.header = 'user';else if (this.props.location.pathname === '/tutor') this.state.header = 'tutor';
+
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
 				null,
@@ -58372,116 +58372,91 @@ var App = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_logo_png__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
 
+var Header = function Header(_ref) {
+	var auth = _ref.auth,
+	    header = _ref.header;
 
-var Header = function (_Component) {
-	_inherits(Header, _Component);
-
-	function Header(props) {
-		_classCallCheck(this, Header);
-
-		return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
-	}
-
-	_createClass(Header, [{
-		key: 'render',
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ className: "header " + this.props.header },
+	var authTrue = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		'div',
+		null,
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'ul',
+			{ className: 'nav navbar-nav navbar-right' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'li',
+				null,
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'nav',
-					{ className: "navbar " + (this.props.header === "home" ? "navbar-static-top" : "navbar-fixed-top"), role: 'navigation' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'container-fluid navigation-bar' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'navbar-header' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
-								{ className: 'logo', to: '/' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default.a })
-							)
-						),
-						this.auth
-					)
+					__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
+					{ className: 'register nav-btn', to: '/user/profile' },
+					'My Profile'
 				)
-			);
-		}
-	}, {
-		key: 'auth',
-		get: function get() {
-			if (this.props.auth === 'true') {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'ul',
-						{ className: 'nav navbar-nav navbar-right' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'li',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
-								{ className: 'register nav-btn', to: '/user/profile' },
-								'My Profile'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'li',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
-								{ className: 'login nav-btn', to: '/user/logout' },
-								'Log Out'
-							)
-						)
-					)
-				);
-			} else {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'ul',
-						{ className: 'nav navbar-nav navbar-right' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'li',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
-								{ className: 'register nav-btn', to: '/user/register' },
-								'Become a Tutor'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'li',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
-								{ className: 'login nav-btn', to: '/user/login' },
-								'Login'
-							)
-						)
-					)
-				);
-			}
-		}
-	}]);
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'li',
+				null,
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
+					{ className: 'login nav-btn', to: '/user/logout' },
+					'Log Out'
+				)
+			)
+		)
+	);
 
-	return Header;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+	var authFalse = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		'div',
+		null,
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'ul',
+			{ className: 'nav navbar-nav navbar-right' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'li',
+				null,
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
+					{ className: 'register nav-btn', to: '/user/register' },
+					'Become a Tutor'
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'li',
+				null,
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
+					{ className: 'login nav-btn', to: '/user/login' },
+					'Login'
+				)
+			)
+		)
+	);
+
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		'div',
+		{ className: 'header ' + header },
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'nav',
+			{ className: 'navbar ' + (header === "home" ? "navbar-static-top" : "navbar-fixed-top"), role: 'navigation' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container-fluid navigation-bar' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'navbar-header' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Link */],
+						{ className: 'logo', to: '/' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_logo_png___default.a })
+					)
+				),
+				auth === 'true' ? authTrue : authFalse
+			)
+		)
+	);
+};
 
 /* harmony default export */ __webpack_exports__["a"] = (Header);
 
@@ -58675,62 +58650,29 @@ var Footer = function Footer() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_HomeSearchBar__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_HomeIntroBar__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_HomeTestimonials__ = __webpack_require__(285);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__public_img_home_bg_jpeg__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__public_img_home_bg_jpeg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__public_img_home_bg_jpeg__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_HomeSearchBar__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_HomeIntroBar__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_HomeTestimonials__ = __webpack_require__(285);
 
 
 
 
 
 
-
-
-
-
-var Home = function (_Component) {
-	_inherits(Home, _Component);
-
-	function Home() {
-		_classCallCheck(this, Home);
-
-		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
-	}
-
-	_createClass(Home, [{
-		key: 'render',
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ className: 'content home' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'background', style: { backgroundImage: "url(" + __WEBPACK_IMPORTED_MODULE_2__public_img_home_bg_jpeg___default.a + ")" } }),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_HomeSearchBar__["a" /* default */], null),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__home_HomeIntroBar__["a" /* default */], null),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__home_HomeTestimonials__["a" /* default */], null)
-			);
-		}
-	}]);
-
-	return Home;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+var Home = function Home() {
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		'div',
+		{ className: 'content home' },
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'background', style: { backgroundImage: "url(" + __WEBPACK_IMPORTED_MODULE_1__public_img_home_bg_jpeg___default.a + ")" } }),
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__home_HomeSearchBar__["a" /* default */], null),
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__home_HomeIntroBar__["a" /* default */], null),
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__home_HomeTestimonials__["a" /* default */], null)
+	);
+};
 
 /* harmony default export */ __webpack_exports__["a"] = (Home);
-
-
-if (document.getElementById('home')) {
-	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Home, null), document.getElementById('home'));
-}
 
 /***/ }),
 /* 279 */
@@ -59106,115 +59048,83 @@ if (document.getElementById('home-search-bar')) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_question_png__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_question_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_question_png__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_wanted_png__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_wanted_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__public_img_wanted_png__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_become_png__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_become_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__public_img_become_png__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__public_img_question_png__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__public_img_question_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__public_img_question_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_wanted_png__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_wanted_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_wanted_png__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_become_png__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_become_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__public_img_become_png__);
 
 
 
 
 
-
-
-
-var HomeIntroBar = function (_Component) {
-	_inherits(HomeIntroBar, _Component);
-
-	function HomeIntroBar() {
-		_classCallCheck(this, HomeIntroBar);
-
-		return _possibleConstructorReturn(this, (HomeIntroBar.__proto__ || Object.getPrototypeOf(HomeIntroBar)).apply(this, arguments));
-	}
-
-	_createClass(HomeIntroBar, [{
-		key: 'render',
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+var HomeIntroBar = function HomeIntroBar() {
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		'div',
+		{ className: 'container intro-bar' },
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ className: 'row title' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'h1',
+				null,
+				'Connecting People with Private Language Tutors'
+			)
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ className: 'row subtitle' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'container intro-bar' },
+				{ className: 'col-xs-4' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_1__public_img_question_png___default.a }),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'row title' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'h1',
-						null,
-						'Connecting People with Private Language Tutors'
-					)
+					'h1',
+					null,
+					'What is TUTOR?'
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'row subtitle' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'col-xs-4' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_question_png___default.a }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h1',
-							null,
-							'What is TUTOR?'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							null,
-							'TUTOR is a marketplace connecting students with qualified tutors nearby. TUTOR benefits both students and tutors as students can now easily find a great tutor who matches their availabilities and location for private classNamees, while tutors can expand their businesses, staying organized and focused.'
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'col-xs-4' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__public_img_wanted_png___default.a }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h1',
-							null,
-							'On Demand Tutors'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							null,
-							'Search and hire nearby language tutors now with TUTOR. Once you\u2019ve selected the tutor you want to inquire about, we will contact you back on WhatsApp and introduce you to your preferred private native tutor so you can meet up!'
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'col-xs-4' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_4__public_img_become_png___default.a }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h1',
-							null,
-							'Become a Tutor?'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							null,
-							'With TUTOR, you choose your hours and the students pay you directly. We keep it simple, fast and free to help you find nearby students who match your availabilities. TUTOR has students and teachers in Hong Kong, Singapore, Sydney, Melbourne, Dubai, Taiwan and Cape Town. Contact us now!'
-						)
-					)
+					'p',
+					null,
+					'TUTOR is a marketplace connecting students with qualified tutors nearby. TUTOR benefits both students and tutors as students can now easily find a great tutor who matches their availabilities and location for private classNamees, while tutors can expand their businesses, staying organized and focused.'
 				)
-			);
-		}
-	}]);
-
-	return HomeIntroBar;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'col-xs-4' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_wanted_png___default.a }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h1',
+					null,
+					'On Demand Tutors'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					null,
+					'Search and hire nearby language tutors now with TUTOR. Once you\u2019ve selected the tutor you want to inquire about, we will contact you back on WhatsApp and introduce you to your preferred private native tutor so you can meet up!'
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'col-xs-4' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__public_img_become_png___default.a }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h1',
+					null,
+					'Become a Tutor?'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					null,
+					'With TUTOR, you choose your hours and the students pay you directly. We keep it simple, fast and free to help you find nearby students who match your availabilities. TUTOR has students and teachers in Hong Kong, Singapore, Sydney, Melbourne, Dubai, Taiwan and Cape Town. Contact us now!'
+				)
+			)
+		)
+	);
+};
 
 /* harmony default export */ __webpack_exports__["a"] = (HomeIntroBar);
-
-
-if (document.getElementById('home-intro-bar')) {
-	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HomeIntroBar, null), document.getElementById('home-intro-bar'));
-}
 
 /***/ }),
 /* 282 */
@@ -59241,151 +59151,119 @@ module.exports = "/images/become.png?3298f4e654a301bf3e1d6e932dc6e143";
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_Malik_jpg__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_Malik_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_Malik_jpg__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_Libby_jpg__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_Libby_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__public_img_Libby_jpg__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_Joe_jpg__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__public_img_Joe_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__public_img_Joe_jpg__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__public_img_Malik_jpg__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__public_img_Malik_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__public_img_Malik_jpg__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_Libby_jpg__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__public_img_Libby_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__public_img_Libby_jpg__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_Joe_jpg__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__public_img_Joe_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__public_img_Joe_jpg__);
 
 
 
 
 
-
-
-
-var HomeTestimonials = function (_Component) {
-	_inherits(HomeTestimonials, _Component);
-
-	function HomeTestimonials() {
-		_classCallCheck(this, HomeTestimonials);
-
-		return _possibleConstructorReturn(this, (HomeTestimonials.__proto__ || Object.getPrototypeOf(HomeTestimonials)).apply(this, arguments));
-	}
-
-	_createClass(HomeTestimonials, [{
-		key: 'render',
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+var HomeTestimonials = function HomeTestimonials() {
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		'div',
+		{ className: 'container-fluid testimonials' },
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ className: 'row title' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'h1',
+				null,
+				'Testimonials from our native tutors'
+			)
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ id: 'testCarousel', className: 'carousel slide' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'container-fluid testimonials' },
+				{ className: 'carousel-inner' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
-					{ className: 'row title' },
+					{ className: 'active item' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_1__public_img_Malik_jpg___default.a }),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'h1',
-						null,
-						'Testimonials from our native tutors'
+						'p',
+						{ className: 'carousel-para' },
+						'\u201CI am an experienced French tutor and have worked with TUTOR for nearly one year. TUTOR has been helping me to find students, each with different goals, levels and age. Thank you TUTOR!\u201D'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'carousel-name' },
+						'Malik'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'carousel-title' },
+						'Native French Teacher'
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
-					{ id: 'testCarousel', className: 'carousel slide' },
+					{ className: 'item' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_Libby_jpg___default.a }),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'carousel-inner' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'active item' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_2__public_img_Malik_jpg___default.a }),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-para' },
-								'\u201CI am an experienced French tutor and have worked with TUTOR for nearly one year. TUTOR has been helping me to find students, each with different goals, levels and age. Thank you TUTOR!\u201D'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-name' },
-								'Malik'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-title' },
-								'Native French Teacher'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'item' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__public_img_Libby_jpg___default.a }),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-para' },
-								'\u201CI am a native English speaker and TUTOR has been such a useful and easy way to connect with students. They do a wonderful job connecting you with students who best match your schedule had plenty of opportunities made aware quickly. I would strongly recommend them to those students looking to learn another language or to teach!\u201D'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-name' },
-								'Libby'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-title' },
-								'Native English Teacher'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'item' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_4__public_img_Joe_jpg___default.a }),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-para' },
-								'\u201CTUTOR is a great organization that helps us English teachers find opportunities to practice our craft with quick and direct referrals, communication and assistance. I highly recommend you give TUTOR a shot and in no time you\'ll have a great group of students which are a pleasure to teach.\u201D'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-name' },
-								'Joe'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'carousel-title' },
-								'Native English Teacher'
-							)
-						)
+						'p',
+						{ className: 'carousel-para' },
+						'\u201CI am a native English speaker and TUTOR has been such a useful and easy way to connect with students. They do a wonderful job connecting you with students who best match your schedule had plenty of opportunities made aware quickly. I would strongly recommend them to those students looking to learn another language or to teach!\u201D'
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'ol',
-						{ className: 'carousel-indicators' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '0', className: 'active' }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '1' }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '2' })
+						'p',
+						{ className: 'carousel-name' },
+						'Libby'
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'a',
-						{ className: 'carousel-control left', href: '#testCarousel', 'data-slide': 'prev' },
-						'\u2039'
+						'p',
+						{ className: 'carousel-title' },
+						'Native English Teacher'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'item' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__public_img_Joe_jpg___default.a }),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'carousel-para' },
+						'\u201CTUTOR is a great organization that helps us English teachers find opportunities to practice our craft with quick and direct referrals, communication and assistance. I highly recommend you give TUTOR a shot and in no time you\'ll have a great group of students which are a pleasure to teach.\u201D'
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'a',
-						{ className: 'carousel-control right', href: '#testCarousel', 'data-slide': 'next' },
-						'\u203A'
+						'p',
+						{ className: 'carousel-name' },
+						'Joe'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'carousel-title' },
+						'Native English Teacher'
 					)
 				)
-			);
-		}
-	}]);
-
-	return HomeTestimonials;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'ol',
+				{ className: 'carousel-indicators' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '0', className: 'active' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '1' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#testCarousel', 'data-slide-to': '2' })
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'a',
+				{ className: 'carousel-control left', href: '#testCarousel', 'data-slide': 'prev' },
+				'\u2039'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'a',
+				{ className: 'carousel-control right', href: '#testCarousel', 'data-slide': 'next' },
+				'\u203A'
+			)
+		)
+	);
+};
 
 /* harmony default export */ __webpack_exports__["a"] = (HomeTestimonials);
-
-
-if (document.getElementById('home-testimonials')) {
-	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HomeTestimonials, null), document.getElementById('home-testimonials'));
-}
 
 /***/ }),
 /* 286 */
@@ -60217,8 +60095,9 @@ if (document.getElementById('profile')) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router__ = __webpack_require__(66);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60226,6 +60105,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -60242,7 +60122,9 @@ var Login = function (_Component) {
 			email: '',
 			emailError: 'Please fill in email',
 			password: '',
-			passwordError: 'Please fill in password'
+			passwordError: 'Please fill in password',
+			redirect: false,
+			profile: ''
 		};
 
 		_this.handleEmail = function (e) {
@@ -60274,12 +60156,24 @@ var Login = function (_Component) {
 		};
 
 		_this.handleSubmit = function (e) {
+			e.preventDefault();
+
 			if (_this.state.emailError) {
 				alert(_this.state.emailError);
-				e.preventDefault();
 			} else if (_this.state.passwordError) {
 				alert(_this.state.passwordError);
-				e.preventDefault();
+			} else {
+				__WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/user/login', {
+					email: _this.state.email,
+					password: _this.state.password
+				}).then(function (response) {
+					if (response.data !== 'fail') {
+						console.log('success');
+						_this.setState({
+							redirect: true
+						});
+					}
+				});
 			}
 		};
 		return _this;
@@ -60288,6 +60182,15 @@ var Login = function (_Component) {
 	_createClass(Login, [{
 		key: 'render',
 		value: function render() {
+			var _state = this.state,
+			    redirect = _state.redirect,
+			    profile = _state.profile;
+
+
+			if (redirect) {
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["c" /* Redirect */], { to: '/user/profile' });
+			}
+
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
 				{ className: 'content user' },
@@ -60355,8 +60258,8 @@ var Login = function (_Component) {
 											{ className: 'form-group' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'button',
-												{ type: 'submit', className: 'btn btn-primary submit', onClick: this.handleSubmit },
-												'Log In Your Profile'
+												{ className: 'btn btn-primary submit', onClick: this.handleSubmit },
+												'LOG IN YOUR PROFILE'
 											)
 										)
 									)
@@ -60373,11 +60276,6 @@ var Login = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (Login);
-
-
-if (document.getElementById('login')) {
-	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Login, null), document.getElementById('login'));
-}
 
 /***/ }),
 /* 292 */
@@ -60859,104 +60757,74 @@ if (document.getElementById('search')) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
-
-
-var SearchItem = function (_Component) {
-	_inherits(SearchItem, _Component);
-
-	function SearchItem(props) {
-		_classCallCheck(this, SearchItem);
-
-		return _possibleConstructorReturn(this, (SearchItem.__proto__ || Object.getPrototypeOf(SearchItem)).call(this, props));
-	}
-
-	_createClass(SearchItem, [{
-		key: 'render',
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ className: 'panel', 'data-toggle': 'modal', 'data-target': "#" + this.props.tutor.id },
+var SearchItem = function SearchItem(_ref) {
+	var tutors = _ref.tutors;
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		"div",
+		{ className: "panel", "data-toggle": "modal", "data-target": "#" + tutor.id },
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			"div",
+			{ className: "row" },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				"div",
+				{ className: "col-xs-5 picture" },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: tutor.picture })
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				"div",
+				{ className: "col-xs-7" },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'row' },
+					"div",
+					{ className: "row name" },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'col-xs-5 picture' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.tutor.picture })
-					),
+						"h1",
+						null,
+						tutor.firstname,
+						" ",
+						tutor.lastname
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"div",
+					{ className: "row info" },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'col-xs-7' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'row name' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'h1',
-								null,
-								this.props.tutor.firstname,
-								' ',
-								this.props.tutor.lastname
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'row info' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'button',
-								{ className: 'btn btn-success' },
-								'Teaches ',
-								this.props.tutor.language
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'row info' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'button',
-								{ className: 'btn btn-warning' },
-								'From ',
-								this.props.tutor.country
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'row info' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'button',
-								{ className: 'btn btn-primary' },
-								'Price ',
-								this.props.tutor.currency,
-								' ',
-								this.props.tutor.price,
-								'/Hour'
-							)
-						)
+						"button",
+						{ className: "btn btn-success" },
+						"Teaches ",
+						tutor.language
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"div",
+					{ className: "row info" },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"button",
+						{ className: "btn btn-warning" },
+						"From ",
+						tutor.country
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					"div",
+					{ className: "row info" },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"button",
+						{ className: "btn btn-primary" },
+						"Price ",
+						tutor.currency,
+						" ",
+						tutor.price,
+						"/Hour"
 					)
 				)
-			);
-		}
-	}]);
-
-	return SearchItem;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+			)
+		)
+	);
+};
 
 /* harmony default export */ __webpack_exports__["a"] = (SearchItem);
-
-
-if (document.getElementById('search-item')) {
-	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(SearchItem, null), document.getElementById('search-item'));
-}
 
 /***/ }),
 /* 294 */
@@ -60965,207 +60833,177 @@ if (document.getElementById('search-item')) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
-
-
-var SearchModal = function (_Component) {
-	_inherits(SearchModal, _Component);
-
-	function SearchModal(props) {
-		_classCallCheck(this, SearchModal);
-
-		return _possibleConstructorReturn(this, (SearchModal.__proto__ || Object.getPrototypeOf(SearchModal)).call(this, props));
-	}
-
-	_createClass(SearchModal, [{
-		key: 'render',
-		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ className: 'modal fade', id: this.props.tutor.id, tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true' },
+var SearchModal = function SearchModal(_ref) {
+	var tutor = _ref.tutor;
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		"div",
+		{ className: "modal fade", id: tutor.id, tabIndex: "-1", role: "dialog", "aria-labelledby": "myModalLabel", "aria-hidden": "true" },
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			"div",
+			{ className: "modal-dialog" },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				"div",
+				{ className: "modal-content" },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'modal-dialog' },
+					"div",
+					{ className: "modal-body" },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'modal-content' },
+						"div",
+						{ className: "row" },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'modal-body' },
+							"div",
+							{ className: "col-xs-5 picture" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: tutor.picture })
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "col-xs-6 info" },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'row' },
+								"h1",
+								{ className: "modal-title" },
+								tutor.firstname,
+								" ",
+								tutor.lastname
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ className: "modal-info-key" },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'col-xs-5 picture' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: this.props.tutor.picture })
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'col-xs-6 info' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'h1',
-										{ className: 'modal-title' },
-										this.props.tutor.firstname,
-										' ',
-										this.props.tutor.lastname
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'modal-info-key' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											'Teaches'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'modal-info-value' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											this.props.tutor.language
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'modal-info-key' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											'From'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'modal-info-value' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											this.props.tutor.country
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'modal-info-key' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											'Price'
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'button',
-											{ className: 'btn btn-primary inquire' },
-											'Inquire Now'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'modal-info-value' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'span',
-											null,
-											this.props.tutor.currency,
-											' ',
-											this.props.tutor.price,
-											'/Hour'
-										)
-									)
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'col-xs-1' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'button',
-										{ type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
-										'\xD7'
-									)
+									"span",
+									null,
+									"Teaches"
 								)
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'row availability' },
+								"div",
+								{ className: "modal-info-value" },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: "col-xs-3" + (this.props.tutor.availability % 2 === 1 ? " avail" : "") },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'span',
-										null,
-										this.props.tutor.availability % 2 === 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
-										'Mornings'
-									)
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: "col-xs-3" + (this.props.tutor.availability % 4 >= 2 ? " avail" : "") },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'span',
-										null,
-										this.props.tutor.availability % 4 >= 2 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
-										'Afternoons'
-									)
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: "col-xs-3" + (this.props.tutor.availability % 8 >= 4 ? " avail" : "") },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'span',
-										null,
-										this.props.tutor.availability % 8 >= 4 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
-										'Evenings'
-									)
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: "col-xs-3" + (this.props.tutor.availability % 16 >= 8 ? " avail" : "") },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'span',
-										null,
-										this.props.tutor.availability % 16 >= 8 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
-										'Weekends'
-									)
+									"span",
+									null,
+									tutor.language
 								)
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'row about' },
+								"div",
+								{ className: "modal-info-key" },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'col-xs-12' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'p',
-										null,
-										this.props.tutor.about
-									)
+									"span",
+									null,
+									"From"
 								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ className: "modal-info-value" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"span",
+									null,
+									tutor.country
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ className: "modal-info-key" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"span",
+									null,
+									"Price"
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"button",
+									{ className: "btn btn-primary inquire" },
+									"Inquire Now"
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"div",
+								{ className: "modal-info-value" },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									"span",
+									null,
+									tutor.currency,
+									" ",
+									tutor.price,
+									"/Hour"
+								)
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "col-xs-1" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"button",
+								{ type: "button", className: "close", "data-dismiss": "modal", "aria-hidden": "true" },
+								"\xD7"
+							)
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"div",
+						{ className: "row availability" },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "col-xs-3" + (tutor.availability % 2 === 1 ? " avail" : "") },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"span",
+								null,
+								tutor.availability % 2 === 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-check", "aria-hidden": "true" }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-ban", "aria-hidden": "true" }),
+								"Mornings"
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "col-xs-3" + (tutor.availability % 4 >= 2 ? " avail" : "") },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"span",
+								null,
+								tutor.availability % 4 >= 2 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-check", "aria-hidden": "true" }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-ban", "aria-hidden": "true" }),
+								"Afternoons"
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "col-xs-3" + (tutor.availability % 8 >= 4 ? " avail" : "") },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"span",
+								null,
+								tutor.availability % 8 >= 4 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-check", "aria-hidden": "true" }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-ban", "aria-hidden": "true" }),
+								"Evenings"
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "col-xs-3" + (tutor.availability % 16 >= 8 ? " avail" : "") },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"span",
+								null,
+								tutor.availability % 16 >= 8 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-check", "aria-hidden": "true" }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-ban", "aria-hidden": "true" }),
+								"Weekends"
+							)
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						"div",
+						{ className: "row about" },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							"div",
+							{ className: "col-xs-12" },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								"p",
+								null,
+								tutor.about
 							)
 						)
 					)
 				)
-			);
-		}
-	}]);
-
-	return SearchModal;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+			)
+		)
+	);
+};
 
 /* harmony default export */ __webpack_exports__["a"] = (SearchModal);
-
-
-if (document.getElementById('search-modal')) {
-	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(SearchModal, null), document.getElementById('search-modal'));
-}
 
 /***/ }),
 /* 295 */
