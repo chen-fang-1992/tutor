@@ -11115,19 +11115,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Login__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Search__ = __webpack_require__(265);
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes React and other helpers. It's a great starting point while
- * building robust, powerful web applications using React + Laravel.
- */
-
-
-
-/**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 
 
@@ -54845,8 +54832,9 @@ module.exports = "/images/Joe.jpg?8d248371f1ef476964c946582fa4ded1";
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(292);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -54854,6 +54842,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -54872,19 +54861,19 @@ var Register = function (_Component) {
 			email: '',
 			emailError: 'Please input correct email',
 			password: '',
-			confirmPassword: '',
+			passwordConfirmation: '',
 			passwordError: 'Please input password',
 			accept: false,
-			acceptError: 'Please accept'
+			acceptError: 'Please accept',
+			redirect: false,
+			profile: ''
 		};
 
 		_this.handleName = function (e) {
 			var name = e.target.value;
 			var nameError = '';
 
-			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
-				nameError = 'Please input correct name';
-			}
+			if (name.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) nameError = 'Please input correct name';
 
 			_this.setState({
 				name: name,
@@ -54896,9 +54885,7 @@ var Register = function (_Component) {
 			var email = e.target.value;
 			var emailError = '';
 
-			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) === -1) {
-				emailError = 'Please input correct email';
-			}
+			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) === -1) emailError = 'Please input correct email';
 
 			_this.setState({
 				email: email,
@@ -54910,11 +54897,7 @@ var Register = function (_Component) {
 			var password = e.target.value;
 			var passwordError = '';
 
-			if (password.length < 6) {
-				passwordError = 'The password has to be six letter at least';
-			} else if (_this.state.confirmPassword !== password) {
-				passwordError = 'The password does not match the re-typed password';
-			}
+			if (password.length < 6) passwordError = 'The password has to be six letter at least';else if (_this.state.passwordConfirmation !== password) passwordError = 'The password does not match the re-typed password';
 
 			_this.setState({
 				password: password,
@@ -54922,18 +54905,14 @@ var Register = function (_Component) {
 			});
 		};
 
-		_this.handleConfirmPassword = function (e) {
-			var confirmPassword = e.target.value;
+		_this.handlePasswordConfirmation = function (e) {
+			var passwordConfirmation = e.target.value;
 			var passwordError = '';
 
-			if (confirmPassword.length < 6) {
-				passwordError = 'The password has to be six letter at least';
-			} else if (_this.state.password !== confirmPassword) {
-				passwordError = 'The password does not match the re-typed password';
-			}
+			if (passwordConfirmation.length < 6) passwordError = 'The password has to be six letter at least';else if (_this.state.password !== passwordConfirmation) passwordError = 'The password does not match the re-typed password';
 
 			_this.setState({
-				confirmPassword: confirmPassword,
+				passwordConfirmation: passwordConfirmation,
 				passwordError: passwordError
 			});
 		};
@@ -54942,9 +54921,7 @@ var Register = function (_Component) {
 			var accept = e.target.value === 'false';
 			var acceptError = '';
 
-			if (!accept) {
-				acceptError = 'Please accept';
-			}
+			if (!accept) acceptError = 'Please accept';
 
 			_this.setState({
 				accept: accept,
@@ -54953,18 +54930,25 @@ var Register = function (_Component) {
 		};
 
 		_this.handleSubmit = function (e) {
-			if (_this.state.nameError) {
-				alert(_this.state.nameError);
-				e.preventDefault();
-			} else if (_this.state.emailError) {
-				alert(_this.state.emailError);
-				e.preventDefault();
-			} else if (_this.state.passwordError) {
-				alert(_this.state.passwordError);
-				e.preventDefault();
-			} else if (!_this.state.accept) {
-				alert(_this.state.acceptError);
-				e.preventDefault();
+			e.preventDefault();
+
+			if (_this.state.nameError) alert(_this.state.nameError);else if (_this.state.emailError) alert(_this.state.emailError);else if (_this.state.passwordError) alert(_this.state.passwordError);else if (!_this.state.accept) alert(_this.state.acceptError);else {
+				__WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/user/register', {
+					name: _this.state.name,
+					email: _this.state.email,
+					password: _this.state.password
+				}).then(function (response) {
+					console.log(response.data);
+					if (response.data !== 'fail') _this.setState({
+						redirect: true,
+						profile: response.data
+					});else _this.setState({
+						name: '',
+						email: '',
+						password: '',
+						passwordConfirmation: ''
+					});
+				});
 			}
 		};
 		return _this;
@@ -54973,6 +54957,16 @@ var Register = function (_Component) {
 	_createClass(Register, [{
 		key: 'render',
 		value: function render() {
+			var _state = this.state,
+			    redirect = _state.redirect,
+			    profile = _state.profile;
+
+
+			if (redirect) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], { to: {
+					pathname: '/user/profile',
+					state: { profile: this.state.profile }
+				} });
+
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
 				{ className: 'content user' },
@@ -55005,7 +54999,7 @@ var Register = function (_Component) {
 								{ className: 'col-xs-8' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'form',
-									{ action: '/user/register', method: 'POST', role: 'form', noValidate: true },
+									{ role: 'form', noValidate: true },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'label',
 										{ htmlFor: 'name' },
@@ -55044,7 +55038,7 @@ var Register = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', className: 'form-control', value: this.state.confirmPassword, onChange: this.handleConfirmPassword, name: 'password_confirmation', required: true })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'password', className: 'form-control', value: this.state.passwordConfirmation, onChange: this.handlePasswordConfirmation, name: 'password_confirmation', required: true })
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
@@ -55078,11 +55072,6 @@ var Register = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (Register);
-
-
-if (document.getElementById('register')) {
-	__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Register, null), document.getElementById('register'));
-}
 
 /***/ }),
 /* 263 */
@@ -55118,16 +55107,15 @@ var Profile = function (_Component) {
 			language: '',
 			city: '',
 			location: '',
+			availability: 0,
 			currency: '',
 			price: '',
+			about: '',
+			picture: '/img/default.png',
 			mornings: false,
 			afternoons: false,
 			evenings: false,
-			weekends: false,
-			availability: 0,
-			about: '',
-			picture: '/img/default.png',
-			file: ''
+			weekends: false
 		};
 
 		_this.handlePicture = function (e) {
@@ -55138,7 +55126,6 @@ var Profile = function (_Component) {
 
 			reader.onloadend = function () {
 				_this.setState({
-					file: file,
 					picture: reader.result
 				});
 			};
@@ -55221,10 +55208,7 @@ var Profile = function (_Component) {
 		};
 
 		_this.handleSubmit = function (e) {
-			if (_this.state.nameError) {
-				alert(_this.state.nameError);
-				e.preventDefault();
-			}
+			e.preventDefault();
 
 			var availability = 0;
 			if (_this.state.mornings) availability += 1;
@@ -55232,32 +55216,77 @@ var Profile = function (_Component) {
 			if (_this.state.evenings) availability += 4;
 			if (_this.state.weekends) availability += 8;
 			_this.setState({ availability: availability });
+
+			if (_this.state.nameError) alert(_this.state.nameError);else {
+				axios.post('/user/profile/update', {
+					firstname: _this.state.firstname,
+					lastname: _this.state.lastname,
+					number: _this.state.number,
+					country: _this.state.country,
+					language: _this.state.language,
+					city: _this.state.city,
+					location: _this.state.location,
+					availability: _this.state.availability,
+					currency: _this.state.currency,
+					price: _this.state.price,
+					about: _this.state.about,
+					picture: _this.state.picture
+				}).then(function (response) {
+					window.scroll(0, window.pageYOffset - _this.props.scrollStepInPx);
+				});
+			}
 		};
 		return _this;
 	}
 
 	_createClass(Profile, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			var profile = this.props.location.state.profile;
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			var _this2 = this;
 
-			this.setState({
-				firstname: profile.firstname ? profile.firstname : '',
-				lastname: profile.lastname ? profile.lastname : '',
-				number: profile.number ? profile.number : '',
-				country: profile.country ? profile.country : '',
-				language: profile.language ? profile.language : 'English',
-				city: profile.city ? profile.city : '',
-				location: profile.location ? profile.location : '',
-				currency: profile.currency ? profile.currency : '',
-				price: profile.price ? profile.price : '',
-				mornings: profile.availability ? profile.availability % 2 === 1 : false,
-				afternoons: profile.availability ? profile.availability % 4 >= 2 : false,
-				evenings: profile.availability ? profile.availability % 8 >= 4 : false,
-				weekends: profile.availability ? profile.availability % 16 >= 8 : false,
-				about: profile.about ? profile.about : '',
-				picture: profile.picture ? profile.picture : '/img/default.png'
-			});
+			var profile = void 0;
+
+			if (this.props.location.state !== undefined) {
+				profile = this.props.location.state.profile;
+				this.setState({
+					firstname: profile.firstname ? profile.firstname : '',
+					lastname: profile.lastname ? profile.lastname : '',
+					number: profile.number ? profile.number : '',
+					country: profile.country ? profile.country : '',
+					language: profile.language ? profile.language : 'English',
+					city: profile.city ? profile.city : '',
+					location: profile.location ? profile.location : '',
+					currency: profile.currency ? profile.currency : '',
+					price: profile.price ? profile.price : '',
+					mornings: profile.availability ? profile.availability % 2 === 1 : false,
+					afternoons: profile.availability ? profile.availability % 4 >= 2 : false,
+					evenings: profile.availability ? profile.availability % 8 >= 4 : false,
+					weekends: profile.availability ? profile.availability % 16 >= 8 : false,
+					about: profile.about ? profile.about : '',
+					picture: profile.picture ? profile.picture : '/img/default.png'
+				});
+			} else {
+				axios.get('/user/profile/show').then(function (response) {
+					profile = response.data;
+					_this2.setState({
+						firstname: profile.firstname ? profile.firstname : '',
+						lastname: profile.lastname ? profile.lastname : '',
+						number: profile.number ? profile.number : '',
+						country: profile.country ? profile.country : '',
+						language: profile.language ? profile.language : 'English',
+						city: profile.city ? profile.city : '',
+						location: profile.location ? profile.location : '',
+						currency: profile.currency ? profile.currency : '',
+						price: profile.price ? profile.price : '',
+						mornings: profile.availability ? profile.availability % 2 === 1 : false,
+						afternoons: profile.availability ? profile.availability % 4 >= 2 : false,
+						evenings: profile.availability ? profile.availability % 8 >= 4 : false,
+						weekends: profile.availability ? profile.availability % 16 >= 8 : false,
+						about: profile.about ? profile.about : '',
+						picture: profile.picture ? profile.picture : '/img/default.png'
+					});
+				});
+			}
 		}
 	}, {
 		key: 'render',
@@ -55281,7 +55310,7 @@ var Profile = function (_Component) {
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'form',
-								{ action: '/user/profile', method: 'POST', role: 'form', noValidate: true },
+								{ role: 'form', noValidate: true },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
 									{ className: 'row' },
@@ -55697,12 +55726,13 @@ var Login = function (_Component) {
 					email: _this.state.email,
 					password: _this.state.password
 				}).then(function (response) {
-					if (response.data !== 'fail') {
-						_this.setState({
-							redirect: true,
-							profile: response.data
-						});
-					}
+					if (response.data !== 'fail') _this.setState({
+						redirect: true,
+						profile: response.data
+					});else _this.setState({
+						email: '',
+						password: ''
+					});
 				});
 			}
 		};
@@ -55717,7 +55747,7 @@ var Login = function (_Component) {
 			    profile = _state.profile;
 
 
-			if (redirect) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], { to: {
+			if (redirect === true) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], { to: {
 					pathname: '/user/profile',
 					state: { profile: this.state.profile }
 				} });

@@ -13,27 +13,25 @@ export default class Profile extends Component {
 			language: '',
 			city: '',
 			location: '',
+			availability: 0,
 			currency: '',
 			price: '',
+			about: '',
+			picture: '/img/default.png',
 			mornings: false,
 			afternoons: false,
 			evenings: false,
-			weekends: false,
-			availability: 0,
-			about: '',
-			picture: '/img/default.png',
-			file: ''
+			weekends: false
 		}
 
 		this.handlePicture = (e) => {
 			e.preventDefault()
 
-			var reader = new FileReader()
-			var file = e.target.files[0]
+			let reader = new FileReader()
+			let file = e.target.files[0]
 
 			reader.onloadend = () => {
 				this.setState({
-					file: file,
 					picture: reader.result
 				})
 			}
@@ -41,9 +39,9 @@ export default class Profile extends Component {
 		}
 
 		this.handleFirstname = (e) => {
-			var firstname = e.target.value
-			var fullname = firstname + ' ' + this.state.lastname
-			var nameError = ''
+			let firstname = e.target.value
+			let fullname = firstname + ' ' + this.state.lastname
+			let nameError = ''
 
 			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1)
 				nameError = 'Please input correct name'
@@ -55,9 +53,9 @@ export default class Profile extends Component {
 		}
 
 		this.handleLastname = (e) => {
-			var lastname = e.target.value
-			var fullname = this.state.firstname + ' ' + lastname
-			var nameError = ''
+			let lastname = e.target.value
+			let fullname = this.state.firstname + ' ' + lastname
+			let nameError = ''
 
 			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1)
 				nameError = 'Please input correct name'
@@ -118,12 +116,9 @@ export default class Profile extends Component {
 		}
 
 		this.handleSubmit = (e) => {
-			if (this.state.nameError) {
-				alert(this.state.nameError)
-				e.preventDefault()
-			}
+			e.preventDefault()
 
-			var availability = 0
+			let availability = 0
 			if (this.state.mornings)
 				availability += 1
 			if (this.state.afternoons)
@@ -133,29 +128,74 @@ export default class Profile extends Component {
 			if (this.state.weekends)
 				availability += 8
 			this.setState({availability: availability})
+
+			if (this.state.nameError)
+				alert(this.state.nameError)
+			else {
+				axios.post('/user/profile/update', {
+					firstname: this.state.firstname,
+					lastname: this.state.lastname,
+					number: this.state.number,
+					country: this.state.country,
+					language: this.state.language,
+					city: this.state.city,
+					location: this.state.location,
+					availability: this.state.availability,
+					currency: this.state.currency,
+					price: this.state.price,
+					about: this.state.about,
+					picture: this.state.picture
+				}).then(response => {
+					window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+				})
+			}
 		}
 	}
 
-	componentDidMount () {
-		const profile = this.props.location.state.profile
+	componentWillMount () {
+		let profile
 
-		this.setState({
-			firstname: profile.firstname ? profile.firstname : '',
-			lastname: profile.lastname ? profile.lastname : '',
-			number: profile.number ? profile.number : '',
-			country: profile.country ? profile.country : '',
-			language: profile.language ? profile.language : 'English',
-			city: profile.city ? profile.city : '',
-			location: profile.location ? profile.location : '',
-			currency: profile.currency ? profile.currency : '',
-			price: profile.price ? profile.price : '',
-			mornings: profile.availability ? profile.availability % 2 === 1 : false,
-			afternoons: profile.availability ? profile.availability  % 4 >= 2 : false,
-			evenings: profile.availability ? profile.availability % 8 >= 4 : false,
-			weekends: profile.availability ? profile.availability % 16 >= 8 : false,
-			about: profile.about ? profile.about : '',
-			picture: profile.picture ? profile.picture : '/img/default.png'
-		})
+		if (this.props.location.state !== undefined) {
+			profile = this.props.location.state.profile
+			this.setState({
+				firstname: profile.firstname ? profile.firstname : '',
+				lastname: profile.lastname ? profile.lastname : '',
+				number: profile.number ? profile.number : '',
+				country: profile.country ? profile.country : '',
+				language: profile.language ? profile.language : 'English',
+				city: profile.city ? profile.city : '',
+				location: profile.location ? profile.location : '',
+				currency: profile.currency ? profile.currency : '',
+				price: profile.price ? profile.price : '',
+				mornings: profile.availability ? profile.availability % 2 === 1 : false,
+				afternoons: profile.availability ? profile.availability  % 4 >= 2 : false,
+				evenings: profile.availability ? profile.availability % 8 >= 4 : false,
+				weekends: profile.availability ? profile.availability % 16 >= 8 : false,
+				about: profile.about ? profile.about : '',
+				picture: profile.picture ? profile.picture : '/img/default.png'
+			})
+		} else {
+			axios.get('/user/profile/show').then(response => {
+				profile = response.data
+				this.setState({
+					firstname: profile.firstname ? profile.firstname : '',
+					lastname: profile.lastname ? profile.lastname : '',
+					number: profile.number ? profile.number : '',
+					country: profile.country ? profile.country : '',
+					language: profile.language ? profile.language : 'English',
+					city: profile.city ? profile.city : '',
+					location: profile.location ? profile.location : '',
+					currency: profile.currency ? profile.currency : '',
+					price: profile.price ? profile.price : '',
+					mornings: profile.availability ? profile.availability % 2 === 1 : false,
+					afternoons: profile.availability ? profile.availability  % 4 >= 2 : false,
+					evenings: profile.availability ? profile.availability % 8 >= 4 : false,
+					weekends: profile.availability ? profile.availability % 16 >= 8 : false,
+					about: profile.about ? profile.about : '',
+					picture: profile.picture ? profile.picture : '/img/default.png'
+				})
+			})
+		}
 	}
 
 	render() {
@@ -165,7 +205,7 @@ export default class Profile extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<h1>Create Your Tutor Profile</h1>
-							<form action="/user/profile" method="POST" role="form" noValidate>
+							<form role="form" noValidate>
 								<div className="row">
 									<div className="col-xs-4 col-xs-offset-4">
 										<img src={this.state.picture}/>

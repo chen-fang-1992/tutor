@@ -16,8 +16,8 @@ export default class Login extends Component {
 		}
 
 		this.handleEmail = (e) => {
-			var email = e.target.value
-			var emailError = ''
+			let email = e.target.value
+			let emailError = ''
 
 			if (email === null)
 				emailError = 'Please fill in email'
@@ -29,8 +29,8 @@ export default class Login extends Component {
 		}
 
 		this.handlePassword = (e) => {
-			var password = e.target.value
-			var passwordError = ''
+			let password = e.target.value
+			let passwordError = ''
 
 			if (password === null)
 				passwordError = 'Please fill in password'
@@ -53,21 +53,25 @@ export default class Login extends Component {
 					email: this.state.email,
 					password: this.state.password
 				}).then(response => {
-					if (response.data !== 'fail') {
+					if (response.data !== 'fail')
 						this.setState({
 							redirect: true,
 							profile: response.data
 						})
-					}
+					else
+						this.setState({
+							email: '',
+							password: ''
+						})
 				})
 			}
 		}
 	}
 
 	render() {
-		const { redirect, profile } = this.state
+		let { redirect, profile } = this.state
 
-		if (redirect)
+		if (redirect === true)
 			return (<Redirect to={{
 				pathname: '/user/profile',
 				state: { profile: this.state.profile }

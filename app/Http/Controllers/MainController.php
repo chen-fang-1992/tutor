@@ -13,20 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
-
-	/*
-		control navigation bar button
-	*/
-	public function index()
-	{
-		$user = Auth::user();
-		if ($user == null) {
-			return view('layouts/layout', ['content' => 'home', 'auth' => 'false', 'tutors' => '']);
-		} else {
-			return view('layouts/layout', ['content' => 'home', 'auth' => 'true', 'tutors' => '']);
-		}
-	}
-
 	/*
 		call for search tutors page
 	*/

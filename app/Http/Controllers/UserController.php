@@ -9,48 +9,79 @@ use App\Profile;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+	/*
+		register
+	*/
+	public function register()
+	{
+		// check whether there is user who has logged in
+		if (Auth::user())
+			return 'fail';
+		// create user model
+		$user = new user;
+		$user->name = Input::get('name');
+		$user->email = Input::get('email');
+		$user->password = bcrypt(Input::get('password'));
+		// check email unique
+		if (User::where([ ['email', $user->email] ])->get()->count())
+			return 'fail';
+		// insert user and create profile model
+		if ($user->save()) {
+			Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')]);
+			$user = Auth::user();
+			$profile = new profile;
+			$profile->user_id = $user->id;
+			$profile->firstname = explode(" ", $user->name)[0];
+			$profile->lastname = explode(" ", $user->name)[1];
+		// insert profile
+			if ($profile->save())
+				return $profile;
+			else
+				return 'fail';
+		}
+	}
 
 	/*
 		login authentication
 	*/
 	public function login()
 	{
+		// check whether there is user who has logged in
+		if (Auth::user())
+			return 'fail';
+		// get login info
 		$email = Input::get('email');
 		$password = Input::get('password');
-
-		if (Auth::attempt(['email' => $email, 'password' => $password])) {
-			return redirect('/user/profile/detail');
-		} else {
+		// authenticate login info
+		if (Auth::attempt(['email' => $email, 'password' => $password]))
+			return $this->show();
+		else
 			return 'fail';
-		}
 	}
 
 	/*
-		get user profile detail
+		logout authentication
 	*/
-	public function detail()
+	public function logout()
 	{
+		// logout
+		Auth::logout();
+		return redirect('/');
+	}
+
+	/*
+		get user profile show
+	*/
+	public function show()
+	{
+		// get user model
 		$user = Auth::user();
 		$profile = Profile::find($user->id);
 		return $profile;
-	}
-
-	/*
-		store user profile
-	*/
-	public function store()
-	{
-		$user = Auth::user();
-		$profile = new profile;
-		$profile->user_id = $user->id;
-		$profile->firstname = explode(" ", $user->name)[0];
-		$profile->lastname = explode(" ", $user->name)[1];
-
-		if ($profile->save())
-			return redirect('/user/profile');
 	}
 
 	/*
@@ -58,6 +89,7 @@ class UserController extends Controller
 	*/
 	public function update()
 	{
+		//get profile model
 		$user = Auth::user();
 		$profile = Profile::find($user->id);
 		$profile->firstname = Input::get('firstname');
@@ -73,18 +105,20 @@ class UserController extends Controller
 		$profile->about = Input::get('about');
 		$user->name = $profile->firstname . ' ' . $profile->lastname;
 		$picture = Input::get('picture');
-
-		// decode base64
-		preg_match('/^(data:\s*image\/(\w+);base64,)/', $picture, $result);
-		$img = base64_decode(str_replace($result[1], '', $picture));
-		// store path and load path
-		$loadpath = "/img/" . $profile->firstname . '_' . $profile->lastname . '.' . $result[2];
-		$storepath = getcwd() . $loadpath;
-		// store file and path
-		file_put_contents($storepath, $img);
-		$profile->picture = $loadpath;
-
+		// check whether picture is updated
+		if ($profile->picture != $picture) {
+			// decode base64
+			preg_match('/^(data:\s*image\/(\w+);base64,)/', $picture, $result);
+			$img = base64_decode(str_replace($result[1], '', $picture));
+			// store path and load path
+			$loadpath = "/img/" . $profile->firstname . '_' . $profile->lastname . '.' . $result[2];
+			$storepath = getcwd() . $loadpath;
+			// store file and path
+			file_put_contents($storepath, $img);
+			$profile->picture = $loadpath;
+		}
+		// update profile and user
 		if ($profile->save() && $user->save())
-			return redirect('/user/profile');
+			return 'success';
 	}
 }

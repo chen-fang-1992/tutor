@@ -32,11 +32,13 @@ Route::group(['prefix' => 'user'], function() {
 	echo date("h:i:sa");
 		return view('view', ['content' => 'home', 'auth' => 'false', 'tutors' => '']);
 });*/
+Route::post('/user/register', 'UserController@register');
 
 Route::post('/user/login', 'UserController@login');
-Route::get('/user/logout', 'Auth\LoginController@logout');
+Route::get('/user/logout', 'UserController@logout');
 
-Route::get('/user/profile/detail', 'UserController@detail');
+Route::get('/user/profile/show', 'UserController@show');
+Route::post('/user/profile/update', 'UserController@update');
 
 Route::get('/tutor', 'MainController@search');
 Route::get('/tutor/detail', 'MainController@show');
