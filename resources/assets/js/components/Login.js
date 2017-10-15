@@ -71,7 +71,7 @@ export default class Login extends Component {
 
 		if (redirect) {
 			return (
-				<Redirect to='/user/profile'/>
+				<Redirect to="/user/profile"/>
 			)
 		}
 

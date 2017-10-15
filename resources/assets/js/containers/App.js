@@ -12,15 +12,15 @@ export default class App extends Component {
 	}
 
 	render() {
-		if (this.props.location.pathname === '/')
+		if (this.props.children.type.name === 'Home')
 			this.state.header = 'home'
-		else if (this.props.location.pathname === '/user/register')
+		else if (this.props.children.type.name === 'Register')
 			this.state.header = 'user'
-		else if (this.props.location.pathname === '/user/profile')
+		else if (this.props.children.type.name === 'Profile')
 			this.state.header = 'user'
-		else if (this.props.location.pathname === '/user/login')
+		else if (this.props.children.type.name === 'Login')
 			this.state.header = 'user'
-		else if (this.props.location.pathname === '/tutor')
+		else if (this.props.children.type.name === 'Search')
 			this.state.header = 'tutor'
 
 		return (

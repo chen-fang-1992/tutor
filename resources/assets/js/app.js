@@ -15,9 +15,9 @@ import bootstrap from './bootstrap'
 
 import React from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 //import { createStore } from 'redux'
 //import { Provider } from 'react-redux'
-import { Router, browserHistory, Route, IndexRoute, applyRouterMiddleware } from 'react-router'
 import App from './containers/App'
 import Home from './components/Home'
 import Register from './components/Register'
@@ -27,21 +27,17 @@ import Search from './components/Search'
 
 //const store = createStore(reducer)
 
-const useExtraProps = {
-  renderRouteComponent: child => React.cloneElement(child, root.dataset)
-}
-
 render(
-//	<Provider store={store}>
-	<Router history={browserHistory} render={applyRouterMiddleware(useExtraProps)}>
-		<Route path="/" component={App}>
-			<IndexRoute component={Home} />
-			<Route path="/user/register" component={Register} />
-			<Route path="/user/profile" component={Profile} />
-			<Route path="/user/login" component={Login} />
-			<Route path="/user/login" component={Search} />
-		</Route>
-	</Router>,
+//	<Provider store={store}>,
+	<BrowserRouter>
+		<div>
+			<Route exact path="/" render={ () => <App { ...(root.dataset) }><Home /></App> } />
+			<Route exact path="/user/register" render={ () => <App { ...(root.dataset) }><Register /></App> } />
+			<Route exact path="/user/profile" render={ () => <App { ...(root.dataset) }><Profile /></App> } />
+			<Route exact path="/user/login" render={ () => <App { ...(root.dataset) }><Login /></App> } />
+			<Route exact path="/tutor" render={ () => <App { ...(root.dataset) }><Search /></App> } />
+		</div>
+	</BrowserRouter>,
 	document.getElementById('root')
 //	</Provider>
 )
