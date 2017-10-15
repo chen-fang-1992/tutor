@@ -31,11 +31,11 @@ render(
 //	<Provider store={store}>,
 	<BrowserRouter>
 		<div>
-			<Route exact path="/" render={ () => <App { ...(root.dataset) }><Home /></App> } />
-			<Route exact path="/user/register" render={ () => <App { ...(root.dataset) }><Register /></App> } />
-			<Route exact path="/user/profile" render={ () => <App { ...(root.dataset) }><Profile /></App> } />
-			<Route exact path="/user/login" render={ () => <App { ...(root.dataset) }><Login /></App> } />
-			<Route exact path="/tutor" render={ () => <App { ...(root.dataset) }><Search /></App> } />
+			<Route exact path="/" render={ props => <App { ...(root.dataset) }><Home { ...props }/></App> } />
+			<Route exact path="/user/register" render={ props => <App { ...(root.dataset) }><Register { ...props }/></App> } />
+			<Route exact path="/user/profile" render={ props => <App { ...(root.dataset) }><Profile { ...props }/></App> } />
+			<Route exact path="/user/login" render={ props => <App { ...(root.dataset) }><Login { ...props }/></App> } />
+			<Route exact path="/tutor" render={ props => <App { ...(root.dataset) }><Search { ...props }/></App> } />
 		</div>
 	</BrowserRouter>,
 	document.getElementById('root')

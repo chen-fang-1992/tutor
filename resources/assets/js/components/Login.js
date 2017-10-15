@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router-dom'
 
 export default class Login extends Component {
 	constructor(props) {
@@ -19,9 +19,8 @@ export default class Login extends Component {
 			var email = e.target.value
 			var emailError = ''
 
-			if (email === null) {
+			if (email === null)
 				emailError = 'Please fill in email'
-			}
 
 			this.setState({
 				email: email,
@@ -33,9 +32,8 @@ export default class Login extends Component {
 			var password = e.target.value
 			var passwordError = ''
 
-			if (password === null) {
+			if (password === null)
 				passwordError = 'Please fill in password'
-			}
 
 			this.setState({
 				password: password,
@@ -46,19 +44,19 @@ export default class Login extends Component {
 		this.handleSubmit = (e) => {
 			e.preventDefault()
 
-			if (this.state.emailError) {
+			if (this.state.emailError)
 				alert(this.state.emailError)
-			} else if (this.state.passwordError) {
+			else if (this.state.passwordError)
 				alert(this.state.passwordError)
-			} else {
+			else {
 				axios.post('/user/login', {
 					email: this.state.email,
 					password: this.state.password
 				}).then(response => {
 					if (response.data !== 'fail') {
-						console.log('success')
 						this.setState({
-							redirect: true
+							redirect: true,
+							profile: response.data
 						})
 					}
 				})
@@ -69,11 +67,11 @@ export default class Login extends Component {
 	render() {
 		const { redirect, profile } = this.state
 
-		if (redirect) {
-			return (
-				<Redirect to="/user/profile"/>
-			)
-		}
+		if (redirect)
+			return (<Redirect to={{
+				pathname: '/user/profile',
+				state: { profile: this.state.profile }
+			}} />)
 
 		return (
 			<div className="content user">
@@ -81,7 +79,7 @@ export default class Login extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<h1>Log In Your Tutor Profile</h1>
-							<form action="/user/login" method="POST" role="form" noValidate>
+							<form role="form" noValidate>
 								<div className="row">
 									<div className="col-xs-12">
 										<label htmlFor="email">Email</label>

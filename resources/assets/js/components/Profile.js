@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
+import React, { Component } from 'react'
 
 export default class Profile extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 
 		this.state = {
 			firstname: '',
@@ -25,141 +23,139 @@ export default class Profile extends Component {
 			about: '',
 			picture: '/img/default.png',
 			file: ''
-		};
+		}
 
 		this.handlePicture = (e) => {
-			e.preventDefault();
+			e.preventDefault()
 
-			var reader = new FileReader();
-			var file = e.target.files[0];
+			var reader = new FileReader()
+			var file = e.target.files[0]
 
 			reader.onloadend = () => {
 				this.setState({
 					file: file,
 					picture: reader.result
-				});
+				})
 			}
-			reader.readAsDataURL(file);
+			reader.readAsDataURL(file)
 		}
 
 		this.handleFirstname = (e) => {
-			var firstname = e.target.value;
-			var fullname = firstname + ' ' + this.state.lastname;
-			var nameError = '';
+			var firstname = e.target.value
+			var fullname = firstname + ' ' + this.state.lastname
+			var nameError = ''
 
-			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
-				nameError = 'Please input correct name';
-			}
+			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1)
+				nameError = 'Please input correct name'
 
 			this.setState({
 				firstname: firstname,
 				nameError: nameError
-			});
+			})
 		}
 
 		this.handleLastname = (e) => {
-			var lastname = e.target.value;
-			var fullname = this.state.firstname + ' ' + lastname;
-			var nameError = '';
+			var lastname = e.target.value
+			var fullname = this.state.firstname + ' ' + lastname
+			var nameError = ''
 
-			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1) {
-				nameError = 'Please input correct name';
-			}
+			if (fullname.search(/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/) === -1)
+				nameError = 'Please input correct name'
 
 			this.setState({
 				lastname: lastname,
 				nameError: nameError
-			});
+			})
 		}
 
 		this.handleNumber = (e) => {
-			this.setState({number: e.target.value});
+			this.setState({number: e.target.value})
 		}
 
 		this.handleCountry = (e) => {
-			this.setState({country: e.target.value});
+			this.setState({country: e.target.value})
 		}
 
 		this.handleLanguage = (e) => {
-			e.preventDefault();
-			this.setState({language: e.target.value});
+			e.preventDefault()
+			this.setState({language: e.target.value})
 		}
 
 		this.handleCity = (e) => {
-			this.setState({city: e.target.value});
+			this.setState({city: e.target.value})
 		}
 
 		this.handleLocation = (e) => {
-			this.setState({location: e.target.value});
+			this.setState({location: e.target.value})
 		}
 
 		this.handleCurrency = (e) => {
-			this.setState({currency: e.target.value});
+			this.setState({currency: e.target.value})
 		}
 
 		this.handlePrice = (e) => {
-			this.setState({price: e.target.value});
+			this.setState({price: e.target.value})
 		}
 
 		this.handleAbout = (e) => {
-			this.setState({about: e.target.value});
+			this.setState({about: e.target.value})
 		}
 
 		this.handleMornings = (e) => {
-			this.setState({mornings: (e.target.value === 'false')});
+			this.setState({mornings: (e.target.value === 'false')})
 		}
 
 		this.handleAfternoons = (e) => {
-			this.setState({afternoons: (e.target.value === 'false')});
+			this.setState({afternoons: (e.target.value === 'false')})
 		}
 
 		this.handleEvenings = (e) => {
-			this.setState({evenings: (e.target.value === 'false')});
+			this.setState({evenings: (e.target.value === 'false')})
 		}
 
 		this.handleWeekends = (e) => {
-			this.setState({weekends: (e.target.value === 'false')});
+			this.setState({weekends: (e.target.value === 'false')})
 		}
 
 		this.handleSubmit = (e) => {
 			if (this.state.nameError) {
-				alert(this.state.nameError);
-				e.preventDefault();
+				alert(this.state.nameError)
+				e.preventDefault()
 			}
 
-			var availability = 0;
+			var availability = 0
 			if (this.state.mornings)
-				availability += 1;
+				availability += 1
 			if (this.state.afternoons)
-				availability += 2;
+				availability += 2
 			if (this.state.evenings)
-				availability += 4;
+				availability += 4
 			if (this.state.weekends)
-				availability += 8;
-			this.setState({availability: availability});
+				availability += 8
+			this.setState({availability: availability})
 		}
 	}
 
 	componentDidMount () {
-		axios.get('/user/profile/detail').then(response => {
-			this.setState({
-				firstname: response.data.firstname ? response.data.firstname : '',
-				lastname: response.data.lastname ? response.data.lastname : '',
-				number: response.data.number ? response.data.number : '',
-				country: response.data.country ? response.data.country : '',
-				language: response.data.language ? response.data.language : 'English',
-				city: response.data.city ? response.data.city : '',
-				location: response.data.location ? response.data.location : '',
-				currency: response.data.currency ? response.data.currency : '',
-				price: response.data.price ? response.data.price : '',
-				mornings: response.data.availability ? response.data.availability % 2 === 1 : false,
-				afternoons: response.data.availability ? response.data.availability  % 4 >= 2 : false,
-				evenings: response.data.availability ? response.data.availability % 8 >= 4 : false,
-				weekends: response.data.availability ? response.data.availability % 16 >= 8 : false,
-				about: response.data.about ? response.data.about : '',
-				picture: response.data.picture ? response.data.picture : '/img/default.png'
-			});
-		});
+		const profile = this.props.location.state.profile
+
+		this.setState({
+			firstname: profile.firstname ? profile.firstname : '',
+			lastname: profile.lastname ? profile.lastname : '',
+			number: profile.number ? profile.number : '',
+			country: profile.country ? profile.country : '',
+			language: profile.language ? profile.language : 'English',
+			city: profile.city ? profile.city : '',
+			location: profile.location ? profile.location : '',
+			currency: profile.currency ? profile.currency : '',
+			price: profile.price ? profile.price : '',
+			mornings: profile.availability ? profile.availability % 2 === 1 : false,
+			afternoons: profile.availability ? profile.availability  % 4 >= 2 : false,
+			evenings: profile.availability ? profile.availability % 8 >= 4 : false,
+			weekends: profile.availability ? profile.availability % 16 >= 8 : false,
+			about: profile.about ? profile.about : '',
+			picture: profile.picture ? profile.picture : '/img/default.png'
+		})
 	}
 
 	render() {
@@ -300,10 +296,6 @@ export default class Profile extends Component {
 					</div>
 				</div>
 			</div>
-		);
+		)
 	}
-}
-
-if (document.getElementById('profile')) {
-	ReactDOM.render(<Profile />, document.getElementById('profile'));
 }
