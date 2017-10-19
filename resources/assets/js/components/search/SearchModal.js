@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchModal = ({tutor}) => (
+const SearchModal = ({ tutor }) => (
 	<div className="modal fade" id={tutor.id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div className="modal-dialog">
 			<div className="modal-content">

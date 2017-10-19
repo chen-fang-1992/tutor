@@ -20,7 +20,7 @@ export default class Register extends Component {
 			profile: ''
 		}
 
-		this.handleName = (e) => {
+		this.handleNameChange = (e) => {
 			let name = e.target.value
 			let nameError = ''
 
@@ -33,7 +33,7 @@ export default class Register extends Component {
 			})
 		}
 
-		this.handleEmail = (e) => {
+		this.handleEmailChange = (e) => {
 			let email = e.target.value
 			let emailError = ''
 
@@ -46,7 +46,7 @@ export default class Register extends Component {
 			})
 		}
 
-		this.handlePassword = (e) => {
+		this.handlePasswordChange = (e) => {
 			let password = e.target.value
 			let passwordError = ''
 
@@ -61,7 +61,7 @@ export default class Register extends Component {
 			})
 		}
 
-		this.handlePasswordConfirmation = (e) => {
+		this.handlePasswordConfirmationChange = (e) => {
 			let passwordConfirmation = e.target.value
 			let passwordError = ''
 
@@ -76,7 +76,7 @@ export default class Register extends Component {
 			})
 		}
 
-		this.handleAccept = (e) => {
+		this.handleAcceptClick = (e) => {
 			let accept = (e.target.value === 'false')
 			let acceptError = ''
 
@@ -89,7 +89,7 @@ export default class Register extends Component {
 			})
 		}
 
-		this.handleSubmit = (e) => {
+		this.handleSubmitClick = (e) => {
 			e.preventDefault()
 
 			if (this.state.nameError)
@@ -145,25 +145,25 @@ export default class Register extends Component {
 								<form role="form" noValidate>
 									<label htmlFor="name">What’s your name?</label>
 									<div className="form-group">
-										<input id="name" type="text" className="form-control" value={this.state.name} onChange={this.handleName} name="name" required/>
+										<input id="name" type="text" className="form-control" value={this.state.name} onChange={this.handleNameChange} name="name" required/>
 									</div>
 									<label htmlFor="email">What’s your email?</label>
 									<div className="form-group">
-										<input id="email" type="email" className="form-control" value={this.state.email} onChange={this.handleEmail} name="email" required/>
+										<input id="email" type="email" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required/>
 									</div>
 									<label htmlFor="password">Password</label>
 									<div className="form-group">
-										<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePassword} name="password" required/>
+										<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" required/>
 									</div>
 									<label htmlFor="confirmPassword">Confirm password</label>
 									<div className="form-group">
-										<input type="password" className="form-control" value={this.state.passwordConfirmation} onChange={this.handlePasswordConfirmation} name="password_confirmation" required/>
+										<input type="password" className="form-control" value={this.state.passwordConfirmation} onChange={this.handlePasswordConfirmationChange} name="password_confirmation" required/>
 									</div>
 									<div className="form-group">
-										<input type="checkbox" checked={this.state.accept} onChange={this.handleAccept} value={this.state.accept} /><span> I accept the Terms and Conditions</span>
+										<input type="checkbox" checked={this.state.accept} onClick={this.handleAcceptClick} value={this.state.accept} /><span> I accept the Terms and Conditions</span>
 									</div>
 									<div className="form-group">
-										<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmit}>SUBMIT YOUR PROFILE NOW</button>
+										<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmitClick}>SUBMIT YOUR PROFILE NOW</button>
 									</div>
 								</form>
 							</div>

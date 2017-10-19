@@ -21,7 +21,7 @@ export default class Search extends Component {
 			weekends: ''
 		}
 
-		this.handleLanguage = (e) => {
+		this.handleLanguageClick = (e) => {
 			e.preventDefault()
 			let language = e.target.value
 
@@ -40,7 +40,7 @@ export default class Search extends Component {
 			}).catch((error) => { throw new Error(error.message) })
 		}
 
-		this.handleAvailability = (e) => {
+		this.handleAvailabilityClick = (e) => {
 			e.preventDefault()
 			let availability = this.state.availability
 
@@ -145,11 +145,11 @@ export default class Search extends Component {
 			}).catch((error) => { throw new Error(error.message) })
 		}
 
-		this.handleLocation = (e) => {
+		this.handleLocationChange = (e) => {
 			this.setState({ location: e.target.value })
 		}
 
-		this.handleFilter = (e) => {
+		this.handleFilterClick = (e) => {
 			e.preventDefault()
 			let filter = e.target.value
 
@@ -168,7 +168,7 @@ export default class Search extends Component {
 			}).catch((error) => { throw new Error(error.message) })
 		}
 
-		this.handleSubmit = (e) => {
+		this.handleSubmitClick = (e) => {
 			e.preventDefault()
 
 			axios.get('/tutor/show', {
@@ -256,10 +256,10 @@ export default class Search extends Component {
 											<i className="fa fa-angle-down" aria-hidden="true"></i>
 										</button>
 										<ul className="dropdown-menu" role="menu">
-											<li value="0"><button className="btn btn-link" onClick={this.handleLanguage} value="English">English</button></li>
-											<li value="1"><button className="btn btn-link" onClick={this.handleLanguage} value="Chinese">Chinese</button></li>
-											<li value="2"><button className="btn btn-link" onClick={this.handleLanguage} value="French">French</button></li>
-											<li value="3"><button className="btn btn-link" onClick={this.handleLanguage} value="Germany">Germany</button></li>
+											<li value="0"><button className="btn btn-link" onClick={this.handleLanguageClick} value="English">English</button></li>
+											<li value="1"><button className="btn btn-link" onClick={this.handleLanguageClick} value="Chinese">Chinese</button></li>
+											<li value="2"><button className="btn btn-link" onClick={this.handleLanguageClick} value="French">French</button></li>
+											<li value="3"><button className="btn btn-link" onClick={this.handleLanguageClick} value="Germany">Germany</button></li>
 										</ul>
 									</div>
 								</div>
@@ -270,16 +270,16 @@ export default class Search extends Component {
 											<i className="fa fa-angle-down" aria-hidden="true"></i>
 										</button>
 										<ul className="dropdown-menu" role="menu">
-											<li value="0"><button className="btn btn-link" onClick={this.handleAvailability} value="Mornings">Mornings</button></li>
-											<li value="1"><button className="btn btn-link" onClick={this.handleAvailability} value="Afternoons">Afternoons</button></li>
-											<li value="2"><button className="btn btn-link" onClick={this.handleAvailability} value="Evenings">Evenings</button></li>
-											<li value="3"><button className="btn btn-link" onClick={this.handleAvailability} value="Weekends">Weekends</button></li>
+											<li value="0"><button className="btn btn-link" onClick={this.handleAvailabilityClick} value="Mornings">Mornings</button></li>
+											<li value="1"><button className="btn btn-link" onClick={this.handleAvailabilityClick} value="Afternoons">Afternoons</button></li>
+											<li value="2"><button className="btn btn-link" onClick={this.handleAvailabilityClick} value="Evenings">Evenings</button></li>
+											<li value="3"><button className="btn btn-link" onClick={this.handleAvailabilityClick} value="Weekends">Weekends</button></li>
 										</ul>
 									</div>
 								</div>
 								<div className="col-xs-4 location">
 										<div className="form-group">
-											<input id="location" type="text" className="form-control" value={this.state.location} onChange={this.handleLocation} placeholder="Enter a location" name="location" />
+											<input id="location" type="text" className="form-control" value={this.state.location} onChange={this.handleLocationChange} placeholder="Enter a location" name="location" />
 											<i className="fa fa-map-pin" aria-hidden="true"></i>
 										</div>
 								</div>
@@ -290,16 +290,13 @@ export default class Search extends Component {
 											<i className="fa fa-angle-down" aria-hidden="true"></i>
 										</button>
 										<ul className="dropdown-menu" role="menu">
-											<li value="0"><button className="btn btn-link" onClick={this.handleFilter} value="Price">Price</button></li>
-											<li value="1"><button className="btn btn-link" onClick={this.handleFilter} value="Rating">Rating</button></li>
+											<li value="0"><button className="btn btn-link" onClick={this.handleFilterClick} value="Price">Price</button></li>
+											<li value="1"><button className="btn btn-link" onClick={this.handleFilterClick} value="Rating">Rating</button></li>
 										</ul>
 									</div>
 								</div>
 								<div className="col-xs-2 search">
-									<button type="submit" className="btn btn-primary" onClick={this.handleSubmit}><i className="fa fa-search" aria-hidden="true"></i> Search</button>
-									<input type="hidden" className="form-control" value={this.state.language} name="language" />
-									<input type="hidden" className="form-control" value={this.state.availability} name="availability" />
-									<input type="hidden" className="form-control" value={this.state.filter} name="filter" />
+									<button type="submit" className="btn btn-primary" onClick={this.handleSubmitClick}><i className="fa fa-search" aria-hidden="true"></i> Search</button>
 								</div>
 							</form>
 						</div>

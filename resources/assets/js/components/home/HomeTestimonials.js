@@ -1,7 +1,8 @@
 import React from 'react'
-import Malik from '~/public/img/Malik.jpg'
-import Libby from '~/public/img/Libby.jpg'
-import Joe from '~/public/img/Joe.jpg'
+
+let Malik = '/img/Malik.jpg'
+let Libby = '/img/Libby.jpg'
+let Joe = '/img/Joe.jpg'
 
 const HomeTestimonials = () => (
 	<div className="container-fluid testimonials">

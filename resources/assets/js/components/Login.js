@@ -15,7 +15,7 @@ export default class Login extends Component {
 			profile: ''
 		}
 
-		this.handleEmail = (e) => {
+		this.handleEmailChange = (e) => {
 			let email = e.target.value
 			let emailError = ''
 
@@ -28,7 +28,7 @@ export default class Login extends Component {
 			})
 		}
 
-		this.handlePassword = (e) => {
+		this.handlePasswordChange = (e) => {
 			let password = e.target.value
 			let passwordError = ''
 
@@ -41,7 +41,7 @@ export default class Login extends Component {
 			})
 		}
 
-		this.handleSubmit = (e) => {
+		this.handleSubmitClick = (e) => {
 			e.preventDefault()
 
 			if (this.state.emailError)
@@ -88,7 +88,7 @@ export default class Login extends Component {
 									<div className="col-xs-12">
 										<label htmlFor="email">Email</label>
 										<div className="form-group">
-											<input id="email" type="text" className="form-control" value={this.state.email} onChange={this.handleEmail} name="email" required/>
+											<input id="email" type="text" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required/>
 										</div>
 									</div>
 								</div>
@@ -96,14 +96,14 @@ export default class Login extends Component {
 									<div className="col-xs-12">
 										<label htmlFor="password">Password</label>
 										<div className="form-group">
-											<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePassword} name="password" required/>
+											<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" required/>
 										</div>
 									</div>
 								</div>
 								<div className="row">
 									<div className="col-xs-12">
 										<div className="form-group">
-											<button className="btn btn-primary submit" onClick={this.handleSubmit}>LOG IN YOUR PROFILE</button>
+											<button className="btn btn-primary submit" onClick={this.handleSubmitClick}>LOG IN YOUR PROFILE</button>
 										</div>
 									</div>
 								</div>

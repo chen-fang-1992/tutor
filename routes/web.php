@@ -10,15 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/user/register', 'UserController@register');
+Route::group(['prefix' => 'user'], function() {
+	Route::post('register', 'UserController@register');
 
-Route::post('/user/login', 'UserController@login');
-Route::get('/user/logout', 'UserController@logout');
+	Route::post('login', 'UserController@login');
+	Route::get('logout', 'UserController@logout');
 
-Route::get('/user/profile/show', 'UserController@show');
-Route::post('/user/profile/update', 'UserController@update');
+	Route::get('profile/show', 'UserController@show');
+	Route::post('profile/update', 'UserController@update');
+});
 
-Route::get('/tutor/show', 'TutorController@show');
+Route::group(['prefix' => 'tutor'], function() {
+	Route::get('show', 'TutorController@show');
+});
 
 Route::get('/{path?}', function() {
 	return view('view', ['auth' => 'false', 'tutors' => '']);

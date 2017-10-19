@@ -18,7 +18,7 @@
 			<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
 	</head>
 	<body>
-		<div id="root" data-auth="{{ $auth }}" data-tutors="{{ $tutors }}"></div>
+		<div id="root"></div>
 	<body>
 	<!-- Scripts -->
 	<script src="{{ URL::asset('js/app.js') }}"></script>

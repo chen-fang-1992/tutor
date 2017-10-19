@@ -1,8 +1,9 @@
 import React from 'react'
-import home_bg from '~/public/img/home_bg.jpeg'
 import HomeSearchBar from './home/HomeSearchBar'
 import HomeIntroBar from './home/HomeIntroBar'
 import HomeTestimonials from './home/HomeTestimonials'
+
+let home_bg  = '/img/home_bg.jpeg'
 
 const Home = () => (
 	<div className="content home">

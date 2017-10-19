@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '~/public/img/logo.png'
 
-const Header = ({auth, header}) => {
+let logo = '/img/logo.png'
+
+const Header = ({ auth, header }) => {
 	const authTrue = (
 		<div>
 			<ul className="nav navbar-nav navbar-right">
@@ -28,7 +29,7 @@ const Header = ({auth, header}) => {
 					<div className="navbar-header">
 						<Link className="logo" to="/"><img src={logo}/></Link>
 					</div>
-					{(auth === 'true') ? authTrue : authFalse}
+					{ (auth === 'true') ? authTrue : authFalse }
 				</div>
 			</nav>
 		</div>

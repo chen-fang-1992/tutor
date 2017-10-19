@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchItem = ({tutor}) => (
+const SearchItem = ({ tutor }) => (
 	<div className="panel" data-toggle="modal" data-target={`#${tutor.id}`}>
 		<div className="row">
 			<div className="col-xs-5 picture">

@@ -25,7 +25,7 @@ export default class App extends Component {
 
 		return (
 			<div>
-				<Header auth={this.props.auth} header={this.state.header} />
+				<Header header={this.state.header} />
 				{this.props.children}
 				<Footer />
 			</div>

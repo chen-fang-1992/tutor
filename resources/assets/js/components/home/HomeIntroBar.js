@@ -1,7 +1,8 @@
 import React from 'react'
-import question from '~/public/img/question.png'
-import wanted from '~/public/img/wanted.png'
-import become from '~/public/img/become.png'
+
+let question = '/img/question.png'
+let wanted = '/img/wanted.png'
+let become = '/img/become.png'
 
 const HomeIntroBar = () => (
 	<div className="container intro-bar">

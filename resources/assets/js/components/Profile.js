@@ -24,7 +24,7 @@ export default class Profile extends Component {
 			weekends: false
 		}
 
-		this.handlePicture = (e) => {
+		this.handlePictureChange = (e) => {
 			e.preventDefault()
 
 			let reader = new FileReader()
@@ -36,7 +36,7 @@ export default class Profile extends Component {
 			reader.readAsDataURL(file)
 		}
 
-		this.handleFirstname = (e) => {
+		this.handleFirstnameChange = (e) => {
 			let firstname = e.target.value
 			let fullname = firstname + ' ' + this.state.lastname
 			let nameError = ''
@@ -50,7 +50,7 @@ export default class Profile extends Component {
 			})
 		}
 
-		this.handleLastname = (e) => {
+		this.handleLastnameChange = (e) => {
 			let lastname = e.target.value
 			let fullname = this.state.firstname + ' ' + lastname
 			let nameError = ''
@@ -64,56 +64,56 @@ export default class Profile extends Component {
 			})
 		}
 
-		this.handleNumber = (e) => {
+		this.handleNumberChange = (e) => {
 			this.setState({ number: e.target.value })
 		}
 
-		this.handleCountry = (e) => {
+		this.handleCountryChange = (e) => {
 			this.setState({ country: e.target.value })
 		}
 
-		this.handleLanguage = (e) => {
+		this.handleLanguageClick = (e) => {
 			e.preventDefault()
 			this.setState({ language: e.target.value })
 		}
 
-		this.handleCity = (e) => {
+		this.handleCityChange = (e) => {
 			this.setState({ city: e.target.value })
 		}
 
-		this.handleLocation = (e) => {
+		this.handleLocationChange = (e) => {
 			this.setState({ location: e.target.value })
 		}
 
-		this.handleCurrency = (e) => {
+		this.handleCurrencyChange = (e) => {
 			this.setState({ currency: e.target.value })
 		}
 
-		this.handlePrice = (e) => {
+		this.handlePriceChange = (e) => {
 			this.setState({ price: e.target.value })
 		}
 
-		this.handleAbout = (e) => {
+		this.handleAboutChange = (e) => {
 			this.setState({ about: e.target.value })
 		}
 
-		this.handleMornings = (e) => {
+		this.handleMorningsClick = (e) => {
 			this.setState({ mornings: (e.target.value === 'false') })
 		}
 
-		this.handleAfternoons = (e) => {
+		this.handleAfternoonsClick = (e) => {
 			this.setState({ afternoons: (e.target.value === 'false') })
 		}
 
-		this.handleEvenings = (e) => {
+		this.handleEveningsClick = (e) => {
 			this.setState({ evenings: (e.target.value === 'false') })
 		}
 
-		this.handleWeekends = (e) => {
+		this.handleWeekendsClick = (e) => {
 			this.setState({ weekends: (e.target.value === 'false') })
 		}
 
-		this.handleSubmit = (e) => {
+		this.handleSubmitClick = (e) => {
 			e.preventDefault()
 
 			let availability = 0
@@ -208,7 +208,7 @@ export default class Profile extends Component {
 									<div className="col-xs-4 col-xs-offset-4">
 										<img src={this.state.picture}/>
 										<div className="form-group">
-											<input type="file" className="fileupload" onChange={this.handlePicture} />
+											<input type="file" className="fileupload" onChange={this.handlePictureChange} />
 											<div className="btn btn-primary btn-fake">UPLOAD YOUR PICTURE</div>
 										</div>
 									</div>
@@ -218,13 +218,13 @@ export default class Profile extends Component {
 									<div className="col-xs-6">
 										<label htmlFor="firstname">First Name</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.firstname} onChange={this.handleFirstname} name="firstname" required/>
+											<input type="text" className="form-control" value={this.state.firstname} onChange={this.handleFirstnameChange} name="firstname" required/>
 										</div>
 									</div>
 									<div className="col-xs-6">
 										<label htmlFor="lastname">Last Name</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.lastname} onChange={this.handleLastname} name="lastname" required/>
+											<input type="text" className="form-control" value={this.state.lastname} onChange={this.handleLastnameChange} name="lastname" required/>
 										</div>
 									</div>
 								</div>
@@ -232,13 +232,13 @@ export default class Profile extends Component {
 									<div className="col-xs-6">
 										<label htmlFor="number">Whatsapp Number including country code and + sign</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.number} onChange={this.handleNumber} name="number" />
+											<input type="text" className="form-control" value={this.state.number} onChange={this.handleNumberChange} name="number" />
 										</div>
 									</div>
 									<div className="col-xs-6">
 										<label htmlFor="country">Country of origin</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.country} onChange={this.handleCountry} name="country" />
+											<input type="text" className="form-control" value={this.state.country} onChange={this.handleCountryChange} name="country" />
 										</div>
 									</div>
 								</div>
@@ -252,17 +252,17 @@ export default class Profile extends Component {
 												<i className="fa fa-angle-down" aria-hidden="true"></i>
 											</button>
 											<ul className="dropdown-menu" role="menu">
-												<li value="0"><button className="btn btn-link" onClick={this.handleLanguage} value="English">English</button></li>
-												<li value="1"><button className="btn btn-link" onClick={this.handleLanguage} value="Chinese">Chinese</button></li>
-												<li value="2"><button className="btn btn-link" onClick={this.handleLanguage} value="French">French</button></li>
-												<li value="3"><button className="btn btn-link" onClick={this.handleLanguage} value="Germany">Germany</button></li>
+												<li value="0"><button className="btn btn-link" onClick={this.handleLanguageClick} value="English">English</button></li>
+												<li value="1"><button className="btn btn-link" onClick={this.handleLanguageClick} value="Chinese">Chinese</button></li>
+												<li value="2"><button className="btn btn-link" onClick={this.handleLanguageClick} value="French">French</button></li>
+												<li value="3"><button className="btn btn-link" onClick={this.handleLanguageClick} value="Germany">Germany</button></li>
 											</ul>
 										</div>
 									</div>
 									<div className="col-xs-6">
 										<label htmlFor="city">In which city can you teach?</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.city} onChange={this.handleCity} name="city" />
+											<input type="text" className="form-control" value={this.state.city} onChange={this.handleCityChange} name="city" />
 										</div>
 									</div>
 								</div>
@@ -270,7 +270,7 @@ export default class Profile extends Component {
 									<div className="col-xs-12">
 										<label htmlFor="location">Choose where exactly you want to be shown on the TUTOR Map:</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.location} onChange={this.handleLocation} name="location" />
+											<input type="text" className="form-control" value={this.state.location} onChange={this.handleLocationChange} name="location" />
 										</div>
 									</div>
 								</div>
@@ -278,13 +278,13 @@ export default class Profile extends Component {
 									<div className="col-xs-6">
 										<label htmlFor="currency">Currency</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.currency} onChange={this.handleCurrency} name="currency" />
+											<input type="text" className="form-control" value={this.state.currency} onChange={this.handleCurrencyChange} name="currency" />
 										</div>
 									</div>
 									<div className="col-xs-6">
 										<label htmlFor="price">Per hour Tutoring rates</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.price} onChange={this.handlePrice} name="price" />
+											<input type="text" className="form-control" value={this.state.price} onChange={this.handlePriceChange} name="price" />
 										</div>
 									</div>
 								</div>
@@ -292,22 +292,22 @@ export default class Profile extends Component {
 								<div className="row">
 									<div className="col-xs-2">
 										<div className="form-group">
-											<input type="checkbox" checked={this.state.mornings} onChange={this.handleMornings} value={this.state.mornings} /><span> Mornings</span>
+											<input type="checkbox" checked={this.state.mornings} onClick={this.handleMorningsClick} value={this.state.mornings} /><span> Mornings</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
 										<div className="form-group">
-											<input type="checkbox" checked={this.state.afternoons} onChange={this.handleAfternoons} value={this.state.afternoons} /><span> Afternoons</span>
+											<input type="checkbox" checked={this.state.afternoons} onClick={this.handleAfternoonsClick} value={this.state.afternoons} /><span> Afternoons</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
 										<div className="form-group">
-											<input type="checkbox" checked={this.state.evenings} onChange={this.handleEvenings} value={this.state.evenings} /><span> Evenings</span>
+											<input type="checkbox" checked={this.state.evenings} onClick={this.handleEveningsClick} value={this.state.evenings} /><span> Evenings</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
 										<div className="form-group">
-											<input type="checkbox" checked={this.state.weekends} onChange={this.handleWeekends} value={this.state.weekends} /><span> Weekends</span>
+											<input type="checkbox" checked={this.state.weekends} onClick={this.handleWeekendsClick} value={this.state.weekends} /><span> Weekends</span>
 										</div>
 									</div>
 								</div>
@@ -315,17 +315,14 @@ export default class Profile extends Component {
 								<div className="row">
 									<div className="col-xs-12">
 										<div className="form-group">
-											<textarea className="form-control" value={this.state.about} onChange={this.handleAbout} name="about" />
+											<textarea className="form-control" value={this.state.about} onChange={this.handleAboutChange} name="about" />
 										</div>
 									</div>
 								</div>
 								<div className="row">
 									<div className="col-xs-12">
 										<div className="form-group">
-											<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmit}>SUBMIT YOUR PROFILE NOW</button>
-											<input type="hidden" className="form-control" value={this.state.picture} name="picture" />
-											<input type="hidden" className="form-control" value={this.state.language} name="language" />
-											<input type="hidden" className="form-control" value={this.state.availability} name="availability" />
+											<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmitClick}>SUBMIT YOUR PROFILE NOW</button>
 										</div>
 									</div>
 								</div>
