@@ -31,9 +31,7 @@ export default class Profile extends Component {
 			let file = e.target.files[0]
 
 			reader.onloadend = () => {
-				this.setState({
-					picture: reader.result
-				})
+				this.setState({ picture: reader.result })
 			}
 			reader.readAsDataURL(file)
 		}
@@ -67,52 +65,52 @@ export default class Profile extends Component {
 		}
 
 		this.handleNumber = (e) => {
-			this.setState({number: e.target.value})
+			this.setState({ number: e.target.value })
 		}
 
 		this.handleCountry = (e) => {
-			this.setState({country: e.target.value})
+			this.setState({ country: e.target.value })
 		}
 
 		this.handleLanguage = (e) => {
 			e.preventDefault()
-			this.setState({language: e.target.value})
+			this.setState({ language: e.target.value })
 		}
 
 		this.handleCity = (e) => {
-			this.setState({city: e.target.value})
+			this.setState({ city: e.target.value })
 		}
 
 		this.handleLocation = (e) => {
-			this.setState({location: e.target.value})
+			this.setState({ location: e.target.value })
 		}
 
 		this.handleCurrency = (e) => {
-			this.setState({currency: e.target.value})
+			this.setState({ currency: e.target.value })
 		}
 
 		this.handlePrice = (e) => {
-			this.setState({price: e.target.value})
+			this.setState({ price: e.target.value })
 		}
 
 		this.handleAbout = (e) => {
-			this.setState({about: e.target.value})
+			this.setState({ about: e.target.value })
 		}
 
 		this.handleMornings = (e) => {
-			this.setState({mornings: (e.target.value === 'false')})
+			this.setState({ mornings: (e.target.value === 'false') })
 		}
 
 		this.handleAfternoons = (e) => {
-			this.setState({afternoons: (e.target.value === 'false')})
+			this.setState({ afternoons: (e.target.value === 'false') })
 		}
 
 		this.handleEvenings = (e) => {
-			this.setState({evenings: (e.target.value === 'false')})
+			this.setState({ evenings: (e.target.value === 'false') })
 		}
 
 		this.handleWeekends = (e) => {
-			this.setState({weekends: (e.target.value === 'false')})
+			this.setState({ weekends: (e.target.value === 'false') })
 		}
 
 		this.handleSubmit = (e) => {
@@ -127,7 +125,7 @@ export default class Profile extends Component {
 				availability += 4
 			if (this.state.weekends)
 				availability += 8
-			this.setState({availability: availability})
+			this.setState({ availability: availability })
 
 			if (this.state.nameError)
 				alert(this.state.nameError)
@@ -147,12 +145,12 @@ export default class Profile extends Component {
 					picture: this.state.picture
 				}).then(response => {
 					window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
-				})
+				}).catch((error) => { throw new Error(error.message) })
 			}
 		}
 	}
 
-	componentWillMount () {
+	componentDidMount () {
 		let profile
 
 		if (this.props.location.state !== undefined) {
@@ -194,7 +192,7 @@ export default class Profile extends Component {
 					about: profile.about ? profile.about : '',
 					picture: profile.picture ? profile.picture : '/img/default.png'
 				})
-			})
+			}).catch((error) => { throw new Error(error.message) })
 		}
 	}
 

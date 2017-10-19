@@ -119,7 +119,7 @@ export default class Register extends Component {
 							password: '',
 							passwordConfirmation: ''
 						})
-				})
+				}).catch((error) => { throw new Error(error.message) })
 			}
 		}
 	}

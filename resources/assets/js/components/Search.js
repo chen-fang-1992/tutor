@@ -1,78 +1,78 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
-
-import SearchItem from './search/SearchItem';
-import SearchModal from './search/SearchModal';
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
+import SearchItem from './search/SearchItem'
+import SearchModal from './search/SearchModal'
 
 export default class Search extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 
 		this.state = {
 			language: 'English',
 			availability: 'When?',
 			location: '',
 			filter: 'Price',
-			tutors: JSON.parse(this.props.tutors),
+			tutors: '',
 
 			mornings: '',
 			afternoons: '',
 			evenings: '',
 			weekends: ''
-		};
+		}
 
 		this.handleLanguage = (e) => {
-			e.preventDefault();
-			this.setState({language: e.target.value});
+			e.preventDefault()
+			let language = e.target.value
 
-			axios.get('/tutor/detail', {
+			axios.get('/tutor/show', {
 				params: {
-					language: e.target.value,
+					language: language,
 					availability: this.state.availability,
 					location: this.state.location,
 					filter: this.state.filter
 				}
 			}).then(response => {
 				this.setState({
+					language: language,
 					tutors: response.data
-				});
-			});
+				})
+			}).catch((error) => { throw new Error(error.message) })
 		}
 
 		this.handleAvailability = (e) => {
-			e.preventDefault();
-			var availability = this.state.availability;
+			e.preventDefault()
+			let availability = this.state.availability
 
 			if (e.target.value === 'Mornings') {
 				if (availability.indexOf('M') === 0) {
-					availability = availability.replace('M', '');
-					availability = availability.replace(' ','');
+					availability = availability.replace('M', '')
+					availability = availability.replace(' ','')
 				} else {
 					if (availability === 'When?') {
-						availability = 'M';
+						availability = 'M'
 					} else {
-						availability = 'M ' + availability;
+						availability = 'M ' + availability
 					}
 				}
 			}
 
 			if (e.target.value === 'Afternoons') {
 				if (availability.indexOf('A') > -1) {
-					availability = availability.replace('A', '');
-					availability = availability.replace(' ','');
+					availability = availability.replace('A', '')
+					availability = availability.replace(' ','')
 				} else {
 					if (availability === 'When?') {
-						availability = 'A';
+						availability = 'A'
 					} else {
 						if (availability.indexOf('M') === 0) {
 							if (availability.length > 1) {
-								availability = availability.replace(' ', ' A ');
+								availability = availability.replace(' ', ' A ')
 							} else {
-								availability += ' A';
+								availability += ' A'
 							}
 						} else {
-							availability = 'A ' + availability;
+							availability = 'A ' + availability
 						}
 					}
 				}
@@ -81,31 +81,31 @@ export default class Search extends Component {
 			if (e.target.value === 'Evenings') {
 				if (availability.indexOf('E') > -1) {
 					if (availability.indexOf('E') === 0) {
-						availability = availability.replace('E', '');
-						availability = availability.replace(' ', '');
+						availability = availability.replace('E', '')
+						availability = availability.replace(' ', '')
 					} else {
-						availability = availability.replace(' E', '');
+						availability = availability.replace(' E', '')
 					}
 				} else {
 					if (availability === 'When?') {
-						availability = 'E';
+						availability = 'E'
 					} else {
 						if ((availability.indexOf('M') === 0 || availability.indexOf('A') === 0)) {
 							if (availability.length > 1) {
 								if (availability.indexOf('A') !== 2) {
-									availability = availability.replace(' ', ' E ');
+									availability = availability.replace(' ', ' E ')
 								} else {
 									if (availability === 'M A W') {
-										availability = 'M A E W';
+										availability = 'M A E W'
 									} else {
-										availability += ' E';
+										availability += ' E'
 									}
 								}
 							} else {
-								availability += ' E';
+								availability += ' E'
 							}
 						} else {
-							availability = 'E ' + availability;
+							availability = 'E ' + availability
 						}
 					}
 				}
@@ -114,25 +114,23 @@ export default class Search extends Component {
 			if (e.target.value === 'Weekends') {
 				if (availability.indexOf('W') > -1 && availability.indexOf('e') === -1) {
 					if (availability.indexOf('W') === 0) {
-						availability = availability.replace('W', '');
+						availability = availability.replace('W', '')
 					} else {
-						availability = availability.replace(' W', '');
+						availability = availability.replace(' W', '')
 					}
 				} else {
 					if (availability === 'When?') {
-						availability = 'W';
+						availability = 'W'
 					} else {
-						availability += ' W';
+						availability += ' W'
 					}
 				}
 			}
 
 			if (availability.length === 0)
-				availability = 'When?';
+				availability = 'When?'
 
-			this.setState({availability: availability});
-
-			axios.get('/tutor/detail', {
+			axios.get('/tutor/show', {
 				params: {
 					language: this.state.language,
 					availability: availability,
@@ -141,20 +139,39 @@ export default class Search extends Component {
 				}
 			}).then(response => {
 				this.setState({
+					availability: availability,
 					tutors: response.data
-				});
-			});
+				})
+			}).catch((error) => { throw new Error(error.message) })
 		}
 
 		this.handleLocation = (e) => {
-			this.setState({location: e.target.value});
+			this.setState({ location: e.target.value })
 		}
 
 		this.handleFilter = (e) => {
-			e.preventDefault();
-			this.setState({filter: e.target.value});
+			e.preventDefault()
+			let filter = e.target.value
 
-			axios.get('/tutor/detail', {
+			axios.get('/tutor/show', {
+				params: {
+					language: this.state.language,
+					availability: this.state.availability,
+					location: this.state.location,
+					filter: filter
+				}
+			}).then(response => {
+				this.setState({
+					filter: filter,
+					tutors: response.data
+				})
+			}).catch((error) => { throw new Error(error.message) })
+		}
+
+		this.handleSubmit = (e) => {
+			e.preventDefault()
+
+			axios.get('/tutor/show', {
 				params: {
 					language: this.state.language,
 					availability: this.state.availability,
@@ -162,20 +179,36 @@ export default class Search extends Component {
 					filter: e.target.value
 				}
 			}).then(response => {
-				this.setState({
-					tutors: response.data
-				});
-			});
+				this.setState({ tutors: response.data })
+			}).catch((error) => { throw new Error(error.message) })
 		}
+	}
 
-		this.handleSubmit = (e) => {
+	componentDidMount () {
+		if (this.props.location.state !== undefined) {
+			axios.get('/tutor/show', {
+				params: {
+					language: this.props.location.state.language,
+					availability: this.props.location.state.availability,
+					location: this.props.location.state.location,
+					filter: this.props.location.state.filter
+				}
+			}).then(response => {
+				this.setState({
+					language: this.props.location.state.language,
+					availability: this.props.location.state.availability,
+					location: this.props.location.state.location,
+					filter: this.props.location.state.filter,
+					tutors: response.data
+				})
+			}).catch((error) => { throw new Error(error.message) })
 		}
 	}
 
 	get tutors() {
-		var output = [];
+		let output = []
 
-		for (var i = 0; i < this.state.tutors.length; i = i + 2) {
+		for (let i = 0; i < this.state.tutors.length; i = i + 2) {
 			if (this.state.tutors.length - i >= 2) {
 				output.push(
 					<div key={i}>
@@ -190,7 +223,7 @@ export default class Search extends Component {
 							</div>
 						</div>
 					</div>
-				);
+				)
 			} else {
 				output.push(
 					<div key={i}>
@@ -201,20 +234,21 @@ export default class Search extends Component {
 							</div>
 						</div>
 					</div>
-				);
+				)
 			}
 		}
 
-		return output;
+		return output
 	}
 
 	render() {
+		console.log(this.state)
 		return (
 			<div className="content tutor">
 				<div className="container search-bar">
 					<div className="row">
 						<div className="col-xs-10 col-xs-offset-1">
-							<form action="/tutor" method="GET" role="form">
+							<form role="form">
 								<div className="col-xs-2 language">
 									<div className="dropdown">
 										<button type="button" className="btn dropdown-toggle" data-toggle="dropdown">
@@ -279,10 +313,6 @@ export default class Search extends Component {
 					</div>
 				</div>
 			</div>
-		);
+		)
 	}
-}
-
-if (document.getElementById('search')) {
-	ReactDOM.render(<Search />, document.getElementById('search'));
 }

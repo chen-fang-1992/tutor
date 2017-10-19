@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import { Redirect } from 'react-router-dom'
 
 export default class HomeSearchBar extends Component {
 	constructor(props) {
@@ -9,12 +9,13 @@ export default class HomeSearchBar extends Component {
 			language: 'English',
 			availability: 'When?',
 			location: '',
-			filter: 'Price'
+			filter: 'Price',
+			redirect: false
 		}
 
 		this.handleLanguage = (e) => {
 			e.preventDefault()
-			this.setState({language: e.target.value})
+			this.setState({ language: e.target.value })
 		}
 
 		this.handleAvailability = (e) => {
@@ -107,29 +108,44 @@ export default class HomeSearchBar extends Component {
 			if (availability.length === 0)
 				availability = 'When?'
 
-			this.setState({availability: availability})
+			this.setState({ availability: availability })
 		}
 
 		this.handleLocation = (e) => {
-			this.setState({location: e.target.value})
+			this.setState({ location: e.target.value })
 		}
 
 		this.handleFilter = (e) => {
 			e.preventDefault()
-			this.setState({filter: e.target.value})
+			this.setState({ filter: e.target.value })
 		}
 
 		this.handleSubmit = (e) => {
+			e.preventDefault()
+			this.setState({ redirect: true })
 		}
 	}
 
 	render() {
+		let { redirect } = this.state
+
+		if (redirect === true)
+			return (<Redirect to={{
+				pathname: '/tutor',
+				state: {
+					language: this.state.language,
+					availability: this.state.availability,
+					location: this.state.location,
+					filter: this.state.filter
+				}
+			}} />)
+
 		return (
 			<div className="container search-bar">
 				<div className="row">
 					<h1>Find A Native Language Tutor Near You</h1>
 					<div className="col-xs-10 col-xs-offset-1">
-						<form action="/tutor" method="GET" role="form">
+						<form role="form">
 							<div className="col-xs-2 language">
 								<div className="dropdown">
 									<button type="button" className="btn dropdown-toggle" data-toggle="dropdown">
@@ -188,8 +204,4 @@ export default class HomeSearchBar extends Component {
 			</div>
 		)
 	}
-}
-
-if (document.getElementById('home-search-bar')) {
-	ReactDOM.render(<HomeSearchBar />, document.getElementById('home-search-bar'))
 }

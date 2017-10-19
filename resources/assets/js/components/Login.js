@@ -63,13 +63,13 @@ export default class Login extends Component {
 							email: '',
 							password: ''
 						})
-				})
+				}).catch((error) => { throw new Error(error.message) })
 			}
 		}
 	}
 
 	render() {
-		let { redirect, profile } = this.state
+		let { redirect } = this.state
 
 		if (redirect === true)
 			return (<Redirect to={{
