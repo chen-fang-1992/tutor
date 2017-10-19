@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 let logo = '/img/logo.png'
 
@@ -34,6 +35,11 @@ const Header = ({ auth, header }) => {
 			</nav>
 		</div>
 	)
+}
+
+Header.propTypes = {
+	auth: PropTypes.string,
+	header: PropTypes.string.isRequired
 }
 
 export default Header

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 import SearchItem from './search/SearchItem'
 import SearchModal from './search/SearchModal'
@@ -242,7 +243,6 @@ export default class Search extends Component {
 	}
 
 	render() {
-		console.log(this.state)
 		return (
 			<div className="content tutor">
 				<div className="container search-bar">
@@ -312,4 +312,8 @@ export default class Search extends Component {
 			</div>
 		)
 	}
+}
+
+Search.propTypes = {
+	location: PropTypes.object.isRequired
 }

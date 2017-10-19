@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class Profile extends Component {
 	constructor(props) {
@@ -333,4 +334,8 @@ export default class Profile extends Component {
 			</div>
 		)
 	}
+}
+
+Profile.propTypes = {
+	location: PropTypes.object
 }

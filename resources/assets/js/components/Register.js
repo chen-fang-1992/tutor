@@ -106,7 +106,6 @@ export default class Register extends Component {
 					email: this.state.email,
 					password: this.state.password
 				}).then(response => {
-					console.log(response.data)
 					if (response.data !== 'fail')
 						this.setState({
 							redirect: true,

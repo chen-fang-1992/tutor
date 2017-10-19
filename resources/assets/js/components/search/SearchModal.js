@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const SearchModal = ({ tutor }) => (
 	<div className="modal fade" id={tutor.id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -59,5 +60,9 @@ const SearchModal = ({ tutor }) => (
 		</div>
 	</div>
 )
+
+SearchModal.propTypes = {
+	tutor: PropTypes.object.isRequired
+}
 
 export default SearchModal

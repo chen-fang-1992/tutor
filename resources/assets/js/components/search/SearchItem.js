@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const SearchItem = ({ tutor }) => (
 	<div className="panel" data-toggle="modal" data-target={`#${tutor.id}`}>
@@ -23,5 +24,9 @@ const SearchItem = ({ tutor }) => (
 		</div>
 	</div>
 )
+
+SearchItem.propTypes = {
+	tutor: PropTypes.object.isRequired
+}
 
 export default SearchItem

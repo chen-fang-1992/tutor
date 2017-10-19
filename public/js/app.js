@@ -12235,7 +12235,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
 //import { createStore } from 'redux'
 //import { Provider } from 'react-redux'
 
@@ -57927,8 +57926,10 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Header__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Footer__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Header__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Footer__ = __webpack_require__(265);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -57936,6 +57937,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -57963,9 +57965,9 @@ var App = function (_Component) {
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
 				null,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Header__["a" /* default */], { header: this.state.header }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Header__["a" /* default */], { header: this.state.header }),
 				this.props.children,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Footer__["a" /* default */], null)
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Footer__["a" /* default */], null)
 			);
 		}
 	}]);
@@ -57975,6 +57977,11 @@ var App = function (_Component) {
 
 /* harmony default export */ __webpack_exports__["a"] = (App);
 
+
+App.propTypes = {
+	children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired
+};
+
 /***/ }),
 /* 264 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -57983,6 +57990,9 @@ var App = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
+
 
 
 
@@ -58068,6 +58078,11 @@ var Header = function Header(_ref) {
 			)
 		)
 	);
+};
+
+Header.propTypes = {
+	auth: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string,
+	header: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string.isRequired
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Header);
@@ -58957,7 +58972,6 @@ var Register = function (_Component) {
 					email: _this.state.email,
 					password: _this.state.password
 				}).then(function (response) {
-					console.log(response.data);
 					if (response.data !== 'fail') _this.setState({
 						redirect: true,
 						profile: response.data
@@ -59101,6 +59115,8 @@ var Register = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59108,6 +59124,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -59675,6 +59692,11 @@ var Profile = function (_Component) {
 
 /* harmony default export */ __webpack_exports__["a"] = (Profile);
 
+
+Profile.propTypes = {
+	location: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object
+};
+
 /***/ }),
 /* 272 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -59866,10 +59888,12 @@ var Login = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_SearchItem__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_SearchModal__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_SearchItem__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_SearchModal__ = __webpack_require__(275);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59877,6 +59901,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -59909,7 +59934,7 @@ var Search = function (_Component) {
 			e.preventDefault();
 			var language = e.target.value;
 
-			__WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/tutor/show', {
+			__WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/tutor/show', {
 				params: {
 					language: language,
 					availability: _this.state.availability,
@@ -60015,7 +60040,7 @@ var Search = function (_Component) {
 
 			if (availability.length === 0) availability = 'When?';
 
-			__WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/tutor/show', {
+			__WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/tutor/show', {
 				params: {
 					language: _this.state.language,
 					availability: availability,
@@ -60040,7 +60065,7 @@ var Search = function (_Component) {
 			e.preventDefault();
 			var filter = e.target.value;
 
-			__WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/tutor/show', {
+			__WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/tutor/show', {
 				params: {
 					language: _this.state.language,
 					availability: _this.state.availability,
@@ -60060,7 +60085,7 @@ var Search = function (_Component) {
 		_this.handleSubmitClick = function (e) {
 			e.preventDefault();
 
-			__WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/tutor/show', {
+			__WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/tutor/show', {
 				params: {
 					language: _this.state.language,
 					availability: _this.state.availability,
@@ -60082,7 +60107,7 @@ var Search = function (_Component) {
 			var _this2 = this;
 
 			if (this.props.location.state !== undefined) {
-				__WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/tutor/show', {
+				__WEBPACK_IMPORTED_MODULE_3_axios___default.a.get('/tutor/show', {
 					params: {
 						language: this.props.location.state.language,
 						availability: this.props.location.state.availability,
@@ -60105,7 +60130,6 @@ var Search = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			console.log(this.state);
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
 				{ className: 'content tutor' },
@@ -60332,14 +60356,14 @@ var Search = function (_Component) {
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
 								{ className: 'col-xs-5 col-xs-offset-1' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i] })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i] }),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i] })
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
 								{ className: 'col-xs-5' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i + 1] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i + 1] })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i + 1] }),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i + 1] })
 							)
 						)
 					));
@@ -60353,8 +60377,8 @@ var Search = function (_Component) {
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
 								{ className: 'col-xs-5 col-xs-offset-1' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i] }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i] })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__search_SearchItem__["a" /* default */], { tutor: this.state.tutors[i] }),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__search_SearchModal__["a" /* default */], { tutor: this.state.tutors[i] })
 							)
 						)
 					));
@@ -60370,6 +60394,11 @@ var Search = function (_Component) {
 
 /* harmony default export */ __webpack_exports__["a"] = (Search);
 
+
+Search.propTypes = {
+	location: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.object.isRequired
+};
+
 /***/ }),
 /* 274 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -60377,71 +60406,78 @@ var Search = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+
 
 
 var SearchItem = function SearchItem(_ref) {
 	var tutor = _ref.tutor;
 	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-		"div",
-		{ className: "panel", "data-toggle": "modal", "data-target": "#" + tutor.id },
+		'div',
+		{ className: 'panel', 'data-toggle': 'modal', 'data-target': '#' + tutor.id },
 		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			"div",
-			{ className: "row" },
+			'div',
+			{ className: 'row' },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				"div",
-				{ className: "col-xs-5 picture" },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: tutor.picture })
+				'div',
+				{ className: 'col-xs-5 picture' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: tutor.picture })
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				"div",
-				{ className: "col-xs-7" },
+				'div',
+				{ className: 'col-xs-7' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"div",
-					{ className: "row name" },
+					'div',
+					{ className: 'row name' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"h1",
+						'h1',
 						null,
 						tutor.firstname,
-						" ",
+						' ',
 						tutor.lastname
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"div",
-					{ className: "row info" },
+					'div',
+					{ className: 'row info' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"button",
-						{ className: "btn btn-success" },
-						"Teaches ",
+						'button',
+						{ className: 'btn btn-success' },
+						'Teaches ',
 						tutor.language
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"div",
-					{ className: "row info" },
+					'div',
+					{ className: 'row info' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"button",
-						{ className: "btn btn-warning" },
-						"From ",
+						'button',
+						{ className: 'btn btn-warning' },
+						'From ',
 						tutor.country
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"div",
-					{ className: "row info" },
+					'div',
+					{ className: 'row info' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"button",
-						{ className: "btn btn-primary" },
-						"Price ",
+						'button',
+						{ className: 'btn btn-primary' },
+						'Price ',
 						tutor.currency,
-						" ",
+						' ',
 						tutor.price,
-						"/Hour"
+						'/Hour'
 					)
 				)
 			)
 		)
 	);
+};
+
+SearchItem.propTypes = {
+	tutor: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (SearchItem);
@@ -60453,165 +60489,168 @@ var SearchItem = function SearchItem(_ref) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+
 
 
 var SearchModal = function SearchModal(_ref) {
 	var tutor = _ref.tutor;
 	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-		"div",
-		{ className: "modal fade", id: tutor.id, tabIndex: "-1", role: "dialog", "aria-labelledby": "myModalLabel", "aria-hidden": "true" },
+		'div',
+		{ className: 'modal fade', id: tutor.id, tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true' },
 		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			"div",
-			{ className: "modal-dialog" },
+			'div',
+			{ className: 'modal-dialog' },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				"div",
-				{ className: "modal-content" },
+				'div',
+				{ className: 'modal-content' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					"div",
-					{ className: "modal-body" },
+					'div',
+					{ className: 'modal-body' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"div",
-						{ className: "row" },
+						'div',
+						{ className: 'row' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"div",
-							{ className: "col-xs-5 picture" },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: tutor.picture })
+							'div',
+							{ className: 'col-xs-5 picture' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: tutor.picture })
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"div",
-							{ className: "col-xs-6 info" },
+							'div',
+							{ className: 'col-xs-6 info' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"h1",
-								{ className: "modal-title" },
+								'h1',
+								{ className: 'modal-title' },
 								tutor.firstname,
-								" ",
+								' ',
 								tutor.lastname
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"div",
-								{ className: "modal-info-key" },
+								'div',
+								{ className: 'modal-info-key' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									"span",
+									'span',
 									null,
-									"Teaches"
+									'Teaches'
 								)
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"div",
-								{ className: "modal-info-value" },
+								'div',
+								{ className: 'modal-info-value' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									"span",
+									'span',
 									null,
 									tutor.language
 								)
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"div",
-								{ className: "modal-info-key" },
+								'div',
+								{ className: 'modal-info-key' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									"span",
+									'span',
 									null,
-									"From"
+									'From'
 								)
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"div",
-								{ className: "modal-info-value" },
+								'div',
+								{ className: 'modal-info-value' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									"span",
+									'span',
 									null,
 									tutor.country
 								)
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"div",
-								{ className: "modal-info-key" },
+								'div',
+								{ className: 'modal-info-key' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									"span",
+									'span',
 									null,
-									"Price"
+									'Price'
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									"button",
-									{ className: "btn btn-primary inquire" },
-									"Inquire Now"
+									'button',
+									{ className: 'btn btn-primary inquire' },
+									'Inquire Now'
 								)
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"div",
-								{ className: "modal-info-value" },
+								'div',
+								{ className: 'modal-info-value' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									"span",
+									'span',
 									null,
 									tutor.currency,
-									" ",
+									' ',
 									tutor.price,
-									"/Hour"
+									'/Hour'
 								)
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"div",
-							{ className: "col-xs-1" },
+							'div',
+							{ className: 'col-xs-1' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"button",
-								{ type: "button", className: "close", "data-dismiss": "modal", "aria-hidden": "true" },
-								"\xD7"
+								'button',
+								{ type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+								'\xD7'
 							)
 						)
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"div",
-						{ className: "row availability" },
+						'div',
+						{ className: 'row availability' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"div",
+							'div',
 							{ className: "col-xs-3" + (tutor.availability % 2 === 1 ? " avail" : "") },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"span",
+								'span',
 								null,
-								tutor.availability % 2 === 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-check", "aria-hidden": "true" }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-ban", "aria-hidden": "true" }),
-								"Mornings"
+								tutor.availability % 2 === 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+								'Mornings'
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"div",
+							'div',
 							{ className: "col-xs-3" + (tutor.availability % 4 >= 2 ? " avail" : "") },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"span",
+								'span',
 								null,
-								tutor.availability % 4 >= 2 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-check", "aria-hidden": "true" }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-ban", "aria-hidden": "true" }),
-								"Afternoons"
+								tutor.availability % 4 >= 2 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+								'Afternoons'
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"div",
+							'div',
 							{ className: "col-xs-3" + (tutor.availability % 8 >= 4 ? " avail" : "") },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"span",
+								'span',
 								null,
-								tutor.availability % 8 >= 4 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-check", "aria-hidden": "true" }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-ban", "aria-hidden": "true" }),
-								"Evenings"
+								tutor.availability % 8 >= 4 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+								'Evenings'
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"div",
+							'div',
 							{ className: "col-xs-3" + (tutor.availability % 16 >= 8 ? " avail" : "") },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"span",
+								'span',
 								null,
-								tutor.availability % 16 >= 8 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-check", "aria-hidden": "true" }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-ban", "aria-hidden": "true" }),
-								"Weekends"
+								tutor.availability % 16 >= 8 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+								'Weekends'
 							)
 						)
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						"div",
-						{ className: "row about" },
+						'div',
+						{ className: 'row about' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							"div",
-							{ className: "col-xs-12" },
+							'div',
+							{ className: 'col-xs-12' },
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								"p",
+								'p',
 								null,
 								tutor.about
 							)
@@ -60621,6 +60660,10 @@ var SearchModal = function SearchModal(_ref) {
 			)
 		)
 	);
+};
+
+SearchModal.propTypes = {
+	tutor: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (SearchModal);

@@ -27,5 +27,8 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0"
   }
 }
