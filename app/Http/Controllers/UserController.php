@@ -20,7 +20,7 @@ class UserController extends Controller
 	{
 		// check whether there is user who has logged in
 		if (Auth::user())
-			return 'fail';
+			return 'fail1';
 		// create user model
 		$user = new user;
 		$user->name = Input::get('name');
@@ -28,7 +28,7 @@ class UserController extends Controller
 		$user->password = bcrypt(Input::get('password'));
 		// check email unique
 		if (User::where([ ['email', $user->email] ])->get()->count())
-			return 'fail';
+			return 'fail2';
 		// insert user and create profile model
 		if ($user->save()) {
 			Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')]);
@@ -41,7 +41,7 @@ class UserController extends Controller
 			if ($profile->save())
 				return $profile;
 			else
-				return 'fail';
+				return 'fail3';
 		}
 	}
 
@@ -52,7 +52,7 @@ class UserController extends Controller
 	{
 		// check whether there is user who has logged in
 		if (Auth::user())
-			return 'fail';
+			return 'fail1';
 		// get login info
 		$email = Input::get('email');
 		$password = Input::get('password');
@@ -60,7 +60,7 @@ class UserController extends Controller
 		if (Auth::attempt(['email' => $email, 'password' => $password]))
 			return $this->show();
 		else
-			return 'fail';
+			return 'fail2';
 	}
 
 	/*

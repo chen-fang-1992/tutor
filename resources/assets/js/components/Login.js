@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchLogin } from '../actions/index'
 
-export default class Login extends Component {
+class Login extends Component {
 	constructor(props) {
 		super(props)
 
@@ -10,9 +12,7 @@ export default class Login extends Component {
 			email: '',
 			emailError: 'Please fill in email',
 			password: '',
-			passwordError: 'Please fill in password',
-			redirect: false,
-			profile: ''
+			passwordError: 'Please fill in password'
 		}
 
 		this.handleEmailChange = (e) => {
@@ -48,34 +48,14 @@ export default class Login extends Component {
 				alert(this.state.emailError)
 			else if (this.state.passwordError)
 				alert(this.state.passwordError)
-			else {
-				axios.post('/user/login', {
-					email: this.state.email,
-					password: this.state.password
-				}).then(response => {
-					if (response.data !== 'fail')
-						this.setState({
-							redirect: true,
-							profile: response.data
-						})
-					else
-						this.setState({
-							email: '',
-							password: ''
-						})
-				}).catch((error) => { throw new Error(error.message) })
-			}
+			else
+				this.props.fetchLogin(this.state.email, this.state.password)
 		}
 	}
 
 	render() {
-		let { redirect } = this.state
-
-		if (redirect === true)
-			return (<Redirect to={{
-				pathname: '/user/profile',
-				state: { profile: this.state.profile }
-			}} />)
+		if (this.props.auth === true)
+			return (<Redirect to='/user/profile' />)
 
 		return (
 			<div className="content user">
@@ -115,3 +95,20 @@ export default class Login extends Component {
 		)
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		auth: state.login.auth
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchLogin: bindActionCreators(fetchLogin, dispatch)
+	}
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Login)

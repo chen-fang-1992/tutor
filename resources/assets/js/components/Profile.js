@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-export default class Profile extends Component {
+class Profile extends Component {
 	constructor(props) {
 		super(props)
 
@@ -152,10 +153,12 @@ export default class Profile extends Component {
 	}
 
 	componentDidMount () {
+		console.log(this.props.auth)
+		console.log(this.props.profile)
 		let profile
 
-		if (this.props.location.state !== undefined) {
-			profile = this.props.location.state.profile
+		if (this.props.profile !== undefined) {
+			profile = this.props.profile
 			this.setState({
 				firstname: profile.firstname ? profile.firstname : '',
 				lastname: profile.lastname ? profile.lastname : '',
@@ -339,3 +342,14 @@ export default class Profile extends Component {
 Profile.propTypes = {
 	location: PropTypes.object
 }
+
+const mapStateToProps = state => {
+	return {
+		auth: state.login.auth,
+		profile: state.login.profile
+	}
+}
+
+export default connect(
+	mapStateToProps
+)(Profile)

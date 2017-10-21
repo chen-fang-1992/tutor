@@ -3,25 +3,23 @@ import PropTypes from 'prop-types'
 import Header from './Header'
 import Footer from './Footer'
 
-export default class App extends Component {
+class App extends Component {
 	constructor(props) {
 		super(props)
 
-		this.state = {
-			header: ''
-		}
+		this.state = { header: '' }
 	}
 
 	render() {
-		if (this.props.children.type.name === 'Home')
+		if (this.props.children.props.location.pathname === '/')
 			this.state.header = 'home'
-		else if (this.props.children.type.name === 'Register')
+		else if (this.props.children.props.location.pathname === '/user/register')
 			this.state.header = 'user'
-		else if (this.props.children.type.name === 'Profile')
+		else if (this.props.children.props.location.pathname === '/user/profile')
 			this.state.header = 'user'
-		else if (this.props.children.type.name === 'Login')
+		else if (this.props.children.props.location.pathname === '/user/login')
 			this.state.header = 'user'
-		else if (this.props.children.type.name === 'Search')
+		else if (this.props.children.props.location.pathname === '/tutor')
 			this.state.header = 'tutor'
 
 		return (
@@ -37,3 +35,5 @@ export default class App extends Component {
 App.propTypes = {
 	children: PropTypes.object.isRequired
 }
+
+export default App
