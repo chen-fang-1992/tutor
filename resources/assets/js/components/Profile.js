@@ -100,19 +100,19 @@ class Profile extends Component {
 		}
 
 		this.handleMorningsClick = (e) => {
-			this.setState({ mornings: (e.target.value === false) })
+			this.setState({ mornings: (e.target.value === 'false') })
 		}
 
 		this.handleAfternoonsClick = (e) => {
-			this.setState({ afternoons: (e.target.value === false) })
+			this.setState({ afternoons: (e.target.value === 'false') })
 		}
 
 		this.handleEveningsClick = (e) => {
-			this.setState({ evenings: (e.target.value === false) })
+			this.setState({ evenings: (e.target.value === 'false') })
 		}
 
 		this.handleWeekendsClick = (e) => {
-			this.setState({ weekends: (e.target.value === false) })
+			this.setState({ weekends: (e.target.value === 'false') })
 		}
 
 		this.handleSubmitClick = (e) => {

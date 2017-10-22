@@ -77,7 +77,7 @@ export default class Register extends Component {
 		}
 
 		this.handleAcceptClick = (e) => {
-			let accept = (e.target.value === false)
+			let accept = (e.target.value === 'false')
 			let acceptError = ''
 
 			if (!accept)

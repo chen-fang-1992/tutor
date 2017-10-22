@@ -61038,7 +61038,7 @@ var Register = function (_Component) {
 		};
 
 		_this.handleAcceptClick = function (e) {
-			var accept = e.target.value === false;
+			var accept = e.target.value === 'false';
 			var acceptError = '';
 
 			if (!accept) acceptError = 'Please accept';
@@ -61316,19 +61316,19 @@ var Profile = function (_Component) {
 		};
 
 		_this.handleMorningsClick = function (e) {
-			_this.setState({ mornings: e.target.value === false });
+			_this.setState({ mornings: e.target.value === 'false' });
 		};
 
 		_this.handleAfternoonsClick = function (e) {
-			_this.setState({ afternoons: e.target.value === false });
+			_this.setState({ afternoons: e.target.value === 'false' });
 		};
 
 		_this.handleEveningsClick = function (e) {
-			_this.setState({ evenings: e.target.value === false });
+			_this.setState({ evenings: e.target.value === 'false' });
 		};
 
 		_this.handleWeekendsClick = function (e) {
-			_this.setState({ weekends: e.target.value === false });
+			_this.setState({ weekends: e.target.value === 'false' });
 		};
 
 		_this.handleSubmitClick = function (e) {
