@@ -60960,9 +60960,12 @@ var HomeTestimonials = function HomeTestimonials() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_redux__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_index__ = __webpack_require__(324);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60970,6 +60973,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
 
 
 
@@ -60992,9 +60998,7 @@ var Register = function (_Component) {
 			passwordConfirmation: '',
 			passwordError: 'Please input password',
 			accept: false,
-			acceptError: 'Please accept',
-			redirect: false,
-			profile: ''
+			acceptError: 'Please accept'
 		};
 
 		_this.handleNameChange = function (e) {
@@ -61045,7 +61049,7 @@ var Register = function (_Component) {
 			});
 		};
 
-		_this.handleAcceptClick = function (e) {
+		_this.handleAcceptChange = function (e) {
 			var accept = e.target.value === 'false';
 			var acceptError = '';
 
@@ -61060,25 +61064,7 @@ var Register = function (_Component) {
 		_this.handleSubmitClick = function (e) {
 			e.preventDefault();
 
-			if (_this.state.nameError) alert(_this.state.nameError);else if (_this.state.emailError) alert(_this.state.emailError);else if (_this.state.passwordError) alert(_this.state.passwordError);else if (!_this.state.accept) alert(_this.state.acceptError);else {
-				__WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/user/register', {
-					name: _this.state.name,
-					email: _this.state.email,
-					password: _this.state.password
-				}).then(function (response) {
-					if (response.data !== 'fail') _this.setState({
-						redirect: true,
-						profile: response.data
-					});else _this.setState({
-						name: '',
-						email: '',
-						password: '',
-						passwordConfirmation: ''
-					});
-				}).catch(function (error) {
-					throw new Error(error.message);
-				});
-			}
+			if (_this.state.nameError) alert(_this.state.nameError);else if (_this.state.emailError) alert(_this.state.emailError);else if (_this.state.passwordError) alert(_this.state.passwordError);else if (!_this.state.accept) alert(_this.state.acceptError);else _this.props.fetchRegister(_this.state.name, _this.state.email, _this.state.password);
 		};
 		return _this;
 	}
@@ -61086,15 +61072,7 @@ var Register = function (_Component) {
 	_createClass(Register, [{
 		key: 'render',
 		value: function render() {
-			var _state = this.state,
-			    redirect = _state.redirect,
-			    profile = _state.profile;
-
-
-			if (redirect) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], { to: {
-					pathname: '/user/profile',
-					state: { profile: this.state.profile }
-				} });
+			if (this.props.auth === true) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Redirect */], { to: '/user/profile' });
 
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
@@ -61172,7 +61150,7 @@ var Register = function (_Component) {
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.accept, onClick: this.handleAcceptClick, value: this.state.accept }),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.accept, onChange: this.handleAcceptChange, value: this.state.accept }),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'span',
 											null,
@@ -61200,7 +61178,20 @@ var Register = function (_Component) {
 	return Register;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Register);
+Register.propTypes = {
+	auth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired,
+	fetchRegister: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+	return { auth: state.auth.auth };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	return { fetchRegister: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__actions_index__["c" /* fetchRegister */], dispatch) };
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(Register));
 
 /***/ }),
 /* 306 */
@@ -61331,19 +61322,19 @@ var Profile = function (_Component) {
 			_this.setState({ about: e.target.value });
 		};
 
-		_this.handleMorningsClick = function (e) {
+		_this.handleMorningsChange = function (e) {
 			_this.setState({ mornings: e.target.value === 'false' });
 		};
 
-		_this.handleAfternoonsClick = function (e) {
+		_this.handleAfternoonsChange = function (e) {
 			_this.setState({ afternoons: e.target.value === 'false' });
 		};
 
-		_this.handleEveningsClick = function (e) {
+		_this.handleEveningsChange = function (e) {
 			_this.setState({ evenings: e.target.value === 'false' });
 		};
 
-		_this.handleWeekendsClick = function (e) {
+		_this.handleWeekendsChange = function (e) {
 			_this.setState({ weekends: e.target.value === 'false' });
 		};
 
@@ -61631,7 +61622,7 @@ var Profile = function (_Component) {
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
 											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.mornings, onClick: this.handleMorningsClick, value: this.state.mornings }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.mornings, onChange: this.handleMorningsChange, value: this.state.mornings }),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'span',
 												null,
@@ -61645,7 +61636,7 @@ var Profile = function (_Component) {
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
 											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.afternoons, onClick: this.handleAfternoonsClick, value: this.state.afternoons }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.afternoons, onChange: this.handleAfternoonsChange, value: this.state.afternoons }),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'span',
 												null,
@@ -61659,7 +61650,7 @@ var Profile = function (_Component) {
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
 											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.evenings, onClick: this.handleEveningsClick, value: this.state.evenings }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.evenings, onChange: this.handleEveningsChange, value: this.state.evenings }),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'span',
 												null,
@@ -61673,7 +61664,7 @@ var Profile = function (_Component) {
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
 											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.weekends, onClick: this.handleWeekendsClick, value: this.state.weekends }),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.weekends, onChange: this.handleWeekendsChange, value: this.state.weekends }),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'span',
 												null,
@@ -61755,7 +61746,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	return { fetchUpdateProfile: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__actions_index__["c" /* fetchUpdateProfile */], dispatch) };
+	return { fetchUpdateProfile: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__actions_index__["d" /* fetchUpdateProfile */], dispatch) };
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(Profile));
@@ -62783,13 +62774,14 @@ var reducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["c" /* combineReducers 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LOG_IN_REQUEST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LOG_IN_SUCCESS; });
+/* unused harmony export LOG_IN_REQUEST */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LOG_IN_SUCCESS; });
 /* unused harmony export LOG_IN_FAILURE */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return LOG_OUT_REQUEST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LOG_OUT_SUCCESS; });
+/* unused harmony export LOG_OUT_REQUEST */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LOG_OUT_SUCCESS; });
 /* unused harmony export LOG_OUT_FAILURE */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return UPDATE_PROFILE_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return UPDATE_PROFILE_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return REGISTER_SUCCESS; });
 var LOG_IN_REQUEST = 'LOG_IN_REQUEST';
 var LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
 var LOG_IN_FAILURE = 'LOG_IN_FAILURE';
@@ -62800,6 +62792,8 @@ var LOG_OUT_FAILURE = 'LOG_OUT_FAILURE';
 
 var UPDATE_PROFILE_SUCCESS = 'UPDATE_PROFILE_SUCCESS';
 
+var REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+
 /***/ }),
 /* 324 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -62807,7 +62801,8 @@ var UPDATE_PROFILE_SUCCESS = 'UPDATE_PROFILE_SUCCESS';
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return fetchLogin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return fetchLogout; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return fetchUpdateProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return fetchUpdateProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return fetchRegister; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__ = __webpack_require__(323);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -62816,7 +62811,7 @@ var UPDATE_PROFILE_SUCCESS = 'UPDATE_PROFILE_SUCCESS';
 
 var fetchLoginSuccess = function fetchLoginSuccess(profile) {
 	return {
-		type: __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["b" /* LOG_IN_SUCCESS */],
+		type: __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["a" /* LOG_IN_SUCCESS */],
 		profile: profile
 	};
 };
@@ -62837,7 +62832,7 @@ var fetchLogin = function fetchLogin(email, password) {
 
 var fetchLogoutSuccess = function fetchLogoutSuccess() {
 	return {
-		type: __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["d" /* LOG_OUT_SUCCESS */]
+		type: __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["b" /* LOG_OUT_SUCCESS */]
 	};
 };
 
@@ -62854,7 +62849,7 @@ var fetchLogout = function fetchLogout() {
 
 var fetchUpdateProfileSuccess = function fetchUpdateProfileSuccess(profile) {
 	return {
-		type: __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["e" /* UPDATE_PROFILE_SUCCESS */],
+		type: __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["d" /* UPDATE_PROFILE_SUCCESS */],
 		profile: profile
 	};
 };
@@ -62876,7 +62871,29 @@ var fetchUpdateProfile = function fetchUpdateProfile(profile) {
 			picture: profile.picture
 		}).then(function (response) {
 			if (response.data !== 'fail') dispatch(fetchUpdateProfileSuccess(profile));
-			console.log('profile update ' + response.data);
+			console.log('fetch profile update ' + response.data);
+		}).catch(function (error) {
+			throw new Error(error.message);
+		});
+	};
+};
+
+var fetchRegisterSuccess = function fetchRegisterSuccess(profile) {
+	return {
+		type: __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["c" /* REGISTER_SUCCESS */],
+		profile: profile
+	};
+};
+
+var fetchRegister = function fetchRegister(name, email, password) {
+	return function (dispatch) {
+		__WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/user/register', {
+			name: name,
+			email: email,
+			password: password
+		}).then(function (response) {
+			if (response.data !== 'fail') dispatch(fetchRegisterSuccess(response.data));
+			console.log('fetch register ' + response.data);
 		}).catch(function (error) {
 			throw new Error(error.message);
 		});
@@ -62930,24 +62947,26 @@ var auth = function auth() {
 	var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
 	switch (action.type) {
-		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["a" /* LOG_IN_REQUEST */]:
-			return state;
-		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["b" /* LOG_IN_SUCCESS */]:
+		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["a" /* LOG_IN_SUCCESS */]:
 			state = {
 				auth: true,
 				profile: action.profile
 			};
 			return state;
-		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["c" /* LOG_OUT_REQUEST */]:
-			return state;
-		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["d" /* LOG_OUT_SUCCESS */]:
+		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["b" /* LOG_OUT_SUCCESS */]:
 			state = {
 				auth: false,
 				profile: {}
 			};
 			return state;
-		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["e" /* UPDATE_PROFILE_SUCCESS */]:
+		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["d" /* UPDATE_PROFILE_SUCCESS */]:
 			state.profile = action.profile;
+			return state;
+		case __WEBPACK_IMPORTED_MODULE_0__constants_ActionTypes__["c" /* REGISTER_SUCCESS */]:
+			state = {
+				auth: true,
+				profile: action.profile
+			};
 			return state;
 		default:
 			return state;

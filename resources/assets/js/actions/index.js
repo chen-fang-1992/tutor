@@ -62,7 +62,28 @@ export const fetchUpdateProfile = (profile) => {
 		}).then(response => {
 			if (response.data !== 'fail')
 				dispatch(fetchUpdateProfileSuccess(profile))
-			console.log('profile update '+response.data)
+			console.log('fetch profile update '+response.data)
+		}).catch((error) => { throw new Error(error.message) })
+	}
+}
+
+const fetchRegisterSuccess = (profile) => {
+	return {
+		type: types.REGISTER_SUCCESS,
+		profile: profile
+	}
+}
+
+export const fetchRegister = (name, email, password) => {
+	return (dispatch) => {
+		axios.post('/user/register', {
+			name: name,
+			email: email,
+			password: password
+		}).then(response => {
+			if (response.data !== 'fail')
+				dispatch(fetchRegisterSuccess(response.data))
+			console.log('fetch register '+response.data)
 		}).catch((error) => { throw new Error(error.message) })
 	}
 }

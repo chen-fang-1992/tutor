@@ -7,15 +7,11 @@ const initialState = {
 
 const auth = (state = initialState, action = {}) => {
 	switch (action.type) {
-		case types.LOG_IN_REQUEST:
-			return state
 		case types.LOG_IN_SUCCESS:
 			state = {
 				auth: true,
 				profile: action.profile
 			}
-			return state
-		case types.LOG_OUT_REQUEST:
 			return state
 		case types.LOG_OUT_SUCCESS:
 			state = {
@@ -25,6 +21,12 @@ const auth = (state = initialState, action = {}) => {
 			return state
 		case types.UPDATE_PROFILE_SUCCESS:
 			state.profile = action.profile
+			return state
+		case types.REGISTER_SUCCESS:
+			state = {
+				auth: true,
+				profile: action.profile
+			}
 			return state
 		default:
 			return state

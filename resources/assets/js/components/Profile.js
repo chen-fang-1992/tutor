@@ -104,19 +104,19 @@ class Profile extends Component {
 			this.setState({ about: e.target.value })
 		}
 
-		this.handleMorningsClick = (e) => {
+		this.handleMorningsChange = (e) => {
 			this.setState({ mornings: (e.target.value === 'false') })
 		}
 
-		this.handleAfternoonsClick = (e) => {
+		this.handleAfternoonsChange = (e) => {
 			this.setState({ afternoons: (e.target.value === 'false') })
 		}
 
-		this.handleEveningsClick = (e) => {
+		this.handleEveningsChange = (e) => {
 			this.setState({ evenings: (e.target.value === 'false') })
 		}
 
-		this.handleWeekendsClick = (e) => {
+		this.handleWeekendsChange = (e) => {
 			this.setState({ weekends: (e.target.value === 'false') })
 		}
 
@@ -242,22 +242,22 @@ class Profile extends Component {
 								<div className="row">
 									<div className="col-xs-2">
 										<div className="form-group">
-											<input type="checkbox" checked={this.state.mornings} onClick={this.handleMorningsClick} value={this.state.mornings} /><span> Mornings</span>
+											<input type="checkbox" checked={this.state.mornings} onChange={this.handleMorningsChange} value={this.state.mornings} /><span> Mornings</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
 										<div className="form-group">
-											<input type="checkbox" checked={this.state.afternoons} onClick={this.handleAfternoonsClick} value={this.state.afternoons} /><span> Afternoons</span>
+											<input type="checkbox" checked={this.state.afternoons} onChange={this.handleAfternoonsChange} value={this.state.afternoons} /><span> Afternoons</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
 										<div className="form-group">
-											<input type="checkbox" checked={this.state.evenings} onClick={this.handleEveningsClick} value={this.state.evenings} /><span> Evenings</span>
+											<input type="checkbox" checked={this.state.evenings} onChange={this.handleEveningsChange} value={this.state.evenings} /><span> Evenings</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
 										<div className="form-group">
-											<input type="checkbox" checked={this.state.weekends} onClick={this.handleWeekendsClick} value={this.state.weekends} /><span> Weekends</span>
+											<input type="checkbox" checked={this.state.weekends} onChange={this.handleWeekendsChange} value={this.state.weekends} /><span> Weekends</span>
 										</div>
 									</div>
 								</div>

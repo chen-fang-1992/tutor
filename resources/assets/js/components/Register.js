@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchRegister } from '../actions/index'
 
-export default class Register extends Component {
+class Register extends Component {
 	constructor(props) {
 		super(props)
 
@@ -15,9 +18,7 @@ export default class Register extends Component {
 			passwordConfirmation: '',
 			passwordError: 'Please input password',
 			accept: false,
-			acceptError: 'Please accept',
-			redirect: false,
-			profile: ''
+			acceptError: 'Please accept'
 		}
 
 		this.handleNameChange = (e) => {
@@ -76,7 +77,7 @@ export default class Register extends Component {
 			})
 		}
 
-		this.handleAcceptClick = (e) => {
+		this.handleAcceptChange = (e) => {
 			let accept = (e.target.value === 'false')
 			let acceptError = ''
 
@@ -100,37 +101,14 @@ export default class Register extends Component {
 				alert(this.state.passwordError)
 			else if (!this.state.accept)
 				alert(this.state.acceptError)
-			else {
-				axios.post('/user/register', {
-					name: this.state.name,
-					email: this.state.email,
-					password: this.state.password
-				}).then(response => {
-					if (response.data !== 'fail')
-						this.setState({
-							redirect: true,
-							profile: response.data
-						})
-					else
-						this.setState({
-							name: '',
-							email: '',
-							password: '',
-							passwordConfirmation: ''
-						})
-				}).catch((error) => { throw new Error(error.message) })
-			}
+			else
+				this.props.fetchRegister(this.state.name, this.state.email, this.state.password)
 		}
 	}
 
 	render() {
-		const { redirect, profile } = this.state
-
-		if (redirect)
-			return (<Redirect to={{
-				pathname: '/user/profile',
-				state: { profile: this.state.profile }
-			}} />)
+		if (this.props.auth === true)
+			return (<Redirect to='/user/profile' />)
 
 		return (
 			<div className="content user">
@@ -159,7 +137,7 @@ export default class Register extends Component {
 										<input type="password" className="form-control" value={this.state.passwordConfirmation} onChange={this.handlePasswordConfirmationChange} name="password_confirmation" required />
 									</div>
 									<div className="form-group">
-										<input type="checkbox" checked={this.state.accept} onClick={this.handleAcceptClick} value={this.state.accept} /><span> I accept the Terms and Conditions</span>
+										<input type="checkbox" checked={this.state.accept} onChange={this.handleAcceptChange} value={this.state.accept} /><span> I accept the Terms and Conditions</span>
 									</div>
 									<div className="form-group">
 										<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmitClick}>SUBMIT YOUR PROFILE NOW</button>
@@ -173,3 +151,21 @@ export default class Register extends Component {
 		)
 	}
 }
+
+Register.propTypes = {
+	auth: PropTypes.bool.isRequired,
+	fetchRegister: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => {
+	return { auth: state.auth.auth }
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return { fetchRegister: bindActionCreators(fetchRegister, dispatch) }
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Register)
