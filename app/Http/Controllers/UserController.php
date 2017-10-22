@@ -19,7 +19,7 @@ class UserController extends Controller
 	public function register()
 	{
 		// check whether there is user who has logged in
-		if (Auth::user())
+		if (Auth::check())
 			return 'fail1';
 		// create user model
 		$user = new user;
@@ -37,6 +37,9 @@ class UserController extends Controller
 			$profile->user_id = $user->id;
 			$profile->firstname = explode(" ", $user->name)[0];
 			$profile->lastname = explode(" ", $user->name)[1];
+			$profile->price = 0;
+			$profile->availability = 0;
+			$profile->picture = '/img/default.png';
 		// insert profile
 			if ($profile->save())
 				return $profile;
@@ -51,7 +54,7 @@ class UserController extends Controller
 	public function login()
 	{
 		// check whether there is user who has logged in
-		if (Auth::user())
+		if (Auth::check())
 			return 'fail1';
 		// get login info
 		$email = Input::get('email');
@@ -69,11 +72,10 @@ class UserController extends Controller
 	public function logout()
 	{
 		// check whether there is user who has logged in
-		if (Auth::user()) {
+		if (Auth::check()) {
 			Auth::logout();
 			return 'success';
-		}
-		else {
+		} else {
 			return 'fail';
 		}
 	}
@@ -84,9 +86,13 @@ class UserController extends Controller
 	public function show()
 	{
 		// get user model
-		$user = Auth::user();
-		$profile = Profile::find($user->id);
-		return $profile;
+		if (Auth::check()) {
+			$user = Auth::user();
+			$profile = Profile::find($user->id);
+			return $profile;
+		} else {
+			return 'fail';
+		}
 	}
 
 	/*
@@ -94,6 +100,10 @@ class UserController extends Controller
 	*/
 	public function update()
 	{
+		// check whether there is user who has logged in
+		if (!Auth::check())
+			return 'fail';
+
 		//get profile model
 		$user = Auth::user();
 		$profile = Profile::find($user->id);

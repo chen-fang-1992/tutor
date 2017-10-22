@@ -8,12 +8,6 @@ const fetchLoginSuccess = (profile) => {
 	}
 }
 
-const fetchLogoutSuccess = () => {
-	return {
-		type: types.LOG_OUT_SUCCESS
-	}
-}
-
 export const fetchLogin = (email, password) => {
 	return (dispatch) => {
 		axios.post('/user/login', {
@@ -22,7 +16,14 @@ export const fetchLogin = (email, password) => {
 		}).then((response) => {
 			if (response.data !== 'fail1' || response.data !== 'fail2')
 				dispatch(fetchLoginSuccess(response.data))
+			console.log('fetch log in '+response.data)
 		}).catch((error) => { throw new Error(error.message) })
+	}
+}
+
+const fetchLogoutSuccess = () => {
+	return {
+		type: types.LOG_OUT_SUCCESS
 	}
 }
 
@@ -31,6 +32,37 @@ export const fetchLogout = () => {
 		axios.get('/user/logout').then((response) => {
 			if (response.data !== 'fail')
 				dispatch(fetchLogoutSuccess())
+			console.log('fetch log out '+response.data)
+		}).catch((error) => { throw new Error(error.message) })
+	}
+}
+
+const fetchUpdateProfileSuccess = (profile) => {
+	return {
+		type: types.UPDATE_PROFILE_SUCCESS,
+		profile: profile
+	}
+}
+
+export const fetchUpdateProfile = (profile) => {
+	return (dispatch) => {
+		axios.post('/user/profile/update', {
+			firstname: profile.firstname,
+			lastname: profile.lastname,
+			number: profile.number,
+			country: profile.country,
+			language: profile.language,
+			city: profile.city,
+			location: profile.location,
+			availability: profile.availability,
+			currency: profile.currency,
+			price: profile.price,
+			about: profile.about,
+			picture: profile.picture
+		}).then(response => {
+			if (response.data !== 'fail')
+				dispatch(fetchUpdateProfileSuccess(profile))
+			console.log('profile update '+response.data)
 		}).catch((error) => { throw new Error(error.message) })
 	}
 }

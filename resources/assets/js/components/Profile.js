@@ -1,29 +1,34 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchUpdateProfile } from '../actions/index'
 
 class Profile extends Component {
 	constructor(props) {
 		super(props)
 
+		let profile = this.props.profile
+
 		this.state = {
-			firstname: '',
-			lastname: '',
+			firstname: profile.firstname ? profile.firstname : '',
+			lastname: profile.lastname ? profile.lastname : '',
 			nameError: '',
-			number: '',
-			country: '',
-			language: '',
-			city: '',
-			location: '',
-			availability: 0,
-			currency: '',
-			price: '',
-			about: '',
-			picture: '/img/default.png',
-			mornings: false,
-			afternoons: false,
-			evenings: false,
-			weekends: false
+			number: profile.number ? profile.number : '',
+			country: profile.country ? profile.country : '',
+			language: profile.language ? profile.language : 'English',
+			city: profile.city ? profile.city : '',
+			location: profile.location ? profile.location : '',
+			availability: profile.availability ? profile.availability : 0,
+			currency: profile.currency ? profile.currency : '',
+			price: profile.price ? profile.price : 0,
+			about: profile.about ? profile.about : '',
+			picture: profile.picture ? profile.picture : '/img/default.png',
+			mornings: profile.availability ? profile.availability % 2 === 1 : false,
+			afternoons: profile.availability ? profile.availability  % 4 >= 2 : false,
+			evenings: profile.availability ? profile.availability % 8 >= 4 : false,
+			weekends: profile.availability ? profile.availability % 16 >= 8 : false
 		}
 
 		this.handlePictureChange = (e) => {
@@ -132,73 +137,16 @@ class Profile extends Component {
 			if (this.state.nameError)
 				alert(this.state.nameError)
 			else {
-				axios.post('/user/profile/update', {
-					firstname: this.state.firstname,
-					lastname: this.state.lastname,
-					number: this.state.number,
-					country: this.state.country,
-					language: this.state.language,
-					city: this.state.city,
-					location: this.state.location,
-					availability: this.state.availability,
-					currency: this.state.currency,
-					price: this.state.price,
-					about: this.state.about,
-					picture: this.state.picture
-				}).then(response => {
-					window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
-				}).catch((error) => { throw new Error(error.message) })
+				this.props.fetchUpdateProfile(this.state)
+				window.scroll(0, window.pageYOffset - this.props.scrollStepInPx)
 			}
 		}
 	}
 
-	componentDidMount () {
-		let profile
-
-		if (this.props.profile !== undefined) {
-			profile = this.props.profile
-			this.setState({
-				firstname: profile.firstname ? profile.firstname : '',
-				lastname: profile.lastname ? profile.lastname : '',
-				number: profile.number ? profile.number : '',
-				country: profile.country ? profile.country : '',
-				language: profile.language ? profile.language : 'English',
-				city: profile.city ? profile.city : '',
-				location: profile.location ? profile.location : '',
-				currency: profile.currency ? profile.currency : '',
-				price: profile.price ? profile.price : '',
-				mornings: profile.availability ? profile.availability % 2 === 1 : false,
-				afternoons: profile.availability ? profile.availability  % 4 >= 2 : false,
-				evenings: profile.availability ? profile.availability % 8 >= 4 : false,
-				weekends: profile.availability ? profile.availability % 16 >= 8 : false,
-				about: profile.about ? profile.about : '',
-				picture: profile.picture ? profile.picture : '/img/default.png'
-			})
-		} else {
-			axios.get('/user/profile/show').then(response => {
-				profile = response.data
-				this.setState({
-					firstname: profile.firstname ? profile.firstname : '',
-					lastname: profile.lastname ? profile.lastname : '',
-					number: profile.number ? profile.number : '',
-					country: profile.country ? profile.country : '',
-					language: profile.language ? profile.language : 'English',
-					city: profile.city ? profile.city : '',
-					location: profile.location ? profile.location : '',
-					currency: profile.currency ? profile.currency : '',
-					price: profile.price ? profile.price : '',
-					mornings: profile.availability ? profile.availability % 2 === 1 : false,
-					afternoons: profile.availability ? profile.availability  % 4 >= 2 : false,
-					evenings: profile.availability ? profile.availability % 8 >= 4 : false,
-					weekends: profile.availability ? profile.availability % 16 >= 8 : false,
-					about: profile.about ? profile.about : '',
-					picture: profile.picture ? profile.picture : '/img/default.png'
-				})
-			}).catch((error) => { throw new Error(error.message) })
-		}
-	}
-
 	render() {
+		if (this.props.auth === false)
+			return (<Redirect to='/user/login' />)
+
 		return (
 			<div className="content user">
 				<div className="container">
@@ -338,10 +286,11 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
+	auth: PropTypes.bool.isRequired,
 	profile: PropTypes.shape({
 		picture: PropTypes.string,
-		firstname: PropTypes.string.isRequired,
-		lastname: PropTypes.string.isRequired,
+		firstname: PropTypes.string,
+		lastname: PropTypes.string,
 		number: PropTypes.string,
 		country: PropTypes.string,
 		language: PropTypes.string,
@@ -354,10 +303,18 @@ Profile.propTypes = {
 	}).isRequired
 }
 
-const mapStateToProps = state => {
-	return { profile: state.auth.profile }
+const mapStateToProps = (state) => {
+	return {
+		auth: state.auth.auth,
+		profile: state.auth.profile
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return { fetchUpdateProfile: bindActionCreators(fetchUpdateProfile, dispatch) }
 }
 
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Profile)

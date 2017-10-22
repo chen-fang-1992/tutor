@@ -20,7 +20,7 @@ class HomeSearchBar extends Component {
 
 		this.handleAvailabilityClick = (e) => {
 			e.preventDefault()
-			var availability = this.state.availability
+			let availability = this.state.availability
 
 			if (e.target.value === 'Mornings') {
 				if (availability.indexOf('M') === 0) {

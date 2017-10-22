@@ -23,6 +23,9 @@ const auth = (state = initialState, action = {}) => {
 				profile: {}
 			}
 			return state
+		case types.UPDATE_PROFILE_SUCCESS:
+			state.profile = action.profile
+			return state
 		default:
 			return state
 	}
