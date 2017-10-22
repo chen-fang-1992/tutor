@@ -16,7 +16,6 @@ export const fetchLogin = (email, password) => {
 		}).then((response) => {
 			if (response.data !== 'fail1' || response.data !== 'fail2')
 				dispatch(fetchLoginSuccess(response.data))
-			console.log('fetch log in '+response.data)
 		}).catch((error) => { throw new Error(error.message) })
 	}
 }
@@ -32,7 +31,6 @@ export const fetchLogout = () => {
 		axios.get('/user/logout').then((response) => {
 			if (response.data !== 'fail')
 				dispatch(fetchLogoutSuccess())
-			console.log('fetch log out '+response.data)
 		}).catch((error) => { throw new Error(error.message) })
 	}
 }
@@ -62,7 +60,6 @@ export const fetchUpdateProfile = (profile) => {
 		}).then(response => {
 			if (response.data !== 'fail')
 				dispatch(fetchUpdateProfileSuccess(profile))
-			console.log('fetch profile update '+response.data)
 		}).catch((error) => { throw new Error(error.message) })
 	}
 }
@@ -83,7 +80,6 @@ export const fetchRegister = (name, email, password) => {
 		}).then(response => {
 			if (response.data !== 'fail')
 				dispatch(fetchRegisterSuccess(response.data))
-			console.log('fetch register '+response.data)
 		}).catch((error) => { throw new Error(error.message) })
 	}
 }

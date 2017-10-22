@@ -12,7 +12,6 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.props.auth+'  '+this.props.children.props.location.pathname)
 		if (this.props.children.props.location.pathname === '/')
 			this.state.header = 'home'
 		else if (this.props.children.props.location.pathname === '/user/register')

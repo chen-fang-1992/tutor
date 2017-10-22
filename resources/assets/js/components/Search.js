@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import SearchItem from './search/SearchItem'
 import SearchModal from './search/SearchModal'
 
-export default class Search extends Component {
+class Search extends Component {
 	constructor(props) {
 		super(props)
 
@@ -316,3 +316,5 @@ export default class Search extends Component {
 Search.propTypes = {
 	location: PropTypes.object.isRequired
 }
+
+export default Search

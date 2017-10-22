@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchUpdateProfile } from '../actions/index'
+import { fetchUpdateProfile } from '../actions'
 
 class Profile extends Component {
 	constructor(props) {
