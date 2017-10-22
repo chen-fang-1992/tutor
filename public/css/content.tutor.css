@@ -108,6 +108,11 @@
 	background-color: #3097D1;
 }
 
+.content.tutor .result .empty h1 {
+	text-align: center;
+	margin-bottom: 4%;
+}
+
 .content.tutor .panel {
 	cursor: pointer;
 }

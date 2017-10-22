@@ -26,7 +26,7 @@ const SearchItem = ({ tutor }) => (
 )
 
 SearchItem.propTypes = {
-	tutor: PropTypes.arrayOf(PropTypes.shape({
+	tutor: PropTypes.shape({
 		id: PropTypes.number.isRequired,
 		picture: PropTypes.string.isRequired,
 		firstname: PropTypes.string.isRequired,
@@ -35,7 +35,7 @@ SearchItem.propTypes = {
 		country: PropTypes.string.isRequired,
 		currency: PropTypes.string.isRequired,
 		price: PropTypes.number.isRequired
-	})).isRequired
+	}).isRequired
 }
 
 export default SearchItem

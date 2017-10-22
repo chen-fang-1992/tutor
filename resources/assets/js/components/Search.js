@@ -18,7 +18,8 @@ class Search extends Component {
 			mornings: '',
 			afternoons: '',
 			evenings: '',
-			weekends: ''
+			weekends: '',
+			show: false
 		}
 
 		this.handleLanguageClick = (e) => {
@@ -199,7 +200,8 @@ class Search extends Component {
 					availability: this.props.location.state.availability,
 					location: this.props.location.state.location,
 					filter: this.props.location.state.filter,
-					tutors: response.data
+					tutors: response.data,
+					show: true
 				})
 			}).catch((error) => { throw new Error(error.message) })
 		}
@@ -238,7 +240,14 @@ class Search extends Component {
 			}
 		}
 
-		return output
+		if (this.state.show === true) {
+			if (this.state.tutors.length)
+				return output
+			else
+				return (
+					<div className="empty"><h1>There is no tutor match your request</h1></div>
+				)
+		}
 	}
 
 	render() {

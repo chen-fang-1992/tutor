@@ -62,7 +62,7 @@ const SearchModal = ({ tutor }) => (
 )
 
 SearchModal.propTypes = {
-	tutor: PropTypes.arrayOf(PropTypes.shape({
+	tutor: PropTypes.shape({
 		id: PropTypes.number.isRequired,
 		picture: PropTypes.string.isRequired,
 		firstname: PropTypes.string.isRequired,
@@ -73,7 +73,7 @@ SearchModal.propTypes = {
 		price: PropTypes.number.isRequired,
 		availability: PropTypes.number.isRequired,
 		about: PropTypes.string.isRequired
-	})).isRequired
+	}).isRequired
 }
 
 export default SearchModal
