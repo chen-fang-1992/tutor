@@ -3,10 +3,13 @@
 	"version": "0.0.1",
 	"private": true,
 	"repository": {
-		"type": "github",
+		"type": "git",
 		"url": "https://github.com/chen-fang-1992/tutor"
 	},
-	"author": "Chen Fang",
+	"author": {
+		"name": "Chen Fang",
+		"email": "chenfangau@gmail.com"
+	},
 	"scripts": {
 		"dev": "npm run development",
 		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",

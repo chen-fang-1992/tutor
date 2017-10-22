@@ -48,10 +48,12 @@ body {
 
 .header .navigation-bar .register {
 	margin-right: 0.8rem;
+	background-color: transparent;
 }
 
 .header .navigation-bar .login {
 	margin-right: 9rem;
+	background-color: transparent;
 }
 
 .header.home .navigation-bar .logo img {
@@ -68,10 +70,6 @@ body {
 
 .header.tutor .navigation-bar .nav-btn {
 	color: #3097D1;
-}
-
-.header .navigation-bar .nav-btn:visited {
-	background-color: #FFFFFF;
 }
 
 .header .navigation-bar .nav-btn:hover,
