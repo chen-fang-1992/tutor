@@ -8,7 +8,7 @@ const SearchModal = ({ tutor }) => (
 				<div className="modal-body">
 					<div className="row">
 						<div className="col-xs-5 picture">
-							<img src={tutor.picture}/>
+							<img src={tutor.picture} />
 						</div>
 						<div className="col-xs-6 info">
 							<h1 className="modal-title">{tutor.firstname} {tutor.lastname}</h1>
@@ -62,7 +62,18 @@ const SearchModal = ({ tutor }) => (
 )
 
 SearchModal.propTypes = {
-	tutor: PropTypes.object.isRequired
+	tutor: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		picture: PropTypes.string.isRequired,
+		firstname: PropTypes.string.isRequired,
+		lastname: PropTypes.string.isRequired,
+		language: PropTypes.string.isRequired,
+		country: PropTypes.string.isRequired,
+		currency: PropTypes.string.isRequired,
+		price: PropTypes.number.isRequired,
+		availability: PropTypes.number.isRequired,
+		about: PropTypes.string.isRequired
+	})).isRequired
 }
 
 export default SearchModal

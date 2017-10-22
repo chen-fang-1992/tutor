@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 
-export default class HomeSearchBar extends Component {
+class HomeSearchBar extends Component {
 	constructor(props) {
 		super(props)
 
@@ -202,3 +202,5 @@ export default class HomeSearchBar extends Component {
 		)
 	}
 }
+
+export default HomeSearchBar

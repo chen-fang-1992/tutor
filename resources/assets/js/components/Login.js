@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -48,6 +49,8 @@ class Login extends Component {
 				alert(this.state.emailError)
 			else if (this.state.passwordError)
 				alert(this.state.passwordError)
+			else if (this.props.auth)
+				alert('You have already logged in')
 			else
 				this.props.fetchLogin(this.state.email, this.state.password)
 		}
@@ -68,7 +71,7 @@ class Login extends Component {
 									<div className="col-xs-12">
 										<label htmlFor="email">Email</label>
 										<div className="form-group">
-											<input id="email" type="text" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required/>
+											<input id="email" type="text" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required />
 										</div>
 									</div>
 								</div>
@@ -76,7 +79,7 @@ class Login extends Component {
 									<div className="col-xs-12">
 										<label htmlFor="password">Password</label>
 										<div className="form-group">
-											<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" required/>
+											<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" required />
 										</div>
 									</div>
 								</div>
@@ -96,16 +99,17 @@ class Login extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		auth: state.login.auth
-	}
+Login.propTypes = {
+	auth: PropTypes.bool.isRequired,
+	fetchLogin: PropTypes.func.isRequired
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		fetchLogin: bindActionCreators(fetchLogin, dispatch)
-	}
+const mapStateToProps = (state) => {
+	return { auth: state.auth.auth }
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return { fetchLogin: bindActionCreators(fetchLogin, dispatch) }
 }
 
 export default connect(

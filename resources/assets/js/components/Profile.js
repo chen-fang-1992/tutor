@@ -100,19 +100,19 @@ class Profile extends Component {
 		}
 
 		this.handleMorningsClick = (e) => {
-			this.setState({ mornings: (e.target.value === 'false') })
+			this.setState({ mornings: (e.target.value === false) })
 		}
 
 		this.handleAfternoonsClick = (e) => {
-			this.setState({ afternoons: (e.target.value === 'false') })
+			this.setState({ afternoons: (e.target.value === false) })
 		}
 
 		this.handleEveningsClick = (e) => {
-			this.setState({ evenings: (e.target.value === 'false') })
+			this.setState({ evenings: (e.target.value === false) })
 		}
 
 		this.handleWeekendsClick = (e) => {
-			this.setState({ weekends: (e.target.value === 'false') })
+			this.setState({ weekends: (e.target.value === false) })
 		}
 
 		this.handleSubmitClick = (e) => {
@@ -153,8 +153,6 @@ class Profile extends Component {
 	}
 
 	componentDidMount () {
-		console.log(this.props.auth)
-		console.log(this.props.profile)
 		let profile
 
 		if (this.props.profile !== undefined) {
@@ -210,7 +208,7 @@ class Profile extends Component {
 							<form role="form" noValidate>
 								<div className="row">
 									<div className="col-xs-4 col-xs-offset-4">
-										<img src={this.state.picture}/>
+										<img src={this.state.picture} />
 										<div className="form-group">
 											<input type="file" className="fileupload" onChange={this.handlePictureChange} />
 											<div className="btn btn-primary btn-fake">UPLOAD YOUR PICTURE</div>
@@ -222,13 +220,13 @@ class Profile extends Component {
 									<div className="col-xs-6">
 										<label htmlFor="firstname">First Name</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.firstname} onChange={this.handleFirstnameChange} name="firstname" required/>
+											<input type="text" className="form-control" value={this.state.firstname} onChange={this.handleFirstnameChange} name="firstname" required />
 										</div>
 									</div>
 									<div className="col-xs-6">
 										<label htmlFor="lastname">Last Name</label>
 										<div className="form-group">
-											<input type="text" className="form-control" value={this.state.lastname} onChange={this.handleLastnameChange} name="lastname" required/>
+											<input type="text" className="form-control" value={this.state.lastname} onChange={this.handleLastnameChange} name="lastname" required />
 										</div>
 									</div>
 								</div>
@@ -340,14 +338,25 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-	location: PropTypes.object
+	profile: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number,
+		picture: PropTypes.string.isRequired,
+		firstname: PropTypes.string.isRequired,
+		lastname: PropTypes.string.isRequired,
+		number: PropTypes.string.isRequired,
+		country: PropTypes.string.isRequired,
+		language: PropTypes.string.isRequired,
+		city: PropTypes.string.isRequired,
+		location: PropTypes.string.isRequired,
+		currency: PropTypes.string.isRequired,
+		price: PropTypes.number.isRequired,
+		availability: PropTypes.number.isRequired,
+		about: PropTypes.string.isRequired
+	})).isRequired
 }
 
 const mapStateToProps = state => {
-	return {
-		auth: state.login.auth,
-		profile: state.login.profile
-	}
+	return { profile: state.auth.profile }
 }
 
 export default connect(

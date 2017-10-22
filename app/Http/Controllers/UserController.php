@@ -68,9 +68,14 @@ class UserController extends Controller
 	*/
 	public function logout()
 	{
-		// logout
-		Auth::logout();
-		return redirect('/');
+		// check whether there is user who has logged in
+		if (Auth::user()) {
+			Auth::logout();
+			return 'success';
+		}
+		else {
+			return 'fail';
+		}
 	}
 
 	/*

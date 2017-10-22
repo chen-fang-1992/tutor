@@ -22,11 +22,11 @@ render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<div>
-				<Route exact path="/" render={ props => <App><Home { ...props }/></App> } />
-				<Route exact path="/user/register" render={ props => <App><Register { ...props }/></App> } />
-				<Route exact path="/user/profile" render={ props => <App><Profile { ...props }/></App> } />
-				<Route exact path="/user/login" render={ props => <App><Login { ...props }/></App> } />
-				<Route exact path="/tutor" render={ props => <App><Search { ...props }/></App> } />
+				<Route exact path="/" render={ props => <App><Home { ...props } /></App> } />
+				<Route exact path="/user/register" render={ props => <App><Register { ...props } /></App> } />
+				<Route exact path="/user/profile" render={ props => <App><Profile { ...props } /></App> } />
+				<Route exact path="/user/login" render={ props => <App><Login { ...props } /></App> } />
+				<Route exact path="/tutor" render={ props => <App><Search { ...props } /></App> } />
 			</div>
 		</BrowserRouter>
 	</Provider>,

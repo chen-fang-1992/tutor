@@ -77,7 +77,7 @@ export default class Register extends Component {
 		}
 
 		this.handleAcceptClick = (e) => {
-			let accept = (e.target.value === 'false')
+			let accept = (e.target.value === false)
 			let acceptError = ''
 
 			if (!accept)
@@ -144,19 +144,19 @@ export default class Register extends Component {
 								<form role="form" noValidate>
 									<label htmlFor="name">What’s your name?</label>
 									<div className="form-group">
-										<input id="name" type="text" className="form-control" value={this.state.name} onChange={this.handleNameChange} name="name" required/>
+										<input id="name" type="text" className="form-control" value={this.state.name} onChange={this.handleNameChange} name="name" required />
 									</div>
 									<label htmlFor="email">What’s your email?</label>
 									<div className="form-group">
-										<input id="email" type="email" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required/>
+										<input id="email" type="email" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required />
 									</div>
 									<label htmlFor="password">Password</label>
 									<div className="form-group">
-										<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" required/>
+										<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" required />
 									</div>
 									<label htmlFor="confirmPassword">Confirm password</label>
 									<div className="form-group">
-										<input type="password" className="form-control" value={this.state.passwordConfirmation} onChange={this.handlePasswordConfirmationChange} name="password_confirmation" required/>
+										<input type="password" className="form-control" value={this.state.passwordConfirmation} onChange={this.handlePasswordConfirmationChange} name="password_confirmation" required />
 									</div>
 									<div className="form-group">
 										<input type="checkbox" checked={this.state.accept} onClick={this.handleAcceptClick} value={this.state.accept} /><span> I accept the Terms and Conditions</span>

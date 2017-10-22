@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 import SearchItem from './search/SearchItem'
 import SearchModal from './search/SearchModal'
 
@@ -15,7 +15,6 @@ export default class Search extends Component {
 			location: '',
 			filter: 'Price',
 			tutors: '',
-
 			mornings: '',
 			afternoons: '',
 			evenings: '',

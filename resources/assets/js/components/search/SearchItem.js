@@ -5,7 +5,7 @@ const SearchItem = ({ tutor }) => (
 	<div className="panel" data-toggle="modal" data-target={`#${tutor.id}`}>
 		<div className="row">
 			<div className="col-xs-5 picture">
-				<img src={tutor.picture}/>
+				<img src={tutor.picture} />
 			</div>
 			<div className="col-xs-7">
 				<div className="row name">
@@ -26,7 +26,16 @@ const SearchItem = ({ tutor }) => (
 )
 
 SearchItem.propTypes = {
-	tutor: PropTypes.object.isRequired
+	tutor: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		picture: PropTypes.string.isRequired,
+		firstname: PropTypes.string.isRequired,
+		lastname: PropTypes.string.isRequired,
+		language: PropTypes.string.isRequired,
+		country: PropTypes.string.isRequired,
+		currency: PropTypes.string.isRequired,
+		price: PropTypes.number.isRequired
+	})).isRequired
 }
 
 export default SearchItem
