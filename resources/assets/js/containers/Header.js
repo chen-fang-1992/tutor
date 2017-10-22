@@ -49,7 +49,7 @@ class Header extends Component {
 Header.propTypes = {
 	header: PropTypes.string.isRequired,
 	auth: PropTypes.bool.isRequired,
-	fetchLogin: PropTypes.func.isRequired
+	fetchLogout: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

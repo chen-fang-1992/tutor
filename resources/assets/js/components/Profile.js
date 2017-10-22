@@ -338,21 +338,20 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-	profile: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.number,
-		picture: PropTypes.string.isRequired,
+	profile: PropTypes.shape({
+		picture: PropTypes.string,
 		firstname: PropTypes.string.isRequired,
 		lastname: PropTypes.string.isRequired,
-		number: PropTypes.string.isRequired,
-		country: PropTypes.string.isRequired,
-		language: PropTypes.string.isRequired,
-		city: PropTypes.string.isRequired,
-		location: PropTypes.string.isRequired,
-		currency: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired,
-		availability: PropTypes.number.isRequired,
-		about: PropTypes.string.isRequired
-	})).isRequired
+		number: PropTypes.string,
+		country: PropTypes.string,
+		language: PropTypes.string,
+		city: PropTypes.string,
+		location: PropTypes.string,
+		currency: PropTypes.string,
+		price: PropTypes.number,
+		availability: PropTypes.number,
+		about: PropTypes.string
+	}).isRequired
 }
 
 const mapStateToProps = state => {

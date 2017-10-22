@@ -60156,7 +60156,7 @@ var Header = function (_Component) {
 Header.propTypes = {
 	header: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
 	auth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired,
-	fetchLogin: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
+	fetchLogout: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -61779,21 +61779,20 @@ var Profile = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 Profile.propTypes = {
-	profile: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.shape({
-		id: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
-		picture: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
+	profile: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.shape({
+		picture: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
 		firstname: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
 		lastname: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
-		number: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
-		country: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
-		language: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
-		city: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
-		location: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
-		currency: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
-		price: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired,
-		availability: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired,
-		about: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired
-	})).isRequired
+		number: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		country: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		language: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		city: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		location: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		currency: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		price: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+		availability: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+		about: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string
+	}).isRequired
 };
 
 var mapStateToProps = function mapStateToProps(state) {
