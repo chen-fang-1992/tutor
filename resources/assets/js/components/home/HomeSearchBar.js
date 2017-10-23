@@ -196,6 +196,11 @@ class HomeSearchBar extends Component {
 	}
 }
 
+HomeSearchBar.PropTypes = {
+	show: PropTypes.bool.isRequired,
+	getTutors: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => {
 	return { show: state.search.show }
 }

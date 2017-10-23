@@ -59995,6 +59995,7 @@ exports['default'] = thunk;
 var App = function App(_ref) {
 	var children = _ref.children;
 
+	window.scrollTo(0, 0);
 	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 		'div',
 		null,
@@ -60142,13 +60143,12 @@ var Header = function (_Component) {
 
 Header.propTypes = {
 	auth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired,
-	fetchLogout: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
+	fetchLogout: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+	resetTutors: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
 
 var mapStateToProps = function mapStateToProps(state) {
-	return {
-		auth: state.auth.auth
-	};
+	return { auth: state.auth.auth };
 };
 
 var mapDispatchProps = function mapDispatchProps(dispatch) {
@@ -60731,6 +60731,11 @@ var HomeSearchBar = function (_Component) {
 
 	return HomeSearchBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+HomeSearchBar.PropTypes = {
+	show: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired,
+	getTutors: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
+};
 
 var mapStateToProps = function mapStateToProps(state) {
 	return { show: state.search.show };
@@ -61335,7 +61340,7 @@ var Profile = function (_Component) {
 
 			if (_this.state.nameError) alert(_this.state.nameError);else {
 				_this.props.fetchUpdateProfile(_this.state);
-				window.scroll(0, window.pageYOffset - _this.props.scrollStepInPx);
+				window.scrollTo(0, 0);
 			}
 		};
 		return _this;
@@ -62357,7 +62362,27 @@ var Search = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 Search.propTypes = {
-	location: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired
+	info: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.shape({
+		language: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
+		availability: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
+		location: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
+		filter: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired
+	}).isRequired,
+	tutors: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object, __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.shape({
+		picture: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		firstname: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		lastname: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		number: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		country: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		language: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		city: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		location: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		currency: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
+		price: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+		availability: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+		about: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string
+	}))]),
+	getTutors: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
 
 var mapStateToProps = function mapStateToProps(state) {

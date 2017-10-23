@@ -1,3 +1,8 @@
+.content.tutor {
+	background-color: #F6F6F6;
+	padding-top: 3rem;
+}
+
 .content.tutor .search-bar {
 	padding-right: 1.2rem;
 	padding-left: 1.2rem;
@@ -115,6 +120,7 @@
 
 .content.tutor .panel {
 	cursor: pointer;
+	background-color: #F6F6F6;
 }
 
 .content.tutor .panel .picture {

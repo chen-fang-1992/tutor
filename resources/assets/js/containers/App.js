@@ -5,6 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 const App = ({ children }) => {
+	window.scrollTo(0, 0)
 	return (
 		<div>
 			<Header />

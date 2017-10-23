@@ -138,7 +138,7 @@ class Profile extends Component {
 				alert(this.state.nameError)
 			else {
 				this.props.fetchUpdateProfile(this.state)
-				window.scroll(0, window.pageYOffset - this.props.scrollStepInPx)
+				window.scrollTo(0, 0)
 			}
 		}
 	}

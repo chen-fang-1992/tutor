@@ -61,13 +61,12 @@ class Header extends Component {
 
 Header.propTypes = {
 	auth: PropTypes.bool.isRequired,
-	fetchLogout: PropTypes.func.isRequired
+	fetchLogout: PropTypes.func.isRequired,
+	resetTutors: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
-	return {
-		auth: state.auth.auth
-	}
+	return { auth: state.auth.auth }
 }
 
 const mapDispatchProps = (dispatch) => {

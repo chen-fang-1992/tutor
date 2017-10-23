@@ -247,7 +247,30 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-	location: PropTypes.object.isRequired
+	info: PropTypes.shape({
+		language: PropTypes.string.isRequired,
+		availability: PropTypes.string.isRequired,
+		location: PropTypes.string.isRequired,
+		filter: PropTypes.string.isRequired
+	}).isRequired,
+	tutors: PropTypes.oneOfType([
+		PropTypes.object,
+		PropTypes.arrayOf(PropTypes.shape({
+			picture: PropTypes.string,
+			firstname: PropTypes.string,
+			lastname: PropTypes.string,
+			number: PropTypes.string,
+			country: PropTypes.string,
+			language: PropTypes.string,
+			city: PropTypes.string,
+			location: PropTypes.string,
+			currency: PropTypes.string,
+			price: PropTypes.number,
+			availability: PropTypes.number,
+			about: PropTypes.string
+		}))
+	]),
+	getTutors: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
