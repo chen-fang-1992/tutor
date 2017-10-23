@@ -2,32 +2,38 @@ import * as types from '../constants/AuthActionTypes'
 
 const initialState = {
 	auth: false,
-	profile: {}
+	profile: {},
+	text: ''
 }
 
 const auth = (state = initialState, action = {}) => {
 	switch (action.type) {
 		case types.LOG_IN_SUCCESS:
-			state = {
-				auth: true,
-				profile: action.profile
+			return action.state
+		case types.LOG_IN_FAILURE:
+			return {
+				...state,
+				text: action.text
 			}
-			return state
 		case types.LOG_OUT_SUCCESS:
-			state = {
-				auth: false,
-				profile: {}
+			return initialState
+		case types.LOG_OUT_FAILURE:
+			return {
+				...state,
+				text: action.text
 			}
-			return state
 		case types.UPDATE_PROFILE_SUCCESS:
-			state.profile = action.profile
-			return state
-		case types.REGISTER_SUCCESS:
-			state = {
-				auth: true,
+			return {
+				...state,
 				profile: action.profile
 			}
-			return state
+		case types.REGISTER_SUCCESS:
+			return action.state
+		case types.REGISTER_FAILURE:
+			return {
+				...state,
+				text: action.text
+			}
 		default:
 			return state
 	}

@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchRegister } from '../actions/auth'
+import Warning from './Warning'
 
 class Register extends Component {
 	constructor(props) {
@@ -126,7 +127,7 @@ class Register extends Component {
 									</div>
 									<label htmlFor="email">What’s your email?</label>
 									<div className="form-group">
-										<input id="email" type="email" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required />
+										<input id="email" type="text" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required />
 									</div>
 									<label htmlFor="password">Password</label>
 									<div className="form-group">
@@ -146,6 +147,7 @@ class Register extends Component {
 							</div>
 						</div>
 					</div>
+					<Warning />
 				</div>
 			</div>
 		)

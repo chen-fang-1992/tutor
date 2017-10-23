@@ -14,8 +14,7 @@ const initialState = {
 const search = (state = initialState, action = {}) => {
 	switch (action.type) {
 		case types.GET_TUTORS_SUCCESS:
-			state = action.state
-			return state
+			return action.state
 		case types.RESET_TUTORS_SUCCESS:
 			return initialState
 		default:
