@@ -32,9 +32,21 @@ class Header extends Component {
 	}
 
 	render() {
+		let header
+		if (window.location.pathname === '/')
+			header = 'home'
+		else if (window.location.pathname === '/user/register')
+			header = 'user'
+		else if (window.location.pathname === '/user/profile')
+			header = 'user'
+		else if (window.location.pathname === '/user/login')
+			header = 'user'
+		else if (window.location.pathname === '/tutor')
+			header = 'tutor'
+
 		return (
-			<div className={`header ${this.props.header}`}>
-				<nav className={`navbar ${this.props.header==="home"?"navbar-static-top":"navbar-fixed-top"}`} role="navigation">
+			<div className={`header ${header}`}>
+				<nav className={`navbar ${header==="home"?"navbar-static-top":"navbar-fixed-top"}`} role="navigation">
 					<div className="container-fluid navigation-bar">
 						<div className="navbar-header">
 							<Link className="logo" to="/" onClick={this.props.resetTutors}><img src={logo} /></Link>
@@ -48,7 +60,6 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-	header: PropTypes.string.isRequired,
 	auth: PropTypes.bool.isRequired,
 	fetchLogout: PropTypes.func.isRequired
 }

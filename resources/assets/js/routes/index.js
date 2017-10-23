@@ -10,11 +10,11 @@ import Search from '../components/Search'
 const configureRoute = (
 	<BrowserRouter>
 		<div>
-			<Route exact path="/" render={ props => <App><Home { ...props } /></App> } />
-			<Route exact path="/user/register" render={ props => <App><Register { ...props } /></App> } />
-			<Route exact path="/user/profile" render={ props => <App><Profile { ...props } /></App> } />
-			<Route exact path="/user/login" render={ props => <App><Login { ...props } /></App> } />
-			<Route exact path="/tutor" render={ props => <App><Search { ...props } /></App> } />
+			<Route exact path="/" render={ () => <App><Home /></App> } />
+			<Route exact path="/user/register" render={ () => <App><Register /></App> } />
+			<Route exact path="/user/profile" render={ () => <App><Profile /></App> } />
+			<Route exact path="/user/login" render={ () => <App><Login /></App> } />
+			<Route exact path="/tutor" render={ () => <App><Search /></App> } />
 		</div>
 	</BrowserRouter>
 )

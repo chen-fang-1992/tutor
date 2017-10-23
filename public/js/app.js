@@ -59986,60 +59986,29 @@ exports['default'] = thunk;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Footer__ = __webpack_require__(305);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
 
 
 
+var App = function App(_ref) {
+	var children = _ref.children;
 
-var App = function (_Component) {
-	_inherits(App, _Component);
-
-	function App(props) {
-		_classCallCheck(this, App);
-
-		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-		_this.state = { header: '' };
-		return _this;
-	}
-
-	_createClass(App, [{
-		key: 'render',
-		value: function render() {
-			if (this.props.children.props.location.pathname === '/') this.state.header = 'home';else if (this.props.children.props.location.pathname === '/user/register') this.state.header = 'user';else if (this.props.children.props.location.pathname === '/user/profile') this.state.header = 'user';else if (this.props.children.props.location.pathname === '/user/login') this.state.header = 'user';else if (this.props.children.props.location.pathname === '/tutor') this.state.header = 'tutor';
-
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				null,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Header__["a" /* default */], { header: this.state.header }),
-				this.props.children,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Footer__["a" /* default */], null)
-			);
-		}
-	}]);
-
-	return App;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		'div',
+		null,
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Header__["a" /* default */], null),
+		children,
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Footer__["a" /* default */], null)
+	);
+};
 
 App.propTypes = {
-	auth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
 	children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired
 };
 
-var mapStateToProps = function mapStateToProps(state) {
-	return { auth: state.auth.auth };
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(mapStateToProps)(App));
+/* harmony default export */ __webpack_exports__["a"] = (App);
 
 /***/ }),
 /* 303 */
@@ -60140,12 +60109,15 @@ var Header = function (_Component) {
 	_createClass(Header, [{
 		key: 'render',
 		value: function render() {
+			var header = void 0;
+			if (window.location.pathname === '/') header = 'home';else if (window.location.pathname === '/user/register') header = 'user';else if (window.location.pathname === '/user/profile') header = 'user';else if (window.location.pathname === '/user/login') header = 'user';else if (window.location.pathname === '/tutor') header = 'tutor';
+
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
-				{ className: 'header ' + this.props.header },
+				{ className: 'header ' + header },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'nav',
-					{ className: 'navbar ' + (this.props.header === "home" ? "navbar-static-top" : "navbar-fixed-top"), role: 'navigation' },
+					{ className: 'navbar ' + (header === "home" ? "navbar-static-top" : "navbar-fixed-top"), role: 'navigation' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
 						{ className: 'container-fluid navigation-bar' },
@@ -60169,7 +60141,6 @@ var Header = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 Header.propTypes = {
-	header: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
 	auth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired,
 	fetchLogout: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
@@ -62800,39 +62771,39 @@ var configureRoute = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement
 	__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 		'div',
 		null,
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/', render: function render(props) {
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/', render: function render() {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					__WEBPACK_IMPORTED_MODULE_2__containers_App__["a" /* default */],
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Home__["a" /* default */], props)
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Home__["a" /* default */], null)
 				);
 			} }),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/user/register', render: function render(props) {
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/user/register', render: function render() {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					__WEBPACK_IMPORTED_MODULE_2__containers_App__["a" /* default */],
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Register__["a" /* default */], props)
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Register__["a" /* default */], null)
 				);
 			} }),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/user/profile', render: function render(props) {
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/user/profile', render: function render() {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					__WEBPACK_IMPORTED_MODULE_2__containers_App__["a" /* default */],
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Profile__["a" /* default */], props)
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Profile__["a" /* default */], null)
 				);
 			} }),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/user/login', render: function render(props) {
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/user/login', render: function render() {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					__WEBPACK_IMPORTED_MODULE_2__containers_App__["a" /* default */],
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_Login__["a" /* default */], props)
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_Login__["a" /* default */], null)
 				);
 			} }),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/tutor', render: function render(props) {
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Route */], { exact: true, path: '/tutor', render: function render() {
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					__WEBPACK_IMPORTED_MODULE_2__containers_App__["a" /* default */],
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_Search__["a" /* default */], props)
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_Search__["a" /* default */], null)
 				);
 			} })
 	)
