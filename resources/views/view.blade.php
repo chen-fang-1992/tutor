@@ -10,6 +10,14 @@
 			<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,700,700i" rel="stylesheet" type="text/css">
 			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 			<!-- Styles -->
+			<style>
+				input:-webkit-autofill,
+				input:-webkit-autofill:hover,
+				input:-webkit-autofill:focus,
+				input:-webkit-autofill:active {
+				    transition: background-color 5000s ease-in-out 0s;
+				}
+			</style>
 			<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 			<link rel="stylesheet" href="{{ URL::asset('css/header.css') }}">
 			<link rel="stylesheet" href="{{ URL::asset('css/content.home.css') }}">
