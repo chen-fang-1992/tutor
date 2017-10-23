@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { getTutors } from '../../actions/search'
 
 class HomeSearchBar extends Component {
 	constructor(props) {
@@ -9,8 +13,7 @@ class HomeSearchBar extends Component {
 			language: 'English',
 			availability: 'When?',
 			location: '',
-			filter: 'Price',
-			redirect: false
+			filter: 'Price'
 		}
 
 		this.handleLanguageClick = (e) => {
@@ -122,23 +125,13 @@ class HomeSearchBar extends Component {
 
 		this.handleSubmitClick = (e) => {
 			e.preventDefault()
-			this.setState({ redirect: true })
+			this.props.getTutors(this.state)
 		}
 	}
 
 	render() {
-		let { redirect } = this.state
-
-		if (redirect === true)
-			return (<Redirect to={{
-				pathname: '/tutor',
-				state: {
-					language: this.state.language,
-					availability: this.state.availability,
-					location: this.state.location,
-					filter: this.state.filter
-				}
-			}} />)
+		if (this.props.show === true)
+			return (<Redirect to='/tutor' />)
 
 		return (
 			<div className="container search-bar">
@@ -203,4 +196,15 @@ class HomeSearchBar extends Component {
 	}
 }
 
-export default HomeSearchBar
+const mapStateToProps = (state) => {
+	return { show: state.search.show }
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return { getTutors: bindActionCreators(getTutors, dispatch) }
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(HomeSearchBar)

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import auth from './auth'
+import search from './search'
 
 const reducer = combineReducers({
-	auth
+	auth,
+	search
 })
 
 export default reducer

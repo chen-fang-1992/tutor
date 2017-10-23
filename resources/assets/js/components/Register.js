@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchRegister } from '../actions'
+import { fetchRegister } from '../actions/auth'
 
 class Register extends Component {
 	constructor(props) {

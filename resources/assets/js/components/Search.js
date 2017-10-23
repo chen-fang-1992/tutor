@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { getTutors } from '../actions/search'
 import SearchItem from './search/SearchItem'
 import SearchModal from './search/SearchModal'
 
@@ -9,36 +11,18 @@ class Search extends Component {
 	constructor(props) {
 		super(props)
 
+		let info = this.props.info
+
 		this.state = {
-			language: 'English',
-			availability: 'When?',
-			location: '',
-			filter: 'Price',
-			tutors: '',
-			mornings: '',
-			afternoons: '',
-			evenings: '',
-			weekends: '',
-			show: false
+			language: info.language,
+			availability: info.availability,
+			location: info.location,
+			filter: info.filter
 		}
 
 		this.handleLanguageClick = (e) => {
 			e.preventDefault()
-			let language = e.target.value
-
-			axios.get('/tutor/show', {
-				params: {
-					language: language,
-					availability: this.state.availability,
-					location: this.state.location,
-					filter: this.state.filter
-				}
-			}).then(response => {
-				this.setState({
-					language: language,
-					tutors: response.data
-				})
-			}).catch((error) => { throw new Error(error.message) })
+			this.setState({ language: e.target.value }, () => this.props.getTutors(this.state))
 		}
 
 		this.handleAvailabilityClick = (e) => {
@@ -131,19 +115,7 @@ class Search extends Component {
 			if (availability.length === 0)
 				availability = 'When?'
 
-			axios.get('/tutor/show', {
-				params: {
-					language: this.state.language,
-					availability: availability,
-					location: this.state.location,
-					filter: this.state.filter
-				}
-			}).then(response => {
-				this.setState({
-					availability: availability,
-					tutors: response.data
-				})
-			}).catch((error) => { throw new Error(error.message) })
+			this.setState({ availability: availability }, () => this.props.getTutors(this.state))
 		}
 
 		this.handleLocationChange = (e) => {
@@ -152,76 +124,30 @@ class Search extends Component {
 
 		this.handleFilterClick = (e) => {
 			e.preventDefault()
-			let filter = e.target.value
-
-			axios.get('/tutor/show', {
-				params: {
-					language: this.state.language,
-					availability: this.state.availability,
-					location: this.state.location,
-					filter: filter
-				}
-			}).then(response => {
-				this.setState({
-					filter: filter,
-					tutors: response.data
-				})
-			}).catch((error) => { throw new Error(error.message) })
+			this.setState({ filter: e.target.value }, () => this.props.getTutors(this.state))
 		}
 
 		this.handleSubmitClick = (e) => {
 			e.preventDefault()
-
-			axios.get('/tutor/show', {
-				params: {
-					language: this.state.language,
-					availability: this.state.availability,
-					location: this.state.location,
-					filter: e.target.value
-				}
-			}).then(response => {
-				this.setState({ tutors: response.data })
-			}).catch((error) => { throw new Error(error.message) })
-		}
-	}
-
-	componentDidMount () {
-		if (this.props.location.state !== undefined) {
-			axios.get('/tutor/show', {
-				params: {
-					language: this.props.location.state.language,
-					availability: this.props.location.state.availability,
-					location: this.props.location.state.location,
-					filter: this.props.location.state.filter
-				}
-			}).then(response => {
-				this.setState({
-					language: this.props.location.state.language,
-					availability: this.props.location.state.availability,
-					location: this.props.location.state.location,
-					filter: this.props.location.state.filter,
-					tutors: response.data,
-					show: true
-				})
-			}).catch((error) => { throw new Error(error.message) })
+			this.props.getTutors(this.state)
 		}
 	}
 
 	get tutors() {
 		let output = []
 
-		for (let i = 0; i < this.state.tutors.length; i = i + 2) {
-			if (this.state.tutors.length - i >= 2) {
+		for (let i = 0; i < this.props.tutors.length; i = i + 2) {
+			if (this.props.tutors.length - i >= 2) {
 				output.push(
 					<div key={i}>
 						<div className="row">
 							<div className="col-xs-5 col-xs-offset-1">
-								<SearchItem tutor={this.state.tutors[i]} />
-								<SearchModal tutor={this.state.tutors[i]} />
+								<SearchItem tutor={this.props.tutors[i]} />
+								<SearchModal tutor={this.props.tutors[i]} />
 							</div>
 							<div className="col-xs-5">
-								<SearchItem tutor={this.state.tutors[i+1]} />
-								<SearchModal tutor={this.state.tutors[i+1]} />
+								<SearchItem tutor={this.props.tutors[i+1]} />
+								<SearchModal tutor={this.props.tutors[i+1]} />
 							</div>
 						</div>
 					</div>
@@ -231,8 +157,8 @@ class Search extends Component {
 					<div key={i}>
 						<div className="row">
 							<div className="col-xs-5 col-xs-offset-1">
-								<SearchItem tutor={this.state.tutors[i]} />
-								<SearchModal tutor={this.state.tutors[i]} />
+								<SearchItem tutor={this.props.tutors[i]} />
+								<SearchModal tutor={this.props.tutors[i]} />
 							</div>
 						</div>
 					</div>
@@ -240,14 +166,12 @@ class Search extends Component {
 			}
 		}
 
-		if (this.state.show === true) {
-			if (this.state.tutors.length)
-				return output
-			else
-				return (
-					<div className="empty"><h1>There is no tutor match your request</h1></div>
-				)
-		}
+		if (this.props.tutors.length)
+			return output
+		else
+			return (
+				<div className="empty"><h1>There is no tutor match your request</h1></div>
+			)
 	}
 
 	render() {
@@ -326,4 +250,18 @@ Search.propTypes = {
 	location: PropTypes.object.isRequired
 }
 
-export default Search
+const mapStateToProps = (state) => {
+	return {
+		info: state.search.info,
+		tutors: state.search.tutors
+	 }
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return { getTutors: bindActionCreators(getTutors, dispatch) }
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Search)

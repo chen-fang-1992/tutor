@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchLogin } from '../actions'
+import { fetchLogin } from '../actions/auth'
 
 class Login extends Component {
 	constructor(props) {

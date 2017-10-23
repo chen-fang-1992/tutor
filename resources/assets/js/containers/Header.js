@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchLogout } from '../actions'
+import { fetchLogout } from '../actions/auth'
+import { resetTutors } from '../actions/search'
 
 let logo = '/img/logo.png'
 
@@ -36,7 +37,7 @@ class Header extends Component {
 				<nav className={`navbar ${this.props.header==="home"?"navbar-static-top":"navbar-fixed-top"}`} role="navigation">
 					<div className="container-fluid navigation-bar">
 						<div className="navbar-header">
-							<Link className="logo" to="/"><img src={logo} /></Link>
+							<Link className="logo" to="/" onClick={this.props.resetTutors}><img src={logo} /></Link>
 						</div>
 						{ (this.props.auth === true) ? this.authTrue : this.authFalse }
 					</div>
@@ -60,7 +61,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchProps = (dispatch) => {
 	return {
-		fetchLogout: bindActionCreators(fetchLogout, dispatch)
+		fetchLogout: bindActionCreators(fetchLogout, dispatch),
+		resetTutors: bindActionCreators(resetTutors, dispatch)
 	}
 }
 
