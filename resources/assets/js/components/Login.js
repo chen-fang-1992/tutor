@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchLogin } from '../actions/auth'
-import Warning from './Warning'
+import Alert from './Alert'
 
 class Login extends Component {
 	constructor(props) {
@@ -94,7 +94,7 @@ class Login extends Component {
 							</form>
 						</div>
 					</div>
-					<Warning />
+					<Alert />
 				</div>
 			</div>
 		)

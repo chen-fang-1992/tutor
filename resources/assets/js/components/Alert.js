@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-const Warning = ({ text }) => {
+const Alert = ({ text }) => {
 	if (text === '')
 		return null
 	else
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => {
 	return { text: state.auth.text }
 }
 
-export default connect( mapStateToProps )(Warning)
+export default connect( mapStateToProps )(Alert)

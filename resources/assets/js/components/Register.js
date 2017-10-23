@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchRegister } from '../actions/auth'
-import Warning from './Warning'
+import Alert from './Alert'
 
 class Register extends Component {
 	constructor(props) {
@@ -147,7 +147,7 @@ class Register extends Component {
 							</div>
 						</div>
 					</div>
-					<Warning />
+					<Alert />
 				</div>
 			</div>
 		)
