@@ -61143,7 +61143,7 @@ var Register = function (_Component) {
 									),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
-										{ className: 'form-group' },
+										{ className: 'form-group input-checkbox' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.accept, onChange: this.handleAcceptChange, value: this.state.accept }),
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'span',
@@ -61616,7 +61616,7 @@ var Profile = function (_Component) {
 										{ className: 'col-xs-2' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
-											{ className: 'form-group' },
+											{ className: 'form-group input-checkbox' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.mornings, onChange: this.handleMorningsChange, value: this.state.mornings }),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'span',
@@ -61630,7 +61630,7 @@ var Profile = function (_Component) {
 										{ className: 'col-xs-2' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
-											{ className: 'form-group' },
+											{ className: 'form-group input-checkbox' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.afternoons, onChange: this.handleAfternoonsChange, value: this.state.afternoons }),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'span',
@@ -61644,7 +61644,7 @@ var Profile = function (_Component) {
 										{ className: 'col-xs-2' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
-											{ className: 'form-group' },
+											{ className: 'form-group input-checkbox' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.evenings, onChange: this.handleEveningsChange, value: this.state.evenings }),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'span',
@@ -61658,7 +61658,7 @@ var Profile = function (_Component) {
 										{ className: 'col-xs-2' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 											'div',
-											{ className: 'form-group' },
+											{ className: 'form-group input-checkbox' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', checked: this.state.weekends, onChange: this.handleWeekendsChange, value: this.state.weekends }),
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'span',
@@ -62868,7 +62868,7 @@ var fetchLogin = function fetchLogin(email, password) {
 			email: email,
 			password: password
 		}).then(function (response) {
-			if (response.data === 'fail1') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["a" /* LOG_IN_FAILURE */], 'Warning！You have already logged in.'));else if (response.data === 'fail2') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["a" /* LOG_IN_FAILURE */], 'Warning！Please input correct email and password.'));else dispatch(fetchLoginSuccess(response.data));
+			if (response.data === 'fail1') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["a" /* LOG_IN_FAILURE */], 'Warning! You have already logged in.'));else if (response.data === 'fail2') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["a" /* LOG_IN_FAILURE */], 'Warning! Please input correct email and password.'));else dispatch(fetchLoginSuccess(response.data));
 		}).catch(function (error) {
 			throw new Error(error.message);
 		});
@@ -62884,7 +62884,7 @@ var fetchLogoutSuccess = function fetchLogoutSuccess() {
 var fetchLogout = function fetchLogout() {
 	return function (dispatch) {
 		__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/user/logout').then(function (response) {
-			if (response.data === 'fail') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["c" /* LOG_OUT_FAILURE */], 'Warning！You haven\'t logged in.'));else dispatch(fetchLogoutSuccess());
+			if (response.data === 'fail') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["c" /* LOG_OUT_FAILURE */], 'Warning! You haven\'t logged in.'));else dispatch(fetchLogoutSuccess());
 		}).catch(function (error) {
 			throw new Error(error.message);
 		});
@@ -62939,7 +62939,7 @@ var fetchRegister = function fetchRegister(name, email, password) {
 			email: email,
 			password: password
 		}).then(function (response) {
-			if (response.data === 'fail') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["e" /* REGISTER_FAILURE */], 'Warning！This email is occupied.'));else dispatch(fetchRegisterSuccess(response.data));
+			if (response.data === 'fail1') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["e" /* REGISTER_FAILURE */], 'Warning! You have already logged in.'));else if (response.data === 'fail2') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["e" /* REGISTER_FAILURE */], 'Warning! This email is occupied.'));else dispatch(fetchRegisterSuccess(response.data));
 		}).catch(function (error) {
 			throw new Error(error.message);
 		});

@@ -241,22 +241,22 @@ class Profile extends Component {
 								<h1><i className="fa fa-calendar-check-o" aria-hidden="true"></i> Availability</h1>
 								<div className="row">
 									<div className="col-xs-2">
-										<div className="form-group">
+										<div className="form-group input-checkbox">
 											<input type="checkbox" checked={this.state.mornings} onChange={this.handleMorningsChange} value={this.state.mornings} /><span> Mornings</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
-										<div className="form-group">
+										<div className="form-group input-checkbox">
 											<input type="checkbox" checked={this.state.afternoons} onChange={this.handleAfternoonsChange} value={this.state.afternoons} /><span> Afternoons</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
-										<div className="form-group">
+										<div className="form-group input-checkbox">
 											<input type="checkbox" checked={this.state.evenings} onChange={this.handleEveningsChange} value={this.state.evenings} /><span> Evenings</span>
 										</div>
 									</div>
 									<div className="col-xs-2">
-										<div className="form-group">
+										<div className="form-group input-checkbox">
 											<input type="checkbox" checked={this.state.weekends} onChange={this.handleWeekendsChange} value={this.state.weekends} /><span> Weekends</span>
 										</div>
 									</div>

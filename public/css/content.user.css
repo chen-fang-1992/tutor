@@ -140,6 +140,10 @@
 	color: #000000;
 }
 
+.content.user .container form .form-group.input-checkbox {
+	margin-bottom: 0;
+}
+
 .content.user .container form textarea {
 	margin-top: 0.8rem;
 	height: 10rem;
@@ -166,6 +170,6 @@
 	animation: fade;
 	animation-duration: 2s;
 	-webkit-animation:fade 2s;
-	height: 3rem;
+	font-size: 2rem;
 	color: #990000;
 }

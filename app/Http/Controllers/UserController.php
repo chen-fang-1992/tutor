@@ -29,6 +29,7 @@ class UserController extends Controller
 		// check email unique
 		if (User::where([ ['email', $user->email] ])->get()->count())
 			return 'fail2';
+		return User::where([ ['email', $user->email] ])->get()->count();
 		// insert user and create profile model
 		if ($user->save()) {
 			Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')]);

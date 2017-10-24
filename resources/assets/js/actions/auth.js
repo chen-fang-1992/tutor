@@ -26,9 +26,9 @@ export const fetchLogin = (email, password) => {
 			password: password
 		}).then((response) => {
 			if (response.data === 'fail1')
-				dispatch(setErrorMessage(types.LOG_IN_FAILURE, 'Warning！You have already logged in.'))
+				dispatch(setErrorMessage(types.LOG_IN_FAILURE, 'Warning! You have already logged in.'))
 			else if (response.data === 'fail2')
-				dispatch(setErrorMessage(types.LOG_IN_FAILURE, 'Warning！Please input correct email and password.'))
+				dispatch(setErrorMessage(types.LOG_IN_FAILURE, 'Warning! Please input correct email and password.'))
 			else
 				dispatch(fetchLoginSuccess(response.data))
 		}).catch((error) => { throw new Error(error.message) })
@@ -45,7 +45,7 @@ export const fetchLogout = () => {
 	return (dispatch) => {
 		axios.get('/user/logout').then((response) => {
 			if (response.data === 'fail')
-				dispatch(setErrorMessage(types.LOG_OUT_FAILURE, 'Warning！You haven\'t logged in.'))
+				dispatch(setErrorMessage(types.LOG_OUT_FAILURE, 'Warning! You haven\'t logged in.'))
 			else
 				dispatch(fetchLogoutSuccess())
 		}).catch((error) => { throw new Error(error.message) })
@@ -99,8 +99,10 @@ export const fetchRegister = (name, email, password) => {
 			email: email,
 			password: password
 		}).then(response => {
-			if (response.data === 'fail')
-				dispatch(setErrorMessage(types.REGISTER_FAILURE, 'Warning！This email is occupied.'))
+			if (response.data === 'fail1')
+				dispatch(setErrorMessage(types.REGISTER_FAILURE, 'Warning! You have already logged in.'))
+			else if (response.data === 'fail2')
+				dispatch(setErrorMessage(types.REGISTER_FAILURE, 'Warning! This email is occupied.'))
 			else
 				dispatch(fetchRegisterSuccess(response.data))
 		}).catch((error) => { throw new Error(error.message) })

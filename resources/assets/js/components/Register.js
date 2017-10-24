@@ -137,7 +137,7 @@ class Register extends Component {
 									<div className="form-group">
 										<input type="password" className="form-control" value={this.state.passwordConfirmation} onChange={this.handlePasswordConfirmationChange} name="password_confirmation" required />
 									</div>
-									<div className="form-group">
+									<div className="form-group input-checkbox">
 										<input type="checkbox" checked={this.state.accept} onChange={this.handleAcceptChange} value={this.state.accept} /><span> I accept the Terms and Conditions</span>
 									</div>
 									<Alert />
