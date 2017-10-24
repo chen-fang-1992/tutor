@@ -60089,7 +60089,7 @@ var Header = function (_Component) {
 					null,
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-						{ className: 'register nav-btn', to: '/user/register' },
+						{ className: 'register nav-btn', to: '/user/register', onClick: _this.props.resetErrorMessage },
 						'Become a Tutor'
 					)
 				),
@@ -60098,7 +60098,7 @@ var Header = function (_Component) {
 					null,
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-						{ className: 'login nav-btn', to: '/user/login' },
+						{ className: 'login nav-btn', to: '/user/login', onClick: _this.props.resetErrorMessage },
 						'Login'
 					)
 				)
@@ -60144,6 +60144,7 @@ var Header = function (_Component) {
 Header.propTypes = {
 	auth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired,
 	fetchLogout: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
+	resetErrorMessage: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
 	resetTutors: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
 
@@ -60154,6 +60155,7 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchProps = function mapDispatchProps(dispatch) {
 	return {
 		fetchLogout: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__actions_auth__["b" /* fetchLogout */], dispatch),
+		resetErrorMessage: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__actions_auth__["e" /* resetErrorMessage */], dispatch),
 		resetTutors: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_6__actions_search__["b" /* resetTutors */], dispatch)
 	};
 };
@@ -61149,6 +61151,7 @@ var Register = function (_Component) {
 											' I accept the Terms and Conditions'
 										)
 									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Alert__["a" /* default */], null),
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
 										{ className: 'form-group' },
@@ -61161,8 +61164,7 @@ var Register = function (_Component) {
 								)
 							)
 						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Alert__["a" /* default */], null)
+					)
 				)
 			);
 		}
@@ -61847,62 +61849,38 @@ var Login = function (_Component) {
 								'form',
 								{ role: 'form', noValidate: true },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'row' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'col-xs-12' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'label',
-											{ htmlFor: 'email' },
-											'Email'
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'div',
-											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'email', type: 'text', className: 'form-control', value: this.state.email, onChange: this.handleEmailChange, name: 'email', required: true })
-										)
-									)
+									'label',
+									{ htmlFor: 'email' },
+									'Email'
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
-									{ className: 'row' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'col-xs-12' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'label',
-											{ htmlFor: 'password' },
-											'Password'
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'div',
-											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password', type: 'password', className: 'form-control', value: this.state.password, onChange: this.handlePasswordChange, name: 'password', required: true })
-										)
-									)
+									{ className: 'form-group' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'email', type: 'text', className: 'form-control', value: this.state.email, onChange: this.handleEmailChange, name: 'email', required: true })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'label',
+									{ htmlFor: 'password' },
+									'Password'
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'div',
-									{ className: 'row' },
+									{ className: 'form-group' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'password', type: 'password', className: 'form-control', value: this.state.password, onChange: this.handlePasswordChange, name: 'password', required: true })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Alert__["a" /* default */], null),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'form-group' },
 									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'col-xs-12' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'div',
-											{ className: 'form-group' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-												'button',
-												{ className: 'btn btn-primary submit', onClick: this.handleSubmitClick },
-												'LOG IN YOUR PROFILE'
-											)
-										)
+										'button',
+										{ className: 'btn btn-primary submit', 'data-toggle': 'modal', 'data-target': '#alert', onClick: this.handleSubmitClick },
+										'LOG IN YOUR PROFILE'
 									)
 								)
 							)
 						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Alert__["a" /* default */], null)
+					)
 				)
 			);
 		}
@@ -62760,13 +62738,17 @@ var auth = function auth() {
 			return _extends({}, state, {
 				text: action.text
 			});
-		case __WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["g" /* UPDATE_PROFILE_SUCCESS */]:
+		case __WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["h" /* UPDATE_PROFILE_SUCCESS */]:
 			return _extends({}, state, {
 				profile: action.profile
 			});
 		case __WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["f" /* REGISTER_SUCCESS */]:
 			return action.state;
 		case __WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["e" /* REGISTER_FAILURE */]:
+			return _extends({}, state, {
+				text: action.text
+			});
+		case __WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["g" /* RESET_ERROR_MESSAGE */]:
 			return _extends({}, state, {
 				text: action.text
 			});
@@ -62855,11 +62837,19 @@ var configureRoute = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return fetchLogout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return fetchUpdateProfile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return fetchRegister; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return resetErrorMessage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__ = __webpack_require__(330);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
 
 
+
+var setErrorMessage = function setErrorMessage(type, text) {
+	return {
+		type: type,
+		text: text
+	};
+};
 
 var fetchLoginSuccess = function fetchLoginSuccess(profile) {
 	return {
@@ -62872,20 +62862,13 @@ var fetchLoginSuccess = function fetchLoginSuccess(profile) {
 	};
 };
 
-var fetchFailure = function fetchFailure(type, text) {
-	return {
-		type: type,
-		text: text
-	};
-};
-
 var fetchLogin = function fetchLogin(email, password) {
 	return function (dispatch) {
 		__WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/user/login', {
 			email: email,
 			password: password
 		}).then(function (response) {
-			if (response.data === 'fail1') dispatch(fetchFailure(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["a" /* LOG_IN_FAILURE */], 'You have already logged in.'));else if (response.data === 'fail2') dispatch(fetchFailure(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["a" /* LOG_IN_FAILURE */], 'Please input correct email and password.'));else dispatch(fetchLoginSuccess(response.data));
+			if (response.data === 'fail1') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["a" /* LOG_IN_FAILURE */], 'Warning！You have already logged in.'));else if (response.data === 'fail2') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["a" /* LOG_IN_FAILURE */], 'Warning！Please input correct email and password.'));else dispatch(fetchLoginSuccess(response.data));
 		}).catch(function (error) {
 			throw new Error(error.message);
 		});
@@ -62901,7 +62884,7 @@ var fetchLogoutSuccess = function fetchLogoutSuccess() {
 var fetchLogout = function fetchLogout() {
 	return function (dispatch) {
 		__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/user/logout').then(function (response) {
-			if (response.data === 'fail') dispatch(fetchFailure(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["c" /* LOG_OUT_FAILURE */], 'You haven\'t logged in.'));else dispatch(fetchLogoutSuccess());
+			if (response.data === 'fail') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["c" /* LOG_OUT_FAILURE */], 'Warning！You haven\'t logged in.'));else dispatch(fetchLogoutSuccess());
 		}).catch(function (error) {
 			throw new Error(error.message);
 		});
@@ -62910,7 +62893,7 @@ var fetchLogout = function fetchLogout() {
 
 var fetchUpdateProfileSuccess = function fetchUpdateProfileSuccess(profile) {
 	return {
-		type: __WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["g" /* UPDATE_PROFILE_SUCCESS */],
+		type: __WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["h" /* UPDATE_PROFILE_SUCCESS */],
 		profile: profile
 	};
 };
@@ -62956,10 +62939,16 @@ var fetchRegister = function fetchRegister(name, email, password) {
 			email: email,
 			password: password
 		}).then(function (response) {
-			if (response.data === 'fail') dispatch(fetchFailure(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["e" /* REGISTER_FAILURE */], 'This email is occupied.'));else dispatch(fetchRegisterSuccess(response.data));
+			if (response.data === 'fail') dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["e" /* REGISTER_FAILURE */], 'Warning！This email is occupied.'));else dispatch(fetchRegisterSuccess(response.data));
 		}).catch(function (error) {
 			throw new Error(error.message);
 		});
+	};
+};
+
+var resetErrorMessage = function resetErrorMessage() {
+	return function (dispatch) {
+		return dispatch(setErrorMessage(__WEBPACK_IMPORTED_MODULE_0__constants_AuthActionTypes__["g" /* RESET_ERROR_MESSAGE */], ''));
 	};
 };
 
@@ -62974,9 +62963,10 @@ var fetchRegister = function fetchRegister(name, email, password) {
 /* unused harmony export LOG_OUT_REQUEST */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LOG_OUT_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return LOG_OUT_FAILURE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return UPDATE_PROFILE_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return UPDATE_PROFILE_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return REGISTER_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return REGISTER_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return RESET_ERROR_MESSAGE; });
 var LOG_IN_REQUEST = 'LOG_IN_REQUEST';
 var LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
 var LOG_IN_FAILURE = 'LOG_IN_FAILURE';
@@ -62989,6 +62979,8 @@ var UPDATE_PROFILE_SUCCESS = 'UPDATE_PROFILE_SUCCESS';
 
 var REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 var REGISTER_FAILURE = 'REGISTER_FAILURE';
+
+var RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';
 
 /***/ }),
 /* 331 */
@@ -63107,20 +63099,14 @@ var search = function search() {
 var Alert = function Alert(_ref) {
 	var text = _ref.text;
 
-	if (text === '') return null;else return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+	if (text === '') return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'row alert' });else return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 		'div',
-		{ className: 'alert alert-warning' },
+		{ className: 'row alert' },
 		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			'a',
-			{ href: '#', className: 'close', 'data-dismiss': 'alert' },
-			'\xD7'
-		),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			'strong',
+			'span',
 			null,
-			'Warning\uFF01'
-		),
-		text
+			text
+		)
 	);
 };
 

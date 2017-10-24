@@ -68,33 +68,21 @@ class Login extends Component {
 						<div className="col-xs-12">
 							<h1>Log In Your Tutor Profile</h1>
 							<form role="form" noValidate>
-								<div className="row">
-									<div className="col-xs-12">
-										<label htmlFor="email">Email</label>
-										<div className="form-group">
-											<input id="email" type="text" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required />
-										</div>
-									</div>
+								<label htmlFor="email">Email</label>
+								<div className="form-group">
+									<input id="email" type="text" className="form-control" value={this.state.email} onChange={this.handleEmailChange} name="email" required />
 								</div>
-								<div className="row">
-									<div className="col-xs-12">
-										<label htmlFor="password">Password</label>
-										<div className="form-group">
-											<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" required />
-										</div>
-									</div>
+								<label htmlFor="password">Password</label>
+								<div className="form-group">
+									<input id="password" type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} name="password" required />
 								</div>
-								<div className="row">
-									<div className="col-xs-12">
-										<div className="form-group">
-											<button className="btn btn-primary submit" onClick={this.handleSubmitClick}>LOG IN YOUR PROFILE</button>
-										</div>
-									</div>
+								<Alert />
+								<div className="form-group">
+									<button className="btn btn-primary submit" data-toggle="modal" data-target="#alert" onClick={this.handleSubmitClick}>LOG IN YOUR PROFILE</button>
 								</div>
 							</form>
 						</div>
 					</div>
-					<Alert />
 				</div>
 			</div>
 		)

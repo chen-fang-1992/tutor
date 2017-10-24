@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchLogout } from '../actions/auth'
+import { fetchLogout, resetErrorMessage } from '../actions/auth'
 import { resetTutors } from '../actions/search'
 
 let logo = '/img/logo.png'
@@ -24,8 +24,8 @@ class Header extends Component {
 		this.authFalse = (
 			<div>
 				<ul className="nav navbar-nav navbar-right">
-					<li><Link className="register nav-btn" to="/user/register">Become a Tutor</Link></li>
-					<li><Link className="login nav-btn" to="/user/login">Login</Link></li>
+					<li><Link className="register nav-btn" to="/user/register" onClick={this.props.resetErrorMessage}>Become a Tutor</Link></li>
+					<li><Link className="login nav-btn" to="/user/login" onClick={this.props.resetErrorMessage}>Login</Link></li>
 				</ul>
 			</div>
 		)
@@ -62,6 +62,7 @@ class Header extends Component {
 Header.propTypes = {
 	auth: PropTypes.bool.isRequired,
 	fetchLogout: PropTypes.func.isRequired,
+	resetErrorMessage: PropTypes.func.isRequired,
 	resetTutors: PropTypes.func.isRequired
 }
 
@@ -72,6 +73,7 @@ const mapStateToProps = (state) => {
 const mapDispatchProps = (dispatch) => {
 	return {
 		fetchLogout: bindActionCreators(fetchLogout, dispatch),
+		resetErrorMessage: bindActionCreators(resetErrorMessage, dispatch),
 		resetTutors: bindActionCreators(resetTutors, dispatch)
 	}
 }

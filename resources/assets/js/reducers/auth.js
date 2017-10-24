@@ -34,6 +34,11 @@ const auth = (state = initialState, action = {}) => {
 				...state,
 				text: action.text
 			}
+		case types.RESET_ERROR_MESSAGE:
+			return {
+				...state,
+				text: action.text
+			}
 		default:
 			return state
 	}

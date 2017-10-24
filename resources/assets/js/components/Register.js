@@ -140,6 +140,7 @@ class Register extends Component {
 									<div className="form-group">
 										<input type="checkbox" checked={this.state.accept} onChange={this.handleAcceptChange} value={this.state.accept} /><span> I accept the Terms and Conditions</span>
 									</div>
+									<Alert />
 									<div className="form-group">
 										<button type="submit" className="btn btn-primary submit" onClick={this.handleSubmitClick}>SUBMIT YOUR PROFILE NOW</button>
 									</div>
@@ -147,7 +148,6 @@ class Register extends Component {
 							</div>
 						</div>
 					</div>
-					<Alert />
 				</div>
 			</div>
 		)

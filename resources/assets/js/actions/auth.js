@@ -1,6 +1,13 @@
 import * as types from '../constants/AuthActionTypes'
 import axios from 'axios'
 
+const setErrorMessage = (type, text) => {
+	return {
+		type: type,
+		text: text
+	}
+}
+
 const fetchLoginSuccess = (profile) => {
 	return {
 		type: types.LOG_IN_SUCCESS,
@@ -12,13 +19,6 @@ const fetchLoginSuccess = (profile) => {
 	}
 }
 
-const fetchFailure = (type, text) => {
-	return {
-		type: type,
-		text: text
-	}
-}
-
 export const fetchLogin = (email, password) => {
 	return (dispatch) => {
 		axios.post('/user/login', {
@@ -26,9 +26,9 @@ export const fetchLogin = (email, password) => {
 			password: password
 		}).then((response) => {
 			if (response.data === 'fail1')
-				dispatch(fetchFailure(types.LOG_IN_FAILURE, 'You have already logged in.'))
+				dispatch(setErrorMessage(types.LOG_IN_FAILURE, 'Warning！You have already logged in.'))
 			else if (response.data === 'fail2')
-				dispatch(fetchFailure(types.LOG_IN_FAILURE, 'Please input correct email and password.'))
+				dispatch(setErrorMessage(types.LOG_IN_FAILURE, 'Warning！Please input correct email and password.'))
 			else
 				dispatch(fetchLoginSuccess(response.data))
 		}).catch((error) => { throw new Error(error.message) })
@@ -45,7 +45,7 @@ export const fetchLogout = () => {
 	return (dispatch) => {
 		axios.get('/user/logout').then((response) => {
 			if (response.data === 'fail')
-				dispatch(fetchFailure(types.LOG_OUT_FAILURE, 'You haven\'t logged in.'))
+				dispatch(setErrorMessage(types.LOG_OUT_FAILURE, 'Warning！You haven\'t logged in.'))
 			else
 				dispatch(fetchLogoutSuccess())
 		}).catch((error) => { throw new Error(error.message) })
@@ -100,9 +100,15 @@ export const fetchRegister = (name, email, password) => {
 			password: password
 		}).then(response => {
 			if (response.data === 'fail')
-				dispatch(fetchFailure(types.REGISTER_FAILURE, 'This email is occupied.'))
+				dispatch(setErrorMessage(types.REGISTER_FAILURE, 'Warning！This email is occupied.'))
 			else
 				dispatch(fetchRegisterSuccess(response.data))
 		}).catch((error) => { throw new Error(error.message) })
+	}
+}
+
+export const resetErrorMessage = () => {
+	return (dispatch) => {
+		return dispatch(setErrorMessage(types.RESET_ERROR_MESSAGE, ''))
 	}
 }

@@ -4,14 +4,11 @@ import { connect } from 'react-redux'
 
 const Alert = ({ text }) => {
 	if (text === '')
-		return null
+		return ( <div className="row alert"></div> )
 	else
 		return (
-			<div className="alert alert-warning">
-				<a href="#" className="close" data-dismiss="alert">
-					&times;
-				</a>
-				<strong>Warning！</strong>{text}
+			<div className="row alert">
+				<span>{text}</span>
 			</div>
 		)
 }
