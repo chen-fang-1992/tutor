@@ -123,10 +123,10 @@ const fetchUpdatePictureSuccess = (picture) => {
 }
 
 export const fetchUpdatePicture = (picture, file, callback) => {
-	let apikey = 'AVAwQqqDuTeShDyWlWDyzz'
+	let apikey = ''
 	let security = {
-		policy: "eyJleHBpcnkiOjE1NDYxNzQ4MDAsImNhbGwiOlsicGljayIsInJlYWQiLCJzdGF0Iiwid3JpdGUiLCJ3cml0ZVVybCIsInN0b3JlIiwiY29udmVydCIsInJlbW92ZSIsImV4aWYiXX0=",
-		signature: "5c12ba0355365d40b3975580ad7a599f06d3dd4b0e349694e952a33c49a3fe13"
+		policy: '',
+		signature: ''
 	}
 	let urL_suffix = '?signature='+security.signature+'&policy='+security.policy
 	let client = filestack.init(apikey, security)
