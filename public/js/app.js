@@ -5573,8 +5573,6 @@ var fetchUpdatePicture = function fetchUpdatePicture(picture, file, callback) {
 		client.upload(file).then(function (response1) {
 			if (picture !== '/img/default.png') {
 				var handle = picture.substring(picture.lastIndexOf('/') + 1, picture.indexOf('?'));
-				console.log(picture);
-				console.log(handle);
 				client.remove(handle);
 			}
 			__WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/user/profile/picture', {

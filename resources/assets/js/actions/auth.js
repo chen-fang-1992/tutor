@@ -134,8 +134,6 @@ export const fetchUpdatePicture = (picture, file, callback) => {
 		client.upload(file).then((response1) => {
 			if (picture !== '/img/default.png') {
 				let handle = picture.substring(picture.lastIndexOf('/') + 1, picture.indexOf('?'))
-				console.log(picture)
-				console.log(handle)
 				client.remove(handle)
 			}
 			axios.post('/user/profile/picture', {
