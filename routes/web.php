@@ -18,6 +18,7 @@ Route::group(['prefix' => 'user'], function() {
 
 	Route::get('profile/show', 'UserController@show');
 	Route::post('profile/update', 'UserController@update');
+	Route::post('profile/picture', 'UserController@picture');
 });
 
 Route::group(['prefix' => 'tutor'], function() {

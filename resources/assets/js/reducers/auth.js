@@ -27,6 +27,14 @@ const auth = (state = initialState, action = {}) => {
 				...state,
 				profile: action.profile
 			}
+		case types.UPDATE_PICTURE_SUCCESS:
+			return {
+				...state,
+				profile: {
+					...state.profile,
+					picture: action.picture
+				}
+			}
 		case types.REGISTER_SUCCESS:
 			return action.state
 		case types.REGISTER_FAILURE:

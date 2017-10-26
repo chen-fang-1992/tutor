@@ -118,22 +118,26 @@ class UserController extends Controller
 		$profile->currency = Input::get('currency');
 		$profile->price = Input::get('price');
 		$profile->about = Input::get('about');
-		$user->name = $profile->firstname . ' ' . $profile->lastname;
-		$picture = Input::get('picture');
-		// check whether picture is updated
-		if ($profile->picture != $picture) {
-			// decode base64
-			preg_match('/^(data:\s*image\/(\w+);base64,)/', $picture, $result);
-			$img = base64_decode(str_replace($result[1], '', $picture));
-			// store path and load path
-			$loadpath = "/img/" . $profile->firstname . '_' . $profile->lastname . '.' . $result[2];
-			$storepath = getcwd() . $loadpath;
-			// store file and path
-			file_put_contents($storepath, $img);
-			$profile->picture = $loadpath;
-		}
+
 		// update profile and user
 		if ($profile->save() && $user->save())
 			return 'success';
 	}
+
+	/*
+		update user profile
+	*/
+		public function picture()
+		{
+			if(!Auth::check())
+				return 'fail';
+
+			$user = Auth::user();
+			$profile = Profile::find($user->id);
+			$profile->picture = Input::get('picture');
+
+			if ($profile->save())
+				return 'success';
+		}
+
 }

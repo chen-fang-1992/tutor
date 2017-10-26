@@ -33,6 +33,6 @@ $factory->define(App\Profile::class, function (Faker $faker) {
 		'currency' => 'AUS',
 		'price' => random_int(40, 100),
 		'about' => $faker->text(200),
-		'picture' => '/img/8dVRQ_YXOJU.jpeg'
+		'picture' => '/img/default.png'
 	];
 });

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchUpdateProfile } from '../actions/auth'
+import { fetchUpdateProfile, fetchUpdatePicture } from '../actions/auth'
 
 class Profile extends Component {
 	constructor(props) {
@@ -34,13 +34,10 @@ class Profile extends Component {
 		this.handlePictureChange = (e) => {
 			e.preventDefault()
 
-			let reader = new FileReader()
 			let file = e.target.files[0]
-
-			reader.onloadend = () => {
-				this.setState({ picture: reader.result })
-			}
-			reader.readAsDataURL(file)
+			this.props.fetchUpdatePicture(this.state.picture, file, (picture) => {
+				this.setState({ picture: picture })
+			})
 		}
 
 		this.handleFirstnameChange = (e) => {
@@ -311,7 +308,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-	return { fetchUpdateProfile: bindActionCreators(fetchUpdateProfile, dispatch) }
+	return {
+		fetchUpdateProfile: bindActionCreators(fetchUpdateProfile, dispatch),
+		fetchUpdatePicture: bindActionCreators(fetchUpdatePicture, dispatch)
+	}
 }
 
 export default connect(

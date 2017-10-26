@@ -1,5 +1,6 @@
 import * as types from '../constants/AuthActionTypes'
 import axios from 'axios'
+import filestack from 'filestack-js'
 
 const setErrorMessage = (type, text) => {
 	return {
@@ -72,9 +73,8 @@ export const fetchUpdateProfile = (profile) => {
 			availability: profile.availability,
 			currency: profile.currency,
 			price: profile.price,
-			about: profile.about,
-			picture: profile.picture
-		}).then(response => {
+			about: profile.about
+		}).then((response) => {
 			if (response.data !== 'fail')
 				dispatch(fetchUpdateProfileSuccess(profile))
 		}).catch((error) => { throw new Error(error.message) })
@@ -98,7 +98,7 @@ export const fetchRegister = (name, email, password) => {
 			name: name,
 			email: email,
 			password: password
-		}).then(response => {
+		}).then((response) => {
 			if (response.data === 'fail1')
 				dispatch(setErrorMessage(types.REGISTER_FAILURE, 'Warning! You have already logged in.'))
 			else if (response.data === 'fail2')
@@ -112,5 +112,39 @@ export const fetchRegister = (name, email, password) => {
 export const resetErrorMessage = () => {
 	return (dispatch) => {
 		return dispatch(setErrorMessage(types.RESET_ERROR_MESSAGE, ''))
+	}
+}
+
+const fetchUpdatePictureSuccess = (picture) => {
+	return {
+		type: types.UPDATE_PICTURE_SUCCESS,
+		picture: picture
+	}
+}
+
+export const fetchUpdatePicture = (picture, file, callback) => {
+	let apikey = 'AVAwQqqDuTeShDyWlWDyzz'
+	let security = {
+		policy: "eyJleHBpcnkiOjE1NDYxNzQ4MDAsImNhbGwiOlsicGljayIsInJlYWQiLCJzdGF0Iiwid3JpdGUiLCJ3cml0ZVVybCIsInN0b3JlIiwiY29udmVydCIsInJlbW92ZSIsImV4aWYiXX0=",
+		signature: "5c12ba0355365d40b3975580ad7a599f06d3dd4b0e349694e952a33c49a3fe13"
+	}
+	let urL_suffix = '?signature='+security.signature+'&policy='+security.policy
+	let client = filestack.init(apikey, security)
+	return (dispatch) => {
+		client.upload(file).then((response1) => {
+			if (picture !== '/img/default.png') {
+				let handle = picture.substring(picture.lastIndexOf('/') + 1, picture.indexOf('?'))
+				console.log(picture)
+				console.log(handle)
+				client.remove(handle)
+			}
+			axios.post('/user/profile/picture', {
+				picture: response1.url+urL_suffix
+			}).then((response2) => {
+				if (response2.data !== 'fail')
+					dispatch(fetchUpdatePictureSuccess(response1.url+urL_suffix))
+				callback(response1.url+urL_suffix)
+			}).catch((error) => { throw new Error(error.message) })
+		})
 	}
 }
