@@ -184,7 +184,7 @@ class Search extends Component {
 								<div className="col-xs-2 language">
 									<div className="dropdown">
 										<button type="button" className="btn dropdown-toggle" data-toggle="dropdown">
-											<span className="placeholder" name="language">{this.state.language}</span>
+											<span className="placeholder" name="language">{this.props.info.language}</span>
 											<i className="fa fa-angle-down" aria-hidden="true"></i>
 										</button>
 										<ul className="dropdown-menu" role="menu">
@@ -198,7 +198,7 @@ class Search extends Component {
 								<div className="col-xs-2 availability">
 									<div className="dropdown">
 										<button type="button" className="btn dropdown-toggle" data-toggle="dropdown">
-											<span className="placeholder" name="availability">{this.state.availability}</span>
+											<span className="placeholder" name="availability">{this.props.info.availability}</span>
 											<i className="fa fa-angle-down" aria-hidden="true"></i>
 										</button>
 										<ul className="dropdown-menu" role="menu">
@@ -218,7 +218,7 @@ class Search extends Component {
 								<div className="col-xs-2 filter">
 									<div className="dropdown">
 										<button type="button" className="btn dropdown-toggle" data-toggle="dropdown">
-											<span className="placeholder" name="filter">{this.state.filter}</span>
+											<span className="placeholder" name="filter">{this.props.info.filter}</span>
 											<i className="fa fa-angle-down" aria-hidden="true"></i>
 										</button>
 										<ul className="dropdown-menu" role="menu">
