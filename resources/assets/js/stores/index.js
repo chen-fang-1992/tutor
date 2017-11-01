@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/es/storage'
+import sessionStorage from 'redux-persist/lib/storage/session'
 import reducer from '../reducers'
 
 const configureStore = () => {
@@ -12,7 +12,7 @@ const configureStore = () => {
 
 	let config = {
 		key: 'root',
-		storage
+		storage: sessionStorage
 	}
 
 	let configureReducer = persistReducer(config, reducer)

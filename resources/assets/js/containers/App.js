@@ -1,18 +1,33 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { fetchLogout } from '../actions/auth'
 import Header from './Header'
 import Footer from './Footer'
 
-const App = ({ children }) => {
-	window.scrollTo(0, 0)
-	return (
-		<div>
-			<Header />
-			{children}
-			<Footer />
-		</div>
-	)
+class App extends Component {
+	constructor(props) {
+		super(props)
+	}
+
+	componentWillMount() {
+		window.addEventListener('beforeunload', fetchLogout())
+	}
+
+	componentDidMount() {
+		window.removeEventListener('beforeunload', fetchLogout())
+	}
+
+	render() {
+		window.scrollTo(0, 0)
+		return (
+			<div>
+				<Header />
+				{this.props.children}
+				<Footer />
+			</div>
+		)
+	}
 }
 
 App.propTypes = {
