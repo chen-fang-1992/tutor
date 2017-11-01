@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { persistStore, persistReducer } from 'redux-persist'
 import sessionStorage from 'redux-persist/lib/storage/session'
+import storage from 'redux-persist/es/storage'
 import reducer from '../reducers'
 
 const configureStore = () => {

@@ -10,14 +10,6 @@ class App extends Component {
 		super(props)
 	}
 
-	componentWillMount() {
-		window.addEventListener('beforeunload', fetchLogout())
-	}
-
-	componentDidMount() {
-		window.removeEventListener('beforeunload', fetchLogout())
-	}
-
 	render() {
 		window.scrollTo(0, 0)
 		return (
